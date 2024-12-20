@@ -1,3 +1,7 @@
+---
+statistics: True
+---
+
 # Home
 
 # Hi there!
@@ -13,9 +17,7 @@
     To be done  
 
 !!! info 
-    本站目前共 xx 页，累计 xx 字！  
-
-
+    本站共有 {{ pages }} 个页面，{{ words }} 个字，{{ codes }} 行代码，{{ images }} 张图片。
 
 
 - 一个人要像一支队伍(｡･ω･｡)  

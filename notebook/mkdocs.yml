@@ -31,14 +31,14 @@ theme:
     - navigation.instant
     - navigation.instant.progress
     - navigation.tracking
-    - navigation.indexes
     - navigation.tabs
     - navigation.sections
+    - navigation.indexes
     - navigation.path
+    - navigation.top
+    - navigation.footer
     - search.suggest
     - search.highlight
-    - toc.follow
-    - navigation.top
 repo_url: https://github.com/Slowist-Lee/notebook
 repo_name: Slowist/Notebook
 extra:
@@ -68,6 +68,7 @@ extra_css:
   - stylesheets/extra.css
 plugins:
   - search
+  - statistics
   - git-revision-date-localized:
       enable_creation_date: true
 
