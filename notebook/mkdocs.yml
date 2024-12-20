@@ -28,14 +28,17 @@ theme:
   # icon:
     # logo: assets/logo.png
   features:
-    # - navigation.instant
-    # - navigation.instant.progress
+    - navigation.instant
+    - navigation.instant.progress
     - navigation.tracking
+    - navigation.indexes
     - navigation.tabs
+    - navigation.sections
+    - navigation.path
     - search.suggest
     - search.highlight
-    - toc.integrate
     - toc.follow
+    - navigation.top
 repo_url: https://github.com/Slowist-Lee/notebook
 repo_name: Slowist/Notebook
 extra:
@@ -79,7 +82,7 @@ nav:
   - index.md
   - Language:
     - Interpretation: 
-      - Language/Interpretation/Home.md
+      - Language/Interpretation/index.md
       - 学习体验:
         - Language/Interpretation/Harvest.md
         - Language/Interpretation/Interpretation--Self Assessment.md
@@ -91,5 +94,5 @@ nav:
       - Learning Resources:
         - Language/Interpretation/Material.md
   - Others: 
-    - Others/Home.md
+    - Others/index.md
     - Others/雕版印刷与刻本文化.md
