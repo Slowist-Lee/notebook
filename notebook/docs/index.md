@@ -11,7 +11,7 @@ statistics: True
 - 📫 How to reach me: leexin005@163.com
 
 !!! warning 
-    本站在重新建设中  
+    本站在重新建设中
 
 !!! advice ""
     To be done  

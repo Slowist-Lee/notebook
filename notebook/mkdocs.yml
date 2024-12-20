@@ -73,9 +73,16 @@ plugins:
       enable_creation_date: true
 
 markdown_extensions:
+  - attr_list
+  - md_in_html
   - admonition
   - pymdownx.details
   - pymdownx.superfences
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.mark
+  - pymdownx.smartsymbols
 
 copyright: Copyright &copy; Slowist/All Rights Reserved. # 左下角的版权声明
 
