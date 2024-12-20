@@ -1,0 +1,95 @@
+site_name: Slowist's Note
+site_url: https://slowist-lee.github.io/notebook/
+theme:
+  name: material
+  icon:
+    logo: material/book
+  favicon: images/favicon.png
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue grey
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: cyan
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to light mode
+  font: false
+    # code: JetBrains Mono
+  # icon:
+    # logo: assets/logo.png
+  features:
+    # - navigation.instant
+    # - navigation.instant.progress
+    - navigation.tracking
+    - navigation.tabs
+    - search.suggest
+    - search.highlight
+    - toc.integrate
+    - toc.follow
+repo_url: https://github.com/Slowist-Lee/notebook
+repo_name: Slowist/Notebook
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/Slowist-Lee/slowist-notebook
+    - icon: fontawesome/regular/envelope 
+      link: mailto:<leexin005@163.com> 
+
+  feedback:
+    title: 此页面有帮助吗？
+    ratings:
+      - icon: material/thumb-up-outline
+        name: This page was helpful
+        data: 1
+        note: >-
+          谢谢你的反馈！
+      - icon: material/thumb-down-outline
+        name: This page could be improved
+        data: 0
+        note: >-
+          Thanks for your feedback! Help us improve this page by
+          using our <a href="https://marketingplatform.google.com/about/analytics/" target="_blank" rel="noopener">feedback form</a>.
+extra_css:
+  - https://cdn.tonycrane.cc/jbmono/jetbrainsmono.css
+  - https://cdn.tonycrane.cc/lxgw/lxgwscreen.css
+  - stylesheets/extra.css
+plugins:
+  - search
+  - git-revision-date-localized:
+      enable_creation_date: true
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+
+copyright: Copyright &copy; Slowist/All Rights Reserved. # 左下角的版权声明
+
+nav:
+  - index.md
+  - Language:
+    - Interpretation: 
+      - Language/Interpretation/Home.md
+      - 学习体验:
+        - Language/Interpretation/Harvest.md
+        - Language/Interpretation/Interpretation--Self Assessment.md
+      - HW && Topic: 
+        - Language/Interpretation/Welcome Speech.md
+        - Language/Interpretation/City and Travel.md
+        - Language/Interpretation/Culture and Education.md
+        - Language/Interpretation/Science.md
+      - Learning Resources:
+        - Language/Interpretation/Material.md
+  - Others: 
+    - Others/Home.md
+    - Others/雕版印刷与刻本文化.md
