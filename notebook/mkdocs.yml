@@ -62,10 +62,7 @@ extra:
         note: >-
           Thanks for your feedback! Help us improve this page by
           using our <a href="https://marketingplatform.google.com/about/analytics/" target="_blank" rel="noopener">feedback form</a>.
-extra_css:
-  - https://cdn.tonycrane.cc/jbmono/jetbrainsmono.css
-  - https://cdn.tonycrane.cc/lxgw/lxgwscreen.css
-  - stylesheets/extra.css
+
 plugins:
   - search
   - statistics
@@ -83,6 +80,19 @@ markdown_extensions:
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.mark
   - pymdownx.smartsymbols
+  - pymdownx.arithmatex:
+    generic: true
+
+extra_javascript:
+  - javascripts/katex.js
+  - https://unpkg.com/katex@0/dist/katex.min.js
+  - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
+
+extra_css:
+  - https://cdn.tonycrane.cc/jbmono/jetbrainsmono.css
+  - https://cdn.tonycrane.cc/lxgw/lxgwscreen.css
+  - stylesheets/extra.css
+  - https://unpkg.com/katex@0/dist/katex.min.css
 
 copyright: Copyright &copy; Slowist/All Rights Reserved. # 左下角的版权声明
 
