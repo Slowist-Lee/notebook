@@ -98,7 +98,8 @@ copyright: Copyright &copy; Slowist/All Rights Reserved. # 左下角的版权声
 
 nav:
   - index.md
-  - Math:
+  - Math: 
+    - Math/index.md
     - 复变函数与积分变换: Math/Complex/index.md
   - Language:
     - Interpretation: 
