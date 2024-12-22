@@ -111,6 +111,8 @@ nav:
           - EE/EletronicsFundamental/Analog/MOS/index.md
         - 多级、差分:
           - EE/EletronicsFundamental/Analog/Hard/index.md
+        - 运算放大器:
+          - EE/EletronicsFundamental/Analog/opam/index.md
   - Language:
     - Interpretation: 
       - Language/Interpretation/index.md
