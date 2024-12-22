@@ -84,7 +84,7 @@ markdown_extensions:
       generic: true
 
 extra_javascript:
-  - javascripts/katex.js
+  - js/katex.js
   - https://unpkg.com/katex@0/dist/katex.min.js
   - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
 
@@ -101,6 +101,14 @@ nav:
   - Math: 
     - Math/index.md
     - 复变函数与积分变换: Math/Complex/index.md
+  - EE: 
+    - EE/index.md
+    - 电子电路基础: 
+      - EE/EletronicsFundamental/index.md
+      - 模电: 
+        - EE/EletronicsFundamental/Analog/index.md
+        - MOS:
+          - EE/EletronicsFundamental/Analog/MOS/index.md
   - Language:
     - Interpretation: 
       - Language/Interpretation/index.md
