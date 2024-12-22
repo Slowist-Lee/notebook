@@ -109,6 +109,8 @@ nav:
         - EE/EletronicsFundamental/Analog/index.md
         - MOS:
           - EE/EletronicsFundamental/Analog/MOS/index.md
+        - 多级、差分:
+          - EE/EletronicsFundamental/Analog/Hard/index.md
   - Language:
     - Interpretation: 
       - Language/Interpretation/index.md
