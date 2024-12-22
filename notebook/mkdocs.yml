@@ -113,6 +113,8 @@ nav:
           - EE/EletronicsFundamental/Analog/Hard/index.md
         - 运算放大器:
           - EE/EletronicsFundamental/Analog/opam/index.md
+        - 频率响应:
+          - EE/EletronicsFundamental/Analog/freq/index.md
   - Language:
     - Interpretation: 
       - Language/Interpretation/index.md
