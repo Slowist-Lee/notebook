@@ -98,6 +98,18 @@ copyright: Copyright &copy; Slowist/All Rights Reserved. # 左下角的版权声
 
 nav:
   - index.md
+  - algorithm:
+    - algorithm/index.md
+    - cs61b:
+      - algorithm/cs61b/index.md
+      - Lecture1 Introduction: algorithm/cs61b/Lecture1_Introduction.md
+      - Lecture2 Defining and Using Classes: algorithm/cs61b/Lecture2_Defining and Using Classes.md
+      - Lecture3 ListsI References Recursion and Lists: algorithm/cs61b/Lecture3_ListsI_References_Recursion_and_Lists.md
+  - Computer Vision:
+      - Computer Vision/index.md
+      - Introduction to CV:
+        - Computer Vision/Introduction to CV/index.md
+        - Lecture 1: Computer Vision/Introduction to CV/Lecture 1.md
   - Math: 
     - Math/index.md
     - 复变函数与积分变换: Math/Complex/index.md
@@ -115,7 +127,7 @@ nav:
           - EE/EletronicsFundamental/Analog/opam/index.md
         - 频率响应:
           - EE/EletronicsFundamental/Analog/freq/index.md
-  - Language:
+  - English:
     - Interpretation: 
       - Language/Interpretation/index.md
       - 学习体验:
@@ -131,3 +143,23 @@ nav:
   - Others: 
     - Others/index.md
     - Others/雕版印刷与刻本文化.md
+  - Writings:
+    - Writings/index.md
+    - 01: Writings/01.md
+    - 02: Writings/02.md
+    - 03: Writings/03.md
+    - 04: Writings/04.md
+    - 05: Writings/05.md
+    - 06: Writings/06.md
+    - 07: Writings/07.md
+    - 08: Writings/08.md
+    - 09: Writings/09.md
+    - 10: Writings/10.md
+    - 11: Writings/11.md
+    - 12: Writings/12.md
+    - 13: Writings/13.md
+    - 14: Writings/14.md
+    - 15: Writings/15.md
+    
+
+    
