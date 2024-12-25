@@ -106,3 +106,8 @@ struct student students[50];
 ### 2.2 指针作为函数参数
 
 ![alt text](image-3.png)
+
+## 三、hw9纠错
+- 取单个结构体的内存：`sizeof(struct student`  
+- 若使用`*p`来传递结构体：可以用`p++`  
+- 
