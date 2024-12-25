@@ -94,6 +94,31 @@ struct student s1= {101,"Zhang",78,87,85};
 ```c
 struct student students[50];
 ```
+!!! example "定义实例：PTA9-6-2"
+    ```c
+    int getindex( char *s ){
+        struct day{
+            int index;
+            char* name;
+        };
+    struct day days[] = {
+        {0, "Sunday"},
+        {1, "Monday"},
+        {2, "Tuesday"},
+        {3, "Wednesday"},
+        {4, "Thursday"},
+        {5, "Friday"},
+        {6, "Saturday"}
+        };
+        for(int i=0;i<7;i++){
+            if(strcmp(days[i].name,s)==0){
+                return days[i].index;
+            }
+        }
+        return -1;
+    }
+    ```
+
 ## 二、结构指针
 
 ### 2.1 Introduction
