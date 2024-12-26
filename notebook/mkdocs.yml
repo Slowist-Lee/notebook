@@ -2,6 +2,7 @@ site_name: Slowist's Note
 site_url: https://slowist-lee.github.io/notebook/
 theme:
   name: material
+  custom_dir: overrides
   icon:
     logo: material/book
   favicon: images/favicon.png
@@ -114,11 +115,13 @@ nav:
       - Lecture1 Introduction: algorithm/cs61b/Lecture1_Introduction.md
       - Lecture2 Defining and Using Classes: algorithm/cs61b/Lecture2_Defining and Using Classes.md
       - Lecture3 ListsI References Recursion and Lists: algorithm/cs61b/Lecture3_ListsI_References_Recursion_and_Lists.md
-  - Computer Vision:
-      - Computer Vision/index.md
-      - Introduction to CV:
-        - Computer Vision/Introduction to CV/index.md
-        - Lecture 1: Computer Vision/Introduction to CV/Lecture 1.md
+  - AI:
+    - AI/index.md
+    - Computer Vision:
+        - AI/Computer Vision/index.md
+        - Introduction to CV:
+          - AI/Computer Vision/Introduction to CV/index.md
+          - Lecture 1: AI/Computer Vision/Introduction to CV/Lecture 1.md
   - Math: 
     - Math/index.md
     - 复变函数与积分变换: Math/Complex/index.md
