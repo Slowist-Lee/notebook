@@ -125,6 +125,7 @@ nav:
   - Math: 
     - Math/index.md
     - 复变函数与积分变换: Math/Complex/index.md
+    - 概率论与数理统计: Math/Probability/Error.md
   - EE: 
     - EE/index.md
     - 电子电路基础: 

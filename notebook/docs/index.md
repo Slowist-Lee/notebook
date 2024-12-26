@@ -1,8 +1,9 @@
 ---
+title: Home
 statistics: True
 ---
 
-# Home
+# Slowist's Notebook! 
 
 !!! info "About"
     - 👋 Hi, I'm Slowist from ZheJiang University
@@ -15,13 +16,16 @@ statistics: True
     - [C程](Language/C/index.md)  
     - [汇编语言](Language/Asm/index.md)  
 
-!!! advice "较完善的内容"
+!!! inline tip "较完善的内容"
     - [复变函数与积分变换](Math/Complex/index.md)
     - [英语口译](English/Interpretation/index.md)
     - [雕版印刷与刻本文化](Others/雕版印刷与刻本文化.md)
 
-!!! info "统计!"
-    本站共有 {{ pages }} 个页面，{{ words }} 个字，{{ codes }} 行代码，{{ images }} 张图片。
+!!! stastic "站点统计"
+    - :material-file-document: {{ pages }} pages
+    - :material-circle-edit-outline: {{ words }} words
+    - :fontawesome-solid-code: {{ codes }} lines
+
 
 ??? plan "更新计划"
     - giscus明暗主题问题（目前只支持日间主题）   
