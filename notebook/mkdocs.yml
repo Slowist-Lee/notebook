@@ -102,6 +102,7 @@ nav:
     - Language/index.md
     - C:
       - Language/C/index.md
+      - Ch8 String: Language/C/String.md
       - Ch9 Structure: Language/C/Structure.md
     - Asm:
       - Language/Asm/index.md
