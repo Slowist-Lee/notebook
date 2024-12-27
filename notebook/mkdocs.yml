@@ -69,7 +69,7 @@ plugins:
   - statistics
   - git-revision-date-localized:
       enable_creation_date: true
-
+  - toc
 markdown_extensions:
   - attr_list
   - md_in_html
@@ -99,22 +99,24 @@ copyright: Copyright &copy; Slowist/All Rights Reserved. # 左下角的版权声
 
 nav:
   - index.md
-  - Language:
-    - Language/index.md
-    - C:
-      - Language/C/index.md
-      - Ch8 String: Language/C/String.md
-      - Ch9 Structure: Language/C/Structure.md
-    - Asm:
-      - Language/Asm/index.md
-      - Misc: Language/Asm/Misc.md
-  - algorithm:
-    - algorithm/index.md
-    - cs61b:
-      - algorithm/cs61b/index.md
-      - Lecture1 Introduction: algorithm/cs61b/Lecture1_Introduction.md
-      - Lecture2 Defining and Using Classes: algorithm/cs61b/Lecture2_Defining and Using Classes.md
-      - Lecture3 ListsI References Recursion and Lists: algorithm/cs61b/Lecture3_ListsI_References_Recursion_and_Lists.md
+  - cs:
+    - cs/index.md
+    - Language:
+      - pl/index.md
+      - C:
+        - pl/C/index.md
+        - Ch8 String: pl/C/String.md
+        - Ch9 Structure: pl/C/Structure.md
+      - Asm:
+        - pl/Asm/index.md
+        - Misc: pl/Asm/Misc.md
+    - algorithm:
+      - algorithm/index.md
+      - cs61b:
+        - algorithm/cs61b/index.md
+        - Lecture1 Introduction: algorithm/cs61b/Lecture1_Introduction.md
+        - Lecture2 Defining and Using Classes: algorithm/cs61b/Lecture2_Defining and Using Classes.md
+        - Lecture3 ListsI References Recursion and Lists: algorithm/cs61b/Lecture3_ListsI_References_Recursion_and_Lists.md
   - AI:
     - AI/index.md
     - Computer Vision:
