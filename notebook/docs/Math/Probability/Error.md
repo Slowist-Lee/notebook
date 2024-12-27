@@ -138,11 +138,11 @@ $F_{|X|}(x)=P(|X|≤x)$
 
 设$F_{Z_i}(z)$是$z$的分布函数，$F_{Z_i}(z)=P(Z_i≤z)=P(Z_i=0)+P(Z_i≤1|Y=1)P(Y=1)=\frac{2}{3}+\frac{1}{3}(1-e^{-z}),z≥0$
 
-所以$F_M(m)=P(M≤m)=P(max{Z_1,Z_2\dots Z_5}≤m=\frac{2}{3}+\frac{1}{3}(1-e^{-m})^5$
+所以$F_M(m)=P(M≤m)=P(max{Z_1,Z_2\dots Z_5}≤m)=(\frac{2}{3}+\frac{1}{3}(1-e^{-m}))^5$
 
 综上，分布函数是：
 
-$F_M(m) = \begin{cases} 0 & \text{if } m < 0 \\\frac{2}{3}+\frac{1}{3}(1-e^{-m})^5 & \text{if } 0 < m ≤ 1 \\ 1 & \text{if } m > 1, \end{cases}$
+$F_M(m) = \begin{cases} 0 & \text{if } m < 0 \\(\frac{2}{3}+\frac{1}{3}(1-e^{-m}))^5 & \text{if } m \geq 0 \end{cases}$
 
 ### 大题四、(1)
 
