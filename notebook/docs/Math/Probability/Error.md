@@ -5,7 +5,7 @@
 
 $Cov(aX-Y,X+Y)=Cov(aX,X+Y)-Cov(Y,X+Y)=aDx+aCov(X,Y)-Cov(X,Y)-DY$
 $=a+(a-1)\sqrt{1\times4}\times \frac{1}{2}-4=2a-5=0$
-$\Rightarrow a=-\frac{5}{2}$
+$\Rightarrow a=\frac{5}{2}$
 
 ### 填空 Ex.4 第三空
 
