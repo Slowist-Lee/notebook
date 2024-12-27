@@ -85,26 +85,6 @@
          <lastmod>2024-12-27</lastmod>
     </url>
     <url>
-         <loc>https://slowist-lee.github.io/notebook/Language/Asm/</loc>
-         <lastmod>2024-12-27</lastmod>
-    </url>
-    <url>
-         <loc>https://slowist-lee.github.io/notebook/Language/Asm/Misc/</loc>
-         <lastmod>2024-12-27</lastmod>
-    </url>
-    <url>
-         <loc>https://slowist-lee.github.io/notebook/Language/C/</loc>
-         <lastmod>2024-12-27</lastmod>
-    </url>
-    <url>
-         <loc>https://slowist-lee.github.io/notebook/Language/C/String/</loc>
-         <lastmod>2024-12-27</lastmod>
-    </url>
-    <url>
-         <loc>https://slowist-lee.github.io/notebook/Language/C/Structure/</loc>
-         <lastmod>2024-12-27</lastmod>
-    </url>
-    <url>
          <loc>https://slowist-lee.github.io/notebook/Math/</loc>
          <lastmod>2024-12-27</lastmod>
     </url>
@@ -193,23 +173,51 @@
          <lastmod>2024-12-27</lastmod>
     </url>
     <url>
-         <loc>https://slowist-lee.github.io/notebook/algorithm/</loc>
+         <loc>https://slowist-lee.github.io/notebook/cs/</loc>
          <lastmod>2024-12-27</lastmod>
     </url>
     <url>
-         <loc>https://slowist-lee.github.io/notebook/algorithm/cs61b/</loc>
+         <loc>https://slowist-lee.github.io/notebook/cs/algorithm/</loc>
          <lastmod>2024-12-27</lastmod>
     </url>
     <url>
-         <loc>https://slowist-lee.github.io/notebook/algorithm/cs61b/Lecture1_Introduction/</loc>
+         <loc>https://slowist-lee.github.io/notebook/cs/algorithm/cs61b/</loc>
          <lastmod>2024-12-27</lastmod>
     </url>
     <url>
-         <loc>https://slowist-lee.github.io/notebook/algorithm/cs61b/Lecture2_Defining%20and%20Using%20Classes/</loc>
+         <loc>https://slowist-lee.github.io/notebook/cs/algorithm/cs61b/Lecture1_Introduction/</loc>
          <lastmod>2024-12-27</lastmod>
     </url>
     <url>
-         <loc>https://slowist-lee.github.io/notebook/algorithm/cs61b/Lecture3_ListsI_References_Recursion_and_Lists/</loc>
+         <loc>https://slowist-lee.github.io/notebook/cs/algorithm/cs61b/Lecture2_Defining%20and%20Using%20Classes/</loc>
+         <lastmod>2024-12-27</lastmod>
+    </url>
+    <url>
+         <loc>https://slowist-lee.github.io/notebook/cs/algorithm/cs61b/Lecture3_ListsI_References_Recursion_and_Lists/</loc>
+         <lastmod>2024-12-27</lastmod>
+    </url>
+    <url>
+         <loc>https://slowist-lee.github.io/notebook/cs/pl/</loc>
+         <lastmod>2024-12-27</lastmod>
+    </url>
+    <url>
+         <loc>https://slowist-lee.github.io/notebook/cs/pl/Asm/</loc>
+         <lastmod>2024-12-27</lastmod>
+    </url>
+    <url>
+         <loc>https://slowist-lee.github.io/notebook/cs/pl/Asm/Misc/</loc>
+         <lastmod>2024-12-27</lastmod>
+    </url>
+    <url>
+         <loc>https://slowist-lee.github.io/notebook/cs/pl/C/</loc>
+         <lastmod>2024-12-27</lastmod>
+    </url>
+    <url>
+         <loc>https://slowist-lee.github.io/notebook/cs/pl/C/String/</loc>
+         <lastmod>2024-12-27</lastmod>
+    </url>
+    <url>
+         <loc>https://slowist-lee.github.io/notebook/cs/pl/C/Structure/</loc>
          <lastmod>2024-12-27</lastmod>
     </url>
 </urlset>
