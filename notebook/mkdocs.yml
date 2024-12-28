@@ -99,82 +99,84 @@ copyright: Copyright &copy; Slowist/All Rights Reserved. # 左下角的版权声
 
 nav:
   - index.md
-  - cs:
+  - Computer Science:
     - cs/index.md
     - Language:
-      - pl/index.md
       - C:
-        - pl/C/index.md
-        - Ch8 String: pl/C/String.md
-        - Ch9 Structure: pl/C/Structure.md
+        - cs/pl/C/index.md
+        - Ch8 String: cs/pl/C/String.md
+        - Ch9 Structure: cs/pl/C/Structure.md
       - Asm:
-        - pl/Asm/index.md
-        - Misc: pl/Asm/Misc.md
-    - algorithm:
-      - algorithm/index.md
+        - cs/pl/Asm/index.md
+        - Misc: cs/pl/Asm/Misc.md
+    - Algorithm:
+      - cs/algorithm/index.md
       - cs61b:
-        - algorithm/cs61b/index.md
-        - Lecture1 Introduction: algorithm/cs61b/Lecture1_Introduction.md
-        - Lecture2 Defining and Using Classes: algorithm/cs61b/Lecture2_Defining and Using Classes.md
-        - Lecture3 ListsI References Recursion and Lists: algorithm/cs61b/Lecture3_ListsI_References_Recursion_and_Lists.md
+        - Lecture1 Introduction: cs/algorithm/cs61b/Lecture1_Introduction.md
+        - Lecture2 Defining and Using Classes: cs/algorithm/cs61b/Lecture2_Defining and Using Classes.md
+        - Lecture3 ListsI References Recursion and Lists: cs/algorithm/cs61b/Lecture3_ListsI_References_Recursion_and_Lists.md
   - AI:
     - AI/index.md
     - Computer Vision:
         - AI/Computer Vision/index.md
         - Introduction to CV:
-          - AI/Computer Vision/Introduction to CV/index.md
           - Lecture 1: AI/Computer Vision/Introduction to CV/Lecture 1.md
   - Math: 
     - Math/index.md
-    - 复变函数与积分变换: Math/Complex/index.md
+    - 复变函数与积分变换: Math/complex.md
     - 概率论与数理统计: Math/Probability/Error.md
-  - EE: 
-    - EE/index.md
-    - 电子电路基础: 
-      - EE/EletronicsFundamental/index.md
-      - 模电: 
-        - EE/EletronicsFundamental/Analog/index.md
-        - MOS:
-          - EE/EletronicsFundamental/Analog/MOS/index.md
-        - 多级、差分:
-          - EE/EletronicsFundamental/Analog/Hard/index.md
-        - 运算放大器:
-          - EE/EletronicsFundamental/Analog/opam/index.md
-        - 频率响应:
-          - EE/EletronicsFundamental/Analog/freq/index.md
+  - ISEE: 
+    - isee/index.md
+    - 模电(电基 ver.): 
+      - isee/Analog/index.md
+      - BJT:
+        - isee/Analog/BJT/index.md
+      - MOS:
+        - isee/Analog/MOS/index.md
+      - 多级、差分:
+        - isee/Analog/Hard/index.md
+      - 运算放大器:
+        - isee/Analog/opam/index.md
+      - 频率响应:
+        - isee/Analog/freq/index.md
+      - 反馈:
+        - isee/Analog/feedback/index.md
+      - 功率放大器:
+        - isee/Analog/pa/index.md
   - English:
+    - English/index.md
     - Interpretation: 
       - English/Interpretation/index.md
       - 学习体验:
-        - English/Interpretation/Harvest.md
-        - English/Interpretation/Interpretation--Self Assessment.md
+        - English/Interpretation/experience/Harvest.md
+        - English/Interpretation/experience\Interpretation--Self Assessment.md
       - HW && Topic: 
-        - English/Interpretation/Welcome Speech.md
-        - English/Interpretation/City and Travel.md
-        - English/Interpretation/Culture and Education.md
-        - English/Interpretation/Science.md
+        - English/Interpretation/homework/Welcome Speech.md
+        - English/Interpretation/homework/City and Travel.md
+        - English/Interpretation/homework/Culture and Education.md
+        - English/Interpretation/homework/Science.md
       - Learning Resources:
-        - English/Interpretation/Material.md
+        - English/Interpretation/homework/Material.md
   - Others: 
     - Others/index.md
     - Others/雕版印刷与刻本文化.md
   - Writings:
     - Writings/index.md
-    - 一: Writings/01.md
-    - 二: Writings/02.md
-    - 三: Writings/03.md
-    - 四: Writings/04.md
-    - 五: Writings/05.md
-    - 六: Writings/06.md
-    - 七: Writings/07.md
-    - 八: Writings/08.md
-    - 九: Writings/09.md
-    - 十: Writings/10.md
-    - 十一: Writings/11.md
-    - 十二: Writings/12.md
-    - 十三: Writings/13.md
-    - 十四: Writings/14.md
-    - 十五: Writings/15.md
+    - Essay:
+      - 一：当回想起IAI: Writings/essay/01.md
+      - 二：带论的碎碎念: Writings/essay/02.md
+      - 五：支教流水账: Writings/essay/05.md
+      - 八：About Slowist: Writings/essay/08.md
+      - 十：ACEE报名体验: Writings/essay/10.md
+      - 十一：About IAI: Writings/essay/11.md
+      - 十二：大一回忆录: Writings/essay/12.md
+      - 十三：分流建议: Writings/essay/13.md
+      - 十四：转专业路上的碎碎念: Writings/essay/14.md
+    - Emotion:
+      - 三: Writings/emotion/03.md
+      - 四: Writings/emotion/04.md
+      - 六: Writings/emotion/06.md
+      - 七: Writings/emotion/07.md  
 
 
     

@@ -1,17 +1,9 @@
-Constructing...
+# Math
 
-<script src="https://giscus.app/client.js"
-        data-repo="Slowist-Lee/notebook"
-        data-repo-id="R_kgDONfrw0A"
-        data-category="Announcements"
-        data-category-id="DIC_kwDONfrw0M4ClZMR"
-        data-mapping="pathname"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="top"
-        data-theme="preferred_color_scheme"
-        data-lang="zh-CN"
-        crossorigin="anonymous"
-        async>
-</script>
+!!! abstract 
+        主要收录自己修读工科类数学基础课程的一些笔记 && 资料！
+
+## Table of Contents
+
+- [x] [复变函数与积分变换 24-25秋](Complex.md)
+- [ ] [概率论与数理统计 23-24春夏](Probability/Error.md)
