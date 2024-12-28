@@ -106,6 +106,26 @@ $F_{|X|}(x)=P(|X|≤x)$
 
 故$f_{|X|}(x) \cdot f_{|Y|}(y)=f_{|X|,Y}(x,y)=1 \Rightarrow$ 独立
 
+### 大题五、(2)(3)
+
+#### 第二小题
+
+这里不需要考虑第二类错误。因为要算第二类错误需要告知真实的$\mu$的大小，而题目里没有说。一般而言，数理统计里面没有明说第二类错误的话都是指第一类错误
+
+检验统计量的值为$Z=\frac{\overline{X}-\mu}{\sigma/\sqrt{n}}=-2.5$
+
+犯第一类错误即Z的值落在拒绝域内，即$-2.5<-Z_{\frac{\alpha}{2}}$，即$Z_{\frac{\alpha}{2}}>2.5$
+
+$\Rightarrow \frac{\alpha}{2} = 1-\phi(2.5) \Rightarrow 犯错误的概率为0.0124$
+
+#### 第三小题
+
+与第二小题类似
+
+检验统计量的值为$Z=\frac{\overline{X}-\mu}{\sigma/\sqrt{n}}=-0.625 * \sqrt{n}$
+
+$\Rightarrow 1-\phi(0.625 * \sqrt{n}) = \frac{\alpha}{2} < \frac{0.05}{2} \Rightarrow 0.625 * \sqrt{n} > Z_{0.025} =1.96 \Rightarrow n \geq 10$
+
 ## 2021-2022 第二学期
 
 ### 填空 Ex.3 第二问没解析＆答案
