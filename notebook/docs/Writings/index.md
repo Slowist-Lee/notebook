@@ -11,23 +11,25 @@
     - Essay: 已成文。
     - Emotion: 更多是心情的宣泄。
 
+## Table of Contents 
+
 {{ BEGIN_TOC }}
 - Essay:
-  - 一：当回想起IAI: essay/01.md
-  - 二：带论的碎碎念: essay/02.md
-  - 五：支教流水账: essay/05.md
-  - 八：About Slowist: essay/08.md
-  - 十：ACEE报名体验: essay/10.md
-  - 十一：About IAI: essay/11.md
-  - 十二：大一回忆录: essay/12.md
-  - 十三：分流建议: essay/13.md
-  - 十四：转专业路上的碎碎念: essay/14.md
+  - 一：当回想起IAI: essay/01/
+  - 二：带论的碎碎念: essay/02/
+  - 五：支教流水账: essay/05/
+  - 八：About Slowist: essay/08/
+  - 十：ACEE报名体验: essay/10/
+  - 十一：About IAI: essay/11/
+  - 十二：大一回忆录: essay/12/
+  - 十三：分流建议: essay/13/
+  - 十四：转专业路上的碎碎念: essay/14/
 - Emotion:
-  - 三: emotion/03.md
-  - 四: emotion/04.md
-  - 六: emotion/06.md
-  - 七: emotion/07.md  
-  - 九: emotion/09.md
+  - 三: emotion/03/
+  - 四: emotion/04/
+  - 六: emotion/06/
+  - 七: emotion/07/ 
+  - 九: emotion/09/
 
 
 {{ END_TOC }}

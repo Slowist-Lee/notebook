@@ -76,6 +76,8 @@ markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
@@ -118,19 +120,24 @@ nav:
   - AI:
     - AI/index.md
     - Computer Vision:
-        - AI/Computer Vision/index.md
         - Introduction to CV:
           - Lecture 1: AI/Computer Vision/Introduction to CV/Lecture 1.md
   - Math: 
     - Math/index.md
     - 复变函数与积分变换: Math/complex.md
     - 概率论与数理统计: Math/Probability/Error.md
+    - 数学建模: 
+      - Math/MathModel/index.md
+      - Note: 
+        - 数学规划(和部分图论): Math/MathModel/note/note.md
+      - Test:
+        - 24-25秋冬期末(ACEE): Math/MathModel/test/index.md
   - ISEE: 
     - isee/index.md
     - 模电(电基 ver.): 
       - isee/Analog/index.md
       - BJT:
-        - isee/Analog/BJT/index.md
+        - isee/Analog/bjt/index.md
       - MOS:
         - isee/Analog/MOS/index.md
       - 多级、差分:
@@ -177,6 +184,7 @@ nav:
       - 四: Writings/emotion/04.md
       - 六: Writings/emotion/06.md
       - 七: Writings/emotion/07.md  
+      - 九: Writings/emotion/09.md
 
 
     

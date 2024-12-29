@@ -5,5 +5,6 @@
 
 ## Table of Contents
 
-- [x] [复变函数与积分变换 24-25秋](Complex.md)
+- [x] [复变函数与积分变换 24-25秋](complex.md)
 - [ ] [概率论与数理统计 23-24春夏](Probability/Error.md)
+- [ ] [数学建模(ACEE) 24-25秋冬](MathModel/index.md)
