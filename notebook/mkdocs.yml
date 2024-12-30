@@ -88,6 +88,7 @@ markdown_extensions:
 
 extra_javascript:
   - js/katex.js
+  - js/mathjax.js
   - https://unpkg.com/katex@0/dist/katex.min.js
   - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
 
@@ -129,7 +130,8 @@ nav:
     - 数学建模: 
       - Math/MathModel/index.md
       - Note: 
-        - 数学规划(和部分图论): Math/MathModel/note/note.md
+        - 1. 数学规划(和部分图论): Math/MathModel/note/program/program.md
+        - 2. 图论模型: Math/MathModel/note/graph/graph.md
       - Test:
         - 24-25秋冬期末(ACEE): Math/MathModel/test/index.md
   - ISEE: 

@@ -7,7 +7,8 @@
 
 ## Table of Contents
 
-- [x] 部分笔记:
-  - [x] [数学规划(部分)和一小部分图论](note/note.md)
-  - [ ] 还在整理中……
-  - [x] [24-25秋冬期末考试题] (test/index.md)
+- 部分笔记:
+  - [x] [数学规划](note/program/program.md)
+  - [x] [图论模型](note/graph/graph.md)
+- 试题:  
+  - [x] [24-25秋冬期末考试题](test/index.md)

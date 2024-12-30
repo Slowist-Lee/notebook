@@ -29,10 +29,7 @@ statistics: True
 
 ??? plan "更新计划"
     - giscus明暗主题问题（目前只支持日间主题）   
-    - 下标仅显示index问题  
-    - index和主页未完善
     - 部分插件未安装    
-    - 写脚本在所有`index.md`下面加评论系统
     - 友链   
     ??? info "待搬迁的内容"
         - C、Assembly  
