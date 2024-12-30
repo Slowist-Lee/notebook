@@ -571,6 +571,10 @@
       
         
       
+        
+      
+        
+      
     
     
       
@@ -621,6 +625,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../pl/C/Pointer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ch7 Pointer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../pl/C/String/" class="md-nav__link">
         
   
@@ -647,6 +672,27 @@
   
   <span class="md-ellipsis">
     Ch9 Structure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pl/C/misc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Misc
   </span>
   
 
@@ -1441,6 +1487,8 @@
       
         
       
+        
+      
     
     
       
@@ -1481,11 +1529,32 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Math/MathModel/note/note/" class="md-nav__link">
+      <a href="../../../../Math/MathModel/note/program/program/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    数学规划(和部分图论)
+    1. 数学规划
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Math/MathModel/note/graph/graph/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. 图论模型
   </span>
   
 
@@ -3282,14 +3351,10 @@
 </div>
 <ul>
 <li>Java understand bits using types.</li>
-<li>for e.g.<ul>
-<li>both 72 &amp; H are stored as <code>01001000</code>, but they can be interpreted symboled as <code>char</code> or <code>int</code></li>
-</ul>
-</li>
-<li>In Java, there are 8 primitive types: byte, short, int, long, float, double, boolean, and char<ul>
-<li>with the exception of short and float, which you'll likely never use</li>
-</ul>
-</li>
+<li>for e.g.
+    - both 72 &amp; H are stored as <code>01001000</code>, but they can be interpreted symboled as <code>char</code> or <code>int</code></li>
+<li>In Java, there are 8 primitive types: byte, short, int, long, float, double, boolean, and char
+    - with the exception of short and float, which you'll likely never use</li>
 </ul>
 <h3 id="1-how-do-java-declare-a-variable">1 How do Java Declare a Variable?</h3>
 <h4 id="11-setting-aside-memory">1.1 Setting aside Memory</h4>
@@ -3308,13 +3373,13 @@ When you pass parameters to a function, you are also simply copying the bits</p>
 <p>parameter restores a series of bits, which represents its location consisting of <code>0100...</code></p>
 <p>so when you pass a parameter, you pass its location as well</p>
 <p>e.g.</p>
-<div class="highlight"><pre><span></span><code><span class="n">Walrus</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Walrus</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span><span class="w"> </span><span class="mf">8.3</span><span class="p">);</span>
+<div class="highlight"><span class="filename">Java</span><pre><span></span><code><span class="n">Walrus</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Walrus</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span><span class="w"> </span><span class="mf">8.3</span><span class="p">);</span>
 <span class="n">Walrus</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
 <span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
 </code></pre></div>
 <h4 id="difference-between-parameter-and-value">Difference between parameter and value</h4>
 <p>examples of passing by value</p>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">average</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight"><span class="filename">Java</span><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">average</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -3324,7 +3389,7 @@ When you pass parameters to a function, you are also simply copying the bits</p>
 <span class="p">}</span>
 </code></pre></div>
 <p>in this example👇
-<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">PassByValueFigure</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight"><span class="filename">Java</span><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">PassByValueFigure</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">           </span><span class="n">Walrus</span><span class="w"> </span><span class="n">walrus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Walrus</span><span class="p">(</span><span class="mi">3500</span><span class="p">,</span><span class="w"> </span><span class="mf">10.5</span><span class="p">);</span>
 <span class="w">           </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">9</span><span class="p">;</span>
@@ -3343,11 +3408,11 @@ When you pass parameters to a function, you are also simply copying the bits</p>
 <p><code>doStuff</code> doesn't affect <code>x</code>; but it makes sense to <code>W</code></p>
 <h3 id="2-instantiation-of-arrays">2 Instantiation of Arrays</h3>
 <p>Instantiating an array is very similar to instantiating an object!</p>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<div class="highlight"><span class="filename">Java</span><pre><span></span><code><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
 <span class="n">Planet</span><span class="o">[]</span><span class="w"> </span><span class="n">planets</span><span class="p">;</span>
 </code></pre></div>
 <p>Both of these declarations create memory boxes of 64 bits. <code>x</code> can only hold the address of an <code>int</code> array, and <code>planets</code> can only hold the address of a <code>Planet</code> array.</p>
-<div class="highlight"><pre><span></span><code>x = new int[]{0, 1, 2, 95, 4};
+<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code>x = new int[]{0, 1, 2, 95, 4};
 </code></pre></div>
 <ul>
 <li>the <code>new</code> keyword creates 5 boxes of 32 bits each and returns the address of the overall object for assignment to x</li>
@@ -3355,7 +3420,7 @@ When you pass parameters to a function, you are also simply copying the bits</p>
 </ul>
 <h3 id="3-intlists">3 IntLists</h3>
 <p>take linked list for example:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">IntList</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight"><span class="filename">Java</span><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">IntList</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">first</span><span class="p">;</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">IntList</span><span class="w"> </span><span class="n">rest</span><span class="p">;</span><span class="w">  </span>
 <span class="w">    </span><span class="c1">//for an object, things after it must be a linked list as well. so we define `rest` as an IntList   </span>
@@ -3367,22 +3432,22 @@ When you pass parameters to a function, you are also simply copying the bits</p>
 <span class="p">}</span>
 </code></pre></div>
 <p>since we have <code>object</code>,we can write→</p>
-<div class="highlight"><pre><span></span><code><span class="n">IntList</span><span class="w"> </span><span class="n">L</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IntList</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">);</span>
+<div class="highlight"><span class="filename">Java</span><pre><span></span><code><span class="n">IntList</span><span class="w"> </span><span class="n">L</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IntList</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">);</span>
 <span class="n">L</span><span class="p">.</span><span class="na">rest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IntList</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">);</span>
 <span class="n">L</span><span class="p">.</span><span class="na">rest</span><span class="p">.</span><span class="na">rest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IntList</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">);</span>
 </code></pre></div>
 <p>Alternately, we could build our list backwards, yielding slightly nicer but harder to understand code:</p>
-<div class="highlight"><pre><span></span><code><span class="n">IntList</span><span class="w"> </span><span class="n">L</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IntList</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">);</span>
+<div class="highlight"><span class="filename">Java</span><pre><span></span><code><span class="n">IntList</span><span class="w"> </span><span class="n">L</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IntList</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">);</span>
 <span class="n">L</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IntList</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">L</span><span class="p">);</span>
 <span class="n">L</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IntList</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="n">L</span><span class="p">);</span>
 </code></pre></div>
 <p>Exercise: <code>size method</code> / <code>iterative size method</code></p>
-<div class="highlight"><pre><span></span><code>title: Attention
+<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code>title: Attention
 this requires `method`.
 That means: do not write size in your defining program!!!!!
 Anyway, size doesn&#39;t need to be a property of 
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">IntList</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight"><span class="filename">Java</span><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">IntList</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">first</span><span class="p">;</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">IntList</span><span class="w"> </span><span class="n">rest</span><span class="p">;</span><span class="w"> </span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">IntList</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">IntList</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -3399,10 +3464,10 @@ Anyway, size doesn&#39;t need to be a property of
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>I recommend that when you write iterative data structure code that you use the name `p` to remind yourself that the variable is holding a pointer. You need that pointer because you can&#39;t reassign &quot;this&quot; in Java.
+<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code>I recommend that when you write iterative data structure code that you use the name `p` to remind yourself that the variable is holding a pointer. You need that pointer because you can&#39;t reassign &quot;this&quot; in Java.
 </code></pre></div>
 <p>So the following is wrong...</p>
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">IterativeSize</span><span class="p">(){</span>
+<div class="highlight"><span class="filename">Java</span><pre><span></span><code><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">IterativeSize</span><span class="p">(){</span>
 <span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">rest</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">{</span>
 <span class="w">            </span><span class="n">result</span><span class="w"> </span><span class="o">+=</span><span class="mi">1</span><span class="p">;</span>
@@ -3412,7 +3477,7 @@ Anyway, size doesn&#39;t need to be a property of
 <span class="w">    </span><span class="p">}</span>
 </code></pre></div>
 <p>corrected:</p>
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">IterativeSize</span><span class="p">(){</span>
+<div class="highlight"><span class="filename">Java</span><pre><span></span><code><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">IterativeSize</span><span class="p">(){</span>
 <span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="w">        </span><span class="n">IntList</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">;</span><span class="w"> </span><span class="c1">//!!!</span>
 <span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">{</span><span class="w"> </span>
@@ -3423,7 +3488,7 @@ Anyway, size doesn&#39;t need to be a property of
 <span class="w">    </span><span class="p">}</span>
 </code></pre></div>
 <p>Exercise: Write a method <code>get(int i)</code> that returns the ith item of the list. For example, if <code>L</code> is 5 -&gt; 10 -&gt; 15, then <code>L.get(0)</code> should return 5, <code>L.get(1)</code> should return 10, and <code>L.get(2)</code> should return 15. It doesn't matter how your code behaves for invalid <code>i</code>, either too big or too small.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">){</span>
+<div class="highlight"><span class="filename">Java</span><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">){</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">cnt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="w">    </span><span class="n">IntList</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">;</span>
 <span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">cnt</span><span class="o">&lt;</span><span class="n">i</span><span class="p">){</span>
@@ -3609,6 +3674,10 @@ Anyway, size doesn&#39;t need to be a property of
       <script src="../../../../assets/javascripts/bundle.56dfad97.min.js"></script>
       
         <script src="../../../../js/katex.js"></script>
+      
+        <script src="../../../../js/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
       

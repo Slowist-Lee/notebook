@@ -1,13 +1,6 @@
+# 1. 数学规划
 !!! abstract "Tag"  
 	**运筹、优化**  
-  
-  
-## 运筹学  
-  
- “最优化”是运筹学的基础  
-  
-![20240922134652.png](20240922134652.png)  
-  
   
   
 ## 运筹学  
@@ -15,16 +8,16 @@
 运筹学的主要分支：  
   
 - 数学规划（Mathematical Programming）  
-    - 线性规划（Linear Programming）  
-	    - 目标函数为线性函数，约束条件为线性等式或不等式  
-    - 非线性规划（Nonlinear Programming）  
-    - 整数规划（Integer Programming）  
-    - 多目标规划（Multiobjective Programming）  
+  - 线性规划（Linear Programming）  
+  - 目标函数为线性函数，约束条件为线性等式或不等式  
+  - 非线性规划（Nonlinear Programming）  
+  - 整数规划（Integer Programming）  
+  - 多目标规划（Multiobjective Programming）  
 - 组合优化（Combinatorial Optimization）  
 - 随机运筹  
-    - 排队论（Queuing Theory）  
-    - 库存论（Inventory theory）  
-    - 可靠性理论（Reliability Theory）  
+  - 排队论（Queuing Theory）  
+  - 库存论（Inventory theory）  
+  - 可靠性理论（Reliability Theory）  
 - 博弈论（Game Theory）与决策理论（Decision Theory）  
   
 数学基础：  
@@ -39,11 +32,11 @@
 ![20240922143546.png](20240922143546.png)  
   
 !!! tip
-  - 理论上, 等式约束也可以转换成不等式约束  
-  	- 譬如f(x)=0 $\Rightarrow$ f(x)≥0 && f(x)≤0  
-  - 一般不出现≠  
-  
-  
+    - 理论上, 等式约束也可以转换成不等式约束  
+      - 譬如f(x)=0 $\Rightarrow$ f(x)≥0 && f(x)≤0  
+    - 一般不出现≠  
+
+
 ![20240922144208.png](20240922144208.png)  
   
 最优解不一定是唯一的，最优值是唯一的，如需求解，求解唯一最优解即可  
@@ -61,18 +54,18 @@
 ## 整数规划  
   
 整数规划（integer programming）：  
+
 - 至少有一个决策变量限定取整数值   
-	- 整数决策变量意义   
-		- 用于表示只能取离散值的对象的数量   
-		- 用于表示约束条件之间的逻辑关系或复杂的函数形式   
-		- 用于表示非数值的优化或可行性问题（e.g. 排班问题，难以用数值表示，设整变量）   
+  - 整数决策变量意义   
+    - 用于表示只能取离散值的对象的数量   
+    - 用于表示约束条件之间的逻辑关系或复杂的函数形式   
+    - 用于表示非数值的优化或可行性问题（e.g. 排班问题，难以用数值表示，设整变量）   
 - 特殊整数规划   
-	- 部分决策变量取整数值的数学规划特称为混合整数规划（Mixed Integer Programming, MIP）   
-	- 0-1规划：决策变量仅取值0或1的数学规划  
-  
+  - 部分决策变量取整数值的数学规划特称为混合整数规划（Mixed Integer Programming, MIP）   
+  - 0-1规划：决策变量仅取值0或1的数学规划  
 - 按约束条件  
-	- 无约束优化  
-	- 约束优化  
+  - 无约束优化  
+  - 约束优化  
   
 ![20240922152326.png](20240922152326.png)  
   
@@ -113,10 +106,10 @@ $\sum_{j=1}^9 x_{ijk}=1$
 -----  
 
 !!! info "番外：条件的表示："  
-	假设需要表示条件，第4行1，2列中所填数之和大于5：  
-	$$x_{41j_1}=1,x_{41j_2}=1,j_1+j_2=5$$    
-	- 错误1：下标的变量不可以进入约束条件  
-	- 错误3：出现逻辑关系，是在1式和2式满足的情况下，才会出现3  
+	- 假设需要表示条件，第4行1，2列中所填数之和大于5：  
+	$$x_{41j_1}=1,x_{41j_2}=1,j_1+j_2=5$$
+    	- 错误1：下标的变量不可以进入约束条件  
+    	- 错误3：出现逻辑关系，是在1式和2式满足的情况下，才会出现3  
   
 正确的方法：对数字$k$而言，$∵\sum_{k=1}^9=1,∴k=\sum_{k=1}^9 \times k$，为数字本身  
 所以  
@@ -184,7 +177,7 @@ $\Rightarrow$二次约束的二次规划类型
 (思想：通过变形，更容易求解，化二次为一次)  
   
 !!! abstract "总结"  
-	- 自查：  
+	- 自查：
     	- 是否遗漏问题隐含约束？  
     	- 数学规划（所建立模型的）最优解和问题的最优解是否对应？  
 	- 技巧：  
@@ -196,10 +189,9 @@ $\Rightarrow$二次约束的二次规划类型
 ## 时间分配问题  
   
 !!! quote "问题背景"  
-    有 $T$ 天时间可用于安排复习 $n$ 门课程，每天只能复习一门课程，每门课程至少复习一天。用 $t$ 天时间复习第 $j$ 门课程可使该门课程提高 $p_{jt}$ 分。如何制定复习计划可使所有课程提高的总分尽可能大？  
-  
-  
-  
+	有 $T$ 天时间可用于安排复习 $n$ 门课程，每天只能复习一门课程，每门课程至少复习一天。用 $t$ 天时间复习第 $j$ 门课程可使该门课程提高 $p_{jt}$ 分。如何制定复习计划可使所有课程提高的总分尽可能大？  
+	
+ 
 | 课程  | 1天  | 2天  | 3天  | 4天  |  
 | --- | --- | --- | --- | --- |  
 | E   | 3   | 5   | 6   | 7   |  
@@ -214,12 +206,13 @@ $\Rightarrow$二次约束的二次规划类型
   
   
 !!! note  
-    - **决策变量**：
-      - $x_{jt}$ 表示第 $j$ 门课程是否复习 $t$ 天，$j=1,2,\cdots,n$，$t=1,2,\cdots,T$  
-    	- $$x_{jt}=\left\{\begin{array}{ll}1,&\text{第 $j$ 门课程复习 $t$ 天}\\0,&\text{其他}\end{array}\right.}$$  
-    - **目标函数**：$\max\sum\limits_{j=1}^n\sum\limits_{t=1}^Tp_{jt}x_{jt}$  
-    - **约束条件**：$\sum\limits_{t=1}^Tx_{jt}=1$；$\sum\limits_{j=1}^n\sum\limits_{t=1}^Ttx_{jt}\leq T$  
-  
+    - **决策变量**：
+      - $x_{jt}$ 表示第 $j$ 门课程是否复习 $t$ 天，$j=1,2,\cdots,n$，$t=1,2,\cdots,T$  
+      - $$x_{jt}=\left\{\begin{array}{ll}1,&\text{第 $j$ 门课程复习 $t$ 天}\\0,&\text{其他}\end{array}\right.}$$  
+    - **目标函数**：$\max\sum\limits_{j=1}^n\sum\limits_{t=1}^Tp_{jt}x_{jt}$  
+    - **约束条件**：$\sum\limits_{t=1}^Tx_{jt}=1$；$\sum\limits_{j=1}^n\sum\limits_{t=1}^Ttx_{jt}\leq T$  
+
+
   
   
 | 课程  | 1天  | 2天  | 3天  | 4天  |  
@@ -377,13 +370,13 @@ $$\begin{aligned}&\max \min\limits_{i=1,\cdots,m} y_i(\mathbf{w}\cdot\mathbf{x}_
 - 目标函数极小化  
 - 决策变量取非负值  
 - 所有约束均为等式约束，不等式都进行转化  
-	- $\mathbf{Ax \leq b}, \Leftrightarrow Ax+y=b,y≥0$  
+  - $\mathbf{Ax \leq b}, \Leftrightarrow Ax+y=b,y≥0$  
 - 线性规划最优解的类型：  
-	- 唯一最优解  
-	- 无穷多最优解  
-	- 无可行解  
-	- 有可行解，但最优值无下解  
-	- exclude！！有限个最优解  
+  - 唯一最优解  
+  - 无穷多最优解  
+  - 无可行解  
+  - 有可行解，但最优值无下解  
+  - exclude！！有限个最优解  
 设A是行满秩矩阵，$rank(\mathbf{A})=m$  
 $rank(\mathbf{A})<m$,冗余约束  
   
@@ -551,11 +544,11 @@ $$min \mathbf{f(x)}=f_1(\mathbf{x})+f_2(\mathbf{x}),\dots,f_P(\mathbf{x})$$
   
   
 - 绝对最优解：$\mathbf{x^{*} \in S_a}$  
-	- 对任意$\mathbf{x}\in S,f_k(x^{*})\leq f_k(\mathbf{x})$  
+  - 对任意$\mathbf{x}\in S,f_k(x^{*})\leq f_k(\mathbf{x})$  
 - Pareto最优解 $S_P$  
-	- 不存在$x \in S，s.t.f_k(x)\leq f_k(x^*) ,k = 1,\dots p$, 至少一个不等号为严格不等号（翻译成大白话：不存在另一个最优解，每一个上都比我更好，且有一个严格的比我好（>,<））  
+  - 不存在$x \in S，s.t.f_k(x)\leq f_k(x^*) ,k = 1,\dots p$, 至少一个不等号为严格不等号（翻译成大白话：不存在另一个最优解，每一个上都比我更好，且有一个严格的比我好（>,<））  
 - 弱Pareto最优解： $S_{wp}$  
-	- 不存在$\mathbf{x} \in S,s.t.f_k(x)<=f_k(x^*)$  
+  - 不存在$\mathbf{x} \in S,s.t.f_k(x)<=f_k(x^*)$  
   
 多目标规划解的关系  
   
@@ -567,18 +560,18 @@ $$min \mathbf{f(x)}=f_1(\mathbf{x})+f_2(\mathbf{x}),\dots,f_P(\mathbf{x})$$
   
 ### 线性加权加法  
 - 线性加权和法：  
-	- 求解单目标规划$(SP_{\lambda}$  
+  - 求解单目标规划$(SP_{\lambda})$  
 ![20241006164838.png](20241006164838.png)  
   
 ![20241006164829.png](20241006164829.png)  
   
 - 主要目标法  
-	- 确定一个目标函数，如$f_1(x)$,为主要目标，对其余$p-1$个目标函数，选定一定的界限值$u_k,k=2,\dots,p$ ，求解单目标规划   
-	- min $f_1(\mathbf{x}),s.t.f_k(\mathbf{x})\leq u_k,k=2,\dots,p,\mathbf{x}\in S$  
-	- $u_k$的选取可参考$min f_k(\mathbf{x})$  
+  - 确定一个目标函数，如$f_1(x)$,为主要目标，对其余$p-1$个目标函数，选定一定的界限值$u_k,k=2,\dots,p$ ，求解单目标规划   
+  - min $f_1(\mathbf{x}),s.t.f_k(\mathbf{x})\leq u_k,k=2,\dots,p,\mathbf{x}\in S$  
+  - $u_k$的选取可参考$min f_k(\mathbf{x})$  
 - 理想点法  
-	- 取$f_k^0$(相当于理想点)，求解单目标规划$\quad\left(P_{i}(\alpha)\right)\min\limits_{\mathbf{x}\in S}\left(\sum\limits_{k=1}^{p}\lambda_{k}\left(f_{k}(\mathbf{x})-f_{k}^{0}\right)^{\alpha}\right)^{\frac1\alpha}$（意思：和这个理想点的距离最小）  
-	- 其中$\lambda \in \Lambda = \{\lambda|\lambda \geq 0,\sum^p_{k=1}\lambda =1\}$  
+  - 取$f_k^0$(相当于理想点)，求解单目标规划$\quad\left(P_{i}(\alpha)\right)\min\limits_{\mathbf{x}\in S}\left(\sum\limits_{k=1}^{p}\lambda_{k}\left(f_{k}(\mathbf{x})-f_{k}^{0}\right)^{\alpha}\right)^{\frac1\alpha}$（意思：和这个理想点的距离最小）  
+  - 其中$\lambda \in \Lambda = \{\lambda|\lambda \geq 0,\sum^p_{k=1}\lambda =1\}$  
  
 - 分层排序法  
  ![20241006165420.png](20241006165420.png)  

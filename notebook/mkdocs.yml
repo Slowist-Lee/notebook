@@ -76,6 +76,8 @@ markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
+  - def_list
+  - mdx_truly_sane_lists
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.emoji:
@@ -85,10 +87,12 @@ markdown_extensions:
   - pymdownx.smartsymbols
   - pymdownx.arithmatex:
       generic: true
-
+  - pymdownx.highlight: # 代码块高亮
+      auto_title: true # 显示编程语言名称
 extra_javascript:
   - js/katex.js
   - js/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
   - https://unpkg.com/katex@0/dist/katex.min.js
   - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
 
@@ -107,8 +111,10 @@ nav:
     - Language:
       - C:
         - cs/pl/C/index.md
+        - Ch7 Pointer: cs/pl/C/Pointer.md
         - Ch8 String: cs/pl/C/String.md
         - Ch9 Structure: cs/pl/C/Structure.md
+        - Misc: cs/pl/C/misc.md
       - Asm:
         - cs/pl/Asm/index.md
         - Misc: cs/pl/Asm/Misc.md
@@ -130,7 +136,7 @@ nav:
     - 数学建模: 
       - Math/MathModel/index.md
       - Note: 
-        - 1. 数学规划(和部分图论): Math/MathModel/note/program/program.md
+        - 1. 数学规划: Math/MathModel/note/program/program.md
         - 2. 图论模型: Math/MathModel/note/graph/graph.md
       - Test:
         - 24-25秋冬期末(ACEE): Math/MathModel/test/index.md
