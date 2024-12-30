@@ -3241,7 +3241,7 @@
 <h2 id="misc">Misc</h2>
 <p><img alt="alt text" src="../image.png" />
 之所以写：
-<div class="highlight"><pre><span></span><code><span class="nf">push</span><span class="w"> </span><span class="no">bp</span>
+<div class="highlight"><span class="filename">GAS</span><pre><span></span><code><span class="nf">push</span><span class="w"> </span><span class="no">bp</span>
 <span class="nf">mov</span><span class="w"> </span><span class="no">bp</span><span class="p">,</span><span class="w"> </span><span class="no">sp</span>
 </code></pre></div>
 -&gt; <code>bp</code>本身是需要被保护的【保护的是上一层的<code>bp</code>】</p>
@@ -3254,7 +3254,7 @@
 </div>
 <h3 id="_1">递归(难理解)</h3>
 <p>C语言：
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">){</span><span class="w"> </span><span class="c1">//第一次函数调用，n对应的是(1)位置</span>
+<div class="highlight"><span class="filename">C</span><pre><span></span><code><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">){</span><span class="w"> </span><span class="c1">//第一次函数调用，n对应的是(1)位置</span>
 <span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">n</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span>
 <span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">n</span><span class="o">+</span><span class="n">f</span><span class="p">(</span><span class="n">n</span><span class="mi">-1</span><span class="p">);</span><span class="w"> </span><span class="c1">//第一次函数调用，n对应的是(4)位置</span>
@@ -3262,7 +3262,7 @@
 </code></pre></div>
 形参由3变成了2！
 用汇编进行实现：
-<div class="highlight"><pre><span></span><code><span class="nl">f:</span>
+<div class="highlight"><span class="filename">GAS</span><pre><span></span><code><span class="nl">f:</span>
 <span class="w">    </span><span class="nf">push</span><span class="w"> </span><span class="no">bp</span><span class="c1">;(3)(6)(9)</span>
 <span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="no">bp</span><span class="p">,</span><span class="w"> </span><span class="no">sp</span>
 <span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="no">ax</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="no">bp</span><span class="err">+</span><span class="mi">4</span><span class="p">]</span><span class="w"> </span><span class="c1">;当前</span>
@@ -3286,7 +3286,7 @@
 <span class="w">    </span><span class="nf">add</span><span class="w"> </span><span class="no">sp</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="c1">;(18)</span>
 </code></pre></div></p>
 <p>执行上述代码时的堆栈布局如下:
-<div class="highlight"><pre><span></span><code>ss:1FEE oldbp&lt;-bp(9)
+<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code>ss:1FEE oldbp&lt;-bp(9)
 ss:1FF0 there&lt;-(8)(10)
 ss:1FF2 1&lt;-(7)(11)
 ss:1FF4 oldbp&lt;-bp(6)12
@@ -3303,7 +3303,7 @@ ss:2000   &lt;-(18)
 </div>
 <h3 id="_2">混合语言编程</h3>
 <p><img alt="alt text" src="../image-1.png" />
-<div class="highlight"><pre><span></span><code><span class="n">main</span><span class="p">()</span>
+<div class="highlight"><span class="filename">C</span><pre><span></span><code><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
 <span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
@@ -3315,12 +3315,12 @@ ss:2000   &lt;-(18)
 <span class="p">}</span>
 </code></pre></div></p>
 <p>利用命令行编译：
-<div class="highlight"><pre><span></span><code><span class="nv">$cd</span><span class="w"> </span><span class="se">\t</span>c
+<div class="highlight"><span class="filename">Bash</span><pre><span></span><code><span class="nv">$cd</span><span class="w"> </span><span class="se">\t</span>c
 <span class="nv">$tcc</span><span class="w"> </span>asmc.c
 </code></pre></div>
 会先把程序变成汇编，再从汇编进行编译</p>
 <p>能否在汇编中访问变量<code>i</code>呢？</p>
-<div class="highlight"><pre><span></span><code><span class="n">main</span><span class="p">()</span>
+<div class="highlight"><span class="filename">C</span><pre><span></span><code><span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
 <span class="w">    </span><span class="p">{</span>
@@ -3339,17 +3339,17 @@ ss:2000   &lt;-(18)
 <p><code>naked</code>：禁止编译器在代码内随意插入代码。
 若不加直接编译，可能会加入堆栈的基本框架。
 在<code>__asm</code>前加入：
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nf">push</span><span class="w"> </span><span class="no">ebp</span>
+<div class="highlight"><span class="filename">GAS</span><pre><span></span><code><span class="w">    </span><span class="nf">push</span><span class="w"> </span><span class="no">ebp</span>
 <span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="no">ebp</span><span class="p">,</span><span class="w"> </span><span class="no">esp</span>
 </code></pre></div>
 在后面加入
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nf">pop</span><span class="w"> </span><span class="no">ebp</span>
+<div class="highlight"><span class="filename">GAS</span><pre><span></span><code><span class="w">    </span><span class="nf">pop</span><span class="w"> </span><span class="no">ebp</span>
 <span class="w">    </span><span class="nf">ret</span>
 </code></pre></div></p>
 <h4 id="tc">在TC中调用汇编定义的模块</h4>
 <ul>
 <li>C语言代码：
-<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="cpf">&lt;stdio.h&gt;</span>
+<div class="highlight"><span class="filename">C</span><pre><span></span><code><span class="cp">#include</span><span class="cpf">&lt;stdio.h&gt;</span>
 <span class="k">extern</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">);</span><span class="w"> </span><span class="c1">//函数f的内容在代码之外，不会报错</span>
 <span class="n">main</span><span class="p">(){</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">z</span><span class="p">;</span>
@@ -3536,6 +3536,8 @@ ss:2000   &lt;-(18)
         <script src="../../../../js/katex.js"></script>
       
         <script src="../../../../js/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
       
