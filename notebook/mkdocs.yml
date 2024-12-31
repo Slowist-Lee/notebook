@@ -88,7 +88,7 @@ markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.highlight: # 代码块高亮
-      auto_title: true # 显示编程语言名称
+      auto_title: false # 显示编程语言名称
 extra_javascript:
   - js/katex.js
   - js/mathjax.js
@@ -114,6 +114,7 @@ nav:
         - Ch7 Pointer: cs/pl/C/Pointer.md
         - Ch8 String: cs/pl/C/String.md
         - Ch9 Structure: cs/pl/C/Structure.md
+        - Ch10 Linked List: cs/pl/C/LinkedList.md
         - Misc: cs/pl/C/misc.md
       - Asm:
         - cs/pl/Asm/index.md

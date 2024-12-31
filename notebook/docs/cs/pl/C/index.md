@@ -18,5 +18,6 @@
   - [指针](Pointer.md)
   - [字符串](String.md)
   - [结构体](Structure.md)
+  - [链表](LinkedList.md)
 - 杂项:
   - [杂项](misc.md)
