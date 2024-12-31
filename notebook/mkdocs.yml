@@ -118,6 +118,7 @@ nav:
         - Misc: cs/pl/C/misc.md
       - Asm:
         - cs/pl/Asm/index.md
+        - 期末考复习: cs/pl/Asm/sum.md
         - Misc: cs/pl/Asm/Misc.md
     - Algorithm:
       - cs/algorithm/index.md
