@@ -25,4 +25,4 @@ def replace_image_refs(file_path):
         file.write(new_content)
 
 # 替换 'your-document.md' 为你的 Markdown 文件路径
-replace_image_refs('D:\\MyRepository\\notebook-publish\\notebook\\docs\\Math\\MathModel\\note\\graph\\graph.md')
+replace_image_refs('D:\\MyRepository\\notebook-publish\\notebook\\docs\\cs\\pl\\Asm\\sum.md')
