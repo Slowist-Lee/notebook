@@ -856,7 +856,16 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="一、数据组织">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      二、寄存器
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="二、寄存器">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -934,7 +943,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       三、相关知识点
     </span>
@@ -958,9 +967,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#-1-6-2-0-phy_addrseg_addr10hoff_addr" class="md-nav__link">
+  <a href="#-16-20-phy_addrseg_addr10hoff_addr" class="md-nav__link">
     <span class="md-ellipsis">
-      - 段地址和偏移地址是 两个 1 6 位的地址，它们合在一起形成 一个 2 0 位的物理地址，转换关系式为：\(phy\_addr=seg\_addr×10h+off\_addr\)
+      - 段地址和偏移地址是 两个 16 位的地址，它们合在一起形成 一个 20 位的物理地址，转换关系式为：\(phy\_addr=seg\_addr×10h+off\_addr\)
     </span>
   </a>
   
@@ -3341,7 +3350,16 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="一、数据组织">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      二、寄存器
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="二、寄存器">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3419,7 +3437,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       三、相关知识点
     </span>
@@ -3443,9 +3461,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#-1-6-2-0-phy_addrseg_addr10hoff_addr" class="md-nav__link">
+  <a href="#-16-20-phy_addrseg_addr10hoff_addr" class="md-nav__link">
     <span class="md-ellipsis">
-      - 段地址和偏移地址是 两个 1 6 位的地址，它们合在一起形成 一个 2 0 位的物理地址，转换关系式为：\(phy\_addr=seg\_addr×10h+off\_addr\)
+      - 段地址和偏移地址是 两个 16 位的地址，它们合在一起形成 一个 20 位的物理地址，转换关系式为：\(phy\_addr=seg\_addr×10h+off\_addr\)
     </span>
   </a>
   
@@ -3471,7 +3489,7 @@
 
 <h1 id="_1">汇编复习提纲</h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8zm6.78 1a.7.7 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38z"/></svg></span> 约 1313 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6m80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3"/></svg></span> 24 行代码 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 17H7V3h14m0-2H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2M3 5H1v16a2 2 0 0 0 2 2h16v-2H3m12.96-10.71-2.75 3.54-1.96-2.36L8.5 15h11z"/></svg></span> 3 张图片 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3z"/></svg></span> 预计阅读时间 5 分钟</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8zm6.78 1a.7.7 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38z"/></svg></span> 约 1311 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6m80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3"/></svg></span> 24 行代码 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 17H7V3h14m0-2H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2M3 5H1v16a2 2 0 0 0 2 2h16v-2H3m12.96-10.71-2.75 3.54-1.96-2.36L8.5 15h11z"/></svg></span> 3 张图片 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3z"/></svg></span> 预计阅读时间 5 分钟</p>
 </div>
 <div class="admonition abstract">
 <p class="admonition-title">考前补天的幻想</p>
@@ -3518,50 +3536,14 @@
 <td>8字节，64位</td>
 <td><code>double</code>,<code>long long</code></td>
 </tr>
-<tr>
-<td>命名规则：</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>- 关键词：<code>d</code>+英文首字母</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>- <code>ptr</code>：</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>- 单个单词：本身</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>- 多个单词：第一个单词首字母+第二个单词本身</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>## 二、寄存器</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
 </tbody>
 </table>
+<p>命名规则：
+- 关键词：<code>d</code>+英文首字母
+- <code>ptr</code>：
+    - 单个单词：本身
+    - 多个单词：第一个单词首字母+第二个单词本身</p>
+<h2 id="_3">二、寄存器</h2>
 <h3 id="21-442">2.1 通用寄存器（4数据+4变址+2指针）</h3>
 <h4 id="1">1. 数据寄存器</h4>
 <ul>
@@ -3584,8 +3566,8 @@
 <li>di -&gt;destination index 目的变址寄存器</li>
 </ul>
 <p>注意！
-- 只有四种寄存器：<code>bx</code>、<code>si</code>、<code>di</code>、<code>bp</code>是可以在<code>[]</code>内存在的
-- 两两一组，只有四种组合：
+- 只有四种寄存器：<code>bx</code>、<code>si</code>、<code>di</code>、<code>bp</code>是可以在<code>[]</code>内存在的<br />
+- 两两一组，只有四种组合：<br />
     - <code>bx</code>和<code>si</code>
     - <code>bx</code>和<code>di</code>
     - <code>bp</code>和<code>si</code>
@@ -3758,10 +3740,10 @@
 <ul>
 <li>格式：<code>popf</code></li>
 </ul>
-<h2 id="_3">三、相关知识点</h2>
+<h2 id="_4">三、相关知识点</h2>
 <h3 id="31">3.1 数据存放 — 小端规则</h3>
 <p><img alt="20241231221012.png" src="../20241231221012.png" /></p>
-<h2 id="-1-6-2-0-phy_addrseg_addr10hoff_addr">- 段地址和偏移地址是 两个 1 6 位的地址，它们合在一起形成 一个 2 0 位的物理地址，转换关系式为：<span class="arithmatex">\(phy\_addr=seg\_addr×10h+off\_addr\)</span></h2>
+<h2 id="-16-20-phy_addrseg_addr10hoff_addr">- 段地址和偏移地址是 两个 16 位的地址，它们合在一起形成 一个 20 位的物理地址，转换关系式为：<span class="arithmatex">\(phy\_addr=seg\_addr×10h+off\_addr\)</span></h2>
 
 
 
