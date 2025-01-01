@@ -11,6 +11,7 @@
     -  c尖个人错题集（搜索关键词：c 程序，c语言） https://www.cc98.org/topic/5801316 
     -  https://www.cc98.org/topic/6070665  
     -  https://ckc-agc.bowling233.top/programming/
+    -  LHgg的笔记：https://lh-0124.github.io/LHstudy/note/notec1/
 
 ## Table of Contents
 

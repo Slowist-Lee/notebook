@@ -1,4 +1,5 @@
 {
   "textFontFamily": "霞鹜文楷 屏幕阅读版 R",
-  "theme": "obsidian"
+  "theme": "obsidian",
+  "monospaceFontFamily": "Consolas,霞鹜文楷"
 }

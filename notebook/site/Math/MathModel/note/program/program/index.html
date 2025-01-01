@@ -740,6 +740,8 @@
       
         
       
+        
+      
     
     
       
@@ -781,6 +783,27 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../cs/pl/Asm/sum/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    理论复习
+  </span>
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -3670,21 +3693,17 @@
 <h2 id="_1">运筹学</h2>
 <p>运筹学的主要分支：  </p>
 <ul>
-<li>数学规划（Mathematical Programming）  <ul>
+<li>数学规划（Mathematical Programming）  </li>
 <li>线性规划（Linear Programming）  </li>
 <li>目标函数为线性函数，约束条件为线性等式或不等式  </li>
 <li>非线性规划（Nonlinear Programming）  </li>
 <li>整数规划（Integer Programming）  </li>
 <li>多目标规划（Multiobjective Programming）  </li>
-</ul>
-</li>
 <li>组合优化（Combinatorial Optimization）  </li>
-<li>随机运筹  <ul>
+<li>随机运筹  </li>
 <li>排队论（Queuing Theory）  </li>
 <li>库存论（Inventory theory）  </li>
 <li>可靠性理论（Reliability Theory）  </li>
-</ul>
-</li>
 <li>博弈论（Game Theory）与决策理论（Decision Theory）  </li>
 </ul>
 <p>数学基础：  </p>
@@ -3698,10 +3717,8 @@
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <ul>
-<li>理论上, 等式约束也可以转换成不等式约束  <ul>
+<li>理论上, 等式约束也可以转换成不等式约束  </li>
 <li>譬如f(x)=0 <span class="arithmatex">\(\Rightarrow\)</span> f(x)≥0 &amp;&amp; f(x)≤0  </li>
-</ul>
-</li>
 <li>一般不出现≠  </li>
 </ul>
 </div>
@@ -3742,25 +3759,19 @@
 <h2 id="_3">整数规划</h2>
 <p>整数规划（integer programming）：  </p>
 <ul>
-<li>至少有一个决策变量限定取整数值   <ul>
+<li>至少有一个决策变量限定取整数值   </li>
 <li>整数决策变量意义   <ul>
 <li>用于表示只能取离散值的对象的数量   </li>
 <li>用于表示约束条件之间的逻辑关系或复杂的函数形式   </li>
 <li>用于表示非数值的优化或可行性问题（e.g. 排班问题，难以用数值表示，设整变量）   </li>
 </ul>
 </li>
-</ul>
-</li>
-<li>特殊整数规划   <ul>
+<li>特殊整数规划   </li>
 <li>部分决策变量取整数值的数学规划特称为混合整数规划（Mixed Integer Programming, MIP）   </li>
 <li>0-1规划：决策变量仅取值0或1的数学规划  </li>
-</ul>
-</li>
-<li>按约束条件  <ul>
+<li>按约束条件  </li>
 <li>无约束优化  </li>
 <li>约束优化  </li>
-</ul>
-</li>
 </ul>
 <p><img alt="20240922152326.png" src="../20240922152326.png" />  </p>
 <p><img alt="20240922153648.png" src="../20240922153648.png" />  </p>
@@ -3786,9 +3797,11 @@
 <p class="admonition-title">番外：条件的表示：</p>
 <ul>
 <li>假设需要表示条件，第4行1，2列中所填数之和大于5：<br />
-<span class="arithmatex">\(<span class="arithmatex">\(x_{41j_1}=1,x_{41j_2}=1,j_1+j_2=5\)</span>\)</span>
-    - 错误1：下标的变量不可以进入约束条件<br />
-    - 错误3：出现逻辑关系，是在1式和2式满足的情况下，才会出现3  </li>
+<span class="arithmatex">(<span class="arithmatex">\(x_{41j_1}=1,x_{41j_2}=1,j_1+j_2=5\)</span>\)</span><ul>
+<li>错误1：下标的变量不可以进入约束条件  </li>
+<li>错误3：出现逻辑关系，是在1式和2式满足的情况下，才会出现3  </li>
+</ul>
+</li>
 </ul>
 </div>
 <p>正确的方法：对数字<span class="arithmatex">\(k\)</span>而言，<span class="arithmatex">\(∵\sum_{k=1}^9=1,∴k=\sum_{k=1}^9 \times k\)</span>，为数字本身<br />
@@ -3837,12 +3850,16 @@
 <div class="admonition abstract">
 <p class="admonition-title">总结</p>
 <ul>
-<li>自查：
-    - 是否遗漏问题隐含约束？<br />
-    - 数学规划（所建立模型的）最优解和问题的最优解是否对应？  </li>
-<li>技巧：<br />
-    - 复杂目标函数和约束条件的简化<br />
-    - 0-1变量的灵活运用  </li>
+<li>自查：<ul>
+<li>是否遗漏问题隐含约束？  </li>
+<li>数学规划（所建立模型的）最优解和问题的最优解是否对应？  </li>
+</ul>
+</li>
+<li>技巧：  <ul>
+<li>复杂目标函数和约束条件的简化  </li>
+<li>0-1变量的灵活运用  </li>
+</ul>
+</li>
 </ul>
 </div>
 <h2 id="_6">时间分配问题</h2>
@@ -3898,12 +3915,10 @@
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ul>
-<li><strong>决策变量</strong>：<ul>
+<li><strong>决策变量</strong>：</li>
 <li><span class="arithmatex">\(x_{jt}\)</span> 表示第 <span class="arithmatex">\(j\)</span> 门课程是否复习 <span class="arithmatex">\(t\)</span> 天，<span class="arithmatex">\(j=1,2,\cdots,n\)</span>，<span class="arithmatex">\(t=1,2,\cdots,T\)</span>  </li>
 <li>
 <div class="arithmatex">\[x_{jt}=\left\{\begin{array}{ll}1,&amp;\text{第 $j$ 门课程复习 $t$ 天}\\0,&amp;\text{其他}\end{array}\right.}\]</div>
-</li>
-</ul>
 </li>
 <li><strong>目标函数</strong>：<span class="arithmatex">\(\max\sum\limits_{j=1}^n\sum\limits_{t=1}^Tp_{jt}x_{jt}\)</span>  </li>
 <li><strong>约束条件</strong>：<span class="arithmatex">\(\sum\limits_{t=1}^Tx_{jt}=1\)</span>；<span class="arithmatex">\(\sum\limits_{j=1}^n\sum\limits_{t=1}^Ttx_{jt}\leq T\)</span>  </li>
@@ -4071,16 +4086,16 @@ AHAHAHAH  </li>
 <h3 id="_11">标准型</h3>
 <ul>
 <li>线性规划的矩阵形式  </li>
-<li><span class="arithmatex">\(min \{\mathbf{cx}\}\)</span>, s.t. <span class="arithmatex">\(\mathbf{Ax=b},\mathbf{x≥0}\)</span>  </li>
-</ul>
-<ul>
-<li>目标函数极小化  </li>
-<li>决策变量取非负值  </li>
-<li>所有约束均为等式约束，不等式都进行转化  <ul>
-<li><span class="arithmatex">\(\mathbf{Ax \leq b}, \Leftrightarrow Ax+y=b,y≥0\)</span>  </li>
-</ul>
+<li>
+<p><span class="arithmatex">\(min \{\mathbf{cx}\}\)</span>, s.t. <span class="arithmatex">\(\mathbf{Ax=b},\mathbf{x≥0}\)</span>  </p>
 </li>
-<li>线性规划最优解的类型：  <ul>
+<li>
+<p>目标函数极小化  </p>
+</li>
+<li>决策变量取非负值  </li>
+<li>所有约束均为等式约束，不等式都进行转化  </li>
+<li><span class="arithmatex">\(\mathbf{Ax \leq b}, \Leftrightarrow Ax+y=b,y≥0\)</span>  </li>
+<li>线性规划最优解的类型：  </li>
 <li>唯一最优解  </li>
 <li>无穷多最优解  </li>
 <li>无可行解  </li>
@@ -4088,8 +4103,6 @@ AHAHAHAH  </li>
 <li>exclude！！有限个最优解<br />
 设A是行满秩矩阵，<span class="arithmatex">\(rank(\mathbf{A})=m\)</span><br />
 <span class="arithmatex">\(rank(\mathbf{A})&lt;m\)</span>,冗余约束  </li>
-</ul>
-</li>
 </ul>
 <p>不妨设<span class="arithmatex">\(\mathbf{A}\)</span>的前<span class="arithmatex">\(m\)</span>列线性无关<br />
 将<span class="arithmatex">\(\mathbf{A}\)</span>分块为<span class="arithmatex">\(\mathbf{(B,N)}\)</span>, 其中<br />
@@ -4222,18 +4235,12 @@ j作为服务点，i和l中必须有一个<br />
 数学语言表示：<br />
 <span class="arithmatex">\(<span class="arithmatex">\(min \mathbf{f(x)}=f_1(\mathbf{x})+f_2(\mathbf{x}),\dots,f_P(\mathbf{x})\)</span>\)</span>  </p>
 <ul>
-<li>绝对最优解：<span class="arithmatex">\(\mathbf{x^{*} \in S_a}\)</span>  <ul>
+<li>绝对最优解：<span class="arithmatex">\(\mathbf{x^{*} \in S_a}\)</span>  </li>
 <li>对任意<span class="arithmatex">\(\mathbf{x}\in S,f_k(x^{*})\leq f_k(\mathbf{x})\)</span>  </li>
-</ul>
-</li>
-<li>Pareto最优解 <span class="arithmatex">\(S_P\)</span>  <ul>
+<li>Pareto最优解 <span class="arithmatex">\(S_P\)</span>  </li>
 <li>不存在<span class="arithmatex">\(x \in S，s.t.f_k(x)\leq f_k(x^*) ,k = 1,\dots p\)</span>, 至少一个不等号为严格不等号（翻译成大白话：不存在另一个最优解，每一个上都比我更好，且有一个严格的比我好（&gt;,&lt;））  </li>
-</ul>
-</li>
-<li>弱Pareto最优解： <span class="arithmatex">\(S_{wp}\)</span>  <ul>
+<li>弱Pareto最优解： <span class="arithmatex">\(S_{wp}\)</span>  </li>
 <li>不存在<span class="arithmatex">\(\mathbf{x} \in S,s.t.f_k(x)&lt;=f_k(x^*)\)</span>  </li>
-</ul>
-</li>
 </ul>
 <p>多目标规划解的关系  </p>
 <p><span class="arithmatex">\(S_a\subseteq S_{wp}\subseteq S_p\subseteq S\)</span>  </p>
@@ -4241,29 +4248,25 @@ j作为服务点，i和l中必须有一个<br />
 <p><span class="arithmatex">\(S_a=S_{wp}\)</span> ，则称 <span class="arithmatex">\(S_a\)</span> 为<strong>Pareto最优解</strong>，此时 <span class="arithmatex">\(S_a=S_{wp}=S_p\)</span>  </p>
 <h3 id="_18">线性加权加法</h3>
 <ul>
-<li>线性加权和法：  <ul>
+<li>线性加权和法：  </li>
 <li>求解单目标规划<span class="arithmatex">\((SP_{\lambda})\)</span><br />
 <img alt="20241006164838.png" src="../20241006164838.png" />  </li>
 </ul>
-</li>
-</ul>
 <p><img alt="20241006164829.png" src="../20241006164829.png" />  </p>
 <ul>
-<li>主要目标法  <ul>
+<li>主要目标法  </li>
 <li>确定一个目标函数，如<span class="arithmatex">\(f_1(x)\)</span>,为主要目标，对其余<span class="arithmatex">\(p-1\)</span>个目标函数，选定一定的界限值<span class="arithmatex">\(u_k,k=2,\dots,p\)</span> ，求解单目标规划   </li>
 <li>min <span class="arithmatex">\(f_1(\mathbf{x}),s.t.f_k(\mathbf{x})\leq u_k,k=2,\dots,p,\mathbf{x}\in S\)</span>  </li>
 <li><span class="arithmatex">\(u_k\)</span>的选取可参考<span class="arithmatex">\(min f_k(\mathbf{x})\)</span>  </li>
-</ul>
-</li>
-<li>理想点法  <ul>
+<li>理想点法  </li>
 <li>取<span class="arithmatex">\(f_k^0\)</span>(相当于理想点)，求解单目标规划<span class="arithmatex">\(\quad\left(P_{i}(\alpha)\right)\min\limits_{\mathbf{x}\in S}\left(\sum\limits_{k=1}^{p}\lambda_{k}\left(f_{k}(\mathbf{x})-f_{k}^{0}\right)^{\alpha}\right)^{\frac1\alpha}\)</span>（意思：和这个理想点的距离最小）  </li>
-<li>其中<span class="arithmatex">\(\lambda \in \Lambda = \{\lambda|\lambda \geq 0,\sum^p_{k=1}\lambda =1\}\)</span>  </li>
-</ul>
+<li>
+<p>其中<span class="arithmatex">\(\lambda \in \Lambda = \{\lambda|\lambda \geq 0,\sum^p_{k=1}\lambda =1\}\)</span>  </p>
 </li>
-</ul>
-<ul>
-<li>分层排序法<br />
-<img alt="20241006165420.png" src="../20241006165420.png" />  </li>
+<li>
+<p>分层排序法<br />
+<img alt="20241006165420.png" src="../20241006165420.png" />  </p>
+</li>
 </ul>
 <h1 id="_19">投资组合</h1>
 <p><img alt="20241006170252.png" src="../20241006170252.png" />  </p>

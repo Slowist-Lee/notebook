@@ -1,7 +1,7 @@
 import os
 
 # 指定你的文件夹路径
-folder_path = 'D:\\MyRepository\\notebook-publish\\notebook\\docs\\Math\\MathModel\\note\\graph\\'
+folder_path = 'D:\\MyRepository\\notebook-publish\\notebook\\docs\\cs\\pl\\Asm\\'
 
 # 遍历文件夹中的所有文件
 for filename in os.listdir(folder_path):

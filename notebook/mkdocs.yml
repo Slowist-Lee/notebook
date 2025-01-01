@@ -77,7 +77,7 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.superfences
   - def_list
-  - mdx_truly_sane_lists
+  # - mdx_truly_sane_lists
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.emoji:
@@ -118,7 +118,7 @@ nav:
         - Misc: cs/pl/C/misc.md
       - Asm:
         - cs/pl/Asm/index.md
-        - 期末考复习: cs/pl/Asm/sum.md
+        - 理论复习: cs/pl/Asm/sum.md
         - Misc: cs/pl/Asm/Misc.md
     - Algorithm:
       - cs/algorithm/index.md
