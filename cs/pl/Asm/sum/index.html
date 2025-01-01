@@ -1040,9 +1040,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#47" class="md-nav__link">
+  <a href="#47-callret" class="md-nav__link">
     <span class="md-ellipsis">
-      4.7 远/近指针/标号相关
+      4.7 远/近指针/标号相关 call和ret指令
     </span>
   </a>
   
@@ -1068,6 +1068,39 @@
       5. 80x86指令系统
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="5. 80x86指令系统">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 通用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 端口
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 地址传送指令
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3630,9 +3663,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#47" class="md-nav__link">
+  <a href="#47-callret" class="md-nav__link">
     <span class="md-ellipsis">
-      4.7 远/近指针/标号相关
+      4.7 远/近指针/标号相关 call和ret指令
     </span>
   </a>
   
@@ -3659,6 +3692,39 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="5. 80x86指令系统">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 通用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 端口
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 地址传送指令
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -3681,7 +3747,7 @@
 
 <h1 id="_1">汇编复习提纲</h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8zm6.78 1a.7.7 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38z"/></svg></span> 约 1787 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6m80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3"/></svg></span> 63 行代码 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 17H7V3h14m0-2H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2M3 5H1v16a2 2 0 0 0 2 2h16v-2H3m12.96-10.71-2.75 3.54-1.96-2.36L8.5 15h11z"/></svg></span> 3 张图片 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3z"/></svg></span> 预计阅读时间 7 分钟</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8zm6.78 1a.7.7 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38z"/></svg></span> 约 2000 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6m80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3"/></svg></span> 63 行代码 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 17H7V3h14m0-2H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2M3 5H1v16a2 2 0 0 0 2 2h16v-2H3m12.96-10.71-2.75 3.54-1.96-2.36L8.5 15h11z"/></svg></span> 3 张图片 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3z"/></svg></span> 预计阅读时间 7 分钟</p>
 </div>
 <div class="admonition abstract">
 <p class="admonition-title">考前补天的幻想</p>
@@ -3730,24 +3796,40 @@
 </tr>
 </tbody>
 </table>
-<p>命名规则：<br />
-- 关键词：<code>d</code>+英文首字母<br />
-- <code>ptr</code>：<br />
-    - 单个单词：本身<br />
-    - 多个单词：第一个单词首字母+第二个单词本身  </p>
+<ul>
+<li>命名规则：  <ul>
+<li>关键词：<code>d</code>+英文首字母  </li>
+<li><code>ptr</code>：  <ul>
+<li>单个单词：本身  </li>
+<li>多个单词：第一个单词首字母+第二个单词本身  </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <h2 id="_3">二、寄存器</h2>
 <h3 id="21-442">2.1 通用寄存器（4数据+4变址+2指针）</h3>
 <h4 id="1">1. 数据寄存器</h4>
 <ul>
-<li><code>ax</code>: 累加器，常用于累加：<br />
-    - 特殊用法：<br />
-        - 乘除法：<br />
-            - 乘法: <code>mul src</code>:<br />
-                - <code>src</code> 8位： <code>ax = al*src</code><br />
-                - <code>src</code> 16位： <code>dx:ax = al*src</code><br />
-            - 除法：<code>div op</code><br />
-                - <code>op</code> 8位：<code>ah = ax/op</code>, <code>al=ax%op</code><br />
-                - <code>op</code> 16位： <code>ax=(dx:ax)/op,dx=(dx:ax)%op</code>  </li>
+<li><code>ax</code>: 累加器，常用于累加：  <ul>
+<li>特殊用法：  <ul>
+<li>乘除法：  <ul>
+<li>乘法: <code>mul src</code>:  <ul>
+<li><code>src</code> 8位： <code>ax = al*src</code>  </li>
+<li><code>src</code> 16位： <code>dx:ax = al*src</code>  </li>
+</ul>
+</li>
+<li>除法：<code>div op</code>  <ul>
+<li><code>op</code> 8位：<code>ah = ax/op</code>, <code>al=ax%op</code>  </li>
+<li><code>op</code> 16位： <code>ax=(dx:ax)/op,dx=(dx:ax)%op</code>  </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li><code>bx</code>: 基址寄存器：常用来存放寻址的基址  </li>
 <li><code>cx</code>: 计数寄存器，循环中用作计数器  </li>
 <li><code>dx</code>：数据寄存器：存放I/O端口地址 // 双子运算中，作为<code>ax</code>扩展的高十六位  </li>
@@ -3766,9 +3848,11 @@
     - <code>bp</code>和<code>di</code>  </p>
 <h4 id="3">3. 指针寄存器</h4>
 <ul>
-<li><code>bp</code>: 只要在<code>[]</code>中使用<code>bp</code>, 但没有显性给出段地址，段地址默认在<code>ss</code>中，比如：<br />
-    - <code>mov ax, [bp]</code> 即<code>(ax)=((ss)*16+(bp))</code><br />
-    - 【其他的段地址默认在<code>ds</code>】  </li>
+<li><code>bp</code>: 只要在<code>[]</code>中使用<code>bp</code>, 但没有显性给出段地址，段地址默认在<code>ss</code>中，比如：  <ul>
+<li><code>mov ax, [bp]</code> 即<code>(ax)=((ss)*16+(bp))</code>  </li>
+<li>【其他的段地址默认在<code>ds</code>】  </li>
+</ul>
+</li>
 <li><code>sp</code>：<strong>堆栈指针</strong>寄存器：<code>ss:sp</code>指向堆栈的顶端  </li>
 </ul>
 <h3 id="22">2.2 段寄存器：</h3>
@@ -3784,8 +3868,9 @@
 1. CPU 从<code>cs:ip</code>指向的内存单元读取指令，该指令会进入指令缓冲器<br />
 2. <code>ip = ip + length_of_instruction</code>，即指向下一条指令<br />
 3. 执行指令，跳到步骤 a，重复这个过程"<br />
-4. 8086CPU 通电或复位后，<code>cp = ffffh, ip = 0000h</code>  </p>
-<p>"<code>retf</code>指令复习"<br />
+4. 8086CPU 通电或复位后，<code>cp = ffffh, ip = 0000h</code><br />
+<br>
+"<code>retf</code>指令复习"<br />
 <div class="highlight"><pre><span></span><code><span class="n">back_ip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">word</span><span class="w"> </span><span class="n">ptr</span><span class="w"> </span><span class="n">ss</span><span class="o">:</span><span class="p">[</span><span class="n">sp</span><span class="p">];</span><span class="w">  </span>
 <span class="n">back_cs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">word</span><span class="w"> </span><span class="n">ptr</span><span class="w"> </span><span class="n">ss</span><span class="o">:</span><span class="p">[</span><span class="n">sp</span><span class="o">+</span><span class="mi">2</span><span class="p">];</span><span class="w">  </span>
 <span class="n">sp</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w">  </span>
@@ -3798,19 +3883,25 @@
 <h3 id="23">2.3 偏移地址寄存器</h3>
 <p>作用：表示偏移地址（段地址：偏移地址）  </p>
 <ul>
-<li><code>ip</code><br />
-    - <code>cs:ip</code>, 不能直接出现在任何指令中<br />
-    - 可以通过<code>jmp reg</code>跳转指令等<u>控制转移指令</u>来修改<code>ip</code>的内容  </li>
+<li><code>ip</code>  <ul>
+<li><code>cs:ip</code>, 不能直接出现在任何指令中  </li>
+<li>可以通过<code>jmp reg</code>跳转指令等<u>控制转移指令</u>来修改<code>ip</code>的内容  </li>
+</ul>
+</li>
 </ul>
 <blockquote>
 <p>控制转移指令(回头再补)  </p>
 </blockquote>
 <ul>
-<li><code>sp</code><br />
-    - <code>ss:sp</code> 指向堆栈顶端<br />
-    - [!!] <code>sp</code> 不是变址寄存器！不能用在<code>[]</code>里面！别记混了！！  </li>
-<li><code>bx</code>（通用寄存器）、<code>bp</code>、<code>si</code>、<code>di</code><br />
-    - 能用<code>[]</code>间接寻址，也能参与算术、逻辑、移位运算  </li>
+<li><code>sp</code>  <ul>
+<li><code>ss:sp</code> 指向堆栈顶端  </li>
+<li>[!!] <code>sp</code> 不是变址寄存器！不能用在<code>[]</code>里面！别记混了！！  </li>
+</ul>
+</li>
+<li><code>bx</code>（通用寄存器）、<code>bp</code>、<code>si</code>、<code>di</code>  <ul>
+<li>能用<code>[]</code>间接寻址，也能参与算术、逻辑、移位运算  </li>
+</ul>
+</li>
 </ul>
 <p><img alt="20241231214045.png" src="../20241231214045.png" />  </p>
 <h3 id="24">2.4 标志寄存器</h3>
@@ -3914,23 +4005,27 @@
 </code></pre></div>
 <p>结合<code>pushf</code>和<code>popf</code>指令，可以实现对标志寄存器的访问  </p>
 <ul>
-<li><code>pushf</code><br />
-    - 功能：把<code>fl</code>压入栈中<br />
-    - 等价操作：<br />
+<li><code>pushf</code>  <ul>
+<li>功能：把<code>fl</code>压入栈中  </li>
+<li>等价操作：<br />
 <div class="highlight"><pre><span></span><code><span class="nf">sp-</span><span class="err">=</span><span class="mi">2</span><span class="c1">;  </span>
 <span class="nf">word</span><span class="w"> </span><span class="no">ptr</span><span class="w"> </span><span class="no">ss</span><span class="p">:[</span><span class="no">sp</span><span class="p">]</span><span class="err">=</span><span class="no">fl</span><span class="c1">;  </span>
 </code></pre></div></li>
 </ul>
+</li>
+</ul>
 <p><code>popf</code>  </p>
 <ul>
 <li>功能：从栈中弹出一个字给<code>fl</code>  </li>
-<li>等价操作：<br />
+<li>
+<p>等价操作：<br />
 <div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nf">fl</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="no">word</span><span class="w"> </span><span class="no">ptr</span><span class="w"> </span><span class="no">ss</span><span class="p">:[</span><span class="no">sp</span><span class="p">]</span><span class="c1">;  </span>
 <span class="w">    </span><span class="nf">sp</span><span class="w"> </span><span class="err">+=</span><span class="w"> </span><span class="mi">2</span><span class="c1">;  </span>
-</code></pre></div></li>
-</ul>
-<ul>
-<li>格式：<code>popf</code>  </li>
+</code></pre></div></p>
+</li>
+<li>
+<p>格式：<code>popf</code>  </p>
+</li>
 </ul>
 <h2 id="_4">三、数据相关知识点【这部分需要理解】</h2>
 <h3 id="31">3.1 数据存放 — 小端规则</h3>
@@ -3945,20 +4040,30 @@
 <li>不能以数字开头  </li>
 <li>不能用<code>?</code>和<code>$</code>单独作为名称  </li>
 <li>长度&lt;31  </li>
-<li>在缺省情况下，变量名及标号名不区分大小写  </li>
-</ul>
+<li>
+<p>在缺省情况下，变量名及标号名不区分大小写  </p>
+</li>
+<li>
+<p>数据段定义  </p>
+</li>
+<li><code>varname db|dw|dd|dq|dt value</code>  </li>
+<li>
+<p><code>dup</code>运算符:  </p>
 <ul>
-<li>数据段定义<br />
- 1. <code>varname db|dw|dd|dq|dt value</code><br />
- 2. <code>dup</code>运算符:<br />
-     - <code>varname db|dw|dd|dq|dt n dup(x1[, x2, ..., xm])</code><br />
-         - <code>n</code>表示重复的次数，<code>x1, x2, ..., xm</code>表示重复项，可 以有 1 个或多个，且允许嵌套<br />
-         - <code>y db 2 dup('A', 3 dup('B'), 'C') ; 等价于y db 'A', 'B', 'B', 'B', 'C', 'A', 'B', 'B', 'B', 'C'</code>  </li>
+<li><code>varname db|dw|dd|dq|dt n dup(x1[, x2, ..., xm])</code>  <ul>
+<li><code>n</code>表示重复的次数，<code>x1, x2, ..., xm</code>表示重复项，可 以有 1 个或多个，且允许嵌套  </li>
+<li><code>y db 2 dup('A', 3 dup('B'), 'C') ; 等价于y db 'A', 'B', 'B', 'B', 'C', 'A', 'B', 'B', 'B', 'C'</code>  </li>
 </ul>
+</li>
+</ul>
+</li>
+<li>
+<p>栈的相关操作：  </p>
 <ul>
-<li>栈的相关操作：<br />
-    - 入栈：<code>push op</code>（<code>ss:sp</code>减小）<br />
-    - 出栈：<code>pop op</code>（<code>ss:sp</code>增大）  </li>
+<li>入栈：<code>push op</code>（<code>ss:sp</code>减小）  </li>
+<li>出栈：<code>pop op</code>（<code>ss:sp</code>增大）  </li>
+</ul>
+</li>
 </ul>
 <h2 id="_5">四、汇编程序相关知识点</h2>
 <h3 id="41">4.1 段定义：</h3>
@@ -4118,7 +4223,10 @@
 <span class="c1">; d == 78563412h  </span>
 <span class="c1">; 这3个变量地址相同而值不同  </span>
 </code></pre></div>
-<h3 id="47">4.7 远/近指针/标号相关</h3>
+<h3 id="47-callret">4.7 远/近指针/标号相关  <code>call</code>和<code>ret</code>指令</h3>
+<blockquote>
+<p>这部分参考小白的word讲义 以及 《汇编语言》Chapter10</p>
+</blockquote>
 <h3 id="48">4.8 程序真正终止</h3>
 <blockquote>
 <p>源程序的结束并不意味着可执行程序的结束，因为此时 CPU 的控制权仍然掌握在可执行程序那边。要想让程序真正中止，需要调用 DOS 的<code>4Ch</code>号中断功能，使得控制权被转交给可执行程序的父程序（即 DOS）。这一过程称为<strong>程序返回</strong>。  </p>
@@ -4128,10 +4236,31 @@
 <span class="no">int</span><span class="w"> </span><span class="mi">21</span><span class="no">h</span><span class="w">  </span>
 </code></pre></div>
 <h2 id="5-80x86">5. 80x86指令系统</h2>
+<h3 id="51">5.1 通用</h3>
 <p>指路：-&gt; https://note.noughtq.top/lang/asm/4</p>
-<p><code>mov</code></p>
-<p><code>push</code></p>
-<p><code>pop</code></p>
+<p>太多了，熟悉的指令就抄一下过了  </p>
+<p><code>mov dest src</code>， <code>dest</code> 和 <code>src</code>不能同时是内存
+<code>push op</code></p>
+<p><code>pop op</code></p>
+<p><code>xchg op1, op2</code></p>
+<h3 id="52">5.2 端口</h3>
+<p>【！全忘了！】  </p>
+<p>端口访问相关的指令：</p>
+<ul>
+<li><code>in reg, port_num</code>：从<code>port_num</code>号端口读取数据到<code>reg</code></li>
+<li><code>out port_num, reg</code>：向<code>port_num</code>号端口写入位于<code>reg</code>内的数据</li>
+</ul>
+<p>其中<code>reg</code>和<code>port_num</code>具体指：</p>
+<ul>
+<li>访问 8 位端口：<code>reg</code>表示寄存器<code>al</code>，<code>port_num</code> 表 示 8 位立即数</li>
+<li>访问 16 位端口：<code>reg</code>表示寄存器<code>ax</code>，<code>port_num</code>表示<code>dx</code></li>
+</ul>
+<p>常用的端口号：</p>
+<ul>
+<li><code>70h</code>和<code>71h</code>：分 别是CMOS RAM 的<u>地址端口</u>和<u>数据端口</u>，因此 访问CMOS RAM 时需要同时处理这两个端口的信号</li>
+<li><code>60h</code>：键盘输入</li>
+</ul>
+<h3 id="53">5.3 地址传送指令</h3>
 
 
 

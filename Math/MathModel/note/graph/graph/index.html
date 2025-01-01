@@ -3515,11 +3515,12 @@
 <p>定理 1.1 (Ramsey). 对任意正整数 s, t, 存在正整数 N, 使得完全图 <span class="arithmatex">\(K_N\)</span>​ 的任意二染色 (下文中均指红蓝二染色) 必包含红色 Ks​ 或蓝色 Kt​. 这样的最小的正整数 N 记为 R(s,t).  </p>
 <h2 id="_3">割</h2>
 <ul>
-<li>定义：设<span class="arithmatex">\(S \subseteq V\)</span>为图<span class="arithmatex">\(G=(V,E)\)</span>顶点集的任一子集，<span class="arithmatex">\(\overline{S}=V \setminus S\)</span>边集<span class="arithmatex">\((S,\overline(S))\)</span>称为<span class="arithmatex">\(G\)</span>的割.<br />
-    - 【通俗来讲】，图G上的一点连出去的一条边  <div class="highlight"><pre><span></span><code>  - 若$G$为无向图：$S-\overline{S}$  
-  - 若$G$为有向图：$S\rightarrow\overline{S}$
-</code></pre></div>
+<li>定义：设<span class="arithmatex">\(S \subseteq V\)</span>为图<span class="arithmatex">\(G=(V,E)\)</span>顶点集的任一子集，<span class="arithmatex">\(\overline{S}=V \setminus S\)</span>边集<span class="arithmatex">\((S,\overline(S))\)</span>称为<span class="arithmatex">\(G\)</span>的割.  <ul>
+<li>
+<p>【通俗来讲】，图G上的一点连出去的一条边  </p>
 <ul>
+<li>若<span class="arithmatex">\(G\)</span>为无向图：<span class="arithmatex">\(S-\overline{S}\)</span>  </li>
+<li>若<span class="arithmatex">\(G\)</span>为有向图：<span class="arithmatex">\(S\rightarrow\overline{S}\)</span>  </li>
 <li>赋权图中割的权之和是<strong>割量</strong>  <ul>
 <li>割量最小的割是<strong>最小割</strong>  </li>
 <li>割量最大的割是<strong>最大割</strong><br />
@@ -3529,27 +3530,45 @@
 </ul>
 </li>
 </ul>
+</li>
+</ul>
 <h2 id="_4">网络流</h2>
 <ul>
-<li><a href="https://blog.csdn.net/Nopoduct/article/details/123298182">csdn-blog</a>  </li>
-</ul>
+<li>
+<p><a href="https://blog.csdn.net/Nopoduct/article/details/123298182">csdn-blog</a>  </p>
+</li>
+<li>
+<p>有向图<span class="arithmatex">\(N=(V,A)\)</span>  </p>
 <ul>
-<li>有向图<span class="arithmatex">\(N=(V,A)\)</span><br />
-    - 以<span class="arithmatex">\(v\)</span>为起点和终点的弧的集合分别记作<span class="arithmatex">\(v^+,v^-\)</span>  </li>
-<li>定义：<br />
-    - 对任一弧<span class="arithmatex">\(a \in A\)</span>, 其容量为非负数<span class="arithmatex">\(u(a)\)</span>,费用为数<span class="arithmatex">\(c(a)\)</span><br />
-    - 对任一顶点<span class="arithmatex">\(v \in V\)</span>, 平衡量是<span class="arithmatex">\(b(v)\)</span><br />
-        - <span class="arithmatex">\(\sum_{v\in V}b(v)=0\)</span><br />
-    - 网络流：对任一弧<span class="arithmatex">\(a \in A\)</span>， 流经弧<span class="arithmatex">\(a\)</span>的流量为非负数<span class="arithmatex">\(f(a)\)</span><br />
-        - 弧容量限制：<span class="arithmatex">\(f(a) \leq u(a)\)</span><br />
-        - 顶点容量限制：<span class="arithmatex">\(\sum_{a\in v^+}f(a)-\sum_{a\in v^-}f(a)=b(v)\)</span>  </li>
-<li>最小费用流<br />
-    - 求<span class="arithmatex">\(\sum_{a\in v}f(a)c(a)\)</span>最小的可行流  </li>
-<li>最大流<br />
-    - 除顶点<span class="arithmatex">\(s,t\)</span>外，其余顶点的平衡量为0【输入量等于输出量，达到平衡】<br />
-    - 求顶点<span class="arithmatex">\(s\)</span>平衡量的最大值，即网络中从<span class="arithmatex">\(s\)</span>到<span class="arithmatex">\(t\)</span>的<strong>最大流量</strong>  </li>
-<li>最大流最小割定理<br />
-    - 任一网络中，最大流量等于最小割量  </li>
+<li>以<span class="arithmatex">\(v\)</span>为起点和终点的弧的集合分别记作<span class="arithmatex">\(v^+,v^-\)</span>  </li>
+</ul>
+</li>
+<li>定义：  <ul>
+<li>对任一弧<span class="arithmatex">\(a \in A\)</span>, 其容量为非负数<span class="arithmatex">\(u(a)\)</span>,费用为数<span class="arithmatex">\(c(a)\)</span>  </li>
+<li>对任一顶点<span class="arithmatex">\(v \in V\)</span>, 平衡量是<span class="arithmatex">\(b(v)\)</span>  <ul>
+<li><span class="arithmatex">\(\sum_{v\in V}b(v)=0\)</span>  </li>
+</ul>
+</li>
+<li>网络流：对任一弧<span class="arithmatex">\(a \in A\)</span>， 流经弧<span class="arithmatex">\(a\)</span>的流量为非负数<span class="arithmatex">\(f(a)\)</span>  <ul>
+<li>弧容量限制：<span class="arithmatex">\(f(a) \leq u(a)\)</span>  </li>
+<li>顶点容量限制：<span class="arithmatex">\(\sum_{a\in v^+}f(a)-\sum_{a\in v^-}f(a)=b(v)\)</span>  </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>最小费用流  <ul>
+<li>求<span class="arithmatex">\(\sum_{a\in v}f(a)c(a)\)</span>最小的可行流  </li>
+</ul>
+</li>
+<li>最大流  <ul>
+<li>除顶点<span class="arithmatex">\(s,t\)</span>外，其余顶点的平衡量为0【输入量等于输出量，达到平衡】  </li>
+<li>求顶点<span class="arithmatex">\(s\)</span>平衡量的最大值，即网络中从<span class="arithmatex">\(s\)</span>到<span class="arithmatex">\(t\)</span>的<strong>最大流量</strong>  </li>
+</ul>
+</li>
+<li>最大流最小割定理  <ul>
+<li>任一网络中，最大流量等于最小割量  </li>
+</ul>
+</li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -3603,20 +3622,28 @@
 </ul>
 <h3 id="_8">判别法</h3>
 <ol>
-<li>无向图是欧拉图当且仅当：<br />
-    - 非零度顶点是连通的<br />
-    - 顶点的度数都是偶数  </li>
-<li>无向图是半欧拉图当且仅当：<br />
-    - 非零度顶点是连通的<br />
-    - 恰有 2 个奇度顶点  </li>
-<li>有向图是欧拉图当且仅当：<br />
-    - 非零度顶点是强连通的<br />
-    - 每个顶点的入度和出度相等  </li>
-<li>有向图是半欧拉图当且仅当：<br />
-    - 非零度顶点是弱连通的<br />
-    - 至多一个顶点的出度与入度之差为 1<br />
-    - 至多一个顶点的入度与出度之差为 1<br />
-    - 其他顶点的入度和出度相等  </li>
+<li>无向图是欧拉图当且仅当：  <ul>
+<li>非零度顶点是连通的  </li>
+<li>顶点的度数都是偶数  </li>
+</ul>
+</li>
+<li>无向图是半欧拉图当且仅当：  <ul>
+<li>非零度顶点是连通的  </li>
+<li>恰有 2 个奇度顶点  </li>
+</ul>
+</li>
+<li>有向图是欧拉图当且仅当：  <ul>
+<li>非零度顶点是强连通的  </li>
+<li>每个顶点的入度和出度相等  </li>
+</ul>
+</li>
+<li>有向图是半欧拉图当且仅当：  <ul>
+<li>非零度顶点是弱连通的  </li>
+<li>至多一个顶点的出度与入度之差为 1  </li>
+<li>至多一个顶点的入度与出度之差为 1  </li>
+<li>其他顶点的入度和出度相等  </li>
+</ul>
+</li>
 </ol>
 <h3 id="_9">求欧拉回路或欧拉路</h3>
 <h4 id="1-fleury">1. Fleury (弗罗莱) 算法</h4>
