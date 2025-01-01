@@ -119,6 +119,7 @@ nav:
       - Asm:
         - cs/pl/Asm/index.md
         - 理论复习: cs/pl/Asm/sum.md
+        - 实验复习: cs/pl/Asm/Exercise.md
         - Misc: cs/pl/Asm/Misc.md
     - Algorithm:
       - cs/algorithm/index.md
