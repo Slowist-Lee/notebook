@@ -115,11 +115,13 @@ nav:
         - Ch8 String: cs/pl/C/String.md
         - Ch9 Structure: cs/pl/C/Structure.md
         - Ch10 Linked List: cs/pl/C/LinkedList.md
+        - Ch12 File: cs/pl/C/file.md
         - Misc: cs/pl/C/misc.md
       - Asm:
         - cs/pl/Asm/index.md
         - 理论复习: cs/pl/Asm/sum.md
         - 实验复习: cs/pl/Asm/Exercise.md
+        - 实验答案: cs/pl/Asm/Answer.md
         - Misc: cs/pl/Asm/Misc.md
     - Algorithm:
       - cs/algorithm/index.md

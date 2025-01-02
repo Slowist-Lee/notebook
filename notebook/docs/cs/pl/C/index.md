@@ -12,6 +12,7 @@
     -  https://www.cc98.org/topic/6070665  
     -  https://ckc-agc.bowling233.top/programming/
     -  LHgg的笔记：https://lh-0124.github.io/LHstudy/note/notec1/
+    -  yyzgg的笔记：https://iiiiling.github.io/notebook/CS/C/error/  
 
 ## Table of Contents
 
@@ -20,5 +21,6 @@
   - [字符串](String.md)
   - [结构体](Structure.md)
   - [链表](LinkedList.md)
+  - [文件](file.md)
 - 杂项:
   - [杂项](misc.md)
