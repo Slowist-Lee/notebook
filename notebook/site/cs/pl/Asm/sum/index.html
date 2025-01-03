@@ -581,6 +581,8 @@
       
         
       
+        
+      
     
     
       
@@ -736,6 +738,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../../C/Error/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Error
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../C/misc/" class="md-nav__link">
         
   
@@ -771,6 +794,8 @@
       
         
           
+        
+      
         
       
         
@@ -1513,6 +1538,27 @@
   
   <span class="md-ellipsis">
     实验复习
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Answer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    实验答案
   </span>
   
 
@@ -5450,22 +5496,39 @@ kimi的解释：  <blockquote>
 </li>
 </ul>
 <h4 id="722-dos">7.2.2 DOS中断</h4>
-<p>很常用的一些，继续ctrl+c<br />
-- <code>int 21h</code> 主要用的是 <strong>输入输出</strong>相关：<br />
-- <code>ah = 01h</code>号功能：输入字符<br />
-    - <code>al</code>保存读入的字符<br />
-- <code>ah = 02h</code>号功能：输出字符<br />
-    - <code>dl</code>保存待输出的字符，如果是数字则看作 ASCII 码<br />
-- <code>ah = 09h</code>号功能：输出字符串<br />
-    - ds:dx 指向一个以<code>$</code>为结尾的字符串的首地址，显示的字符串不包含这个<code>$</code><br />
-- <code>ah = 0Ah</code>号功能：输入字符串<br />
-    - ds:dx 指向一个 buf，buf 的第一个字节为允许输入的最多字符数，第二个字节为实际输入的字符数，从第三个字节开始才是输入的字符内容<br />
-    - 如果输入超过最大字符数，则会发出铃声，并且光标不再移动  </p>
+<p>很常用的一些，继续ctrl+c  </p>
+</li>
+<li>
+<p><code>int 21h</code> 主要用的是 <strong>输入输出</strong>相关：  </p>
+<ul>
+<li><code>ah = 01h</code>号功能：输入字符    <ul>
+<li><code>al</code>保存读入的字符  </li>
+</ul>
+</li>
+<li><code>ah = 02h</code>号功能：输出字符  <ul>
+<li><code>dl</code>保存待输出的字符，如果是数字则看作 ASCII 码  </li>
+</ul>
+</li>
+<li><code>ah = 09h</code>号功能：输出字符串  <ul>
+<li>ds:dx 指向一个以<code>$</code>为结尾的字符串的首地址，显示的字符串不包含这个<code>$</code>  </li>
+</ul>
+</li>
+<li><code>ah = 0Ah</code>号功能：输入字符串  <ul>
+<li>ds:dx 指向一个 buf，buf 的第一个字节为允许输入的最多字符数，第二个字节为实际输入的字符数，从第三个字节开始才是输入的字符内容  </li>
+<li>如果输入超过最大字符数，则会发出铃声，并且光标不再移动  </li>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <h4 id="723-bios">7.2.3 BIOS 中断</h4>
 <ul>
-<li><code>int 09h</code>: 处理键盘输入  </li>
+<li><code>int 09h</code>: 处理键盘输入  <ul>
 <li>通过<code>60h</code>端口读取键盘输入的扫描码，并转化为相应的ASCII码，存在内存的指定控件中  </li>
-<li><code>int 10h</code>  </li>
+</ul>
+</li>
+<li><code>int 10h</code>  <ul>
 <li><code>ah=00h</code>: 切换显示模式  <ul>
 <li><code>al=03h</code>: 80*25 文本模式  </li>
 <li><code>al=13h</code>: 320200256图形模式  </li>
@@ -5477,7 +5540,9 @@ kimi的解释：  <blockquote>
 <li><code>cx</code>用于设置字符重复个数  </li>
 </ul>
 </li>
-<li><code>int 16h</code>: 从键盘缓冲区读取一个键盘输入，并将其从缓冲区删除  </li>
+</ul>
+</li>
+<li><code>int 16h</code>: 从键盘缓冲区读取一个键盘输入，并将其从缓冲区删除  <ul>
 <li>需要先设置<code>ah=0</code>  </li>
 <li><code>ah</code>保存扫描码,<code>al</code>保存 ASCII 码  </li>
 <li>配合<code>int 09h</code>实现键盘读取<br />
@@ -5515,7 +5580,7 @@ kimi的解释：  <blockquote>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 1, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 2, 2025</span>
   </span>
 
     

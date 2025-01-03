@@ -24,3 +24,4 @@
   - [文件](file.md)
 - 杂项:
   - [杂项](misc.md)
+  - [错题-考前紧急版](Error-Sum.md)

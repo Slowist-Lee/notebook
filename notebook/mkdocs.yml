@@ -116,6 +116,7 @@ nav:
         - Ch9 Structure: cs/pl/C/Structure.md
         - Ch10 Linked List: cs/pl/C/LinkedList.md
         - Ch12 File: cs/pl/C/file.md
+        - Error: cs/pl/C/Error-Sum.md
         - Misc: cs/pl/C/misc.md
       - Asm:
         - cs/pl/Asm/index.md

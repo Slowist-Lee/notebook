@@ -364,7 +364,7 @@ next_dot:
 code ends  
 end main  
 ```  
-### 6.2 cn.asm  
+### 6.3 cn.asm  
 ```asm  
 data segment  
 hz db 04h,80h,0Eh,0A0h,78h,90h,08h,90h  
@@ -411,7 +411,7 @@ no_dot:
 code ends  
 end main  
 ```  
-### 6.3 cnt.asm  
+### 6.4 cnt.asm  
 ```asm  
 data segment  
 hz db 04h,80h,0Eh,0A0h,78h,90h,08h,90h  
