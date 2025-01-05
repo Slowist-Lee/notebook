@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Error.md",
+                "file": "Error-Sum.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Error"
+              "title": "Error-Sum"
             }
           },
           {
@@ -92,7 +92,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200
   },
   "right": {
     "id": "8fc3fd8d6be6c5ef",
@@ -179,9 +179,10 @@
   },
   "active": "c919d0d94a2686c3",
   "lastOpenFiles": [
-    "index.md",
-    "Error-Sum.md",
     "Error.md",
+    "file.md",
+    "Error-Sum.md",
+    "index.md",
     "Pasted image 20250103093116.png",
     "Pasted image 20250103092810.png"
   ]
