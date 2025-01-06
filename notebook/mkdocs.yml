@@ -40,6 +40,7 @@ theme:
     - navigation.footer
     - search.suggest
     - search.highlight
+    - content.code.copy
 repo_url: https://github.com/Slowist-Lee/notebook
 repo_name: Slowist/Notebook
 extra:
@@ -105,7 +106,10 @@ extra_css:
 copyright: Copyright &copy; Slowist/All Rights Reserved. # 左下角的版权声明
 
 nav:
-  - index.md
+  - Home:
+    - index.md
+    - 正在学习的课程: Courses.md
+    - 已完成学习的课程: Content.md
   - Computer Science:
     - cs/index.md
     - Language:

@@ -19,7 +19,7 @@ statistics: True
 !!! inline tip "较完善的内容"
     - [复变函数与积分变换](Math/complex.md)
     - [英语口译](English/Interpretation/index.md)
-    - [雕版印刷与刻本文化](Others/雕版印刷与刻本文化.md)
+    - [雕版印刷与刻本文化](Others/PrintingCulture.md)
 
 !!! stastic "站点统计"
     - :material-file-document: {{ pages }} pages
