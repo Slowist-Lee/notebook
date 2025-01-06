@@ -8,17 +8,13 @@
         "type": "tabs",
         "children": [
           {
-            "id": "7e278191333f43a9",
+            "id": "2e0ef32359af5e5d",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "控制论--复习课.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "控制论--复习课"
+              "title": "新标签页"
             }
           }
         ]
@@ -77,7 +73,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "e028942463b720ac",
@@ -93,7 +90,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "控制论--复习课.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +99,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "控制论--复习课 的反向链接列表"
+              "title": "反向链接"
             }
           },
           {
@@ -112,12 +108,11 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "控制论--复习课.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "控制论--复习课 的出链列表"
+              "title": "出链"
             }
           },
           {
@@ -138,11 +133,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "控制论--复习课.md"
-              },
+              "state": {},
               "icon": "lucide-list",
-              "title": "控制论--复习课 的大纲"
+              "title": "大纲"
             }
           }
         ]
@@ -162,10 +155,19 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "7e278191333f43a9",
+  "active": "2e0ef32359af5e5d",
   "lastOpenFiles": [
-    "Pasted.md",
+    "PrintingCulture.md",
+    "大物实验.md",
+    "PhyExperiment.md",
+    "control-theory.md",
+    "Pasted image 20250106082552.png",
     "控制论--复习课.md",
+    "绪论2.pdf",
+    "绪论2.pdf.crdownload",
+    "绪论学习PPT.pdf",
+    "绪论学习PPT.pdf.crdownload",
+    "Pasted.md",
     "控制论--复习课.pdf",
     "Pasted image 20250105163120.png",
     "Pasted image 20250105163106.png",
@@ -175,7 +177,6 @@
     "Pasted image 20250105153237.png",
     "Pasted image 20250105153227.png",
     "Pasted image 20250105152955.png",
-    "Pasted image 20250105152745.png",
-    "Pasted image 20250105152218.png"
+    "Pasted image 20250105152745.png"
   ]
 }

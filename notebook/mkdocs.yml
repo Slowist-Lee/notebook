@@ -180,8 +180,9 @@ nav:
         - English/Interpretation/homework/Material.md
   - Others: 
     - Others/index.md
-    - Others/雕版印刷与刻本文化.md
-    - Others/控制论--复习课.md
+    - 雕版印刷与课本文化: Others/PrintingCulture.md
+    - 控制论: Others/control-theory.md
+    - 大物实验: Others/PhyExperiment.md
   - Writings:
     - Writings/index.md
     - Essay:
