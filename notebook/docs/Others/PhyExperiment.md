@@ -45,3 +45,67 @@ pic3: 精密且准确
 | ------ | ------------------------------------------ | ------------------------------ | -------------------------------- |
 | 已定系统误差 | 在同等条件下，对同一个待测量进行多次测量，测量值和真值的偏离总是相同的那部分误差分量 | 可通过实验方法或引入修正值方法进行修正，也**必须修正**。 | 电表、读数显微镜的零位误差（调不好的，仪器<u>本身</u>的） |
 | 未定系统误差 | 已知存在于某个范围，而不知具体数值的系统误差                     | 后面<u>B类不确定度</u>计算会提到。                 | 仪器的**允差**（示值误差）                  |
+![](Pasted%20image%2020250106085414.png)
+物理量X，有限n次测量的测量值$x_1,x_2,\dots, x_i, \dots , x_n$
+
+![](Pasted%20image%2020250106085605.png)
+
+### 3. 不确定度
+
+一个数/不为零的正数
+
+![](Pasted%20image%2020250106085947.png)
+
+
+#### 3.1 不确定度计算：
+
+$$\overline{x}=\frac{1}{n}\sum_{i=1}^n x_i \Rightarrow u(A) \approx S(\overline{x})=\sqrt{\frac{1}{n(n-1)}\sum_{i=1}^n(x_i-\overline{x})^2}$$
+$$\Delta_\text{仪} \Rightarrow u_B(X)=\frac{\Delta_\text{仪}}{\sqrt{3}}$$
+
+（事实上，$\Delta_\text{仪}=ku_B$） 只是默认取了$\sqrt{3}$
+$$u(X)=\sqrt{u_A(X)^2+u_B(X)^2}$$
+
+==间接测量==：
+
+![](Pasted%20image%2020250106090759.png)
+
+计算的时候，先分别计算，再用间接测量公式
+- 以$E=\frac{8DmgL}{\pi d^2 b \delta s}$为例，先算$u(m),u(L),u(D),u(d),u(b),u(\delta s)$  
+- $f$ 是积商形式，$\ln f = \ln 8g + \ln m + \ln L + \ln D - \ln \pi - 2\ln d - \ln b - \ln \delta s$  
+$\bar{E} = \frac{\sum_{i=1}^{5} E_{i}}{5} \rightarrow u_{c}(E) = \bar{E} \sqrt{\left(\frac{u(m)}{\bar{m}}\right)^{2} + \left(\frac{u(L)}{\bar{L}}\right)^{2} + \left(\frac{u(D)}{\bar{D}}\right)^{2} + \left(\frac{2u(\bar{d})}{\bar{d}}\right)^{2} + \left(\frac{u(\bar{b})}{\bar{b}}\right)^{2} + \left(\frac{u(\bar{\delta})}{\bar{\delta} s}\right)^{2}}$
+$= 1.92 \times 10^{11} \text{Pa} \quad = 0.3 \times 10^{11} \text{Pa}$  
+
+### 4. 有效数字
+
+- 位数问题（高中学很多了..
+- 科学计数法：1.5kg->1500g(×) -> $1.5\times10^3 g$ √
+
+#### 4.1 单位换算：
+
+![](Pasted%20image%2020250106092900.png)
+
+#### 4.2 运算法则：
+
+![](Pasted%20image%2020250106093036.png)
+![](Pasted%20image%2020250106093238.png)
+![](Pasted%20image%2020250106093257.png)
+**函数**--有效数字：
+
+![](Pasted%20image%2020250106093339.png)
+
+![](Pasted%20image%2020250106093539.png)
+
+
+#### 4.3 不确定度传递公式表：
+
+![](Pasted%20image%2020250106093654.png)
+
+#### 4.4 有效数字的修约法则：
+- **四舍六入五凑偶**
+- 不可连续修约！
+
+![](Pasted%20image%2020250106093840.png)
+
+#### 4.5 不确定度的保留位数！
+
+![](Pasted%20image%2020250106093945.png)

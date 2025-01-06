@@ -11,10 +11,14 @@
             "id": "2e0ef32359af5e5d",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "PhyExperiment.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "PhyExperiment"
             }
           }
         ]
@@ -90,6 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "PhyExperiment.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -99,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "反向链接"
+              "title": "PhyExperiment 的反向链接列表"
             }
           },
           {
@@ -108,11 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "PhyExperiment.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "出链"
+              "title": "PhyExperiment 的出链列表"
             }
           },
           {
@@ -133,9 +139,11 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {},
+              "state": {
+                "file": "PhyExperiment.md"
+              },
               "icon": "lucide-list",
-              "title": "大纲"
+              "title": "PhyExperiment 的大纲"
             }
           }
         ]
@@ -157,26 +165,27 @@
   },
   "active": "2e0ef32359af5e5d",
   "lastOpenFiles": [
+    "Pasted image 20250106093945.png",
+    "Pasted image 20250106093840.png",
+    "Pasted image 20250106093654.png",
+    "Pasted image 20250106093539.png",
+    "Pasted image 20250106093339.png",
+    "Pasted image 20250106093257.png",
+    "Pasted image 20250106093238.png",
+    "Pasted image 20250106093036.png",
+    "Pasted image 20250106092900.png",
+    "Pasted image 20250106090759.png",
+    "Pasted image 20250106085947.png",
     "PrintingCulture.md",
     "大物实验.md",
     "PhyExperiment.md",
     "control-theory.md",
-    "Pasted image 20250106082552.png",
     "控制论--复习课.md",
     "绪论2.pdf",
     "绪论2.pdf.crdownload",
     "绪论学习PPT.pdf",
     "绪论学习PPT.pdf.crdownload",
     "Pasted.md",
-    "控制论--复习课.pdf",
-    "Pasted image 20250105163120.png",
-    "Pasted image 20250105163106.png",
-    "Pasted image 20250105153831.png",
-    "Pasted image 20250105153405.png",
-    "Pasted image 20250105153246.png",
-    "Pasted image 20250105153237.png",
-    "Pasted image 20250105153227.png",
-    "Pasted image 20250105152955.png",
-    "Pasted image 20250105152745.png"
+    "控制论--复习课.pdf"
   ]
 }
