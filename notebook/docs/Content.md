@@ -8,7 +8,7 @@
 
 ## 大一暑假
 
-- [ ] [cs61b](cs/algorithm/cs61b/)
+- [ ] [cs61b](cs/algorithm/cs61b/Lecture1_Introduction.md)
 
 ## 大二秋冬
 
