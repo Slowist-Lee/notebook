@@ -165,19 +165,19 @@ nav:
           - isee/elec/EC/all.md
       - 模电部分:
         - BJT:
-          - isee/Analog/bjt/index.md
+          - isee/elec/bjt/index.md
         - MOS:
-          - isee/Analog/MOS/index.md
+          - isee/elec/MOS/index.md
         - 多级、差分:
-          - isee/Analog/Hard/index.md
+          - isee/elec/Hard/index.md
         - 运算放大器:
-          - isee/Analog/opam/index.md
+          - isee/elec/opam/index.md
         - 频率响应:
-          - isee/Analog/freq/index.md
+          - isee/elec/freq/index.md
         - 反馈:
-          - isee/Analog/feedback/index.md
+          - isee/elec/feedback/index.md
         - 功率放大器:
-          - isee/Analog/pa/index.md
+          - isee/elec/pa/index.md
   - English:
     - English/index.md
     - Interpretation: 
