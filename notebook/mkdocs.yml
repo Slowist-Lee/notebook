@@ -154,15 +154,16 @@ nav:
     - isee/index.md
     - 电子电路基础: 
       - isee/elec/index.md
+      - 学习路径: isee/elec/share.md
       - 电路部分:
-        - 基本概念:
-          - isee/elec/EC/concepts.md
-        - 动态电路时域分析:
-          - isee/elec/EC/transition.md
-        - 相量分析:
-          - isee/elec/EC/phasor.md
+        - 基本概念: 
+          - isee/elec/EC/concepts/index.md
+        - 动态电路时域分析: 
+          - isee/elec/EC/transition/index.md
+        - 相量分析: 
+          - isee/elec/EC/phasor/index.md
         - 期末补天: 
-          - isee/elec/EC/all.md
+          - isee/elec/EC/all/index.md
       - 模电部分:
         - BJT:
           - isee/elec/bjt/index.md

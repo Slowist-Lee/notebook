@@ -11,11 +11,11 @@
 
 ### 电路部分
 
-- [x] [电路基本概念](EC/concepts.md)
-- [x] [动态电路的时域分析](EC/transition.md)
-- [x] [正弦电路的稳态分析](EC/phasor.md) 
+- [x] [电路基本概念](EC/concepts/index.md)
+- [x] [动态电路的时域分析](EC/transition/index.md)
+- [x] [正弦电路的稳态分析](EC/phasor/index.md) 
 
-- [x] [期末复习(补天)笔记](EC/all.md)
+- [x] [期末复习(补天)笔记](EC/all/index.md)
 
 ### 模电部分
 
