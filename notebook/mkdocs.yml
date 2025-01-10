@@ -152,22 +152,32 @@ nav:
         - 24-25秋冬期末(ACEE): Math/MathModel/test/index.md
   - ISEE: 
     - isee/index.md
-    - 模电(电基 ver.): 
-      - isee/Analog/index.md
-      - BJT:
-        - isee/Analog/bjt/index.md
-      - MOS:
-        - isee/Analog/MOS/index.md
-      - 多级、差分:
-        - isee/Analog/Hard/index.md
-      - 运算放大器:
-        - isee/Analog/opam/index.md
-      - 频率响应:
-        - isee/Analog/freq/index.md
-      - 反馈:
-        - isee/Analog/feedback/index.md
-      - 功率放大器:
-        - isee/Analog/pa/index.md
+    - 电子电路基础: 
+      - isee/elec/index.md
+      - 电路部分:
+        - 基本概念:
+          - isee/elec/EC/concepts.md
+        - 动态电路时域分析:
+          - isee/elec/EC/transition.md
+        - 相量分析:
+          - isee/elec/EC/phasor.md
+        - 期末补天: 
+          - isee/elec/EC/all.md
+      - 模电部分:
+        - BJT:
+          - isee/Analog/bjt/index.md
+        - MOS:
+          - isee/Analog/MOS/index.md
+        - 多级、差分:
+          - isee/Analog/Hard/index.md
+        - 运算放大器:
+          - isee/Analog/opam/index.md
+        - 频率响应:
+          - isee/Analog/freq/index.md
+        - 反馈:
+          - isee/Analog/feedback/index.md
+        - 功率放大器:
+          - isee/Analog/pa/index.md
   - English:
     - English/index.md
     - Interpretation: 

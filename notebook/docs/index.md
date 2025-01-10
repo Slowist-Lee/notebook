@@ -12,14 +12,14 @@ statistics: True
     - 可以来我的[一路楼](https://www.cc98.org/topic/6064267)看看(校内网访问)
 
 !!! inline warning "正在整理的笔记"
-    - [模电](isee/Analog/index.md)  
-    - [C程](cs/pl/C/index.md)  
-    - [汇编语言](cs/pl/Asm/index.md)  
+    <br>
+    Constructing...
+    <br>
 
 !!! inline tip "较完善的内容"
     - [复变函数与积分变换](Math/complex.md)
     - [英语口译](English/Interpretation/index.md)
-    - [雕版印刷与刻本文化](Others/PrintingCulture.md)
+    - [电子电路基础](isee/elec/index.md)
 
 !!! stastic "站点统计"
     - :material-file-document: {{ pages }} pages
