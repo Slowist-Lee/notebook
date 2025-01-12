@@ -14,7 +14,6 @@ statistics: True
 !!! inline warning "正在整理的笔记"
     <br>
     Constructing...
-    <br>
 
 !!! inline tip "较完善的内容"
     - [复变函数与积分变换](Math/complex.md)

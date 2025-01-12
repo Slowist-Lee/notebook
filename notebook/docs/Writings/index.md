@@ -24,12 +24,13 @@
   - 十二：大一回忆录: essay/12/
   - 十三：分流建议: essay/13/
   - 十四：转专业路上的碎碎念: essay/14/
+  - 十五：Turing Complete 全过程日记: essay/15/
 - Emotion:
   - 三: emotion/03/
   - 四: emotion/04/
   - 六: emotion/06/
   - 七: emotion/07/ 
   - 九: emotion/09/
-
-
+- Plans:
+  - 2025 寒假计划: plans/WinterPlan/
 {{ END_TOC }}
