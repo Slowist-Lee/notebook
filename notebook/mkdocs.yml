@@ -134,6 +134,11 @@ nav:
         - Lecture1 Introduction: cs/algorithm/cs61b/Lecture1_Introduction.md
         - Lecture2 Defining and Using Classes: cs/algorithm/cs61b/Lecture2_Defining and Using Classes.md
         - Lecture3 ListsI References Recursion and Lists: cs/algorithm/cs61b/Lecture3_ListsI_References_Recursion_and_Lists.md
+    - System: 
+      - cs/system/index.md
+      - HPC: 
+        - cs/system/HPC/index.md
+        - 1. Tools: cs/system/HPC/Tools.md
   - AI:
     - AI/index.md
     - Computer Vision:

@@ -11,4 +11,6 @@
   - 汇编语言: pl/Asm/
 - 数据结构与算法:
   - cs61b: algorithm/cs61b/
+- 计算机系统相关:
+  - HPC: system/HPC/
 {{ END_TOC }}
