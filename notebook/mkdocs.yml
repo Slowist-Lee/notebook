@@ -134,11 +134,24 @@ nav:
         - Lecture1 Introduction: cs/algorithm/cs61b/Lecture1_Introduction.md
         - Lecture2 Defining and Using Classes: cs/algorithm/cs61b/Lecture2_Defining and Using Classes.md
         - Lecture3 ListsI References Recursion and Lists: cs/algorithm/cs61b/Lecture3_ListsI_References_Recursion_and_Lists.md
+        - Lecture4: cs/algorithm/cs61b/Lecture4.md
     - System: 
       - cs/system/index.md
+      - CO:
+        - cs/system/CO/index.md
+        - 1. Introduction: cs/system/CO/Chap1 Introduction.md
+        - 3. Arithmatic: cs/system/CO/Chap3.md
+      - DD:
+        - cs/system/DD/index.md
+        - 1. Installation: cs/system/DD/Chap1 Installation.md
+      - verilog:
+        - Note: cs/system/verilog/Note.md
       - HPC: 
         - cs/system/HPC/index.md
         - 1. Tools: cs/system/HPC/Tools.md
+      - Tools:
+        - cs/tools/index.md
+        - 1. Git: cs/tools/git-advance.md
   - AI:
     - AI/index.md
     - Computer Vision:
@@ -216,6 +229,7 @@ nav:
       - 十三：分流建议: Writings/essay/13.md
       - 十四：转专业路上的碎碎念: Writings/essay/14.md
       - 十五：Turing Complete 全过程日记: Writings/essay/15.md
+      - 十六：大二课程总结: Writings/essay/16.md
     - Emotion:
       - 三: Writings/emotion/03.md
       - 四: Writings/emotion/04.md
