@@ -19,7 +19,7 @@
 - [ ] 大学物理
 - [x] [控制论](Others/control-theory.md)
 - [x] [大学物理实验](Others/PhyExperiment.md)
-- [x] [电子电路基础](isee/Analog/index.md)
+- [x] [电子电路基础](isee/elec/index.md)
 
 
 ### 课外：
