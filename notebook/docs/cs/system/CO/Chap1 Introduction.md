@@ -7,7 +7,7 @@
 - 存储器：
 	- 主存储器：按存储单元的地址进行存取【按地址存取的方式】，如下图
 
-![|325](img_v3_02ii_7d72e33c-dad9-4e05-976b-f7371e6c6aag.jpg)
+![](image/img_v3_02ii_7d72e33c-dad9-4e05-976b-f7371e6c6aag.jpg)
 
 CPU: 运算器+控制器
 
@@ -25,17 +25,17 @@ CPU: 运算器+控制器
 
 - 计算机层次架构：【如图】
 
-![|325](img_v3_02ii_ec7ad8dd-c728-4b31-a904-6f8b5fd379bg.jpg)
+![](image/img_v3_02ii_ec7ad8dd-c728-4b31-a904-6f8b5fd379bg.jpg)
 
 ## 2. 计算机运行介绍
 
 程序执行过程：
 
-![|296](img_v3_02ii_f4f8cc85-e27a-4a68-bec6-6b04ea24dbbg.jpg)
+![](image/img_v3_02ii_f4f8cc85-e27a-4a68-bec6-6b04ea24dbbg.jpg)
 
 典图之，从源程序到运行文件
 
-![|625](img_v3_02ii_ff3d2663-7c00-4126-8c84-699db3a80c7g.jpg)
+![](image/img_v3_02ii_ff3d2663-7c00-4126-8c84-699db3a80c7g.jpg)
 
 - 指令执行过程描述：
 	- 取指令: 
@@ -51,7 +51,7 @@ CPU: 运算器+控制器
 
 - 字长：内部寄存器的大小
 
-![](Pasted%20image%2020250115170900.png)
+
 
 机器字长：计算机一次能处理的二进制位数
 
@@ -72,7 +72,7 @@ CPU: 运算器+控制器
 	- 由此有加权平均的CPI：
 	$$\text{CPI} = \frac{\text{Clock Cycles}}{\text{Instruction Count}} = \sum_{i=1}^n \left( \frac{\text{CPI}_i \times \text{Instruction Count}_i}{\text{Instruction Count}} \right)$$
 	例子：
-	![|400](Pasted%20image%2020250115110509.png)
+	![](image/Pasted%20image%2020250115110509.png)
 
 
 总结：

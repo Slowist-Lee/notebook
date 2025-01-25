@@ -66,7 +66,14 @@ extra:
           using our <a href="https://marketingplatform.google.com/about/analytics/" target="_blank" rel="noopener">feedback form</a>.
 
 plugins:
+  - mermaid2: {}
   - search
+  - encryptcontent:
+      title_prefix: '🔒'
+      decryption_failure_message: '密码错误, 如有需要，请联系Slowist'
+      hljs: False
+      encrypted_something:
+        mkdocs-encrypted-toc: [nav, class]
   - statistics
   - git-revision-date-localized:
       enable_creation_date: true
@@ -125,6 +132,8 @@ nav:
       - Asm:
         - cs/pl/Asm/index.md
         - 理论复习: cs/pl/Asm/sum.md
+        - Exercise: cs/pl/Asm/Exercise.md
+        - Answer: cs/pl/Asm/Answer.md
         - Misc: cs/pl/Asm/Misc.md
     - Algorithm:
       - cs/algorithm/index.md
@@ -150,6 +159,7 @@ nav:
       - Tools:
         - cs/tools/index.md
         - 1. Git: cs/tools/git-advance.md
+        - 2. PA0: cs/tools/PA0.md
   - AI:
     - AI/index.md
     - Computer Vision:

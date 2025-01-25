@@ -1,0 +1,1 @@
+new_content = re.sub(pattern, replace, content)

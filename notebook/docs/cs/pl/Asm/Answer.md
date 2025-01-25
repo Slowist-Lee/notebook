@@ -1,3 +1,7 @@
+---
+password: cc98
+---
+
 # Exercise -- 编排版
 
 ## Ex.1

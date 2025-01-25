@@ -33,36 +33,33 @@ GPU/NPU 只需要 SIMT - GPU 的 课程
 
 多行并行：通过高速并行线路，组成集群
 
-![](Pasted%20image%2020250113193213.png)
 
-![](Pasted%20image%2020250113193319.png)
 
-![](Pasted%20image%2020250113194013.png)
 
+![](image/Pasted%20image%2020250113194013.png)
 链接： SSH windows terminal
 
-![](Pasted%20image%2020250113194311.png)
+![](image/Pasted%20image%2020250113194311.png)
 -p: 可以指定对应的端口 -i 指定公钥
 
 可以编辑 `~/.ssh/config` 
 下次就可以`ssh network`
 尽量不要密码登录：
 
-![](Pasted%20image%2020250113194440.png)
+![](image/Pasted%20image%2020250113194440.png)
 
 传输文件：
 
-![](Pasted%20image%2020250113194505.png)
+![](image/Pasted%20image%2020250113194505.png)
 
 `ls -lah` 文件/大小/修改时间
 
-![](Pasted%20image%2020250113195906.png)
-
+![](image/Pasted%20image%2020250113195906.png)
 linux里用`echo $PATH`来找到环境变量
 
 链接还有一些用法是一些程序在编译的时候会用到的库是写死的名称。可以用链接的方式给出这个库。比如libcuda.so/libcuda.so.1，其实可能链接到的是同一个库
 
-![](Pasted%20image%2020250113200328.png)
+![](image/Pasted%20image%2020250113200328.png)
 
 gcc/g++ compiler driver
 
@@ -83,33 +80,30 @@ Main.o: main.c
 ```
 
 可以先调一下变量
-![](Pasted%20image%2020250113200935.png)
+![](image/Pasted%20image%2020250113200935.png)
 
 伪目标：
-![](Pasted%20image%2020250113200953.png)
+![](image/Pasted%20image%2020250113200953.png)
 
 一般不会用到：
 
-![](Pasted%20image%2020250113201030.png)
+![](image/Pasted%20image%2020250113201030.png)
 
 `git clone ... --depth=1`
 
-![](Pasted%20image%2020250113201911.png) 
-
+![](image/Pasted%20image%2020250113201911.png)
 编译openmpi的例子↑
 
 CMAKE: 优雅的Builder
 可以用cmake,make,ninja
 CMakeLists.txt
 
-![](Pasted%20image%2020250113202400.png)
+![](image/Pasted%20image%2020250113202400.png)
 
 >编译环节最痛苦的是这个大东西本身依赖的库可能有版本问题，或者不能按他给出的安装脚本一键安装。不出任何问题的话从应用的角度来说cmake就是在通过CMakeLists.txt。cd build之后cmake ..再make和make install。make本身是需要一个Makefile
 
-![](Pasted%20image%2020250113203005.png)
-
+![](image/Pasted%20image%2020250113203005.png)
 Python:
 conda的miniforge前端
 
-![](Pasted%20image%2020250113203253.png)
-
+![](image/Pasted%20image%2020250113203253.png)

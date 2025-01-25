@@ -7,13 +7,13 @@
 
 数字会有不同的意义：
 
-![|400](Pasted%20image%2020250118093437.png)
+![](image/Pasted%20image%2020250118093437.png)
 
 同理：$1001_2$ 我们也无法知道他具体的意义：
 - Unsigned： $1001_2=9_{10}$
 - Signed：$1001_2=-1_{10} \text{   or   } -7_{10}$ （看表示方式）
 
-![|400](Pasted%20image%2020250118093649.png)
+![](image/Pasted%20image%2020250118093649.png)
 
 常用: Two's Complement
 
@@ -21,7 +21,7 @@
 
 #### 数的类型：
 
-![|350](Pasted%20image%2020250118094538.png)
+![](image/Pasted%20image%2020250118094538.png)
 
 ### 3.2 Overflow
 
@@ -37,7 +37,7 @@ Overflow 出现情况：
 - 高位向再高位是否进位 `c2`
 - 若`c1`和`c2`异或后为1，则`of=1`
 
-![](Pasted%20image%2020250118100149.png)
+![](image/Pasted%20image%2020250118100149.png)
 
 - Ignore
 - 汇报给OS
@@ -57,7 +57,7 @@ Overflow 出现情况：
 
 实现如下，Select 代表多路选择器
 
-![|206](Pasted%20image%2020250118100827.png)
+![](image/Pasted%20image%2020250118100827.png)
 
 ### 3.3.2 加法功能及1位ALU
 
@@ -67,14 +67,14 @@ Carry=... 其实就是三个输入里至少两个是1
 
 全加器如下：
 
-![](Pasted%20image%2020250118101306.png)
+![](image/Pasted%20image%2020250118101306.png)
 
 
 组合之后得到最基本的1位ALU！
 
 - 其中 $\boxed{+}$ 表示全加器
 
-![](Pasted%20image%2020250118101341.png)
+![](image/Pasted%20image%2020250118101341.png)
 
 ### 3.3 在1位ALU中实现减法
 
@@ -84,7 +84,7 @@ Carry=... 其实就是三个输入里至少两个是1
 
 我们采用第一种方法，如下图所示：
 
-![](Pasted%20image%2020250118101704.png)
+![](image/Pasted%20image%2020250118101704.png)
 
 ### 3.4 在1位ALU中实现比较(comparison)
 
@@ -101,7 +101,7 @@ Carry=... 其实就是三个输入里至少两个是1
 Most significant bit: 最高位，符号位，作为Set位
 Last significant bit: 最低位
 
-![](Pasted%20image%2020250118112737.png)
+![](image/Pasted%20image%2020250118112737.png)
 
 Caution: Most和Last不能接在一起，符号位不能作为最低位
 
@@ -111,7 +111,7 @@ Caution: Most和Last不能接在一起，符号位不能作为最低位
 
 - Overflow: 如下图所示，可以关注到此时将Set位返回到了最初的Less.
 
-![](Pasted%20image%2020250118112819.png)
+![](image/Pasted%20image%2020250118112819.png)
 
 - Zero Detector: 
 - 功能：现在的结果是否是0 (用于判断i\==j类似的命令)
@@ -120,15 +120,15 @@ Caution: Most和Last不能接在一起，符号位不能作为最低位
 $$Zero=\overline{(Result63+result62+⋯+Result1+Result0)}$$
 - 也许各位读者早就发现：`Binvert`的值和`CarryIn`的值始终是一致的。所以可以将这两个输入并在一起，叫做`Bnegate`
 
-![](Pasted%20image%2020250118113028.png)
+![](image/Pasted%20image%2020250118113028.png)
 
 对应 ALU 的功能表：
 
-![](Pasted%20image%2020250118122004.png)
+![](image/Pasted%20image%2020250118122004.png)
 
 为了简化电路的描绘，一般会用下面这个符号代表 ALU：
 
-![|245](Pasted%20image%2020250118122013.png)
+![](image/Pasted%20image%2020250118122013.png)
 
 Verilog代码：
 ```verilog
