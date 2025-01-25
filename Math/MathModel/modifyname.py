@@ -1,6 +1,5 @@
 import os
 
-
 folder_path = 'D:\\MyRepository\\notebook-publish\\notebook\\docs\\Math\\MathModel\\note\\'
 
 # 遍历文件夹中的所有文件
