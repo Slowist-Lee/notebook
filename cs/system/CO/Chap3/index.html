@@ -490,7 +490,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Courses/" class="md-nav__link">
+      <a href="../../../../Courses.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1820,6 +1820,8 @@
       
         
       
+        
+      
     
     
       
@@ -1875,6 +1877,27 @@
   
   <span class="md-ellipsis">
     1. Git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/PA0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. PA0
   </span>
   
 
@@ -2060,7 +2083,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../AI/Computer%20Vision/Introduction%20to%20CV/Lecture%201/" class="md-nav__link">
+      <a href="../../../../AI/Computer Vision/Introduction to CV/Lecture 1.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4687,15 +4710,15 @@
 <li>会出现 <strong>溢出</strong>(overflow)、负数</li>
 </ul>
 <p>数字会有不同的意义：</p>
-<p><img alt="|400" src="Pasted%20image%2020250118093437.png" /></p>
+<p><img alt="" src="../image/Pasted%20image%2020250118093437.png" /></p>
 <p>同理：<span class="arithmatex">\(1001_2\)</span> 我们也无法知道他具体的意义：
 - Unsigned： <span class="arithmatex">\(1001_2=9_{10}\)</span>
 - Signed：<span class="arithmatex">\(1001_2=-1_{10} \text{   or   } -7_{10}\)</span> （看表示方式）</p>
-<p><img alt="|400" src="Pasted%20image%2020250118093649.png" /></p>
+<p><img alt="" src="../image/Pasted%20image%2020250118093649.png" /></p>
 <p>常用: Two's Complement</p>
 <p>8 bits 范围：-128 - 127</p>
 <h4 id="_1">数的类型：</h4>
-<p><img alt="|350" src="Pasted%20image%2020250118094538.png" /></p>
+<p><img alt="" src="../image/Pasted%20image%2020250118094538.png" /></p>
 <h3 id="32-overflow">3.2 Overflow</h3>
 <p>Overflow 出现情况：
 - 加法
@@ -4709,7 +4732,7 @@
 <li>高位向再高位是否进位 <code>c2</code></li>
 <li>若<code>c1</code>和<code>c2</code>异或后为1，则<code>of=1</code></li>
 </ul>
-<p><img alt="" src="Pasted%20image%2020250118100149.png" /></p>
+<p><img alt="" src="../image/Pasted%20image%2020250118100149.png" /></p>
 <ul>
 <li>Ignore</li>
 <li>汇报给OS</li>
@@ -4725,24 +4748,24 @@
 <h3 id="33-alu">3.3 ALU</h3>
 <h3 id="331-and-or">3.3.1 <code>AND</code> &amp; <code>OR</code> 功能</h3>
 <p>实现如下，Select 代表多路选择器</p>
-<p><img alt="|206" src="Pasted%20image%2020250118100827.png" /></p>
+<p><img alt="" src="../image/Pasted%20image%2020250118100827.png" /></p>
 <h3 id="332-1alu">3.3.2 加法功能及1位ALU</h3>
 <p>使用半加器/全加器构建，
 Sum=<span class="arithmatex">\(A \oplus B \oplus C_{in}\)</span> ，其中<span class="arithmatex">\(C_{in}\)</span>是上一位的进位
 Carry=... 其实就是三个输入里至少两个是1</p>
 <p>全加器如下：</p>
-<p><img alt="" src="Pasted%20image%2020250118101306.png" /></p>
+<p><img alt="" src="../image/Pasted%20image%2020250118101306.png" /></p>
 <p>组合之后得到最基本的1位ALU！</p>
 <ul>
 <li>其中 <span class="arithmatex">\(\boxed{+}\)</span> 表示全加器</li>
 </ul>
-<p><img alt="" src="Pasted%20image%2020250118101341.png" /></p>
+<p><img alt="" src="../image/Pasted%20image%2020250118101341.png" /></p>
 <h3 id="33-1alu">3.3 在1位ALU中实现减法</h3>
 <p>有下列两种方法来实现减法：
 - 给 b 取反，如下图
 - 将第一次全加器的进位(CarryIn)设作1(0-&gt;1,1-&gt;10,由此相当于给b取反了x)</p>
 <p>我们采用第一种方法，如下图所示：</p>
-<p><img alt="" src="Pasted%20image%2020250118101704.png" /></p>
+<p><img alt="" src="../image/Pasted%20image%2020250118101704.png" /></p>
 <h3 id="34-1alucomparison">3.4 在1位ALU中实现比较(comparison)</h3>
 <p>提前介绍一下<code>slt</code>指令(Set less than)：
 - 三个操作数： <code>rd</code>是目标，最终结果放在<code>rd</code>内，<code>rs</code>,<code>rt</code>是两个操作数，对这两个操作数进行比较：If <code>rs</code> &lt; <code>rt</code>, <code>rd</code>=1, else <code>rd</code>=0
@@ -4754,14 +4777,14 @@ Carry=... 其实就是三个输入里至少两个是1</p>
 <p>返回到一位ALU中如下，其中
 Most significant bit: 最高位，符号位，作为Set位
 Last significant bit: 最低位</p>
-<p><img alt="" src="Pasted%20image%2020250118112737.png" /></p>
+<p><img alt="" src="../image/Pasted%20image%2020250118112737.png" /></p>
 <p>Caution: Most和Last不能接在一起，符号位不能作为最低位</p>
 <p>若Overflow的结果是1，则说明结果的<code>Less</code>位颠倒了，这时候需要将其作为Set位，返回<code>Less</code>，下面完整的ALU中表示的更清楚。</p>
 <h3 id="34-alu">3.4 完整的ALU</h3>
 <ul>
 <li>Overflow: 如下图所示，可以关注到此时将Set位返回到了最初的Less.</li>
 </ul>
-<p><img alt="" src="Pasted%20image%2020250118112819.png" /></p>
+<p><img alt="" src="../image/Pasted%20image%2020250118112819.png" /></p>
 <ul>
 <li>Zero Detector: </li>
 <li>
@@ -4773,11 +4796,11 @@ Last significant bit: 最低位</p>
 </li>
 <li>也许各位读者早就发现：<code>Binvert</code>的值和<code>CarryIn</code>的值始终是一致的。所以可以将这两个输入并在一起，叫做<code>Bnegate</code></li>
 </ul>
-<p><img alt="" src="Pasted%20image%2020250118113028.png" /></p>
+<p><img alt="" src="../image/Pasted%20image%2020250118113028.png" /></p>
 <p>对应 ALU 的功能表：</p>
-<p><img alt="" src="Pasted%20image%2020250118122004.png" /></p>
+<p><img alt="" src="../image/Pasted%20image%2020250118122004.png" /></p>
 <p>为了简化电路的描绘，一般会用下面这个符号代表 ALU：</p>
-<p><img alt="|245" src="Pasted%20image%2020250118122013.png" /></p>
+<p><img alt="" src="../image/Pasted%20image%2020250118122013.png" /></p>
 <p>Verilog代码：
 <div class="highlight"><pre><span></span><code><span class="k">module</span><span class="w"> </span><span class="n">alu</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">ALU_operation</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">,</span><span class="w"> </span><span class="n">zero</span><span class="p">,</span><span class="w"> </span><span class="n">overflow</span><span class="w"> </span><span class="p">);</span>
 <span class="w">    </span><span class="k">input</span><span class="w"> </span><span class="p">[</span><span class="mh">31</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">;</span>
@@ -4840,7 +4863,7 @@ Last significant bit: 最低位</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 20, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 25, 2025</span>
   </span>
 
     
