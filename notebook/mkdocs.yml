@@ -115,8 +115,7 @@ copyright: Copyright &copy; Slowist/All Rights Reserved. # 左下角的版权声
 nav:
   - Home:
     - index.md
-    - 正在学习的课程: Courses.md
-    - 已完成学习的课程: Content.md
+    - Content && Timeline: Content.md
   - Computer Science:
     - cs/index.md
     - Language:
@@ -162,9 +161,6 @@ nav:
         - 2. PA0: cs/tools/PA0.md
   - AI:
     - AI/index.md
-    - Computer Vision:
-        - Introduction to CV:
-          - Lecture 1: AI/Computer Vision/Introduction to CV/Lecture 1.md
   - Math: 
     - Math/index.md
     - 复变函数与积分变换: Math/complex.md
@@ -205,6 +201,8 @@ nav:
           - isee/elec/feedback/index.md
         - 功率放大器:
           - isee/elec/pa/index.md
+    - 电子电路设计实验I:
+      - isee/elec-exp1/index.md
   - English:
     - English/index.md
     - Interpretation: 

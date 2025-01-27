@@ -112,7 +112,7 @@ title:非确定性算法
 - 排序悖论
 	- 带序约束共建的平行机排序问题，目标为最大完工时间最小
 	- 基于贪婪思想的算法有问题（x
-![](MyClone/notebook/docs/Fundemental/Mathematical-Modeling/images/image-121.png)
+![](image-121.png)
 
 10优先加工：应该优先加入2和3，这条是关键路径
 

@@ -10,9 +10,9 @@
 
 ## 大一春夏
 
-- [x][概率论与数理统计-历年卷勘误](Math/Probability/Error.md)
-- [x][英语口译](English/Interpretation/index.md)
-- [x][雕版印刷与课本文化](Others/PrintingCulture.md)
+- [x] [概率论与数理统计-历年卷勘误](Math/Probability/Error.md)
+- [x] [英语口译](English/Interpretation/index.md)
+- [x] [雕版印刷与课本文化](Others/PrintingCulture.md)
 
 ## 大一暑假
 
@@ -33,7 +33,7 @@
 ### 课外：
 
 - [ ] MIT weblab
-- [x] [PA0](cs/Tools/PA0.md)
+- [x] [PA0](cs/tools/PA0.md)
 - [ ] cs61c
 
 
