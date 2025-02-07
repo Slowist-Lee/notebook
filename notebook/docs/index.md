@@ -13,7 +13,7 @@ statistics: True
 
 !!! inline warning "正在整理的笔记"
     - [计算机组成](cs/system/CO/index.md)
-    - [Verilog](cs/system/verilog/Note.md)
+    - [Verilog](Language.md)
     - Constructing
 
 !!! inline tip "较完善的内容"

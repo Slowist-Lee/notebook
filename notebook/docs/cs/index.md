@@ -12,5 +12,5 @@
 - 数据结构与算法:
   - cs61b: algorithm/cs61b/
 - 计算机系统相关:
-  - HPC: system/HPC/
+  - 计算机组成: system/CO/
 {{ END_TOC }}

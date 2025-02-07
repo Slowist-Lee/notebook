@@ -45,7 +45,7 @@
 - **Google帐号注册**
 - **WSL**
 - **Verilog**
-  - [HDLBits](cs/system/verilog/Note.md)
+  - [HDLBits](Language.md)
   - [环境配置](cs/system/DD/Chap1 Installation.md)
 - **计算机组成**
   - [笔记](cs/system/CO/index.md)  

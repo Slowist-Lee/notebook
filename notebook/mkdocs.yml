@@ -121,6 +121,7 @@ nav:
     - Language:
       - C:
         - cs/pl/C/index.md
+        - Previous: cs/pl/C/PreviousNote.md
         - Ch7 Pointer: cs/pl/C/Pointer.md
         - Ch8 String: cs/pl/C/String.md
         - Ch9 Structure: cs/pl/C/Structure.md
@@ -137,10 +138,18 @@ nav:
     - Algorithm:
       - cs/algorithm/index.md
       - cs61b:
-        - Lecture1 Introduction: cs/algorithm/cs61b/Lecture1_Introduction.md
-        - Lecture2 Defining and Using Classes: cs/algorithm/cs61b/Lecture2_Defining and Using Classes.md
-        - Lecture3 ListsI References Recursion and Lists: cs/algorithm/cs61b/Lecture3_ListsI_References_Recursion_and_Lists.md
-        - Lecture4: cs/algorithm/cs61b/Lecture4.md
+        - Note:
+          - Lecture1 Introduction: cs/algorithm/cs61b/Lecture1_Introduction.md
+          - Lecture2 Defining and Using Classes: cs/algorithm/cs61b/Lecture2_Defining and Using Classes.md
+          - Lecture3 ListsI References Recursion and Lists: cs/algorithm/cs61b/Lecture3_ListsI_References_Recursion_and_Lists.md
+          - Lecture4: cs/algorithm/cs61b/Lecture4.md
+        - Labs:
+          - signup: cs/algorithm/cs61b/Sign_up.md
+          - HW0: cs/algorithm/cs61b/HW0.md
+          - HW0B: cs/algorithm/cs61b/HW0B.md
+          - lab1: cs/algorithm/cs61b/Lab1_Note.md
+          - proj1: cs/algorithm/cs61b/Proj1_Summary.md
+
     - System: 
       - cs/system/index.md
       - CO:
@@ -170,6 +179,8 @@ nav:
       - Note: 
         - 1. 数学规划: Math/MathModel/note/program/program.md
         - 2. 图论模型: Math/MathModel/note/graph/graph.md
+        - 3. 组合优化: Math/MathModel/note/combination-optimize/note.md
+        - 4. 习题笔记: Math/MathModel/note/exercise/index.md
       - Test:
         - 24-25秋冬期末(ACEE): Math/MathModel/test/index.md
   - ISEE: 
