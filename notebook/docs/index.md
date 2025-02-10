@@ -9,12 +9,12 @@ statistics: True
     - 👋 Hi, I'm Slowist from ZheJiang University
     - ✨ ZJU 本科23级 iseer & aceer
     - :heart: 喜欢做梦/写东西
-    - 可以来我的[一路楼](https://www.cc98.org/topic/6064267)看看(校内网访问)
+    - Welcome to My [Navigation](https://slowist-lee.github.io/navigation/)!
 
 !!! inline warning "正在整理的笔记"
     - [计算机组成](cs/system/CO/index.md)
-    - [Verilog](Language.md)
-    - Constructing
+    - [Verilog](cs/system/DD/verilog/Language.md)
+    - Constructing...
 
 !!! inline tip "较完善的内容"
     - [复变函数与积分变换](Math/complex.md)
@@ -30,17 +30,7 @@ statistics: True
 ??? plan "更新计划"
     - 默认适应系统主题问题
     - giscus明暗主题问题（目前只支持日间主题）   
-    - 部分插件未安装    
-    - 友链   
-    ??? info "待搬迁的内容"
-        - C、Assembly  
-        - Tools(Git)  
-        - 部分Writings(from 98)、军理、收藏夹、问题存档  
-        - 支教备课记录  
-        - 无线网络应用、概统  
-        - 数学建模  
-        - 大物I和大物II的部分笔记   
-        - 课程修读目录   
+
 
 > quote from `csdiy`  
 

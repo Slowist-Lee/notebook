@@ -208,20 +208,18 @@ $\Rightarrow$二次约束的二次规划类型
 !!! note  
     - **决策变量**：
       - $x_{jt}$ 表示第 $j$ 门课程是否复习 $t$ 天，$j=1,2,\cdots,n$，$t=1,2,\cdots,T$  
-      - $$x_{jt}=\left\{\begin{array}{ll}1,&\text{第 $j$ 门课程复习 $t$ 天}\\0,&\text{其他}\end{array}\right.}$$  
+      - $x_{jt}=\begin{array}{ll}1,&\text{第j门课程复习t天}\\0,&\text{其他}\end{array}$  
     - **目标函数**：$\max\sum\limits_{j=1}^n\sum\limits_{t=1}^Tp_{jt}x_{jt}$  
     - **约束条件**：$\sum\limits_{t=1}^Tx_{jt}=1$；$\sum\limits_{j=1}^n\sum\limits_{t=1}^Ttx_{jt}\leq T$  
 
 
-  
-  
 | 课程  | 1天  | 2天  | 3天  | 4天  |  
 | --- | --- | --- | --- | --- |  
 | E   | 3   | 5   | 6   | 7   |  
 | C   | 5   | 5   | 6   | 9   |  
 | M   | 2   | 4   | 7   | 8   |  
 | P   | 6   | 7   | 9   | 9   |  
-  
+
 动态规划  
 $f_j(t)$:用 $t$ 天时间复习第 $j$ 门课程可使该门课程提高 $p_{jt}$ 分  
 类似递推的方法  

@@ -7,15 +7,24 @@ theme:
     logo: material/book
   favicon: images/favicon.png
   palette:
-    # Palette toggle for light mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/link
+        name: Switch to light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: blue grey
+      primary: indigo
       accent: indigo
       toggle:
         icon: material/toggle-switch
         name: Switch to dark mode
-
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch-off
+        name: Switch to system preference
     # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
@@ -62,8 +71,7 @@ extra:
         name: This page could be improved
         data: 0
         note: >-
-          Thanks for your feedback! Help us improve this page by
-          using our <a href="https://marketingplatform.google.com/about/analytics/" target="_blank" rel="noopener">feedback form</a>.
+          Thanks for your feedback! 
 
 plugins:
   - mermaid2: {}
@@ -99,8 +107,6 @@ markdown_extensions:
       auto_title: false # 显示编程语言名称
 extra_javascript:
   - js/katex.js
-  - js/mathjax.js
-  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
   - https://unpkg.com/katex@0/dist/katex.min.js
   - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
 
@@ -130,6 +136,9 @@ nav:
         - Ch12 File: cs/pl/C/file.md
         - Error: cs/pl/C/Error-Sum.md
         - Misc: cs/pl/C/misc.md
+      - Cpp:
+        - cs/pl/cpp/index.md
+        - Basic: cs/pl/cpp/basic.md
       - Asm:
         - cs/pl/Asm/index.md
         - 理论复习: cs/pl/Asm/sum.md
@@ -159,18 +168,23 @@ nav:
         - 3. Arithmatic: cs/system/CO/Chap3.md
       - DD:
         - cs/system/DD/index.md
-        - 1. Installation: cs/system/DD/Chap1 Installation.md
-      - verilog:
-        - Note: cs/system/verilog/Language.md
-        - Sequence: cs/system/verilog/Sequence.md
-        - FSM: cs/system/verilog/FSM.md
-      - HPC: 
-        - cs/system/HPC/index.md
-        - 1. Tools: cs/system/HPC/Tools.md
+        - verilog:
+          - Note: cs/system/DD/verilog/Language.md
+          - Sequence: cs/system/DD/verilog/Sequence.md
+          - FSM: cs/system/DD/verilog/FSM.md
+      # - HPC: 
+      #   - cs/system/HPC/index.md
+      #   - 1. Tools: cs/system/HPC/Tools.md
       - Tools:
         - cs/tools/index.md
         - 1. Git: cs/tools/git-advance.md
         - 2. PA0: cs/tools/PA0.md
+      - Misc:
+        - ctf:
+          - Labs:
+            - lab0-1.md
+            - lab0-2.md
+            - misc-lab1.md
   - AI:
     - AI/index.md
   - Math: 
@@ -215,6 +229,8 @@ nav:
           - isee/elec/feedback/index.md
         - 功率放大器:
           - isee/elec/pa/index.md
+      - 期末试题:
+        - isee/elec/test.md
     - 电子电路设计实验I:
       - isee/elec-exp1/index.md
   - English:
@@ -236,6 +252,11 @@ nav:
     - 雕版印刷与课本文化: Others/PrintingCulture.md
     - 控制论: Others/control-theory.md
     - 大物实验: Others/PhyExperiment.md
+    - 无线网络应用:
+      - Others/Network/index.md
+      - Lecture 4: Others/Network/Lecture4.md
+      - Lecture 6: Others/Network/Lecture6.md
+      - Other: Others/Network/others.md
   - Writings:
     - Writings/index.md
     - Essay:

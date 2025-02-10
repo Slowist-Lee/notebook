@@ -1,7 +1,7 @@
 import os
 
 # 指定你的文件夹路径
-folder_path = 'D:\\MyRepository\\notebook-publish\\notebook\\docs\\cs\\system\\HPC\\'
+folder_path = 'D:\\MyRepository\\notebook-publish\\notebook\\docs\\cs\\system\\DD\\verilog\\'
 
 # 遍历文件夹中的所有文件
 for filename in os.listdir(folder_path):

@@ -3,7 +3,7 @@
 !!! info 
     上课所有语料的整理,用于期末复习  
 
-# TikTok听证会周受资六分钟自我陈述
+## TikTok听证会周受资六分钟自我陈述
 
 Thank you. Chair Rodgers, Ranking Member Pallone, Members of the Committee. Thank you for your time. I am Shou Chew and I’m from Singapore. That’s where I was born as for my parents, and after serving in Singapore’s military, I moved to the UK to attend college and then here to the US to attend business school. I actually met my wife here, by the way. She was just born a few miles away from here in Virginia. Two years ago, I became the CEO of TikTok. Today we have more than a billion monthly active users around the world, including over 150 million in the United States. Our app is a place where people can be creative and curious, and we’re close to 5 million American businesses. Mostly small businesses go to find new customers and to fuel their growth. Now, as TikTok has grown, we’ve tried to learn the lessons of companies that have come before us, especially when it comes to the safety of teenagers.
 
@@ -29,9 +29,9 @@ Now, trust is about actions we take. We have to earn their trust with decisions 
 
 现在，信任就是我们所采取的行动。我们必须通过为公司和产品做出的决策来赢得他们的信任。对TikTok的潜在安全、隐私和操纵担忧并不是我们独有的。同样的问题也适用于其他公司。我们认为，我们需要的是明确、透明的规则，这些规则广泛适用于所有科技公司。所有权不是解决这些关切的核心。现在，正如我总结的那样，有超过1.5亿美国人热爱我们的平台，我们知道我们有责任保护他们，这就是为什么我要向你们和我们所有的用户做出以下承诺。第一，我们将特别是青少年的安全作为我们的首要任务。第二，我们将通过防火墙保护美国数据免受不必要的外国访问。第三，TikTok将继续是一个言论自由的地方，不会被任何政府操纵。第四，我们将保持透明，并允许第三方独立监督员对我们的承诺负责。我将感谢您的任何反馈，我期待您的问题。非常感谢你。
 
-# UCB的演讲
+## UCB的演讲
 
-## UCB——you see Berkeley
+### UCB——you see Berkeley
 
 Distinguished education consul Mr.Shao Wei, distinguished staff member of Consulate General of People's Republic of China, Distinguished Berkeley professors, ladies and gentlemen, friends,
 
@@ -49,9 +49,9 @@ My dear friends, in a TV ad for this university, a question pops up: Do you see 
 
 Thank you, Thank you very much.
 
-# 2024-04-03 Ceremonial Speech
+## 2024-04-03 Ceremonial Speech
 
-## Para1 
+### Para1 
 
 女士们、先生们，我很高兴**来到**美丽的德国城市汉诺威，**参加**著名的汉诺威工业博览会，并就能源市场开放和中德能源合作问题**发表演讲**。首先，**我代表中国政府有关部门，对邀请我参加今天的论坛表示衷心的感谢。**
 
@@ -59,7 +59,7 @@ Ladies and gentlemen,
 
 **I'm delighted to be** here in the beautiful city of Hanover, **to attend** the prestigious Hanover Industrial Exhibition, and **to speak** on the opening of the energy market as well as on cooperation between China and Germany in the area of energy. Firstly, **on behalf of** the Economic and Trade Commission of China, **I'd like to thank you for inviting me to this forum.**
 
-## Para 2
+### Para 2
 
 在**金秋十月美丽的成都市**有幸举办21世纪城市建设和环境国际会议。**我谨代表**1000万成都人民向会议表示最热烈的祝贺。同时，我也想对联合国人类住区委员会和中华人民共和国建设部选择成都这个中国西部城市来主办这次会议**表示真心的感谢**。我们还想对尊贵的来宾和朋友不远方里来参加这次会议**表示感谢**。
 
@@ -67,7 +67,7 @@ Honorable guests and friends, Ladies and Gentlemen,
 
 **The beautiful city of Chengdu is very lucky to host** the International Conference on Urban Construction and the Environment for the 21st Century during this golden month of October. **On behalf of** the 10 million people of Chengdu, **I would firstly like to extend my warmest congratulations to the Conference**. At the same time, **I would also like to express my sincere thanks to** the United Nations Center of Human Settlements and the Ministry of Construction of the People’s Republic of China for choosing Chengdu, China's western city, to host the Conference. **We also thank** the many honorable guests and friends who have traveled so far to come to this conference.
 
-## Para 3
+### Para 3
 
 首先，**我代表**中国政府和人民，对奥巴马总统来华访问表示热烈欢迎。这是我与奥巴马总统
 的第二次会晤。四个月前，我们在亚太-美国中成功会晤，就双边关系与当前国际形势进行了
@@ -77,7 +77,7 @@ Honorable guests and friends, Ladies and Gentlemen,
 First of all, **on behalf of** the Chinese government and the Chinese people, **I would like to express my warm welcome to President Obama's visit to China.** This is my second meeting with President Obama. Four months ago, we had a successful meeting during the APEC-US relations and had in-depth discussions on bilateral relations and the current international situation. We **have reached consensus** on many important issues and achieved positive results in many areas. **I wish and believe that my meeting with President Obama will have a positive impact on the improvement and development of China-US relation.**
 
 
-# 习主席的亚运会祝酒词
+## 习主席的亚运会祝酒词
 
 尊敬的各位同事，  
 尊敬的辛格代理主席，  
@@ -121,15 +121,15 @@ To the health of all distinguished guests and your families.
 干杯！  
 Cheers!  
 
-# 2024-04-17
+## 2024-04-17
 
-## 时事热点：中德领导人会晤
+### 时事热点：中德领导人会晤
 
 Mutually beneficial cooperation between China and Germany creates no "risks", but **serves as a guarantee for their stable relations and presents opportunities for future development**. President Xi Jinping said on Tuesday when meeting in Beijing with German Chancellor Olaf Scholz.
 
-## 城市介绍
+### 城市介绍
 
-### 1. San Francisco
+#### 1. San Francisco
 
 San Francisco is honored to be the Host City for the Asia-Pacific Economic Cooperation (APEC) Leaders' Week 2023 with the theme of **"Creating a Resilient and Sustainable Future for All."**
 
@@ -137,7 +137,7 @@ San Francisco is honored to be the Host City for the Asia-Pacific Economic Coope
 
 Being a city of  **invention, innovation, and inspiration**  is not only a badge of local pride, it's  **a beacon to others all around the world:**  If you want to experience the next big thing - or create it yourself- come to San Francisco. This campaign celebrates APEC and the San Francisco that  **embraces its diversity, responds to tough times with resilience, inspires originality, and breaks down barriers**  while blazing a trail on a rocket ride to the future.
 
-### 2. Shanghai
+#### 2. Shanghai
 
 上海位于中国东海海岸，北邻长江口南靠杭州湾。**从字面上看**，它就是"在海上”的意思。我敢说你此行一定很棒，因为上海真的是个迷人的城市，它常被**昵称**为“东方明珠。
 
@@ -159,13 +159,13 @@ Shanghai is **unique** among world cities **in its variety of architectural styl
 
 I'd like to recommend you the **Bund**. Once the most famous street in Asia, it is **a tree-lined promenade** along the Huangpu River. Attracted by its grandeur, the major firms of the Far East had their **headquarters** in the buildings facing the river.
 
-### 3. 广东
+#### 3. 广东
 
 广东是中国大陆最南端的省份，拥有17.8万平方公里的土地和7700多万人口，濒临南海，毗邻港澳，侨胞众多，人才汇聚，对外交往便利，对外贸易历史悠久，全省形成了多层次、宽领域、全方位的对外开放格局。
 
 Guangdong is at the southern end of China, **covering an area of** 178,000 square kilometers, **with a population of** over 77 million. We are next to the South China Sea, close to Hong Kong and Macao SARs, with a large population of overseas Chinese. We have an abundant supply of talents, excellent external communications and a long history in foreign trade. Our contact with the outside world is **multi-leveled and multi-dimensional.**
 
-### 4. 杭州
+#### 4. 杭州
 
 
 杭州早在4700年前就有人居住，孕育了良渚文明。作为中国七大古都之一和重要的风景旅游和历史文化城市，杭州曾被13世纪意大利旅行家马可·波罗称赞为“世界上最美丽华贵之城”。
@@ -176,24 +176,24 @@ Guangdong is at the southern end of China, **covering an area of** 178,000 squar
 
 As one of the birthplaces of Chinese Civilization and ranking among the seven ancient capitals in China, Hangzhou **stands out as the "Famous Town of the Southeast".** The excavation of the Kuahu Bridge site indicates that **as early as 8000 years ago**, the place already saw thriving human activities. The Liangzhu Culture, dating 5000 years back, is hailed by historians **as "the dawn of civilization".** First set up as a county in the Qin Dynasty (222 BC), it has a past of over 2200 years. Hangzhou was chosen as the capital city by two dynasties, the Wuyue state in the Five Dynasties and the Southern Song dynasty. In the 13th Century, Hangzhou was recognized by Italian traveler Marco Polo as **the "most splendid and luxurious city in the world".**
 
-# 2024-04-24
+## 2024-04-24
 
-## 时事热点：中国历代绘画大系
+### 时事热点：中国历代绘画大系
 
  "Chinese painting **reflects Chinese people's aesthetics, their relationship with nature and values. It shows their respect for nature and contains their philosophy,"** said the curator.
 
-## 丝绸之路：Belt and Road Initiative
+### 丝绸之路：Belt and Road Initiative
 
-### BRI Aims:
+#### BRI Aims:
 
 1. The (land based) Silk Road Economic Belt;
 2. The 21st Century Maritime Sillk Road
 
-### Introduction:
+#### Introduction:
 
 According to the official outline, BRI aims to "promote the connectivity of Asian, European and African continents and their adjacent seas, establish and strengthen partnerships among the countries along the Belt and Road, set up all-dimensional, multi-tiered and composite connectivity networks, and realize **diversified,  independent, balanced and sustainable** development in these countries.
 
-### Properties
+#### Properties
 
 According to the outline, the Belt and Road Initiative is based on five cooperation  
 priorities:   

@@ -32,26 +32,12 @@
 
 ### 课外：
 
-- [ ] MIT weblab
 - [x] [PA0](cs/tools/PA0.md)
-- [ ] cs61c
 
 
 ## 大二寒假
 
-!!! warning
-    正在更新...
-
-- **Google帐号注册**
-- **WSL**
 - **Verilog**
-  - [HDLBits](Language.md)
-  - [环境配置](cs/system/DD/Chap1 Installation.md)
+  - [HDLBits](cs/system/DD/verilog/Language.md)
 - **计算机组成**
   - [笔记](cs/system/CO/index.md)  
-- **数电**
-  - [lab(encrypted)](cs/system/DD/index.md)
-- **cs61b**(计划完成1/2)
-  - [笔记](cs/algorithm/cs61b/Lecture1_Introduction.md)
-  - discussion
-  - lab  
