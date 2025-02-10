@@ -115,6 +115,7 @@ copyright: Copyright &copy; Slowist/All Rights Reserved. # 左下角的版权声
 nav:
   - Home:
     - index.md
+    - Friends: Friends.md
     - Content && Timeline: Content.md
   - Computer Science:
     - cs/index.md
@@ -160,7 +161,9 @@ nav:
         - cs/system/DD/index.md
         - 1. Installation: cs/system/DD/Chap1 Installation.md
       - verilog:
-        - Note: cs/system/verilog/Note.md
+        - Note: cs/system/verilog/Language.md
+        - Sequence: cs/system/verilog/Sequence.md
+        - FSM: cs/system/verilog/FSM.md
       - HPC: 
         - cs/system/HPC/index.md
         - 1. Tools: cs/system/HPC/Tools.md

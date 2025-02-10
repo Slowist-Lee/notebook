@@ -585,3 +585,110 @@ case项是按顺序检查的(实际上，它更像是生成一个巨大的真值
 还有一个类似的casex，将输入的x和z都视为无关。不认为casex比casez有什么特别的好处。(作者个人感觉没必要用casex，z和x状态的问题涉及电路的基本知识)
 
 符号"?" 是z的同义词，所以2'bz0与2'b?0相同。
+
+#### 设置默认值
+
+为避免生成了不必要的锁存器，必须在所有条件下为所有的输出赋值(参见**Problem 31: If statement latches(Always if2)**)。这可能会多打很多字，使你的代码变得冗长。 一个简单的方法是在case语句之前为输出分配一个“默认值”：
+
+```verilog
+always @(*) begin
+    up = 1'b0; down = 1'b0; left = 1'b0; right = 1'b0;
+    case (scancode)
+        ... // Set to 1 as necessary.
+    endcase
+end
+```
+
+除非case语句覆盖赋值，否则这种代码样式可确保在所有可能的情况下输出0。 这也意味着case的default项变得不必要。
+
+## Verilog Language Features
+
+### 1. 三元运算符
+
+基本用法：
+
+```verilog
+condition ? if_true : if_false
+```
+
+可以在一行代码上实现一个MUX：
+
+```verilog
+(0 ? 3 : 5)     // 输出是5，因为条件"0"始终是false的
+(sel ? b : a)   // 一个二选一MUX，通过sel的值选择a或者b
+
+always @(posedge clk)         // 一个T触发器
+  q <= toggle ? ~q : q;
+
+always @(*)                   // 一输入的状态转换逻辑
+    A: next = w ? B : A;
+    B: next = w ? A : B;
+  endcase
+
+assign out = ena ? q : 1'bz;  // 三态缓冲器
+
+((sel[1:0] == 2'h0) ? a :     // 一个三选一MUX
+ (sel[1:0] == 2'h1) ? b :
+                      c )
+```
+
+### 2. 归约运算符
+
+归约运算符(Reduction Operators)可以对向量的每一位位进行AND，OR和XOR，产生一位输出：
+
+```text
+&a [3：0] // AND:a[3]&a[2]&a[1]&a [0]相当于(a[3：0]== 4'hf)
+|b [3：0] // OR: b[3]|b[2]|b[1]|b [0]相当于(b[3：0]!= 4'h0)
+^c [2：0] // XOR:c[2]^c[1]^c[0]
+```
+
+这些是只有一个操作数的一元运算符(类似于NOT运算符!和~)。也可以将这些本节课的运算符的输出反相以创建NAND，NOR和XNOR门，例如(`~&d[7:0]`)。
+
+奇偶校验器，数字电路的初学者来说，对教材上给出的奇偶检验器的计算方式可能有些迷惑，什么是奇校验，什么是偶校验。
+
+奇偶校验是检验传输数据中1的个数，当然有奇数有偶数，，这时候就需要用我们的校验位了，通过检验位将传输1的个数变成奇数就是奇校验，变成偶数就是偶校验
+
+### 3. `for`循环在`always`语句中的使用
+
+```verilog
+module top_module(
+    input [99:0] in,
+    output [99:0] out
+);
+    integer i;
+    always @(*) begin
+        for(i=0;i<100;i=i+1)
+            out[i]=in[99-i];
+    end
+endmodule
+```
+
+```verilog
+module top_module( 
+    input [254:0] in,
+    output [7:0] out );
+    integer i;  
+    always @(*) begin
+        out = {8{1'b0}}; 
+        for(i=0;i<255;i=i+1)begin
+            if (in[i]==1)
+                out = out + 1'b1;
+            else
+                out = out + 1'b0;
+        end
+    end
+endmodule
+```
+
+踩的坑：
+
+1. 向量的加法不需要写加法器。写`out=out+1'b1`就可以了。
+2. `assign`和`always`，组合用阻塞性，时序用非阻塞性，两个之间是不互通的。如果在`always`的外面写`assign out = {8{1'b0}}`的话，是没法进去，还是有latches.
+3. 注意latches. `else`这一支别漏。
+
+### 4. 好多实例化 —— 利用`generate`来实例化 | 实例化数组
+
+题目要求：
+
+>通过实例化100个全加器来实现一个100bit的二进制加法器。该加法器有两个100bit的输入和cin，输出为sum与cout。为了鼓励大家使用实例化来完成电路设计，我们同时需要输出每个全加器的cout。 故cout[99]标志着全加器的最终进位。
+
