@@ -5,6 +5,21 @@
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: bold !important;
+    position: relative !important;
+    padding-bottom: 0.5em !important; /* 增加底部间距给横线留位置 */
+    margin-bottom: 0.8em !important; /* 保持标题与后续内容的间距 */
+}
+
+h1::after, h2::after, h3::after, h4::after, h5::after, h6::after {
+    content: "" !important;
+    display: block !important;
+    width: 80% !important;
+    height: 1px !important;
+    background: #aaaaaa !important; /* 浅色横线，可自行修改颜色值 */
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    transform: none !important; /* 水平居中 */
 }
 
 .flink-list {

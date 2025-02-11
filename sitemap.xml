@@ -13,6 +13,10 @@
          <lastmod>2025-02-11</lastmod>
     </url>
     <url>
+         <loc>https://slowist-lee.github.io/notebook/changelog/</loc>
+         <lastmod>2025-02-11</lastmod>
+    </url>
+    <url>
          <loc>https://slowist-lee.github.io/notebook/AI/</loc>
          <lastmod>2025-02-11</lastmod>
     </url>
@@ -77,7 +81,7 @@
          <lastmod>2025-02-11</lastmod>
     </url>
     <url>
-         <loc>https://slowist-lee.github.io/notebook/Math/MathModel/note/exercise/</loc>
+         <loc>https://slowist-lee.github.io/notebook/Math/MathModel/note/exercise/note/</loc>
          <lastmod>2025-02-11</lastmod>
     </url>
     <url>
@@ -89,7 +93,7 @@
          <lastmod>2025-02-11</lastmod>
     </url>
     <url>
-         <loc>https://slowist-lee.github.io/notebook/Math/MathModel/note/review/</loc>
+         <loc>https://slowist-lee.github.io/notebook/Math/MathModel/note/review/note/</loc>
          <lastmod>2025-02-11</lastmod>
     </url>
     <url>
@@ -241,59 +245,67 @@
          <lastmod>2025-02-11</lastmod>
     </url>
     <url>
-         <loc>https://slowist-lee.github.io/notebook/cs/misc/</loc>
+         <loc>https://slowist-lee.github.io/notebook/cs/ctf/</loc>
          <lastmod>2025-02-11</lastmod>
     </url>
     <url>
-         <loc>https://slowist-lee.github.io/notebook/cs/misc/ctf/</loc>
+         <loc>https://slowist-lee.github.io/notebook/cs/ctf/crypto/</loc>
          <lastmod>2025-02-11</lastmod>
     </url>
     <url>
-         <loc>https://slowist-lee.github.io/notebook/cs/misc/ctf/crypto/</loc>
+         <loc>https://slowist-lee.github.io/notebook/cs/ctf/lab0/lab0-1/</loc>
          <lastmod>2025-02-11</lastmod>
     </url>
     <url>
-         <loc>https://slowist-lee.github.io/notebook/cs/misc/ctf/lab0/lab0-1/</loc>
+         <loc>https://slowist-lee.github.io/notebook/cs/ctf/lab0/lab0-2/</loc>
          <lastmod>2025-02-11</lastmod>
     </url>
     <url>
-         <loc>https://slowist-lee.github.io/notebook/cs/misc/ctf/lab0/lab0-2/</loc>
+         <loc>https://slowist-lee.github.io/notebook/cs/ctf/misc/misc-lab1/</loc>
          <lastmod>2025-02-11</lastmod>
     </url>
     <url>
-         <loc>https://slowist-lee.github.io/notebook/cs/misc/ctf/misc/misc-lab1/</loc>
+         <loc>https://slowist-lee.github.io/notebook/cs/ctf/misc/note-2/</loc>
          <lastmod>2025-02-11</lastmod>
     </url>
     <url>
-         <loc>https://slowist-lee.github.io/notebook/cs/misc/ctf/misc/note-2/</loc>
+         <loc>https://slowist-lee.github.io/notebook/cs/ctf/pwn/</loc>
          <lastmod>2025-02-11</lastmod>
     </url>
     <url>
-         <loc>https://slowist-lee.github.io/notebook/cs/misc/ctf/pwn/</loc>
+         <loc>https://slowist-lee.github.io/notebook/cs/ctf/reverse/</loc>
          <lastmod>2025-02-11</lastmod>
     </url>
     <url>
-         <loc>https://slowist-lee.github.io/notebook/cs/misc/ctf/reverse/</loc>
+         <loc>https://slowist-lee.github.io/notebook/cs/ctf/web/lab-1/</loc>
          <lastmod>2025-02-11</lastmod>
     </url>
     <url>
-         <loc>https://slowist-lee.github.io/notebook/cs/misc/ctf/web/lab-1/</loc>
+         <loc>https://slowist-lee.github.io/notebook/cs/ctf/web/lab-3/</loc>
          <lastmod>2025-02-11</lastmod>
     </url>
     <url>
-         <loc>https://slowist-lee.github.io/notebook/cs/misc/ctf/web/lab-3/</loc>
+         <loc>https://slowist-lee.github.io/notebook/cs/ctf/web/note-1/</loc>
          <lastmod>2025-02-11</lastmod>
     </url>
     <url>
-         <loc>https://slowist-lee.github.io/notebook/cs/misc/ctf/web/note-1/</loc>
+         <loc>https://slowist-lee.github.io/notebook/cs/ctf/web/note-2/</loc>
          <lastmod>2025-02-11</lastmod>
     </url>
     <url>
-         <loc>https://slowist-lee.github.io/notebook/cs/misc/ctf/web/note-2/</loc>
+         <loc>https://slowist-lee.github.io/notebook/cs/fundamental/</loc>
          <lastmod>2025-02-11</lastmod>
     </url>
     <url>
-         <loc>https://slowist-lee.github.io/notebook/cs/misc/fundamental/</loc>
+         <loc>https://slowist-lee.github.io/notebook/cs/fundamental/note/</loc>
+         <lastmod>2025-02-11</lastmod>
+    </url>
+    <url>
+         <loc>https://slowist-lee.github.io/notebook/cs/fundamental/office/</loc>
+         <lastmod>2025-02-11</lastmod>
+    </url>
+    <url>
+         <loc>https://slowist-lee.github.io/notebook/cs/fundamental/test/</loc>
          <lastmod>2025-02-11</lastmod>
     </url>
     <url>
