@@ -1,5 +1,6 @@
 .obsidian/  
 .git  
 encryptcontent.cache
-Exercise.md
-Answer.md
+docs/cs/pl/Asm/Exercise.md
+docs/cs/pl/Asm/Answer.md
+auto-log/

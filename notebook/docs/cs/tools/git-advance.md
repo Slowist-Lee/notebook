@@ -63,13 +63,17 @@ git push
 
 如果 `.gitignore` 中已经有了 `.obsidian`，那在执行了上述操作后，它就会被 Git 忽略，不会再被提交。
 
-### 总结
 
 - `.obsidian` 目录在添加到 Git 后，即使你将其添加到 `.gitignore` 中，它仍然会被 Git 跟踪。你需要使用 `git rm --cached` 来移除它的版本控制。
 - 通过 `git commit` 和 `git push` 来将这个更改同步到远程仓库。
 - 确保 `.gitignore` 文件中正确地忽略 `.obsidian` 目录，以防止它以后再次被跟踪。
 
 这样，你就能确保 `.obsidian` 目录从远端仓库中删除，但仍然保留在本地。
+
+## Multiple Users
+
+- 问题：每次推送Github都要我选择用户，太麻烦  
+- 解决方式：[here](https://github.com/git-ecosystem/git-credential-manager/blob/main/docs/multiple-users.md)  
 
 ## Warning 解释/处理
 
