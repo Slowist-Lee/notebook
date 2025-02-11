@@ -8,7 +8,7 @@ def replace_markdown_links(text):
         # 将内容中的空格替换为 %20
         content = content.replace(" ", "%20")
         # 返回替换后的格式 ![](xxx)
-        return f'![]({content})'
+        return f'![](image/{content})'
     
     # 使用 re.sub 并传入替换函数
     replaced_text = re.sub(pattern, replace_space, text)
@@ -16,7 +16,7 @@ def replace_markdown_links(text):
     return replaced_text
 
 
-file_name = 'D:\\MyRepository\\notebook-publish\\notebook\\docs\\Others\\Network\\others.md'
+file_name = 'D:\\MyRepository\\notebook-publish\\notebook\\docs\\cs\\misc\\ctf\\web\\lab-1.md'
 
 with open(file_name, 'r', encoding='utf-8') as file:
     content = file.read()
