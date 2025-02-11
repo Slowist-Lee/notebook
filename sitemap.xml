@@ -53,6 +53,14 @@
          <lastmod>2025-02-11</lastmod>
     </url>
     <url>
+         <loc>https://slowist-lee.github.io/notebook/English/misc/</loc>
+         <lastmod>2025-02-11</lastmod>
+    </url>
+    <url>
+         <loc>https://slowist-lee.github.io/notebook/English/misc/writing/</loc>
+         <lastmod>2025-02-11</lastmod>
+    </url>
+    <url>
          <loc>https://slowist-lee.github.io/notebook/Math/</loc>
          <lastmod>2025-02-11</lastmod>
     </url>
@@ -118,10 +126,6 @@
     </url>
     <url>
          <loc>https://slowist-lee.github.io/notebook/Others/Network/Lecture6/</loc>
-         <lastmod>2025-02-11</lastmod>
-    </url>
-    <url>
-         <loc>https://slowist-lee.github.io/notebook/Others/Network/others/</loc>
          <lastmod>2025-02-11</lastmod>
     </url>
     <url>
@@ -193,10 +197,6 @@
          <lastmod>2025-02-11</lastmod>
     </url>
     <url>
-         <loc>https://slowist-lee.github.io/notebook/Writings/plans/WinterPlan/</loc>
-         <lastmod>2025-02-11</lastmod>
-    </url>
-    <url>
          <loc>https://slowist-lee.github.io/notebook/cs/</loc>
          <lastmod>2025-02-11</lastmod>
     </url>
@@ -241,19 +241,27 @@
          <lastmod>2025-02-11</lastmod>
     </url>
     <url>
+         <loc>https://slowist-lee.github.io/notebook/cs/misc/</loc>
+         <lastmod>2025-02-11</lastmod>
+    </url>
+    <url>
          <loc>https://slowist-lee.github.io/notebook/cs/misc/ctf/</loc>
          <lastmod>2025-02-11</lastmod>
     </url>
     <url>
-         <loc>https://slowist-lee.github.io/notebook/cs/misc/ctf/lab0-1/</loc>
+         <loc>https://slowist-lee.github.io/notebook/cs/misc/ctf/crypto/</loc>
          <lastmod>2025-02-11</lastmod>
     </url>
     <url>
-         <loc>https://slowist-lee.github.io/notebook/cs/misc/ctf/lab0-2/</loc>
+         <loc>https://slowist-lee.github.io/notebook/cs/misc/ctf/lab0/lab0-1/</loc>
          <lastmod>2025-02-11</lastmod>
     </url>
     <url>
-         <loc>https://slowist-lee.github.io/notebook/cs/misc/ctf/misc-lab1/</loc>
+         <loc>https://slowist-lee.github.io/notebook/cs/misc/ctf/lab0/lab0-2/</loc>
+         <lastmod>2025-02-11</lastmod>
+    </url>
+    <url>
+         <loc>https://slowist-lee.github.io/notebook/cs/misc/ctf/misc/misc-lab1/</loc>
          <lastmod>2025-02-11</lastmod>
     </url>
     <url>
@@ -261,7 +269,19 @@
          <lastmod>2025-02-11</lastmod>
     </url>
     <url>
+         <loc>https://slowist-lee.github.io/notebook/cs/misc/ctf/pwn/</loc>
+         <lastmod>2025-02-11</lastmod>
+    </url>
+    <url>
+         <loc>https://slowist-lee.github.io/notebook/cs/misc/ctf/reverse/</loc>
+         <lastmod>2025-02-11</lastmod>
+    </url>
+    <url>
          <loc>https://slowist-lee.github.io/notebook/cs/misc/ctf/web/lab-1/</loc>
+         <lastmod>2025-02-11</lastmod>
+    </url>
+    <url>
+         <loc>https://slowist-lee.github.io/notebook/cs/misc/ctf/web/lab-3/</loc>
          <lastmod>2025-02-11</lastmod>
     </url>
     <url>
@@ -270,6 +290,10 @@
     </url>
     <url>
          <loc>https://slowist-lee.github.io/notebook/cs/misc/ctf/web/note-2/</loc>
+         <lastmod>2025-02-11</lastmod>
+    </url>
+    <url>
+         <loc>https://slowist-lee.github.io/notebook/cs/misc/fundamental/</loc>
          <lastmod>2025-02-11</lastmod>
     </url>
     <url>
@@ -369,6 +393,10 @@
          <lastmod>2025-02-11</lastmod>
     </url>
     <url>
+         <loc>https://slowist-lee.github.io/notebook/cs/system/DD/verilog/</loc>
+         <lastmod>2025-02-11</lastmod>
+    </url>
+    <url>
          <loc>https://slowist-lee.github.io/notebook/cs/system/DD/verilog/FSM/</loc>
          <lastmod>2025-02-11</lastmod>
     </url>
@@ -394,6 +422,10 @@
     </url>
     <url>
          <loc>https://slowist-lee.github.io/notebook/cs/tools/PA0/</loc>
+         <lastmod>2025-02-11</lastmod>
+    </url>
+    <url>
+         <loc>https://slowist-lee.github.io/notebook/cs/tools/WSL/</loc>
          <lastmod>2025-02-11</lastmod>
     </url>
     <url>
