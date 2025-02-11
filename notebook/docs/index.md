@@ -16,21 +16,17 @@ statistics: True
     - [Verilog](cs/system/DD/verilog/Language.md)
     - Constructing...
 
-!!! inline tip "较完善的内容"
+!!! tip "较完善的内容"
     - [复变函数与积分变换](Math/complex.md)
     - [英语口译](English/Interpretation/index.md)
     - [电子电路基础](isee/elec/index.md)
 
-!!! stastic "站点统计"
+<!-- !!! stastic "站点统计"
     - :material-file-document: {{ pages }} pages
     - :material-circle-edit-outline: {{ words }} words
-    - :fontawesome-solid-code: {{ codes }} lines
+    - :fontawesome-solid-code: {{ codes }} lines --> 
 
-
-??? plan "更新计划"
-    - 默认适应系统主题问题
-    - giscus明暗主题问题（目前只支持日间主题）   
-
+<!--关闭了统计功能, 太占时间了-->
 
 > quote from `csdiy`  
 

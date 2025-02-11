@@ -107,7 +107,10 @@ $\sum_{j=1}^9 x_{ijk}=1$
 
 !!! info "番外：条件的表示："  
 	- 假设需要表示条件，第4行1，2列中所填数之和大于5：  
-	$$x_{41j_1}=1,x_{41j_2}=1,j_1+j_2=5$$
+	$$
+x_{41j_1}=1,x_{41j_2}=1,j_1+j_2=5
+$$
+
     	- 错误1：下标的变量不可以进入约束条件  
     	- 错误3：出现逻辑关系，是在1式和2式满足的情况下，才会出现3  
   
@@ -301,28 +304,43 @@ AHAHAHAH
 设$y_{il}=\begin{cases}1,&\text{第}l\text{阶段第}i\text{支队伍为先主后客}\\0,&\text{第l阶段第}i\text{支队伍为先客后主}\end{cases}$  
 要建立y和x之间的联系：  
 $x_{ijk}$ 与 $y_{il}$ 之间的关系：  
-$$y_{il}=1\Leftrightarrow\sum\limits_{j=1}^{10}x_{i,j,2l-1}=1\text{且}\sum\limits_{j=1}^{10}x_{j,i,2l}=1$$  
+$$
+y_{il}=1\Leftrightarrow\sum\limits_{j=1}^{10}x_{i,j,2l-1}=1\text{且}\sum\limits_{j=1}^{10}x_{j,i,2l}=1
+$$
+  
 设$z_i=\sum\limits_{j=1}^{10}x_{i,j,2l-1},z_j=\sum\limits_{j=1}^{10}x_{j,i,2l}$, $y_{il}=z_i \cdot z_j$  
 对此进行**线性化**：  
 有约束条件  
-$$\begin{cases}y_{ij}\leq z_i\\y_{ij}\leq z_j\\y_{ij}+1≥z_i+z_j\end{cases}$$  
+$$
+\begin{cases}y_{ij}\leq z_i\\y_{ij}\leq z_j\\y_{ij}+1≥z_i+z_j\end{cases}
+$$
+  
   
 - 若$y_{ij}=1$ 则$z_i≥1,z_j≥1$,只能取1  
 - 若$z_i,z_j$取1，则$y_{ij}+1≥z_i+z_j$,则$y_{ij}$只能取1，则满足了当且仅当，且为线性约束  
   
 改写一下就是：  
   
-$$\begin{cases}\sum\limits_{j=1}^{10}\left(x_{i,j,2l-1}+x_{j,i,2l}\right)\leq1+y_{il}\\y_{il}\leq\sum\limits_{j=1}^{10}x_{i,j,2l-1}\\y_{il}\leq\sum\limits_{j=1}^{10}x_{j,i,2l}\end{cases}$$  
+$$
+\begin{cases}\sum\limits_{j=1}^{10}\left(x_{i,j,2l-1}+x_{j,i,2l}\right)\leq1+y_{il}\\y_{il}\leq\sum\limits_{j=1}^{10}x_{i,j,2l-1}\\y_{il}\leq\sum\limits_{j=1}^{10}x_{j,i,2l}\end{cases}
+$$
+  
 - 每支队伍先主后客的总次数尽可能均衡时，$4\leq\sum\limits_{l=1}^{9}y_{il}\leq5$，$i=1,2,\cdots,10$  
   
 #### 2. 各阶段连续客场的次数尽可能少  
 在法制双循环赛制中 $x_{i,j,1}=x_{j,i,18}$, $x_{i,j,k}=x_{j,i,k+8}$, $k=2,3,\cdots,9$，$i,j=1,2,\cdots,10$，$i\neq j$  
 定义辅助变量 $w_{il}=\begin{cases}1,&\text{第}l\text{阶段第}i\text{支队伍两场比赛均为客场}\\0,&\text{其他}\end{cases}$，$i=1,2,\cdots,10$，$l=1,2,\cdots,9$  
 $x_{i,j,k}$ 与 $w_{il}$ 之间的关系：  
-$$w_{il}=1\Leftrightarrow\sum\limits_{j=1}^{10}x_{j,i,2l-1}=1 \text{且} \sum\limits_{j=1}^{10}x_{j,i,2l}=1$$  
+$$
+w_{il}=1\Leftrightarrow\sum\limits_{j=1}^{10}x_{j,i,2l-1}=1 \text{且} \sum\limits_{j=1}^{10}x_{j,i,2l}=1
+$$
+  
 改写一下就是：  
   
-$$\begin{cases}\sum\limits_{j=1}^{10}\left(x_{j,i,2l-1}+x_{j,i,2l}\right)\leq1+w_{il}\\w_{il}\leq\sum\limits_{j=1}^{10}x_{j,i,2l-1}\\w_{il}\leq\sum\limits_{j=1}^{10}x_{j,i,2l}\end{cases}$$  
+$$
+\begin{cases}\sum\limits_{j=1}^{10}\left(x_{j,i,2l-1}+x_{j,i,2l}\right)\leq1+w_{il}\\w_{il}\leq\sum\limits_{j=1}^{10}x_{j,i,2l-1}\\w_{il}\leq\sum\limits_{j=1}^{10}x_{j,i,2l}\end{cases}
+$$
+  
 **目标函数** 为：$\min \sum\limits_{i=1}^{10}\sum\limits_{l=1}^{9}w_{il}$  
   
 ## 支持向量机  
@@ -343,9 +361,15 @@ $\mathbf{w}$是决策变量
 $y_i=\begin{cases}1, \mathbf{x}_i\in C_1\\-1, \mathbf{x}_i\in C_2\end{cases}$  
   
 1. 训练集的数据保持准确：  
-$$\begin{aligned}&\max \min\limits_{i=1,\cdots,m} |\mathbf{w}\cdot\mathbf{x}_i+b|\\s.t.\quad&y_i(\mathbf{w}\cdot\mathbf{x}_i+b)\geq 0,i=1,\cdots,m      \cdots (I)\\&\|\mathbf{w}\|=1\end{aligned}$$  
+$$
+\begin{aligned}&\max \min\limits_{i=1,\cdots,m} |\mathbf{w}\cdot\mathbf{x}_i+b|\\s.t.\quad&y_i(\mathbf{w}\cdot\mathbf{x}_i+b)\geq 0,i=1,\cdots,m      \cdots (I)\\&\|\mathbf{w}\|=1\end{aligned}
+$$
+  
 若（1）有解，（1）  
-$$\begin{aligned}&\max \min\limits_{i=1,\cdots,m} y_i(\mathbf{w}\cdot\mathbf{x}_i+b)\\s.t.\quad &\|\mathbf{w}\|=1\end{aligned}$$  
+$$
+\begin{aligned}&\max \min\limits_{i=1,\cdots,m} y_i(\mathbf{w}\cdot\mathbf{x}_i+b)\\s.t.\quad &\|\mathbf{w}\|=1\end{aligned}
+$$
+  
   
 上为2  
   
@@ -382,8 +406,14 @@ $rank(\mathbf{A})<m$,冗余约束
 将$\mathbf{A}$分块为$\mathbf{(B,N)}$, 其中  
 决策变量$\mathbf{x}$相应分为{x_b//x_N}分别成为基变量和非基变量  
 则原来的标准问题转换为  
-$$min cx$$  
-$$s.t. (B N)(x_b//x_N)=b$$  
+$$
+min cx
+$$
+  
+$$
+s.t. (B N)(x_b//x_N)=b
+$$
+  
 令$x_N = 0$，则$x_B=B^{-1}b$则称x=(B-1b//0)是相应基于B的基本解  
 当B-1b≥0时，x可行，称为基本可行解  
   
@@ -442,12 +472,18 @@ LP: $\min -30x_1-36x_2, s.t.\begin{cases}x_1+x_2\leq 6\\5x_1+9x_2\leq 45\\x_1\le
   
   
 IP:   
-$$\min -30x_1-36x_2, s.t.\begin{cases}x_1+x_2\leq 6\\5x_1+9x_2\leq 45\\x_1\leq 2\\x_2\leq 3\\x_1,x_2\geq 0,x_1,x_2\in\mathbb{Z}\end{cases}$$  
+$$
+\min -30x_1-36x_2, s.t.\begin{cases}x_1+x_2\leq 6\\5x_1+9x_2\leq 45\\x_1\leq 2\\x_2\leq 3\\x_1,x_2\geq 0,x_1,x_2\in\mathbb{Z}\end{cases}
+$$
+  
   
   
   
 LP:   
-$$\min -30x_1-36x_2, s.t.\begin{cases}x_1+x_2\leq 6\\5x_1+9x_2\leq 45\\x_1\leq 2\\x_2\leq 3\\x_1,x_2\geq 0\end{cases}$$  
+$$
+\min -30x_1-36x_2, s.t.\begin{cases}x_1+x_2\leq 6\\5x_1+9x_2\leq 45\\x_1\leq 2\\x_2\leq 3\\x_1,x_2\geq 0\end{cases}
+$$
+  
 画图易得，松弛问题的最优解为 $(x_1,x_2)=(2,3)$，目标函数值为 $-168$。此时为整数解，停止迭代。  
 所以，整数规划的最优解为 $(x_1,x_2)=(3,3)$，目标函数值为 $-198$。  
   
@@ -461,12 +497,21 @@ $$\min -30x_1-36x_2, s.t.\begin{cases}x_1+x_2\leq 6\\5x_1+9x_2\leq 45\\x_1\leq 2
   
 ## 0-1变量  
 e.g.分段函数  
-$$f(x)=\begin{cases}0,x=0\\a+bx,x\geq 1\end{cases}$$  
+$$
+f(x)=\begin{cases}0,x=0\\a+bx,x\geq 1\end{cases}
+$$
+  
 看上去是非线性、不连续的函数，如何转换成线性的函数呢？  
 先改造这个函数:  
-$$f(x)=\begin{cases}0+bx,x=0\\a+bx,x\geq 1\end{cases}$$  
+$$
+f(x)=\begin{cases}0+bx,x=0\\a+bx,x\geq 1\end{cases}
+$$
+  
 再定义辅助变量  
-$$y=\begin{cases}0,x=0\\1,x\geq1\end{cases}$$  
+$$
+y=\begin{cases}0,x=0\\1,x\geq1\end{cases}
+$$
+  
 则$f(x)$可以表示为$F(x,y)=ay+bx$  
 而如果不在数学规划中明确$x,y$取值之间的关系，可能出现$x=1,y=0$的情况，与原函数的定义不符  
 要表示 $x \geq 1 <-> y=1$ 即$y=1 \Rightarrow x\geq 1$ 则$x\geq y$   
@@ -490,7 +535,10 @@ $y_1+y_2 \leq 2z$
 则$y_3+y_4+y_5\geq z$  
   
 思考：  
-$$y=\begin{cases}a,0<x<1\\b,2<x<3\\c,4<x<5\end{cases}$$应该怎么表示？  
+$$
+y=\begin{cases}a,0<x<1\\b,2<x<3\\c,4<x<5\end{cases}
+$$
+应该怎么表示？  
   
 ### 设施选址问题：  
 有$n$个居民小区需提供服务，$m$处地点开设服务点  
@@ -502,8 +550,14 @@ $$y=\begin{cases}a,0<x<1\\b,2<x<3\\c,4<x<5\end{cases}$$应该怎么表示？
   
 目标函数$min\sum\sum(c_{ij}x_{ij})+\sum(f_iy_i)$  
 决策变量:  
-$$y_i=\begin{cases}1,若在地点i开设服务点\\0,其他\end{cases}$$  
-$$x_{ij}=\begin{cases}1,i给j服务\\0，其他\end{cases}$$  
+$$
+y_i=\begin{cases}1,若在地点i开设服务点\\0,其他\end{cases}
+$$
+  
+$$
+x_{ij}=\begin{cases}1,i给j服务\\0，其他\end{cases}
+$$
+  
 约束条件：  
 $y_i\geq x_{ij}$  
 至少有一个服务点：$\sum_{i=1}^mx_{ij}\geq 1, j=1,2,\dots m$  
@@ -518,7 +572,10 @@ $y_i\geq x_{ij}$
 $x_{ij}+x_{ik}\leq 1$，$\forall (j,k)\in E, \forall i=1,\dots,m$  
   
 !!! question  
-	$$z_{pq}=\begin{equation}0,其他\\1;p,q 由某一服务点服务\end{equation}$$  
+	$$
+z_{pq}=\begin{equation}0,其他\\1;p,q 由某一服务点服务\end{equation}
+$$
+  
 	$x_{ip}+x_{iq}\geq 2z_{pq}$   
 	问题：反了？  
   
@@ -538,7 +595,10 @@ j作为服务点，i和l中必须有一个
 ## 多目标规划  
 给定约束条件下，多个可数值化的目标函数同时极小化的问题  
 数学语言表示：  
-$$min \mathbf{f(x)}=f_1(\mathbf{x})+f_2(\mathbf{x}),\dots,f_P(\mathbf{x})$$  
+$$
+min \mathbf{f(x)}=f_1(\mathbf{x})+f_2(\mathbf{x}),\dots,f_P(\mathbf{x})
+$$
+  
   
   
 - 绝对最优解：$\mathbf{x^{*} \in S_a}$  

@@ -1,3 +1,5 @@
+# Lecture4
+
 - 模块1-3 4-7 8-10 在线考试✓
 - PT选做实验：6.14 23:59前截止
 
@@ -8,9 +10,10 @@
 - PTSA：2.5h 6:14 23:59截止
 ![](image/Pasted%20image%2020240522163726.png)
 
-# Cisco IOS
 
-## 一、操作系统
+## Cisco OS
+
+### 一、操作系统
 
 - 内核+外壳
 - GUI/CLI界面
@@ -26,7 +29,7 @@
 - 终端访问程序：
 - PuTTY,支持带内带外访问；Xshell
 
-# 二、Cisco IOS 操作模式
+### 二、Cisco IOS 操作模式
 
 - 用户EXEC模式-execute
 	- 特征：\>
@@ -134,7 +137,7 @@ show interfaces→ sh int / sh ip int
 
 IOS ping和tracert 用户模式和EXEC特权模式都可以用
 
-# 网络服务与传输层协议
+## 网络服务与传输层协议
 
 DNS 
 web服务器
@@ -227,7 +230,7 @@ ftp://xxx:nnn（端口号21可不写）
 to do：
 复习一下电缆的规律
 
-# 讨论题
+## 讨论题
 
 ![](https://file.cc98.org/v2-upload/2024-05-26/uuqwj3fk.webp)
 1、在实验三拓扑图所示的网络结构中，三台电脑的TCP/IP设置中的首选DNS服务器与备用DNS服务器地址应如何设置？

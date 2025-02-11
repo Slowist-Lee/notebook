@@ -13,26 +13,18 @@ theme:
         name: Switch to light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: indigo
-      accent: indigo
+      primary: blue grey
+      accent: blue grey
       toggle:
         icon: material/toggle-switch
         name: Switch to dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       primary: black
-      accent: indigo
-      toggle:
-        icon: material/toggle-switch-off
-        name: Switch to system preference
-    # Palette toggle for dark mode
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      primary: black
       accent: cyan
       toggle:
         icon: material/toggle-switch-off-outline
-        name: Switch to light mode
+        name: Switch to system preference
   font: false
     # code: JetBrains Mono
   # icon:
@@ -82,9 +74,9 @@ plugins:
       hljs: False
       encrypted_something:
         mkdocs-encrypted-toc: [nav, class]
-  - statistics
+  # - statistics # 关闭了统计功能，太占时间了
   - git-revision-date-localized:
-      enable_creation_date: true
+      enable_creation_date: true 
   - toc
 markdown_extensions:
   - attr_list
@@ -138,7 +130,7 @@ nav:
         - Misc: cs/pl/C/misc.md
       - Cpp:
         - cs/pl/cpp/index.md
-        - Basic: cs/pl/cpp/basic.md
+        - Basic: cs/pl/cpp/Basic.md
       - Asm:
         - cs/pl/Asm/index.md
         - 理论复习: cs/pl/Asm/sum.md
@@ -182,9 +174,9 @@ nav:
       - Misc:
         - ctf:
           - Labs:
-            - lab0-1.md
-            - lab0-2.md
-            - misc-lab1.md
+            - cs/misc/ctf-misc/lab0-1.md
+            - cs/misc/ctf-misc/lab0-2.md
+            - cs/misc/ctf-misc/misc-lab1.md
   - AI:
     - AI/index.md
   - Math: 
@@ -198,6 +190,8 @@ nav:
         - 2. 图论模型: Math/MathModel/note/graph/graph.md
         - 3. 组合优化: Math/MathModel/note/combination-optimize/note.md
         - 4. 习题笔记: Math/MathModel/note/exercise/index.md
+      - Review: 
+        - index.md
       - Test:
         - 24-25秋冬期末(ACEE): Math/MathModel/test/index.md
   - ISEE: 

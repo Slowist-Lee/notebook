@@ -17,7 +17,7 @@
 
 1. 驱动方程：
 
-![](image/image/Pasted%20image%2020250209210527.png)
+![](image/Pasted%20image%2020250209210527.png)
 
 下面进行描述：
 
@@ -81,9 +81,9 @@ Step 1 逻辑抽象
 
 **牛刀小试**
 
-![](image/https://pic2.zhimg.com/v2-f6d79d3a401ea64802b2d149dc4bc467_1440w.jpg)
+![](https://pic2.zhimg.com/v2-f6d79d3a401ea64802b2d149dc4bc467_1440w.jpg)
 
-图中是一个有两个状态的摩尔型状态机。有一个输入信号与一个输出信号。本题中需要实现图中的状态机，注意复位后状态为 B，复位采用[异步复位](https://zhida.zhihu.com/search?content_id=104232083&content_type=Article&match_order=1&q=%E5%BC%82%E6%AD%A5%E5%A4%8D%E4%BD%8D&zhida_source=entity)。
+图中是一个有两个状态的摩尔型状态机。有一个输入信号与一个输出信号。本题中需要实现图中的状态机，注意复位后状态为 B，复位采用异步复位。
 
 **解答与分析**
 
@@ -99,7 +99,7 @@ module top_module (
 endmodule
 ```
 
-这里我们学习标准答案中的表示，采用三段式的写法来描述这个简单的状态机。[三段式状态机](https://zhida.zhihu.com/search?content_id=104232083&content_type=Article&match_order=1&q=%E4%B8%89%E6%AE%B5%E5%BC%8F%E7%8A%B6%E6%80%81%E6%9C%BA&zhida_source=entity)虽然代码会长一些，但能够更方便地修改，并更清晰地表达状态机的跳变与输出规则。
+这里我们学习标准答案中的表示，采用三段式的写法来描述这个简单的状态机。三段式状态机虽然代码会长一些，但能够更方便地修改，并更清晰地表达状态机的跳变与输出规则。
 
 使用参数来表示每个状态。
 
@@ -139,7 +139,7 @@ endmodule
     end
 ```
 
-状态触发器实现，在时钟边沿实现[状态寄存器](https://zhida.zhihu.com/search?content_id=104232083&content_type=Article&match_order=1&q=%E7%8A%B6%E6%80%81%E5%AF%84%E5%AD%98%E5%99%A8&zhida_source=entity)的跳变以及状态复位
+状态触发器实现，在时钟边沿实现状态寄存器的跳变以及状态复位
 
 ```verilog
     // Edge-triggered always block (DFFs) for state flip-flops. Asynchronous reset.
