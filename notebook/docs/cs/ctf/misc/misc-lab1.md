@@ -105,7 +105,7 @@ print(ans)
 ![](image/Pasted%20image%2020240705222941.png)
 
 
-#### 3.2 Task 2: pumpk1n's real OSINT
+### 3.2 Task 2: pumpk1n's real OSINT
 
 四个问题的答案：
 

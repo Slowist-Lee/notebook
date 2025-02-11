@@ -94,7 +94,7 @@ least significant bit
 - LSB 隐写将颜色通道的最低位用来编码信息
     - 图像：stegsolve / CyberChef View Bit Plane
     - 数据：stegsolve / CyberChef Extract LSB / zsteg / PIL
-- PIL 图像处理基础 [官方文档](https://pillow.readthedocs.io/en/stable/)[text](<Misc Lec.2 Note.md>)
+- PIL 图像处理基础 [官方文档](https://pillow.readthedocs.io/en/stable/)
 - 基本用法
     - from PIL import Image 导入和图像读写处理有关的 Image 类
     - img = Image.open(file_name) 打开图像
@@ -177,7 +177,7 @@ least significant bit
 - 恢复的话更改高度即可，同时注意 crc 校验码，否则可能报错
     - binascii.crc32(data)，data 为从 IHDR 开始的数据
 
-![](image/https://courses.zjusec.com/slides/misc-lec2/misc-lec2/modify_size.webp)
+![](https://courses.zjusec.com/slides/misc-lec2/misc-lec2/modify_size.webp)
 
 ### 需要原图的图像隐写
 

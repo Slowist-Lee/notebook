@@ -547,7 +547,7 @@ assign out = (condition) ? x : y;
 
 不要上来就写代码，这样往往与你想象的电路相差很远。
 
-![](image/https://pic4.zhimg.com/v2-642f210c8d559b9f6d8b312c35068d6f_1440w.jpg)
+![](https://pic4.zhimg.com/v2-642f210c8d559b9f6d8b312c35068d6f_1440w.jpg)
 
 ```verilog
 if (cpu_overheated) then shut_off_computer = 1;

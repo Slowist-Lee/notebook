@@ -422,31 +422,31 @@ node.js 不需要去浏览器，可以有自己的开发环境
 
 ### Lab : 使用BurpSuite 进行抓包
 
-### Material/Learning Note
 
-[Burpsuite实现抓包（http、https）\_burpsuite抓包本地请求-CSDN博客](https://blog.csdn.net/2302_77482152/article/details/136348964?ops_request_misc=&request_id=&biz_id=102&utm_term=怎么用BurpSuite对登录抓包&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-1-136348964.142^v100^pc_search_result_base8&spm=1018.2226.3001.4187)
+[Burpsuite实现抓包（http、https）\_burpsuite抓包本地请求-CSDN博客](https://blog.csdn.net/2302_77482152/article/details/136348964?ops_request_misc=&request_id=&biz_id=102&utm_term=怎么用BurpSuite对登录抓包&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-1-136348964.142^v100^pc_search_result_base8&spm=1018.2226.3001.4187)    
 
-我想抓取的是学在浙大，是https
-1. 先按照http设置代理, 因为我的电脑已经连了VPN,端口被占了，所以需要修改端口的设置.
-- **解决方法**
-    1. 配置 Burp Suite 使用其他地址
-    你可以配置Burp Suite使用你机器上的其他IP地址。步骤如下：
-    打开 Burp Suite。
-    进入 **Proxy** 标签，然后选择 P**roxy Settings** 子标签。
-    在 **Proxy Listeners** 部分，点击 **Add** 按钮。
-    在弹出的对话框中，将 **Bind to port** 设为你需要的端口（例如 8081），将 **Bind to address** 设置为 `All interfaces` 或你机器的具体IP地址。
-    点击 **OK**。
-    2. 配置浏览器使用新地址和端口
-    打开你使用的浏览器（例如 Chrome）。
-    进入代理设置，根据你的操作系统设置代理：
-    **Windows**:
-    1. 打开设置，搜索并选择 **网络和Internet 选项**。
-    2. 在 **代理服务器** 部分，填写你在Burp Suite中设置的IP地址和端口（例如：192.168.1.100:8081）。
-    3. 确认代理链配置
-    如果你通过另一个代理服务器访问外部网络，需要在Burp Suite中配置该代理：
-    在 Burp Suite 中，进入 **Network** 标签，然后选择 **Connections** 子标签。
-    在 **Outgoing proxy servers** 部分，点击 **Add**。
-    配置你的上游代理服务器信息（IP地址、端口、认证等），并点击 **OK**。
-    4. 测试连接
+
+我想抓取的是学在浙大，是https  
+1. 先按照http设置代理, 因为我的电脑已经连了VPN,端口被占了，所以需要修改端口的设置.  
+- **解决方法**  
+    1. 配置 Burp Suite 使用其他地址  
+    你可以配置Burp Suite使用你机器上的其他IP地址。步骤如下：  
+    打开 Burp Suite。 
+    进入 **Proxy** 标签，然后选择 P**roxy Settings** 子标签。  
+    在 **Proxy Listeners** 部分，点击 **Add** 按钮。  
+    在弹出的对话框中，将 **Bind to port** 设为你需要的端口（例如 8081），将 **Bind to address** 设置为 `All interfaces` 或你机器的具体IP地址。  
+    点击 **OK**。  
+    2. 配置浏览器使用新地址和端口  
+    打开你使用的浏览器（例如 Chrome）。  
+    进入代理设置，根据你的操作系统设置代理：  
+    **Windows**:  
+    1. 打开设置，搜索并选择 **网络和Internet 选项**。  
+    2. 在 **代理服务器** 部分，填写你在Burp Suite中设置的IP地址和端口（例如：192.168.1.100:8081）。  
+    3. 确认代理链配置  
+    如果你通过另一个代理服务器访问外部网络，需要在Burp Suite中配置该代理：  
+    在 Burp Suite 中，进入 **Network** 标签，然后选择 **Connections** 子标签。  
+    在 **Outgoing proxy servers** 部分，点击 **Add**。  
+    配置你的上游代理服务器信息（IP地址、端口、认证等），并点击 **OK**。  
+    4. 测试连接  
     配置完成后，确保浏览器和Burp Suite都能正确连接并进行抓包。可以访问一个简单的网页进行测试，查看Burp Suite的HTTP history是否有记录。
-1. 启动代理服务器，关闭拦截
+2. 启动代理服务器，关闭拦截  

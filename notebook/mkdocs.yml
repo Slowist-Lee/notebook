@@ -74,7 +74,8 @@ plugins:
       hljs: False
       encrypted_something:
         mkdocs-encrypted-toc: [nav, class]
-  # - statistics # 关闭了统计功能，太占时间了
+  - statistics
+  - changelog
   - git-revision-date-localized:
       enable_creation_date: true 
   - toc
@@ -113,8 +114,9 @@ copyright: Copyright &copy; Slowist/All Rights Reserved. # 左下角的版权声
 nav:
   - Home:
     - index.md
+    - ChangeLog: changelog.md
     - Friends: Friends.md
-    - Content && Timeline: Content.md
+    - Content: Content.md
   - Computer Science:
     - cs/index.md
     - Language:
@@ -167,34 +169,36 @@ nav:
       # - HPC: 
       #   - cs/system/HPC/index.md
       #   - 1. Tools: cs/system/HPC/Tools.md
-      - Tools:
-        - cs/tools/index.md
-        - 1. Git: cs/tools/git-advance.md
-        - 2. PA0: cs/tools/PA0.md
-        - 3. WSL: cs/tools/WSL.md
-      - Misc:
-        - cs/misc/index.md
-        - ctf:
-          - cs/misc/ctf/index.md
-          - lab0:
-              - cs/misc/ctf/lab0/lab0-1.md
-              - cs/misc/ctf/lab0/lab0-2.md
-          - web:
-            - cs/misc/ctf/web/note-1.md
-            - cs/misc/ctf/web/note-2.md
-            - cs/misc/ctf/web/lab-1.md
-            - cs/misc/ctf/web/lab-3.md
-          - misc:
-            - cs/misc/ctf/misc/note-2.md
-            - cs/misc/ctf/misc/misc-lab1.md
-          - pwn:
-            - cs/misc/ctf/pwn/index.md
-          - reverse:
-            - cs/misc/ctf/reverse/index.md
-          - crypto:
-            - cs/misc/ctf/crypto/index.md
-        - fundamental:
-          - cs/misc/fundamental/index.md
+    - CTF:
+      - cs/ctf/index.md
+      - Lab0:
+        - Part 1: cs/ctf/lab0/lab0-1.md
+        - Part 2: cs/ctf/lab0/lab0-2.md
+      - web:
+        - Note 1: cs/ctf/web/note-1.md
+        - Note 2: cs/ctf/web/note-2.md
+        - Lab 1: cs/ctf/web/lab-1.md
+        - Lab 2: cs/ctf/web/lab-3.md
+      - misc:
+        - Note: cs/ctf/misc/note-2.md
+        - Lab: cs/ctf/misc/misc-lab1.md
+      - pwn:
+        - cs/ctf/pwn/index.md
+      - reverse:
+        - cs/ctf/reverse/index.md
+      - crypto:
+        - cs/ctf/crypto/index.md
+    - Fundamental:
+      - cs/fundamental/index.md
+      - Note | 笔记: cs/fundamental/note.md
+      - Office | 期中: cs/fundamental/office.md
+      - Test | 自测: cs/fundamental/test.md
+    - Tools:
+      - cs/tools/index.md
+      - 1. Git: cs/tools/git-advance.md
+      - 2. PA0: cs/tools/PA0.md
+      - 3. WSL: cs/tools/WSL.md
+
   - AI:
     - AI/index.md
   - Math: 
@@ -207,9 +211,9 @@ nav:
         - 1. 数学规划: Math/MathModel/note/program/program.md
         - 2. 图论模型: Math/MathModel/note/graph/graph.md
         - 3. 组合优化: Math/MathModel/note/combination-optimize/note.md
-        - 4. 习题笔记: Math/MathModel/note/exercise/index.md
+        - 4. 习题笔记: Math/MathModel/note/exercise/note.md
       - Review: 
-        - Math/MathModel/note/review/index.md
+        - Math/MathModel/note/review/note.md
       - Test:
         - 24-25秋冬期末(ACEE): Math/MathModel/test/index.md
   - ISEE: 
@@ -291,6 +295,3 @@ nav:
       - 六: Writings/emotion/06.md
       - 七: Writings/emotion/07.md  
       - 九: Writings/emotion/09.md
-
-
-    

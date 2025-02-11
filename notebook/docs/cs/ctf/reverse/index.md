@@ -1,10 +1,7 @@
 # Reverse
 
-## Slide
-
-<object data="basic.pdf" type="application/pdf" width="100%" height="800">
-    <embed src="basic.pdf" type="application/pdf" />
-</object>
+!!! warning
+    Slide 在文末.
 
 ## Pre. 一些基础操作留档
 
@@ -532,7 +529,7 @@ int main(int argc, char *argv[])
 
 ![alt text](image.png)
 
-我们`cd`到对应的进程中去看：
+我们`cd`到对应的进程中去看：v
 
 ```bash
 cd /proc/36559
@@ -1416,3 +1413,9 @@ clang challenge2.s -o challenge2
 ```bash
 clang challenge2.bc -o challenge2
 ```
+
+## Slide
+
+<object data="basic.pdf" type="application/pdf" width="100%" height="800">
+    <embed src="basic.pdf" type="application/pdf" />
+</object>

@@ -4,18 +4,19 @@
 
 ## 一、安装WSL 2.0
 
-## 1.启用适用于 Linux 的 Windows 子系统：打开powershell并输入：
+1. 启用适用于 Linux 的 Windows 子系统：打开powershell并输入：
+
 ```bash
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 ```
 
 ![](https://github.com/Slowist-Lee/image-hosting/blob/master/WSL%201.png?raw=true)
 
-## 2&3. 检查WSL2的要求：win+R打开运行，然后输入winver检查windows版本，此版本需要大于1903
+2. 检查WSL2的要求：win+R打开运行，然后输入winver检查windows版本，此版本需要大于1903
 
 ![](https://github.com/Slowist-Lee/image-hosting/blob/master/WSL%203.png?raw=true)
 
-## 4. 启用虚拟化:以管理员打开powershell输入下列命令
+3. 启用虚拟化:以管理员打开powershell输入下列命令
 
 ```
 dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
@@ -23,9 +24,9 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
 
 ![在这里插入图片描述](https://github.com/Slowist-Lee/image-hosting/blob/master/WSL%204.png?raw=true)
 
-## 5. 下载[X64的WSL2 Linux内核升级包](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi)并安装
+4. 下载[X64的WSL2 Linux内核升级包](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi)并安装
 
-## 6. 设置WSL默认版本
+5. 设置WSL默认版本
 
 ```
 wsl --set-default-version 2
@@ -33,19 +34,20 @@ wsl --set-default-version 2
 
 ## 二、安装Ubuntu20.04LTS
 
-## 1.打开Microsoft Store
+1. 打开Microsoft Store
 
-## 2. 一般Windows都会将ubuntu加入到我的软件库中，如果没有可以自行搜索ubuntu然后安装，搜索到商店的有可能安装不了
+2.  一般Windows都会将ubuntu加入到我的软件库中，如果没有可以自行搜索ubuntu然后安装，搜索到商店的有可能安装不了
 
 ![在这里插入图片描述](https://github.com/Slowist-Lee/image-hosting/blob/master/WSL%205.png?raw=true)
 
-## 3. 找到Ubuntu 20.04LTS点击安装即可，这里我已经安装好了直接点击启动就行
+3.  找到Ubuntu 20.04LTS点击安装即可，这里我已经安装好了直接点击启动就行
 
-## 4. 打开后设置初始的用户名和密码即可，如果出现参考的对象类型不支持尝试的操作，请重置下网络net winsock reset
+4. 打开后设置初始的用户名和密码即可，如果出现参考的对象类型不支持尝试的操作，请重置下网络net winsock reset
 
 
 <mark>Tips</mark>: 用户名应该只包含**小写**字母和数字，并且不能以数字开头，否则会报错
-## 5. 设置root密码
+
+5. 设置root密码
 
 > <mark>Tips</mark>: 这步往往可以省略，在初始化的时候应该已经设置
 
@@ -55,7 +57,7 @@ sudo passwd
 
 ## 三、配置ssh
 
-## 1.修改配置文件/etc/ssh/sshd_config，开启下列选项
+1. 修改配置文件/etc/ssh/sshd_config，开启下列选项
 
 ```bash
 sudo nano /etc/ssh/sshd_config
@@ -80,7 +82,7 @@ HostKey /etc/ssh/ssh_host_ecdsa_key
 HostKey /etc/ssh/ssh_host_ed25519_key
 ```
 
-## 2. 由于自带的openssh-server没有生成密钥所以需要生成密钥文件，否则会出现sshd: no hostkeys available – exiting.
+2. 由于自带的openssh-server没有生成密钥所以需要生成密钥文件，否则会出现sshd: no hostkeys available – exiting.
 
 <mark>Tips</mark>：若没有必要，不要给密钥设密码，若一定要设，`rsa_key` 最好别设密码
 
@@ -96,7 +98,7 @@ sudo chown root:root /etc/ssh/ssh_host_*
 sudo chmod 600 /etc/ssh/ssh_host_*
 ```
    
-## 3. 启动ssh
+3. 启动ssh
 
 ```
 service ssh start
@@ -113,7 +115,7 @@ sudo systemctl restart ssh
 sudo systemctl status ssh
 ```
 
-## 4. 开机启动ssh：win+R打开运行，输入shell::startup进入开机启动项，创建wsl_ssh_start.bat，其内容为
+4. 开机启动ssh：win+R打开运行，输入shell::startup进入开机启动项，创建wsl_ssh_start.bat，其内容为
 
 ```
 C:\Users\用户名\AppData\Local\Microsoft\WindowsApps\ubuntu2004.exe run "sudo service ssh restart"
@@ -148,48 +150,25 @@ C:\Users\leexi\AppData\Local\Microsoft\WindowsApps\ubuntu2004.exe config --defau
 	4. **禁用代理** 确保“自动检测设置”和“使用代理服务器”都被禁用。
 
 !!! tip "解决 localhost 代理问题的方法"
-
     在使用 WSL（Windows Subsystem for Linux）时，如果遇到 "检测到 localhost 代理配置，但未镜像到 WSL，NAT 模式下的 WSL 不支持 localhost 代理" 的错误，可以尝试以下解决方案：
-    # 方法二：配置 WSL 使用代理
-
+    1. 配置 WSL 使用代理
     如果需要在 WSL 中使用代理，可以手动配置代理设置：
-
-    
     export http_proxy="http://your_proxy:your_port"
     export https_proxy="http://your_proxy:your_port"
     export no_proxy="localhost,127.0.0.1"
-    
-
     请将 `your_proxy` 和 `your_port` 替换为实际的代理服务器地址和端口。
-
-    # 方法三：升级到 WSL 2
-
+    1. 升级到 WSL 2
     WSL 2 的网络堆栈与 WSL 1 不同，可能更适合处理网络代理问题：
-
-    1. 检查当前 WSL 版本：`wsl -l -v`。
-    2. 升级到 WSL 2：
-    
-    
+    Step1. 检查当前 WSL 版本：`wsl -l -v`。
+    Step2. 升级到 WSL 2：
     wsl --set-version <distribution_name> 2
-    
-    
     将 `<distribution_name>` 替换为您的发行版名称。
-
-    3. 将 WSL 2 设置为默认版本：
-    
-    
+    2.1 将 WSL 2 设置为默认版本：
     wsl --set-default-version 2
-    
-
-    # 方法四：手动启动 SSH 服务
-
+    2.2 手动启动 SSH 服务
     如果只是尝试启动 SSH 服务，可以手动执行以下步骤：
-
-    1. 启动 WSL 终端。
-    2. 启动 SSH 服务：
-    
-    sudo service ssh start
-    
+    2.2.1 启动 WSL 终端。
+    2.2.2 启动 SSH 服务：`sudo service ssh start`  
 
 
 ## 四、连接SSH的一般步骤
@@ -213,6 +192,7 @@ C:\Users\leexi\AppData\Local\Microsoft\WindowsApps\ubuntu2004.exe config --defau
    ```
  
 `ssh slowist@172.20.149.110`
+
 ## 五、如何在LINUX上运行汇编程序
 
 - VS Code 安装 Remote Development 插件
