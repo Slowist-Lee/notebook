@@ -1,6 +1,6 @@
 import re
 
-file_name = "D:\\MyRepository\\notebook-publish\\notebook\\docs\\cs\\misc\\ctf\\web\\note-1.md"
+file_name = "D:\\MyRepository\\notebook-publish\\notebook\\docs\\cs\\misc\\ctf\\misc\\misc-lab1.md"
 
 with open(file_name, 'r', encoding='utf-8') as file:
     content = file.read()

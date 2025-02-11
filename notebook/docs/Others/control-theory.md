@@ -11,9 +11,9 @@
 
 **助教PPT**
 
-![](Pasted%20image%2020250105140528.png)
+![](image/Pasted%20image%2020250105140528.png)
 
-![](Pasted%20image%2020250105140546.png)
+![](image/Pasted%20image%2020250105140546.png)
 
 **历年题：**
 
@@ -21,7 +21,7 @@
 
 ## II. 传递函数
 
-![](Pasted%20image%2020250105141044.png)
+![](image/Pasted%20image%2020250105141044.png)
 
 
 ### A. 系统结构
@@ -35,66 +35,66 @@ $$Y=H_1 + H_2 + \cdots + H_n$$
 
 ##### 3. 负反馈系统
 $$G'=\frac{G}{1+GH}$$
-![](Pasted%20image%2020250105142036.png)
+![](image/Pasted%20image%2020250105142036.png)
 
 ##### 4. 如何化简？
-![](Pasted%20image%2020250105153227.png)
-![](Pasted%20image%2020250105153237.png)
-![](Pasted%20image%2020250105153246.png)
+![](image/Pasted%20image%2020250105153227.png)
+![](image/Pasted%20image%2020250105153237.png)
+![](image/Pasted%20image%2020250105153246.png)
 
 3. 例题1：
-![](Pasted%20image%2020250105142621.png)
+![](image/Pasted%20image%2020250105142621.png)
 
-![](Pasted%20image%2020250105142906.png)
+![](image/Pasted%20image%2020250105142906.png)
 
 另一道比较难的例题见课件，感觉无非算的仔细一点
 
 ##### 5. 信号流图(SFG)--梅逊增益公式
 
-![](Pasted%20image%2020250105144117.png)
+![](image/Pasted%20image%2020250105144117.png)
 
-![](Pasted%20image%2020250105144149.png)
+![](image/Pasted%20image%2020250105144149.png)
 
 1. 信号流图表示法与框图的转换
 
 每一个综合点/引入引出点都是一个新的信号点
 
-![](Pasted%20image%2020250105144246.png)
+![](image/Pasted%20image%2020250105144246.png)
 
 
-![](Pasted%20image%2020250105144358.png)
+![](image/Pasted%20image%2020250105144358.png)
 
 2. 信号流图的变换：
 
-![](Pasted%20image%2020250105144507.png)
+![](image/Pasted%20image%2020250105144507.png)
 y=ax-by
 
 若没有公共节点：不接触
 否则：接触
 
-![](Pasted%20image%2020250105145129.png)
+![](image/Pasted%20image%2020250105145129.png)
 
 一道信号流的化简例题：
-![](Pasted%20image%2020250105150445.png)
+![](image/Pasted%20image%2020250105150445.png)
 
-![](lQDPKHVMGB3arN3NBI3NBOuwdBtWrtk1LlUHXvAS7Ec7AA_1259_1165.jpg)
+![](image/lQDPKHVMGB3arN3NBI3NBOuwdBtWrtk1LlUHXvAS7Ec7AA_1259_1165.jpg)
 例题：
-![](Pasted%20image%2020250105144557.png)
+![](image/Pasted%20image%2020250105144557.png)
 
 ## III. 稳定性
 
-![](Pasted%20image%2020250105150648.png)
+![](image/Pasted%20image%2020250105150648.png)
 
 
-![](Pasted%20image%2020250105150639.png)
+![](image/Pasted%20image%2020250105150639.png)
 
 ### 3.1 劳斯判据
 
 给一个`g(s)=`的形式
 
-![](Pasted%20image%2020250105151221.png)
+![](image/Pasted%20image%2020250105151221.png)
 
-![](Pasted%20image%2020250105152218.png)
+![](image/Pasted%20image%2020250105152218.png)
 
 例题/23-24考试题
 
@@ -111,11 +111,11 @@ $s^3+6s^2+5s+K=0$ 判断使$K$稳定的范围
 $\Rightarrow 0<K<30$
 
 
-![](Pasted%20image%2020250105152955.png)
+![](image/Pasted%20image%2020250105152955.png)
 
 ## IV. 时域频域分析
 
-![](Pasted%20image%2020250105153405.png)
+![](image/Pasted%20image%2020250105153405.png)
 
 - 延迟/**滞**时间$t_d$：响应曲线到达稳态值50%所需的时间。
 - 上升时间$t_r$：
@@ -129,7 +129,7 @@ $\Rightarrow 0<K<30$
 频率特性曲线：
 幅相曲线：
 
-![](Pasted%20image%2020250105153831.png)
+![](image/Pasted%20image%2020250105153831.png)
 
 比例(P)控制能迅速反应误差，从而减小稳态误差。但是，比例控制不能消除稳态误差。比例放大系数的加大会引起系统的不稳定。
 
@@ -137,9 +137,9 @@ $\Rightarrow 0<K<30$
 
 微分(D)控制可以减小超调量，克服振荡，使系统的稳定性提高，同时加快系统的动态响应速度，减小调整时间，从而改善系统的动态性能。
 
-![](Pasted%20image%2020250105163106.png)
+![](image/Pasted%20image%2020250105163106.png)
 
-![](Pasted%20image%2020250105163120.png)
+![](image/Pasted%20image%2020250105163120.png)
 
 ------
 

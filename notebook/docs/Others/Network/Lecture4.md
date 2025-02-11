@@ -131,8 +131,7 @@ Router
 详细信息：
 show interfaces→ sh int / sh ip int
 
-![](https://file.cc98.org/v2-upload/2024-05-22/witryqu2.webp)
-
+![alt text](image-7.png)
 
 
 IOS ping和tracert 用户模式和EXEC特权模式都可以用
@@ -232,7 +231,8 @@ to do：
 
 ## 讨论题
 
-![](https://file.cc98.org/v2-upload/2024-05-26/uuqwj3fk.webp)
+![alt text](image-6.png)
+
 1、在实验三拓扑图所示的网络结构中，三台电脑的TCP/IP设置中的首选DNS服务器与备用DNS服务器地址应如何设置？
 
 2、如果将三台电脑的TCP/IP设置中的“首选DNS服务器”与“备用DNS服务器”分别都设置为：10.10.0.21与10.10.2.21（即校网DNS服务器），能否正确解析本网络中所出现的全部域名？为什么？

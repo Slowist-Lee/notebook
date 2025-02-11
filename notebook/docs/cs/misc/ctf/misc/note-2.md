@@ -23,18 +23,18 @@
 
 VSCode, 装完插件，ctrl+shift+p 输hex
 
-![](Pasted%20image%2020240709184107.png)
+![](image/Pasted%20image%2020240709184107.png)
 
 魔数：
 
-![](Pasted%20image%2020240709184219.png)
+![](image/Pasted%20image%2020240709184219.png)
 
 - 通过 file 命令进行文件类型的检测
 - 可以使用 exiftool 读取部分类型文件的元信息
 
 5. 文件结束的标记：
 
-![](Pasted%20image%2020240709184601.png)
+![](image/Pasted%20image%2020240709184601.png)
 
 - 大部分文件类型都有一个标记文件内容结束的标志
     - 比如 PNG 的 IEND 块、JPEG 的 EOI 标志（FF D9）
@@ -139,7 +139,7 @@ least significant bit
 	- FFDA（SOS）：扫描数据，包含数据的扫描方式，huffman 表的使用方式等
 	- FFD9（EOI）：文件结束
 
-![](Pasted%20image%2020240709191116.png)
+![](image/Pasted%20image%2020240709191116.png)
 
 - PNG
 	-  文件头 89 50 4E 47 0D 0A 1A 0A | .PNG....
@@ -163,7 +163,7 @@ least significant bit
 
 所以看到misc_lab0:
 
-![](Pasted%20image%2020240709192247.png)
+![](image/Pasted%20image%2020240709192247.png)
 
 看到`IEND B` 之后都是我们要的`flag`
 
@@ -177,7 +177,7 @@ least significant bit
 - 恢复的话更改高度即可，同时注意 crc 校验码，否则可能报错
     - binascii.crc32(data)，data 为从 IHDR 开始的数据
 
-![](https://courses.zjusec.com/slides/misc-lec2/misc-lec2/modify_size.webp)
+![](image/https://courses.zjusec.com/slides/misc-lec2/misc-lec2/modify_size.webp)
 
 ### 需要原图的图像隐写
 

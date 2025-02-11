@@ -16,7 +16,7 @@ def replace_markdown_links(text):
     return replaced_text
 
 
-file_name = 'D:\\MyRepository\\notebook-publish\\notebook\\docs\\cs\\misc\\ctf\\web\\lab-1.md'
+file_name = 'D:\\MyRepository\\notebook-publish\\notebook\\docs\\cs\\misc\\ctf\\misc\\misc-lab1.md'
 
 with open(file_name, 'r', encoding='utf-8') as file:
     content = file.read()

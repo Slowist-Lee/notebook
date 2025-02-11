@@ -1,6 +1,5 @@
 ---
 title: Home
-statistics: True
 ---
 
 # Slowist's Notebook! 

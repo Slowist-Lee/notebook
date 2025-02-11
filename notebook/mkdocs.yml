@@ -151,7 +151,6 @@ nav:
           - HW0B: cs/algorithm/cs61b/HW0B.md
           - lab1: cs/algorithm/cs61b/Lab1_Note.md
           - proj1: cs/algorithm/cs61b/Proj1_Summary.md
-
     - System: 
       - cs/system/index.md
       - CO:
@@ -172,11 +171,24 @@ nav:
         - 1. Git: cs/tools/git-advance.md
         - 2. PA0: cs/tools/PA0.md
       - Misc:
+        - cs/misc/index.md
         - ctf:
-          - Labs:
-            - cs/misc/ctf-misc/lab0-1.md
-            - cs/misc/ctf-misc/lab0-2.md
-            - cs/misc/ctf-misc/misc-lab1.md
+          - cs/misc/ctf/index.md
+          - lab0:
+              - cs/misc/ctf/lab0/lab0-1.md
+              - cs/misc/ctf/lab0/lab0-2.md
+          - web:
+            - cs/misc/ctf/web/note-1.md
+            - cs/misc/ctf/web/note-2.md
+            - cs/misc/ctf/web/lab-1.md
+            - cs/misc/ctf/web/lab-3.md
+          - misc:
+            - cs/misc/ctf/misc/note-2.md
+            - cs/misc/ctf/misc/misc-lab1.md
+          - pwn:
+            - cs/misc/ctf/pwn/note-1.md
+        - fundamental:
+          - index.md
   - AI:
     - AI/index.md
   - Math: 
@@ -241,6 +253,9 @@ nav:
         - English/Interpretation/homework/Science.md
       - Learning Resources:
         - English/Interpretation/homework/Material.md
+      - Misc:
+        - index.md
+        - 语料整理1: English/misc/writing.md
   - Others: 
     - Others/index.md
     - 雕版印刷与课本文化: Others/PrintingCulture.md
@@ -250,7 +265,6 @@ nav:
       - Others/Network/index.md
       - Lecture 4: Others/Network/Lecture4.md
       - Lecture 6: Others/Network/Lecture6.md
-      - Other: Others/Network/others.md
   - Writings:
     - Writings/index.md
     - Essay:

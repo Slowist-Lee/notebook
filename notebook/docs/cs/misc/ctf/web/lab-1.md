@@ -386,7 +386,7 @@ Note:
 1. 其中在成绩下面两行在交上的代码被注释掉了
 2. 具体的chromedriver地址/id/password都被修改掉了，要想运行需要填写相关的值
 
-![alt text](Pasted%20image%2020240707140337.png)
+![alt text](image/Pasted%20image%2020240707140337.png)
 
 ## Bonus:
 

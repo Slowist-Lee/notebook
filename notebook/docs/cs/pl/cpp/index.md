@@ -5,3 +5,4 @@
     - NTU Note: https://www3.ntu.edu.sg/home/ehchua/programming/index.html
     - CS106L
 
+- [Basic](Basic.md)

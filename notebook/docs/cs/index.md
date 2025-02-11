@@ -15,4 +15,8 @@
 - 计算机系统相关:
   - 计算机组成: system/CO/
   - 数字逻辑: system/DD/
+- Misc:
+  - CTF: misc/ctf/
+  - 计算机科学基础: misc/fundamental/
+  - Tools: tools/
 {{ END_TOC }}
