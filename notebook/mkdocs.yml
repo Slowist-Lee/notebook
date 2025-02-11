@@ -160,6 +160,7 @@ nav:
       - DD:
         - cs/system/DD/index.md
         - verilog:
+          - cs/system/DD/verilog/index.md
           - Note: cs/system/DD/verilog/Language.md
           - Sequence: cs/system/DD/verilog/Sequence.md
           - FSM: cs/system/DD/verilog/FSM.md
@@ -170,6 +171,7 @@ nav:
         - cs/tools/index.md
         - 1. Git: cs/tools/git-advance.md
         - 2. PA0: cs/tools/PA0.md
+        - 3. WSL: cs/tools/WSL.md
       - Misc:
         - cs/misc/index.md
         - ctf:
@@ -186,9 +188,13 @@ nav:
             - cs/misc/ctf/misc/note-2.md
             - cs/misc/ctf/misc/misc-lab1.md
           - pwn:
-            - cs/misc/ctf/pwn/note-1.md
+            - cs/misc/ctf/pwn/index.md
+          - reverse:
+            - cs/misc/ctf/reverse/index.md
+          - crypto:
+            - cs/misc/ctf/crypto/index.md
         - fundamental:
-          - index.md
+          - cs/misc/fundamental/index.md
   - AI:
     - AI/index.md
   - Math: 
@@ -203,7 +209,7 @@ nav:
         - 3. 组合优化: Math/MathModel/note/combination-optimize/note.md
         - 4. 习题笔记: Math/MathModel/note/exercise/index.md
       - Review: 
-        - index.md
+        - Math/MathModel/note/review/index.md
       - Test:
         - 24-25秋冬期末(ACEE): Math/MathModel/test/index.md
   - ISEE: 
@@ -253,9 +259,9 @@ nav:
         - English/Interpretation/homework/Science.md
       - Learning Resources:
         - English/Interpretation/homework/Material.md
-      - Misc:
-        - index.md
-        - 语料整理1: English/misc/writing.md
+    - Misc:
+      - English/misc/index.md
+      - 语料整理1: English/misc/writing.md
   - Others: 
     - Others/index.md
     - 雕版印刷与课本文化: Others/PrintingCulture.md
@@ -285,8 +291,6 @@ nav:
       - 六: Writings/emotion/06.md
       - 七: Writings/emotion/07.md  
       - 九: Writings/emotion/09.md
-    - Plan:
-      - 寒假计划: Writings/plans/WinterPlan.md
 
 
     
