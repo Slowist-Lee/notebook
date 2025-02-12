@@ -11,6 +11,6 @@
   - [x] [数学规划](note/program/program.md)   
   - [x] [图论模型](note/graph/graph.md)   
   - [x] [复习](note/review/note.md)   
-  - [x] [习题笔记](note/exercise/note.md)   
+  - [x] [习题笔记](note/exercise/index.md)   
 - 试题:  
   - [x] [24-25秋冬期末考试题](test/index.md)

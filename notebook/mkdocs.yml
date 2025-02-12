@@ -169,6 +169,11 @@ nav:
       # - HPC: 
       #   - cs/system/HPC/index.md
       #   - 1. Tools: cs/system/HPC/Tools.md
+    - Tools:
+      - cs/tools/index.md
+      - 1. Git: cs/tools/git-advance.md
+      - 2. PA0: cs/tools/PA0.md
+      - 3. WSL: cs/tools/WSL.md
     - CTF:
       - cs/ctf/index.md
       - Lab0:
@@ -193,28 +198,20 @@ nav:
       - Note | 笔记: cs/fundamental/note.md
       - Office | 期中: cs/fundamental/office.md
       - Test | 自测: cs/fundamental/test.md
-    - Tools:
-      - cs/tools/index.md
-      - 1. Git: cs/tools/git-advance.md
-      - 2. PA0: cs/tools/PA0.md
-      - 3. WSL: cs/tools/WSL.md
-
   - AI:
     - AI/index.md
   - Math: 
     - Math/index.md
-    - 复变函数与积分变换: Math/complex.md
+    - 复变函数与积分变换: Math/complex/complex.md
     - 概率论与数理统计: Math/Probability/Error.md
     - 数学建模: 
       - Math/MathModel/index.md
-      - Note: 
-        - 1. 数学规划: Math/MathModel/note/program/program.md
-        - 2. 图论模型: Math/MathModel/note/graph/graph.md
-        - 3. 组合优化: Math/MathModel/note/combination-optimize/note.md
-        - 4. 习题笔记: Math/MathModel/note/exercise/index.md
-      - Review: 
-        - Math/MathModel/note/review/note.md
-      - Test:
+      - 1. 数学规划: Math/MathModel/program/program.md
+      - 2. 图论模型: Math/MathModel/graph/graph.md
+      - 3. 组合优化: Math/MathModel/combination-optimize/note.md
+      - 4. 习题笔记: Math/MathModel/exercise/index.md
+      - 5. Review: Math/MathModel/note/review/note.md
+      - 6. Test:
         - 24-25秋冬期末(ACEE): Math/MathModel/test/index.md
   - ISEE: 
     - isee/index.md
