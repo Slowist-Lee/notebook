@@ -8,9 +8,9 @@
 ## Table of Contents
 
 - 部分笔记:
-  - [x] [数学规划](note/program/program.md)   
-  - [x] [图论模型](note/graph/graph.md)   
-  - [x] [复习](note/review/note.md)   
-  - [x] [习题笔记](note/exercise/index.md)   
+  - [x] [数学规划](program/program.md)   
+  - [x] [图论模型](graph/graph.md)   
+  - [x] [复习](review/note.md)   
+  - [x] [习题笔记](exercise/index.md)   
 - 试题:  
   - [x] [24-25秋冬期末考试题](test/index.md)

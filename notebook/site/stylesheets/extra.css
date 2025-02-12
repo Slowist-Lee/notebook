@@ -5,6 +5,11 @@
 }
 
 /* changelog */
+
+.timeline-content::before {
+    background-color: var(--timeline-card-bg) !important;
+}
+
 .timeline-card {
     background-color: var(--timeline-card-bg) !important;
 }

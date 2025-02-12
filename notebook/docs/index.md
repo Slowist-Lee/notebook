@@ -17,7 +17,7 @@ statistics: true
     - Constructing...
 
 !!! inline tip "较完善的内容"
-    - [复变函数与积分变换](Math/complex.md)
+    - [复变函数与积分变换](Math/complex/index.md)
     - [英语口译](English/Interpretation/index.md)
     - [电子电路基础](isee/elec/index.md)
 

@@ -70,6 +70,8 @@ plugins:
   - search
   - encryptcontent:
       title_prefix: '🔒'
+      summary: '请输入密码查看.'
+      encryption_info_message: '此内容已加密, 请输入密码查看.'
       decryption_failure_message: '密码错误, 如有需要，请联系Slowist'
       hljs: False
       encrypted_something:
@@ -114,9 +116,9 @@ copyright: Copyright &copy; Slowist/All Rights Reserved. # 左下角的版权声
 nav:
   - Home:
     - index.md
-    - ChangeLog: changelog.md
-    - Friends: Friends.md
-    - Content: Content.md
+    - 更新记录: changelog.md
+    - 友链: Friends.md
+    - 笔记目录: Content.md
   - Computer Science:
     - cs/index.md
     - Language:
@@ -202,7 +204,7 @@ nav:
     - AI/index.md
   - Math: 
     - Math/index.md
-    - 复变函数与积分变换: Math/complex/complex.md
+    - 复变函数与积分变换: Math/complex/index.md
     - 概率论与数理统计: Math/Probability/Error.md
     - 数学建模: 
       - Math/MathModel/index.md
@@ -210,7 +212,7 @@ nav:
       - 2. 图论模型: Math/MathModel/graph/graph.md
       - 3. 组合优化: Math/MathModel/combination-optimize/note.md
       - 4. 习题笔记: Math/MathModel/exercise/index.md
-      - 5. Review: Math/MathModel/note/review/note.md
+      - 5. Review: Math/MathModel/review/note.md
       - 6. Test:
         - 24-25秋冬期末(ACEE): Math/MathModel/test/index.md
   - ISEE: 

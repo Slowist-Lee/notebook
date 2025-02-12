@@ -7,22 +7,25 @@
 ## 大一寒假
 
 - [x] [C程序设计基础及实验](cs/pl/C/index.md)
+- [x] [计算机科学基础(A)](cs/fundamental/index.md) 
 
 ## 大一春夏
 
 - [x] [概率论与数理统计-历年卷勘误](Math/Probability/Error.md)
 - [x] [英语口译](English/Interpretation/index.md)
 - [x] [雕版印刷与课本文化](Others/PrintingCulture.md)
+- [x] [无线网络应用](Others/Network/index.md) 
 
 ## 大一暑假
 
 - [ ] [cs61b](cs/algorithm/cs61b/Lecture1_Introduction.md)
+- [x] [CTF](cs/ctf/index.md) 
 
 ## 大二秋冬
 
 ### 课内：
 
-- [x] [复变函数与积分变换](Math/complex.md)
+- [x] [复变函数与积分变换](Math/complex/index.md)
 - [x] [汇编语言程序设计基础](cs/pl/Asm/index.md)
 - [x] [C程序设计基础及实验](cs/pl/C/index.md)
 - [x] [控制论](Others/control-theory.md)
