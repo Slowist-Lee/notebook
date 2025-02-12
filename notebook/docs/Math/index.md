@@ -1,7 +1,7 @@
 # Math
 
-!!! abstract 
-        主要收录自己修读工科类数学基础课程的一些笔记 && 资料！
+!!! abstract
+    主要收录自己修读工科类数学基础课程的一些笔记 && 资料！
 
 ## Table of Contents
 

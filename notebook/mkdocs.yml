@@ -188,7 +188,7 @@ nav:
         - cs/ctf/reverse/index.md
       - crypto:
         - cs/ctf/crypto/index.md
-    - Fundamental:
+    - 计算机科学基础(A):
       - cs/fundamental/index.md
       - Note | 笔记: cs/fundamental/note.md
       - Office | 期中: cs/fundamental/office.md
@@ -211,7 +211,7 @@ nav:
         - 1. 数学规划: Math/MathModel/note/program/program.md
         - 2. 图论模型: Math/MathModel/note/graph/graph.md
         - 3. 组合优化: Math/MathModel/note/combination-optimize/note.md
-        - 4. 习题笔记: Math/MathModel/note/exercise/note.md
+        - 4. 习题笔记: Math/MathModel/note/exercise/index.md
       - Review: 
         - Math/MathModel/note/review/note.md
       - Test:

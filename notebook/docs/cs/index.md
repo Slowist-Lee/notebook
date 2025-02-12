@@ -16,7 +16,7 @@
   - 计算机组成: system/CO/
   - 数字逻辑: system/DD/
 - Misc:
-  - CTF: misc/ctf/
-  - 计算机科学基础: misc/fundamental/
+  - CTF: ctf/
+  - 计算机科学基础: fundamental/
   - Tools: tools/
 {{ END_TOC }}
