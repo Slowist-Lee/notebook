@@ -40,7 +40,5 @@
 
 ## 大二寒假
 
-- **Verilog**
-  - [HDLBits](cs/system/DD/verilog/Language.md)
-- **计算机组成**
-  - [笔记](cs/system/CO/index.md)  
+- [x] [HDLBits](cs/system/DD/verilog/Language.md)
+- [x] [计算机组成](cs/system/CO/index.md)  
