@@ -5,6 +5,9 @@
 }
 
 /* changelog */
+.changelog-time {
+    font-weight: bold !important;
+}
 
 .timeline-content::before {
     background-color: var(--timeline-card-bg) !important;
