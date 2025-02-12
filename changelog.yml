@@ -4,10 +4,10 @@
     - function: "添加changelog"
     - newpage: 
         text: cs > CTF
-        href: /cs/ctf/
+        href: ../cs/ctf/
     - newpage: 
         text: cs > 计算机科学基础
-        href: /cs/fundamental/
+        href: ../cs/fundamental/
     - pageupdate:
         text: Others > 无线网络应用
-        href: /Others/Network/
+        href: ../Others/Network/
