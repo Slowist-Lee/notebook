@@ -8,7 +8,9 @@
 .timeline-card {
     background-color: var(--timeline-card-bg) !important;
 }
-
+.timeline-dot{
+    background-color: var(--timeline-card-bg) !important;
+}
 /* 定义变量：浅色模式 */
 [data-md-color-scheme="default"] {
         --timeline-card-bg: #efefef; /* 浅色背景 */
