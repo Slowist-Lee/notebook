@@ -4,10 +4,10 @@
     - function: "添加changelog"
     - newpage: 
       text: cs > CTF
-      href: cs/ctf/
+      href: https://slowist-lee.github.io/notebook/cs/ctf/
     - newpage: 
       text: cs > 计算机科学基础
-      href: /cs/fundamental
+      href: https://slowist-lee.github.io/notebook//cs/fundamental
     - pageupdate:
       text: Others > 无线网络应用
-      href: /Others/Network
+      href: https://slowist-lee.github.io/notebook/Others/Network
