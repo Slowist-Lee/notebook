@@ -30,6 +30,8 @@
   - 三: emotion/03/
   - 四: emotion/04/
   - 六: emotion/06/
-  - 七: emotion/07/ 
+  - 七: emotion/07/
   - 九: emotion/09/
+- Record:
+  - 二月: record/2025-02/
 {{ END_TOC }}

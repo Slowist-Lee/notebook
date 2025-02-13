@@ -168,6 +168,8 @@ nav:
           - Note: cs/system/DD/verilog/Language.md
           - Sequence: cs/system/DD/verilog/Sequence.md
           - FSM: cs/system/DD/verilog/FSM.md
+      - CA:
+        - cs/system/CA/index.md
       # - HPC: 
       #   - cs/system/HPC/index.md
       #   - 1. Tools: cs/system/HPC/Tools.md
@@ -202,6 +204,8 @@ nav:
       - Test | 自测: cs/fundamental/test.md
   - AI:
     - AI/index.md
+    - DeepLearning:
+      - AI/DL/index.md
   - Math: 
     - Math/index.md
     - 复变函数与积分变换: Math/complex/index.md
@@ -294,3 +298,6 @@ nav:
       - 六: Writings/emotion/06.md
       - 七: Writings/emotion/07.md  
       - 九: Writings/emotion/09.md
+    - Record:
+      - Writings/record/index.md
+      - 二月: Writings/record/2025-02.md

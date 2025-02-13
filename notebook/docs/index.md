@@ -29,10 +29,15 @@ statistics: true
 
 > quote from `csdiy`  
 
-<img src="1.jpg" alt="csdiy" width="800" height="400">
+![csdiy](1.jpg#only-light)
+![csdiy](2.png#only-dark)
 
 - 一个人要像一支队伍(｡･ω･｡)  
 - Follow My Heart!( ง `ω´ )۶  
+
+??? 随缘更新
+    - 支教的高中数学讲义和自己的语文讲义   
+    - 修一下数学公式   
 
 -----
 
