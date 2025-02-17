@@ -24,3 +24,6 @@ ISA: 指令集架构，instruction set architecture
 - 每种寄存器的用途：
 
 ![](Pasted%20image%2020250216151513.png)
+
+## 2. 指令集介绍
+
