@@ -155,6 +155,8 @@ nav:
           - HW0B: cs/algorithm/cs61b/HW0B.md
           - lab1: cs/algorithm/cs61b/Lab1_Note.md
           - proj1: cs/algorithm/cs61b/Proj1_Summary.md
+      - 数据结构基础:
+        - cs/algorithm/fds/index.md
     - System: 
       - cs/system/index.md
       - CO:
@@ -168,11 +170,15 @@ nav:
           - Note: cs/system/DD/verilog/Language.md
           - Sequence: cs/system/DD/verilog/Sequence.md
           - FSM: cs/system/DD/verilog/FSM.md
+        - 数字系统设计:
+          - cs/system/DD/dld/index.md
       - CA:
         - cs/system/CA/index.md
       # - HPC: 
       #   - cs/system/HPC/index.md
       #   - 1. Tools: cs/system/HPC/Tools.md
+      - CSAPP:
+        - cs/system/CSAPP/index.md
     - Tools:
       - cs/tools/index.md
       - 1. Git: cs/tools/git-advance.md
