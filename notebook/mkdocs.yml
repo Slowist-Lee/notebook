@@ -161,8 +161,9 @@ nav:
       - cs/system/index.md
       - CO:
         - cs/system/CO/index.md
-        - 1. Introduction: cs/system/CO/Chap1 Introduction.md
-        - 3. Arithmatic: cs/system/CO/Chap3.md
+        - 1. Introduction: cs/system/CO/1.md
+        - 2. Machine Language: cs/system/CO/2.md
+        - 3. Arithmatic: cs/system/CO/3.md
       - DD:
         - cs/system/DD/index.md
         - verilog:
@@ -180,8 +181,6 @@ nav:
           - 6 测试器与查错: cs/system/DD/dld/6.md
           - 7 脉冲电路: cs/system/DD/dld/7.md
           - 8 处理器: cs/system/DD/dld/8.md
-      - CA:
-        - cs/system/CA/index.md
       # - HPC: 
       #   - cs/system/HPC/index.md
       #   - 1. Tools: cs/system/HPC/Tools.md
@@ -220,6 +219,7 @@ nav:
     - AI/index.md
     - DeepLearning:
       - AI/DL/index.md
+      - 1. Introduction: AI/DL/1.md
   - Math: 
     - Math/index.md
     - 复变函数与积分变换: Math/complex/index.md

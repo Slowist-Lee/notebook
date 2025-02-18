@@ -12,6 +12,7 @@
   - C++: pl/cpp/
 - 数据结构与算法:
   - cs61b: algorithm/cs61b/
+  - fds: algorithm/fds/
 - 计算机系统相关:
   - 计算机组成: system/CO/
   - 数字逻辑: system/DD/

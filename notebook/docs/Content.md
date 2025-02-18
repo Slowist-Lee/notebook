@@ -45,4 +45,5 @@
 
 ## 大二春夏  
 
-- [x] [计算机体系结构](cs/system/CA/index.md)
+- [x] [数字系统设计](cs/system/DD/dld/index.md)
+- [x] [数字逻辑基础](cs/algorithm/fds/index.md) 
