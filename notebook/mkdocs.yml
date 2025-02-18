@@ -172,6 +172,14 @@ nav:
           - FSM: cs/system/DD/verilog/FSM.md
         - 数字系统设计:
           - cs/system/DD/dld/index.md
+          - 1 基础理论知识: cs/system/DD/dld/1.md
+          - 2 门电路: cs/system/DD/dld/2.md
+          - 3 组合逻辑: cs/system/DD/dld/3.md
+          - 4 时序逻辑: cs/system/DD/dld/4.md
+          - 5 控制器与微码: cs/system/DD/dld/5.md
+          - 6 测试器与查错: cs/system/DD/dld/6.md
+          - 7 脉冲电路: cs/system/DD/dld/7.md
+          - 8 处理器: cs/system/DD/dld/8.md
       - CA:
         - cs/system/CA/index.md
       # - HPC: 
