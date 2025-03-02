@@ -158,9 +158,8 @@ public class IntList {
 }
 ```
 
-```ad-warning 
 I recommend that when you write iterative data structure code that you use the name `p` to remind yourself that the variable is holding a pointer. You need that pointer because you can't reassign "this" in Java.
-```
+
 
 So the following is wrong...
 
