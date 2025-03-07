@@ -1,0 +1,137 @@
+:root {
+    --md-text-font: "LXGW WenKai"; 
+    --md-code-font: "Consolas";
+    --timeline-card-bg: #efefef;
+}
+
+/* changelog */
+.changelog-time {
+    font-weight: bold !important;
+}
+
+.timeline-content::before {
+    background-color: var(--timeline-card-bg) !important;
+}
+
+.timeline-card {
+    background-color: var(--timeline-card-bg) !important;
+}
+.timeline-dot{
+    background-color: var(--timeline-card-bg) !important;
+}
+/* 定义变量：浅色模式 */
+[data-md-color-scheme="default"] {
+        --timeline-card-bg: #efefef; /* 浅色背景 */
+}
+
+/* 定义变量：深色模式 */
+[data-md-color-scheme="slate"] {
+--timeline-card-bg: #14151a; /* 深色背景 */
+}
+
+/* 响应系统主题（可选） */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-md-color-scheme]) {
+        --timeline-card-bg: #14151a; /* 未手动切换时，跟随系统深色模式 */
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    :root:not([data-md-color-scheme]) {
+        --timeline-card-bg: #efefef; /* 未手动切换时，跟随系统浅色模式 */
+    }
+}
+
+/* changelog end */
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold !important;
+}
+.flink-list {
+    overflow: auto;
+    padding: 10px 10px 0;
+    text-align: center;
+}
+
+.flink-list a {
+color: #4a4a4a;
+}
+
+[data-md-color-scheme="slate"] .flink-list a {
+color: rgba(255, 255, 255, 0.7);
+}
+
+.flink-list-item {
+position: relative;
+float: left;
+overflow: hidden;
+margin: 15px 7px;
+width: calc(100% / 2 - 15px);
+height: 90px;
+border-radius: 8px;
+line-height: 17px;
+-webkit-transform: translateZ(0);
+transform: translateZ(0);
+transition: 0.25s;
+
+}
+
+.flink-item-icon {
+float: left;
+overflow: hidden;
+margin: 15px 10px;
+width: 60px;
+height: 60px;
+border-radius: 35px;
+}
+
+.flink-item-name {
+padding: 19px 10px 0 0;
+height: 40px;
+font-weight: bold;
+font-size: 1.3em;
+}
+
+.flink-item-desc {
+padding: 13px 10px 16px 0;
+height: 50px;
+font-size: 0.93em;
+}
+
+.flink-list-item:hover {
+background-color: rgba(128, 118, 105, .1);
+}
+
+.flink-list-item {
+width: calc(50% - 15px) !important;
+}
+
+@media screen and (max-width: 1310px) {
+.flink-list-item {
+    width: calc(100% - 15px) !important;
+}
+}
+
+@media screen and (max-width: 1219px) {
+.flink-list-item {
+    width: calc(50% - 15px) !important;
+}
+}
+
+@media screen and (max-width: 1027px) {
+.flink-list-item {
+    width: calc(100% - 15px) !important;
+}
+}
+
+@media screen and (max-width: 959px) {
+.flink-list-item {
+    width: calc(50% - 15px) !important;
+}
+}
+
+@media screen and (max-width: 692px) {
+.flink-list-item {
+    width: calc(100% - 15px) !important;
+}
+}
