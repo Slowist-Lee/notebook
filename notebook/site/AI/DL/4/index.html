@@ -6242,6 +6242,23 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      错误/解决方案：
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -6260,7 +6277,7 @@
 
 <h1 id="_1">自动微分</h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8zm6.78 1a.7.7 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38z"/></svg></span> 约 296 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6m80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3"/></svg></span> 76 行代码 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3z"/></svg></span> 预计阅读时间 2 分钟</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8zm6.78 1a.7.7 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38z"/></svg></span> 约 405 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6m80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3"/></svg></span> 110 行代码 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 17H7V3h14m0-2H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2M3 5H1v16a2 2 0 0 0 2 2h16v-2H3m12.96-10.71-2.75 3.54-1.96-2.36L8.5 15h11z"/></svg></span> 1 张图片 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3z"/></svg></span> 预计阅读时间 3 分钟</p>
 </div>
 <blockquote>
 <p>环境：pytorch + ipython</p>
@@ -6336,7 +6353,7 @@ tensor<span class="o">([</span>-0.3818,<span class="w">  </span><span class="m">
 tensor<span class="o">([</span>-195.4644,<span class="w"> </span><span class="m">1034</span>.5695,<span class="w"> </span><span class="m">1180</span>.4403<span class="o">]</span>,<span class="w"> </span><span class="nv">grad_fn</span><span class="o">=</span>&lt;MulBackward0&gt;<span class="o">)</span>
 Error:<span class="w"> </span>grad<span class="w"> </span>can<span class="w"> </span>be<span class="w"> </span>implicitly<span class="w"> </span>created<span class="w"> </span>only<span class="w"> </span><span class="k">for</span><span class="w"> </span>scalar<span class="w"> </span>outputs
 </code></pre></div>
-原因：默认情况下，PyTorch只能对标量结果（单一数值）求梯度 —— （即求导数？
+原因：默认情况下，PyTorch只能对标量结果（单一数值）求梯度 （<mark>是得到的函数需要是标量函数/多项式！！</mark>）
 解决方式：
 提供一个和 <code>d</code> 一一对应的向量，这样求梯度就变成了对每个元素逐一求导。</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">torch</span>
@@ -6363,8 +6380,57 @@ tensor<span class="o">([</span>True,<span class="w"> </span>True,<span class="w"
 <blockquote>
 <p>我的疑问：有没有什么例子是a是一个包含x1,x2...xn的向量，d是和x1,x2...xn有关的标量函数，计算其梯度？</p>
 </blockquote>
-<p>答：
-构造函数：设向量<span class="arithmatex">\(\mathbf{a} = [x_1,x_2,\dots,x_n]\)</span>, <span class="arithmatex">\(\mathbf{d} = \sum_{i=1}^n x_i^2\)</span>。现在计算 <code>d</code> 相对于每个 <span class="arithmatex">\(x_i\)</span> 的梯度</p>
+<p>答：</p>
+<p>构造函数：设向量<span class="arithmatex">\(\mathbf{a} = [x_1,x_2,\dots,x_n]\)</span>, <span class="arithmatex">\(\mathbf{d} = \sum_{i=1}^n x_i^2\)</span>。现在计算 <code>d</code> 相对于每个 <span class="arithmatex">\(x_i\)</span> 的梯度</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">torch</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">a</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="n">b</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">grad</span><span class="p">)</span>
+</code></pre></div>
+<p>结果：</p>
+<div class="highlight"><pre><span></span><code>tensor<span class="o">([</span><span class="w"> </span><span class="m">0</span>.0104,<span class="w"> </span>-0.0109,<span class="w"> </span>-0.9510,<span class="w"> </span>-1.0698,<span class="w"> </span>-0.6101<span class="o">]</span>,<span class="w"> </span><span class="nv">requires_grad</span><span class="o">=</span>True<span class="o">)</span>
+tensor<span class="o">(</span><span class="m">2</span>.4212,<span class="w"> </span><span class="nv">grad_fn</span><span class="o">=</span>&lt;PowBackward0&gt;<span class="o">)</span>
+tensor<span class="o">([</span><span class="w"> </span><span class="m">0</span>.0207,<span class="w"> </span>-0.0219,<span class="w"> </span>-1.9019,<span class="w"> </span>-2.1397,<span class="w"> </span>-1.2201<span class="o">])</span>
+</code></pre></div>
+<ol>
+<li>使 <span class="arithmatex">\(f(x) = \sin(x)\)</span>，绘制 <span class="arithmatex">\(f(x)\)</span> 和 <span class="arithmatex">\(\frac{df(x)}{dx}\)</span> 的图像，其中后者不使用 <span class="arithmatex">\(f'(x) = \cos(x)\)</span>。</li>
+</ol>
+<p>我做的答案：/和标答一致，只不过多几个变量orz</p>
+<p><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
+<span class="c1"># print(x)</span>
+<span class="n">y</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+<span class="n">x2</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">x2</span><span class="o">.</span><span class="n">requires_grad_</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">y</span><span class="o">.</span><span class="n">backward</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">x2</span><span class="o">.</span><span class="n">grad</span>
+    <span class="n">d3</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span>
+    <span class="n">d2</span> <span class="o">=</span> <span class="n">d3</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+    <span class="n">x4</span> <span class="o">=</span> <span class="n">x2</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span>
+    <span class="n">x3</span> <span class="o">=</span> <span class="n">x4</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x3</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;y=sin(x) &amp; dy = cos(x)dx&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error:&quot;</span><span class="p">,</span><span class="n">e</span><span class="p">)</span>
+</code></pre></div>
+<img alt="|350" src="../image/Figure_1.png" /></p>
+<hr />
+<h2 id="_2">错误/解决方案：</h2>
+<ol>
+<li>需要梯度的Tensor不可以直接转换成Numpy数组，因为会破坏梯度计算：</li>
+<li>修复办法：使用<code>.detach()</code>,来复制原张量的数据</li>
+</ol>
 
 
 
