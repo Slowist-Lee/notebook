@@ -11,3 +11,8 @@
     - pageupdate:
         text: Others > 无线网络应用
         href: ../notebook/Others/Network/
+- "2025 Spring":
+    - "2025-5-26": 
+        - newpage: 
+            text: isee > information
+            href: ../notebook/isee/information/

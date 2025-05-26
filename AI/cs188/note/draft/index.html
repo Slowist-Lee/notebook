@@ -1,0 +1,7406 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://slowist-lee.github.io/notebook/AI/cs188/note/draft/">
+      
+      
+      
+      
+      <link rel="icon" href="../../../../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.34">
+    
+    
+      
+        <title>Search - Slowist's Note</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.35f28582.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../../../css/toc_extra.css">
+    
+      <link rel="stylesheet" href="../../../../css/timeline.css">
+    
+      <link rel="stylesheet" href="https://cdn.tonycrane.cc/jbmono/jetbrainsmono.css">
+    
+      <link rel="stylesheet" href="https://cdn.tonycrane.cc/lxgw/lxgwscreen.css">
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#search" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="Slowist&#39;s Note" class="md-header__button md-logo" aria-label="Slowist's Note" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 22a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2h-6v7L9.5 7.5 7 9V2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Slowist's Note
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Search
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="blue-grey"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="cyan"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Slowist-Lee/notebook" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Slowist/Notebook
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../.." class="md-tabs__link">
+          
+  
+    
+  
+  Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../cs/" class="md-tabs__link">
+          
+  
+    
+  
+  Computer Science
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../" class="md-tabs__link">
+          
+  
+    
+  
+  AI
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../Math/" class="md-tabs__link">
+          
+  
+    
+  
+  Math
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../isee/" class="md-tabs__link">
+          
+  
+    
+  
+  ISEE
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../English/" class="md-tabs__link">
+          
+  
+    
+  
+  English
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../Others/" class="md-tabs__link">
+          
+  
+    
+  
+  Others
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../Writings/" class="md-tabs__link">
+          
+  
+    
+  
+  Writings
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Slowist&#39;s Note" class="md-nav__button md-logo" aria-label="Slowist's Note" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 22a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2h-6v7L9.5 7.5 7 9V2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2z"/></svg>
+
+    </a>
+    Slowist's Note
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Slowist-Lee/notebook" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Slowist/Notebook
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../.." class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Home
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../changelog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    更新记录
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Friends/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    友链
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Content/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    笔记目录
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../cs/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Computer Science
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Computer Science
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Language
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Language
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../cs/pl/C/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    C
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2_1" id="__nav_2_2_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            C
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/pl/C/PreviousNote/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Previous
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/pl/C/Pointer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ch7 Pointer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/pl/C/String/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ch8 String
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/pl/C/Structure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ch9 Structure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/pl/C/LinkedList/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ch10 Linked List
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/pl/C/file/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ch12 File
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/pl/C/Error-Sum/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Error
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/pl/C/misc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Misc
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../cs/pl/cpp/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Cpp
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Cpp
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/pl/cpp/Basic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../cs/pl/Asm/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Asm
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2_3" id="__nav_2_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Asm
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/pl/Asm/sum/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    理论复习
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/pl/Asm/Exercise/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercise
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/pl/Asm/Answer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Answer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/pl/Asm/Misc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Misc
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../cs/algorithm/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Algorithm
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Algorithm
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_2" id="__nav_2_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    cs61b
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            cs61b
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_2_1" id="__nav_2_3_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Note
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_3_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Note
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/algorithm/cs61b/Lecture1_Introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture1 Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/algorithm/cs61b/Lecture2_Defining%20and%20Using%20Classes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture2 Defining and Using Classes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/algorithm/cs61b/Lecture3_ListsI_References_Recursion_and_Lists/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture3 ListsI References Recursion and Lists
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/algorithm/cs61b/Lecture4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_2_2" id="__nav_2_3_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Labs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_3_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Labs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/algorithm/cs61b/Sign_up/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    signup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/algorithm/cs61b/HW0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HW0
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/algorithm/cs61b/HW0B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HW0B
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/algorithm/cs61b/Lab1_Note/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    lab1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/algorithm/cs61b/Proj1_Summary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    proj1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../cs/algorithm/fds/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    数据结构基础
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            数据结构基础
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../cs/system/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    System
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            System
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../cs/system/CO/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    CO
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_4_2" id="__nav_2_4_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            CO
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/system/CO/1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/system/CO/2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Machine Language
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/system/CO/3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Arithmatic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../cs/system/DD/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    DD
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_4_3" id="__nav_2_4_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            DD
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_3_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../cs/system/DD/verilog/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    verilog
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_4_3_2" id="__nav_2_4_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_4_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            verilog
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/system/DD/verilog/Language/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Note
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/system/DD/verilog/Sequence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sequence
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/system/DD/verilog/FSM/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FSM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_3_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../cs/system/DD/dld/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    数字系统设计
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_4_3_3" id="__nav_2_4_3_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_4_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            数字系统设计
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/system/DD/dld/1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1 基础理论知识
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../cs/tools/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Tools
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            Tools
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/tools/git-advance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/tools/PA0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. PA0
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/tools/WSL/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. WSL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../cs/ctf/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    CTF
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            CTF
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6_2" id="__nav_2_6_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Lab0
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            Lab0
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/ctf/lab0/lab0-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Part 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/ctf/lab0/lab0-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Part 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6_3" id="__nav_2_6_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    web
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            web
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/ctf/web/note-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Note 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/ctf/web/note-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Note 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/ctf/web/lab-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/ctf/web/lab-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6_4" id="__nav_2_6_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    misc
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_6_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6_4">
+            <span class="md-nav__icon md-icon"></span>
+            misc
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/ctf/misc/note-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Note
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/ctf/misc/misc-lab1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../cs/ctf/pwn/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    pwn
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_6_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6_5">
+            <span class="md-nav__icon md-icon"></span>
+            pwn
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../cs/ctf/reverse/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    reverse
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_6_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6_6">
+            <span class="md-nav__icon md-icon"></span>
+            reverse
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6_7" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../cs/ctf/crypto/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    crypto
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_6_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6_7">
+            <span class="md-nav__icon md-icon"></span>
+            crypto
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../cs/fundamental/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    计算机科学基础(A)
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            计算机科学基础(A)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/fundamental/note/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Note | 笔记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/fundamental/office/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Office | 期中
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/fundamental/test/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Test | 自测
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    AI
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            AI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../DL/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    DeepLearning
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            DeepLearning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../Math/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Math
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Math
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Math/complex/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    复变函数与积分变换
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Math/Probability/Error/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    概率论与数理统计
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../Math/MathModel/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    数学建模
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            数学建模
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Math/MathModel/program/program/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. 数学规划
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Math/MathModel/graph/graph/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. 图论模型
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Math/MathModel/combination-optimize/note/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. 组合优化
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Math/MathModel/exercise/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. 习题笔记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Math/MathModel/review/note/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Review
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_7" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../Math/MathModel/test/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    6. Test
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            6. Test
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../isee/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    ISEE
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            ISEE
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../isee/information/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    信息理论
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            信息理论
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../isee/information/1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第一节、信息的度量
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../isee/information/2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第二节、随机变量的熵
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../isee/information/3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第三节、随机变量的平均互信息
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../isee/information/4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第四节、连续随机变量的互信息和微分熵
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../isee/information/5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第五讲、平稳离散信源的熵
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../isee/information/6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第六节、信息的无损压缩
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../isee/information/7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第七节、等长编码
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../isee/information/8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第八节、不等长编码
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../isee/information/9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第九节、编码方式
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../isee/information/10/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第十节、离散无记忆信道
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../isee/information/11/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第十一节、信道的组合
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../isee/information/12/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第十二节、离散无记忆信道容量
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../isee/information/13/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第十三节、加性高斯噪声（AWGN）信道
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../isee/information/14/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第十四节、信息的有损压缩
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../isee/information/Chap3Review/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第三章复习总结
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../isee/elec/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    电子电路基础
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            电子电路基础
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../isee/elec/share/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    学习路径
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3_3" id="__nav_5_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    电路部分
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            电路部分
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3_3_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../isee/elec/EC/concepts/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    基本概念
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_3_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            基本概念
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3_3_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../isee/elec/EC/transition/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    动态电路时域分析
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_3_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            动态电路时域分析
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3_3_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../isee/elec/EC/phasor/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    相量分析
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_3_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            相量分析
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3_3_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../isee/elec/EC/all/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    期末补天
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_3_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            期末补天
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3_4" id="__nav_5_3_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    模电部分
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            模电部分
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3_4_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../isee/elec/bjt/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    BJT
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_3_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            BJT
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3_4_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../isee/elec/MOS/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    MOS
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_3_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            MOS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3_4_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../isee/elec/Hard/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    多级、差分
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_3_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            多级、差分
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3_4_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../isee/elec/opam/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    运算放大器
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_3_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            运算放大器
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3_4_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../isee/elec/freq/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    频率响应
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_3_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            频率响应
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3_4_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../isee/elec/feedback/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    反馈
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_3_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            反馈
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3_4_7" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../isee/elec/pa/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    功率放大器
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_3_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            功率放大器
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3_5" id="__nav_5_3_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    期末试题
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            期末试题
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../isee/elec/test/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2024-2025 电子电路基础
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../isee/elec-exp1/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    电子电路设计实验I
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            电子电路设计实验I
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../English/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    English
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            English
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../English/Interpretation/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Interpretation
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            Interpretation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_2" id="__nav_6_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    学习体验
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            学习体验
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../English/Interpretation/experience/Harvest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Harvest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../English/Interpretation/experience/Interpretation--Self%20Assessment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Self Assessment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_3" id="__nav_6_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    HW && Topic
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            HW && Topic
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../English/Interpretation/homework/Welcome%20Speech/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welcome Speech
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../English/Interpretation/homework/City%20and%20Travel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    City and Travel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../English/Interpretation/homework/Culture%20and%20Education/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Culture and Education
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../English/Interpretation/homework/Science/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Science
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_4" id="__nav_6_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Learning Resources
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Learning Resources
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../English/Interpretation/homework/Material/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    复习资料整理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../English/misc/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Misc
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            Misc
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../English/misc/writing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    语料整理1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../Others/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Others
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Others
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Others/PrintingCulture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    雕版印刷与课本文化
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Others/control-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    控制论
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Others/PhyExperiment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    大物实验
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../Others/Network/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    无线网络应用
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_5" id="__nav_7_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_5">
+            <span class="md-nav__icon md-icon"></span>
+            无线网络应用
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Others/Network/Lecture4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Others/Network/Lecture6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 6
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../Writings/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Writings
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Writings
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_2" id="__nav_8_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Essay
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_2">
+            <span class="md-nav__icon md-icon"></span>
+            Essay
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Writings/essay/01/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    一：当回想起IAI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Writings/essay/02/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    二：带论的碎碎念
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Writings/essay/05/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    五：支教流水账
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Writings/essay/08/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    八：About Slowist
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Writings/essay/10/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    十：ACEE报名体验
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Writings/essay/11/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    十一：About IAI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Writings/essay/12/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    十二：大一回忆录
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Writings/essay/13/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    十三：分流建议
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Writings/essay/14/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    十四：转专业路上的碎碎念
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Writings/essay/15/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    十五：Turing Complete 全过程日记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Writings/essay/16/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    十六：大二课程总结
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_3" id="__nav_8_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Emotion
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_3">
+            <span class="md-nav__icon md-icon"></span>
+            Emotion
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Writings/emotion/03/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    三
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Writings/emotion/04/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    四
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Writings/emotion/06/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    六
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Writings/emotion/07/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    七
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Writings/emotion/09/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    九
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../Writings/record/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Record
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8_4" id="__nav_8_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_4">
+            <span class="md-nav__icon md-icon"></span>
+            Record
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Writings/record/2025-02/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    二月
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1 搜索问题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-state-space" class="md-nav__link">
+    <span class="md-ellipsis">
+      2 State Space
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-state-space-graphs-and-search-trees" class="md-nav__link">
+    <span class="md-ellipsis">
+      3 State Space Graphs and Search Trees
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 State Space Graphs and Search Trees">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-uninformed-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 无信息搜索 (Uninformed Search)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 无信息搜索 (Uninformed Search)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      树搜索策略
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="树搜索策略">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dfs-" class="md-nav__link">
+    <span class="md-ellipsis">
+      DFS - 深度优先搜索
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bfs-" class="md-nav__link">
+    <span class="md-ellipsis">
+      BFS - 广度优先搜索
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ucs-uniform-cost-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      UCS-一致代价搜索(Uniform Cost Search)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-informed-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 有信息搜索 (Informed Search)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 有信息搜索 (Informed Search)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#greedy-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      Greedy Search（贪婪搜索）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a" class="md-nav__link">
+    <span class="md-ellipsis">
+      A* 搜索算法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-local-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Local Search 局部搜索算法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 Local Search 局部搜索算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#331" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.1 爬山搜索
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#332" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.2 模拟退火搜索
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#333" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.3 局部束搜索
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#334-genetic-algorithms" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.4 遗传算法 (genetic algorithms)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="search">Search</h1>
+<div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8zm6.78 1a.7.7 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38z"/></svg></span> 约 15949 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 17H7V3h14m0-2H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2M3 5H1v16a2 2 0 0 0 2 2h16v-2H3m12.96-10.71-2.75 3.54-1.96-2.36L8.5 15h11z"/></svg></span> 10 张图片 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3z"/></svg></span> 预计阅读时间 53 分钟</p>
+</div>
+<h2 id="1">1 搜索问题</h2>
+<p>搜索问题往往由以下部分组成：</p>
+<ul>
+<li>状态空间（State Space）</li>
+<li>每个状态下可以有的行动（actions）</li>
+<li>转移模型 transition model</li>
+<li>行为代价（cost）</li>
+<li>开始状态（start state）</li>
+<li>目标函数（goal test）</li>
+</ul>
+<p>一般搜索问题的解决方式：</p>
+<ul>
+<li>首先考虑开始状态（start state）</li>
+<li>使用动作、转换和成本方法（the action and transition and cost methods）探索状态空间</li>
+<li>迭代计算各种状态的子状态，直到我们到达目标状态</li>
+<li>
+<p>此时我们将确定从开始状态到目标状态的路径（通常称为计划）</p>
+</li>
+<li>
+<p>world state: 全局视角，当前状态下的所有信息</p>
+</li>
+<li>search state: 当前状态下规划需要的这些信息（节省存储空间）</li>
+</ul>
+<h2 id="2-state-space">2 State Space</h2>
+<p><strong>Pathing</strong></p>
+<ul>
+<li>States: <span class="arithmatex">\((x,y)\)</span> locations</li>
+<li>Actions: North, South, East, West</li>
+<li>Transition model (getting the next state): Update location only</li>
+<li>Goal test: Is <span class="arithmatex">\((x,y)=END\)</span>?</li>
+</ul>
+<p><strong>Eat-all-dots</strong></p>
+<ul>
+<li>States: { <span class="arithmatex">\((x,y)\)</span> location, dot booleans}</li>
+<li>Actions: North, South, East, West</li>
+<li>Transition model (getting the next state): Update location and booleans</li>
+<li>Goal test: Are all dot booleans false?</li>
+</ul>
+<p>由此我们列举State Space:</p>
+<p>Pathing State?
+我们用一个布尔数组来保存每个点有/无被吃掉，若每个状态我们记作<span class="arithmatex">\(x_1,x_2,\dots,x_n\)</span>, 那么所有点的状态总数<span class="arithmatex">\(x_1 \cdot x_2 \cdot \dots x_n.\)</span></p>
+<p>全局变量（world state）
+1.pacman 的position （120种可能的<span class="arithmatex">\((x,y)\)</span> ）
+2.运动的direction (North, South, East, West)
+3.Ghost的位置（12种可能的<span class="arithmatex">\((x,y)\)</span>）
+4.<em>Food pellet configurations</em> - There are 30 food pellets, each of which can be eaten or not eaten</p>
+<p>Using the fundamental counting principle, we have 120 positions for Pacman, 4 directions Pacman can be facing, 12·12 ghost configurations (12 for each ghost), and <span class="arithmatex">\(2 \cdot 2 \cdot \dots 2 = 2^{30}\)</span> food pellet configurations (each of 30 food pellets has two possible values - eaten or not eaten). This gives us a total state space size of <span class="arithmatex">\(120 \cdot 4 \cdot 12^2 \cdot 2^{30}\)</span>.</p>
+<h2 id="3-state-space-graphs-and-search-trees">3 State Space Graphs and Search Trees</h2>
+<ul>
+<li>state space graphs are much too large to store in memory</li>
+<li>状态图的特点：每个状态只代表状态，所以路径会非常多</li>
+<li>Search Tree：<ul>
+<li>搜索树的关键优势在于它<strong>不需要预先存储所有的状态和转移</strong>。相反，它从初始状态开始，<strong>按需地生成和探索</strong>可能到达的状态。当我们考虑一个当前状态时，我们只需要使用 <code>getNextState</code>, <code>getAction</code>, 和 <code>getActionCost</code> 方法来计算其子状态</li>
+<li><strong>只存储当前正在探索的少量节点</strong>，并迭代地用它们的子节点替换这些节点，从而克服了内存限制。这样，我们只需要在任何给定时间点维护搜索树的一小部分。</li>
+<li>每个状态/节点不仅编码状态本身，还编码状态空间图中从起始状态到给定状态的整个路径（或计划）</li>
+</ul>
+</li>
+</ul>
+<p><img alt="" src="Pasted%20image%2020250508222822.png" /></p>
+<p>内存上：由于从一个状态到另一个状态通常存在多种方式，因此状态往往会在搜索树中多次出现。因此，整棵搜索树的大小大于或等于其相应的状态空间图</p>
+<p>因此保存的时候：我们如何计算当前状态的子状态——我们只存储我们正在立即处理的状态，并使用相应的getNextState、getAction和getActionCost方法按需计算新的状态</p>
+<p>整体方法：非常仔细地存储一次要观察的几个节点，迭代地用它们的子节点替换节点，直到我们达到目标状态</p>
+<h3 id="31-uninformed-search">3.1 无信息搜索 (Uninformed Search)</h3>
+<p>Gemini的解释：</p>
+<ul>
+<li>
+<p><strong>维护外围边界 (Maintaining an outer frontier):</strong> 想象我们正在探索一个迷宫。我们不会一次性探索所有可能的路径，而是会维护一个我们当前正在考虑的“岔路口”的列表。这个列表就是我们的“外围边界”，它包含了一些我们已经探索了一部分但还没有到达终点的“部分路径”。</p>
+</li>
+<li>
+<p><strong>不断扩展边界 (Continually expand our frontier):</strong> 我们会不断地从这个“岔路口”列表中选择一个“岔路口”（也就是一个<strong>节点</strong>，代表一个<strong>部分计划</strong>）。选择哪个“岔路口”取决于我们使用的<strong>策略</strong>（例如，是优先探索短的路径，还是优先探索看起来更有希望的路径）。</p>
+</li>
+<li>
+<p><strong>移除并替换节点 (Removing and replacing a node):</strong> 一旦我们选择了一个“岔路口”，我们就把它从我们的“岔路口”列表中移除。然后，我们会考虑从这个“岔路口”出发的所有可能的下一步行动，生成新的“岔路口”（也就是它的<strong>子节点</strong>）。这些新的“岔路口”代表了比我们刚刚移除的“岔路口”更长一步的<strong>部分计划</strong>。我们将这些新的“岔路口”添加到我们的“岔路口”列表中。</p>
+</li>
+<li>
+<p><strong>计划长度的增加 (Discarding a single length n plan and bringing all length (n+1) plans into consideration):</strong> 这个过程相当于我们放弃了一个长度为 n 的部分计划，并开始考虑所有从这个长度为 n 的计划延伸出来的长度为 n+1 的计划。</p>
+</li>
+<li>
+<p><strong>直到找到目标状态 (We continue this until eventually removing a goal state off the frontier):</strong> 我们不断重复这个选择、移除、扩展的过程，直到我们从“岔路口”列表中选择（移除）的那个“岔路口”正好代表了我们的<strong>目标状态</strong>。</p>
+</li>
+<li>
+<p><strong>找到解决方案 (At which point we conclude the partial plan corresponding to the removed goal state is in fact a path to get from the start state to the goal state):</strong> 当我们从列表中移除一个代表目标状态的“岔路口”时，这意味着我们已经找到了一条从起始状态到达目标状态的完整路径。这个路径就是从起始状态一直到这个目标状态所经历的所有步骤的记录。</p>
+</li>
+<li>
+<p><strong>实际应用中的信息编码 (Practically, most implementations of such algorithms will encode information about the parent node, distance to node, and the state inside the node object):</strong> 在实际的计算机程序中，为了方便地追踪路径和进行有效的搜索，每个“岔路口”（节点对象）通常会存储以下信息：</p>
+<ul>
+<li><strong>父节点 (parent node):</strong> 指向生成当前节点的上一个节点，用于在找到目标后回溯出完整的路径。</li>
+<li><strong>到节点的距离 (distance to node):</strong> 从起始状态到当前节点所花费的代价（例如，步数、时间、成本等）。</li>
+<li><strong>节点内的状态 (state inside the node object):</strong> 当前节点所代表的实际状态（例如，在迷宫中的当前位置）。</li>
+<li><strong>树搜索 (Tree search):</strong> 我们刚刚描述的这个过程被称为<strong>树搜索</strong>，因为它本质上是在一个潜在的搜索树中进行探索。树的根节点是起始状态，每个节点的孩子节点是可以通过一个动作从父节点到达的状态。</li>
+</ul>
+</li>
+</ul>
+<p>伪代码：</p>
+<div class="highlight"><pre><span></span><code>function TREE-SEARCH(problem, frontier) return a solution or failure 
+    frontier ← INSERT(MAKE-NODE(INITIAL-STATE[problem]), frontier) 
+    while not IS-EMPTY(frontier) do 
+        node ← POP(frontier) 
+        if problem.IS-GOAL(node.STATE) then return node 
+        for each child-node in EXPAND(problem, node) do 
+            add child-node to frontier 
+        return failure
+</code></pre></div>
+<ul>
+<li><code>TREE-SEARCH</code> 函数接收一个问题描述 (<code>problem</code>) 和一个初始的边界 (<code>frontier</code>) 作为输入。</li>
+<li>首先，它创建一个包含起始状态的初始节点，并将其插入到边界中。</li>
+<li>
+<p>然后，它进入一个循环，只要边界不为空：</p>
+<ul>
+<li>从边界中移除一个节点 (<code>POP</code>)。</li>
+<li>检查这个节点是否是目标状态 (<code>problem.IS-GOAL</code>)。如果是，则返回该节点（因为它包含了到达目标的路径信息）。</li>
+<li>如果不是目标状态，则通过 <code>EXPAND</code> 函数获取该节点的所有可能的子节点，并将这些子节点添加到边界中。</li>
+</ul>
+</li>
+<li>
+<p><strong>EXPAND 函数 (The EXPAND function):</strong> <code>EXPAND</code> 函数的作用是根据当前节点的状态，找到所有可以通过执行一个有效动作到达的下一个状态，并为每个下一个状态创建一个新的节点。</p>
+</li>
+<li>
+<p><strong>EXPAND 函数的伪代码 (Pseudocode of the function):</strong></p>
+<div class="highlight"><pre><span></span><code>function EXPAND(problem, node) yields nodes
+    s ← node.STATE
+    for each action in problem.ACTIONS(s) do
+        s&#39; ← problem.RESULT(s, action)
+        yield NODE(STATE=s&#39;, PARENT=node, ACTION=action)
+</code></pre></div>
+<ul>
+<li><code>EXPAND</code> 函数接收一个问题描述 (<code>problem</code>) 和一个当前节点 (<code>node</code>) 作为输入。</li>
+<li>它获取当前节点的状态 (<code>s</code>)。</li>
+<li>对于当前状态下每一个可能的动作 (<code>action</code>):<ul>
+<li>计算执行该动作后产生的新状态 (<code>s'</code>)。</li>
+<li>创建一个新的节点 (<code>NODE</code>)，这个新节点包含新的状态 (<code>STATE=s'</code>)，指向其父节点的指针 (<code>PARENT=node</code>)，以及导致这个新状态的动作 (<code>ACTION=action</code>)。</li>
+<li>使用 <code>yield</code> 关键字返回这个新的节点（这意味着 <code>EXPAND</code> 函数可以一个接一个地产生子节点，而不是一次性返回所有子节点的列表）。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="_1">树搜索策略</h4>
+<p>我们需要这个算法做的事情：</p>
+<h5 id="dfs-">DFS - 深度优先搜索</h5>
+<p>fds教过了x</p>
+<p>深度优先搜索 (DFS) 是一种<strong>探索策略</strong>，它总是从<strong>起始节点</strong>开始，选择当前<strong>最深</strong>的<strong>边界节点</strong>进行<strong>扩展</strong>。</p>
+<ul>
+<li><strong>解释:</strong> 想象你在一棵树状结构的迷宫中探索。DFS 的策略就像你走到一个岔路口时，总是选择一条路一直走到底，直到不能再深入为止（遇到死胡同或者到达目标）。然后你才会回溯到最近的岔路口，选择另一条路继续深入。这里的“最深边界节点”指的是在搜索树中离起始节点最远的，尚未被完全探索的分支的末端节点。</li>
+</ul>
+<p><strong>边界表示 (Frontier Representation)</strong> - 移除最深的节点，并用它的子节点替换它在边界中的位置，必然意味着这些子节点现在成为新的最深节点——它们的深度比之前最深节点的深度大一级。这暗示了要实现 DFS，我们需要一种总是给予<strong>最近添加的对象最高优先级</strong>的数据结构。<strong>后进先出 (LIFO) 栈</strong> 正好符合这个要求，因此传统上在实现 DFS 时使用栈来表示边界。</p>
+<ul>
+<li><strong>解释:</strong> 当我们扩展一个最深的节点时，它的子节点会成为新的“更深”的节点。为了优先探索这些更深的路径，我们需要一个数据结构，能够让我们首先访问最近加入的节点。栈（Stack）的工作方式就像叠盘子，最后放上去的盘子总是最先被拿走（后进先出）。在 DFS 中，我们将新生成的子节点压入栈中，当下一次需要选择一个节点进行扩展时，我们会从栈顶弹出最近加入的子节点，从而实现了优先探索更深路径的策略。</li>
+</ul>
+<p><strong>完备性 (Completeness)</strong> - 深度优先搜索不是完备的。如果状态空间图中存在<strong>环路 (cycles)</strong>，这必然意味着对应的搜索树可能会有<strong>无限的深度</strong>。因此，DFS 有可能会忠实但悲剧地“卡住”在一个无限深的搜索树中寻找最深的节点，永远无法找到解决方案。</p>
+<ul>
+<li><strong>解释:</strong> “完备性”指的是如果一个解存在，搜索算法是否保证能够找到这个解。在 DFS 中，如果搜索空间包含环路（例如，从一个状态可以经过一系列操作回到之前的状态），那么 DFS 可能会沿着这个环路无限地深入下去，而永远不会探索到其他可能包含解的分支。因此，即使目标状态是可达的，DFS 也可能因为陷入无限循环而找不到它，所以说 DFS 不是完备的。</li>
+</ul>
+<p><strong>最优性 (Optimality)</strong> - 深度优先搜索仅仅找到搜索树中“最左边”的解决方案，而不考虑路径成本，因此不是最优的。</p>
+<ul>
+<li><strong>解释:</strong> “最优性”指的是如果存在多个解，搜索算法是否保证找到成本最低的那个解。DFS 找到的第一个解往往是搜索树中靠“左”的分支上比较深的解，它并不关心到达这个解的路径长度或者代价是否是最小的。因此，DFS 不能保证找到最优解。</li>
+</ul>
+<p><strong>时间复杂度 (Time Complexity)</strong> - 在最坏的情况下，深度优先搜索可能会探索整个搜索树。因此，给定一个最大深度为 m 的树，DFS 的运行时间是 O(bm)。</p>
+<ul>
+<li><strong>解释:</strong> 假设每个节点最多有 b 个子节点（分支因子），并且搜索树的最大深度是 m。在最坏的情况下，DFS 可能会探索到树的最深处，并且可能需要遍历所有可能的路径。因此，时间复杂度与分支因子的 m 次方成正比，表示为 O(bm)。这是一个指数级别的时间复杂度，意味着当搜索树的深度增加时，运行时间会急剧增长。</li>
+</ul>
+<h4 id="bfs-">BFS - 广度优先搜索</h4>
+<p><strong>描述 (Description)</strong> - 广度优先搜索 (BFS) 是一种<strong>探索策略</strong>，它总是从<strong>起始节点</strong>开始，选择当前<strong>最浅</strong>的<strong>边界节点</strong>进行<strong>扩展</strong>。</p>
+<ul>
+<li><strong>解释:</strong> 想象你再次在一个树状结构的迷宫中探索。BFS 的策略就像你从起点开始，首先探索所有距离起点为 1 的所有岔路口，然后再探索所有距离起点为 2 的所有岔路口，以此类推。你一层一层地向外扩展搜索范围，直到找到目标。这里的“最浅边界节点”指的是在搜索树中离起始节点最近的，尚未被完全探索的分支的末端节点。</li>
+</ul>
+<p><strong>边界表示 (Frontier Representation)</strong> - 如果我们想要在访问更深的节点之前访问更浅的节点，我们必须按照节点被插入的顺序进行访问。因此，我们需要一种能够输出<strong>最先加入的对象</strong>来表示我们的边界的数据结构。为此，BFS 使用<strong>先进先出 (FIFO) 队列</strong>，它正好符合这个要求。</p>
+<ul>
+<li><strong>解释:</strong> 为了实现先探索浅层节点的策略，我们需要一个数据结构，能够记住节点加入的顺序，并按照这个顺序取出节点进行扩展。队列（Queue）的工作方式就像排队，先来的人先走（先进先出）。在 BFS 中，我们将新生成的子节点加入到队列的末尾，当下一次需要选择一个节点进行扩展时，我们会从队列的头部取出最早加入的节点，从而实现了优先探索更浅路径的策略。</li>
+</ul>
+<p><strong>完备性 (Completeness)</strong> - 如果一个解存在，那么最浅节点 s 的深度必然是有限的，所以 BFS 最终一定会搜索到这个深度。因此，它是完备的。</p>
+<ul>
+<li><strong>解释:</strong> “完备性”是指如果问题有解，搜索算法是否保证能够找到这个解。在 BFS 中，它逐层地探索搜索树。如果存在一个深度为有限值 s 的解，BFS 在搜索到第 s 层时一定会找到这个解。因为 BFS 不会像 DFS 那样陷入无限深的分支中，所以只要解存在且深度有限，BFS 就保证能够找到它，因此 BFS 是完备的。</li>
+</ul>
+<p><strong>最优性 (Optimality)</strong> - BFS 通常不是最优的，因为它在决定替换边界上的哪个节点时，根本不考虑路径成本。BFS 保证最优的特殊情况是所有边的成本都相等，因为这使得 BFS 成为下面讨论的一致代价搜索的一个特例。</p>
+<ul>
+<li><strong>解释:</strong> “最优性”是指如果存在多个解，搜索算法是否保证找到成本最低的那个解。BFS 找到的第一个解是深度最浅的解，但这并不意味着到达这个解的路径成本是最低的。只有当所有从一个状态到另一个状态的“步骤”或“边的成本”都相同时（例如，每一步的成本都为 1），BFS 找到的第一个解才是路径长度最短的，此时它等同于一致代价搜索（Uniform Cost Search）的一个特例，从而保证了最优性。但在一般情况下，如果不同的操作有不同的成本，BFS 就不能保证找到成本最低的解。</li>
+</ul>
+<p><strong>时间复杂度 (Time Complexity)</strong> - 在最坏的情况下，我们必须搜索 <span class="arithmatex">\(1+b+b^2+...+b^s\)</span> 个节点，因为我们要遍历从深度 1 到深度 s 的所有节点。因此，时间复杂度是 <span class="arithmatex">\(O(bs)\)</span>。</p>
+<ul>
+<li><strong>解释:</strong> 假设起始节点的深度为 0，目标解位于深度 s，并且每个节点最多有 b 个子节点（分支因子）。在最坏的情况下，BFS 需要探索完所有深度小于 s 的所有节点，以及深度为 s 的部分节点才能找到解。深度为 d 的节点数最多为 bd。因此，需要探索的节点总数大约是 1 (深度 0) +b (深度 1) +b2 (深度 2) +...+bs (深度 s)。这是一个等比数列的和，其数量级是 O(bs)。这是一个指数级别的时间复杂度，意味着当解的深度或分支因子增加时，运行时间会迅速增长。</li>
+</ul>
+<p><strong>空间复杂度 (Space Complexity)</strong> - 在最坏的情况下，边界包含对应于最浅解所在层的所有节点。由于最浅解位于深度 s，因此在这一层有 O(bs) 个节点。</p>
+<ul>
+<li><strong>解释:</strong> 在 BFS 搜索到深度 s 时，它需要将所有深度小于 s 的节点都保存在内存中，以便进行扩展。最坏情况下，当找到深度为 s 的解之前，边界中会包含所有深度为 s 的节点。由于深度为 s 的节点数最多可以达到 <span class="arithmatex">\(O(b^s)\)</span>，因此 BFS 的空间复杂度也是 <span class="arithmatex">\(O(b^s)\)</span>。这通常是 BFS 的一个主要缺点，因为随着解的深度增加，所需的内存空间会呈指数级增长。</li>
+</ul>
+<h4 id="ucs-uniform-cost-search">UCS-一致代价搜索(Uniform Cost Search)</h4>
+<p><strong>描述 (Description)</strong> - 一致代价搜索 (UCS) 是我们的最后一种策略，它是一种探索策略，总是从起始节点开始，选择当前<strong>路径成本最低</strong>的<strong>边界节点</strong>进行<strong>扩展</strong>。</p>
+<ul>
+<li><strong>解释:</strong> 回忆一下我们讨论过的成本概念。UCS 的核心思想是，它不再像 BFS 那样只关注路径的“长度”（步数），而是真正关注到达每个状态的<strong>总成本</strong>。它会维护当前所有待探索的路径，并优先选择目前为止成本最低的那条路径上的最后一个节点进行扩展。这就像你在地图上寻找目的地，但不是简单地看哪条路段最少，而是会考虑每条路的拥堵情况、收费等等因素，总是选择目前看来总成本最低的路线继续前进。</li>
+</ul>
+<p><strong>边界表示 (Frontier Representation)</strong> - 为了表示 UCS 的边界，通常选择基于堆的<strong>优先队列 (heap-based priority queue)</strong>。对于队列中给定的节点 v，其<strong>优先级</strong>是从起始节点到 v 的<strong>路径成本</strong>，或者说是 v 的<strong>回溯成本 (backward cost)</strong>。直观地说，以这种方式构建的优先队列会不断地自我调整，以维持按照路径成本排序的期望顺序。当我们移除当前成本最低的路径并用它的子节点替换它时，优先队列会自动重新排序。</p>
+<ul>
+<li><strong>解释:</strong> 为了能够快速找到并选择当前成本最低的节点，我们需要一个高效的数据结构。<strong>优先队列</strong>就是为此设计的。它允许我们以某种优先级存储元素，并且能够快速取出优先级最高的元素（在 UCS 中，优先级就是从起始节点到该节点的累积成本）。基于堆实现的优先队列是一种常见的选择，因为它能够在对数时间内完成插入和取出最小（或最大）元素的操作。当我们扩展一个成本最低的节点并生成它的子节点时，这些子节点会连同它们各自的路径成本被加入到优先队列中。优先队列会自动将所有节点按照它们的路径成本从小到大排序，这样下一次我们就能直接取出当前成本最低的节点进行扩展。</li>
+</ul>
+<p><strong>完备性 (Completeness)</strong> - 一致代价搜索是完备的。如果一个目标状态存在，它必然存在一条长度有限的最短路径；因此，UCS 最终一定会找到这条最短长度的路径。</p>
+<p><strong>最优性 (Optimality)</strong> - 如果我们假设所有边的成本都是非负的，那么 UCS 也是最优的。通过构建方式可以看出，由于我们按照路径成本递增的顺序探索节点，我们保证找到到达目标状态的最低成本路径。一致代价搜索中采用的策略与 <strong>Dijkstra 算法</strong> 的策略相同，主要的区别在于 UCS 在找到一个解状态时就终止，而不是像 Dijkstra 算法那样找到到所有状态的最短路径。注意，如果我们的图中存在负边成本，会导致路径上的节点长度减小，从而破坏我们关于最优性的保证。（关于处理这种情况的更慢的算法，请参见 Bellman-Ford 算法）。</p>
+<ul>
+<li><strong>解释:</strong><ul>
+<li><strong>非负边成本:</strong> 这是保证 UCS 最优性的关键前提。如果存在负成本的边，那么我们可能会通过走更多的步数来降低总成本，这样 UCS 优先探索低成本路径的策略就可能失效。</li>
+<li><strong>按成本递增探索:</strong> UCS 总是选择当前已知成本最低的路径进行扩展。这意味着当我们第一次找到一个目标状态时，到达这个目标状态的路径成本一定是所有可能到达该目标状态的路径中成本最低的，因为任何其他到达目标状态的路径，如果成本更低，早就应该被 UCS 探索到了。</li>
+<li><strong>与 Dijkstra 算法的联系:</strong> Dijkstra 算法也是一种寻找图中单源最短路径的算法，它也使用优先队列来维护待探索的节点，并总是选择当前距离起始节点成本最低的节点进行扩展。UCS 的策略与 Dijkstra 算法非常相似，只是 UCS 在找到第一个目标状态时就会停止搜索，而 Dijkstra 算法会继续搜索直到找到到达所有可达状态的最短路径。</li>
+<li><strong>负边成本的影响:</strong> 如果图中存在负成本的边，那么一条包含负成本边的更长路径的总成本可能比一条较短的路径的总成本还要低，这会破坏 UCS 优先探索低成本路径的策略，导致找到的第一个目标状态不一定是最优的。Bellman-Ford 算法是一种可以处理负边成本的单源最短路径算法，但它的时间复杂度比 Dijkstra 算法更高。</li>
+</ul>
+</li>
+</ul>
+<p><strong>时间复杂度 (Time Complexity)</strong> - 让我们定义最优路径成本为 <span class="arithmatex">\(C^∗\)</span>，状态空间图中任意两个节点之间的最小成本为 ϵ。那么，我们大致需要探索深度从 1 到 <span class="arithmatex">\(C^∗/ϵ\)</span> 的所有节点，导致运行时间为 <span class="arithmatex">\(O(b^{C^∗}/ϵ)\)</span>。</p>
+<ul>
+<li><strong>解释:</strong><ul>
+<li><strong><span class="arithmatex">\(C^∗\)</span>:</strong> 代表从起始状态到目标状态的最低成本。</li>
+<li><strong>ϵ:</strong> 代表状态空间图中任意两个相邻状态之间可能的最小成本（假设为正数）。</li>
+<li><strong>C∗/ϵ 的意义:</strong> 这表示在最优路径上，我们大约需要经过多少个“最小成本”的步骤才能到达目标状态。这可以看作是搜索的有效“深度”。</li>
+<li><span class="arithmatex">\(O(b^{C^∗}/ϵ)\)</span>:  在最坏的情况下，UCS 可能需要探索所有成本小于或等于 C∗ 的路径。如果每个节点的平均分支因子是 b，那么在有效的“深度”为 C∗/ϵ 的搜索树中，需要探索的节点数量级是 b 的 C∗/ϵ 次方。这是一个指数级别的时间复杂度，但这里的指数是与成本相关的，而不是像 BFS 那样直接与深度相关。如果成本是实数，ϵ 可能非常小，导致时间复杂度非常高。</li>
+</ul>
+</li>
+</ul>
+<p><strong>空间复杂度 (Space Complexity)</strong> - 大致来说，边界将包含成本最低的解所在层的所有节点，因此 UCS 的空间复杂度估计为 O(bC∗/ϵ)。</p>
+<ul>
+<li><strong>解释:</strong> 类似于时间复杂度，UCS 需要在优先队列中维护所有当前正在考虑的路径。在找到成本为 C∗ 的解之前，边界中可能包含所有成本小于或等于 C∗ 的节点。在最坏的情况下，这可能涉及到与时间复杂度相同数量级的节点，因此空间复杂度也是 O(bC∗/ϵ)。</li>
+</ul>
+<p><strong>关于无信息搜索的最后说明 (As a parting note about uninformed search):</strong> 重要的是要注意，上面概述的三种策略（DFS，BFS，UCS）本质上是相同的 - 它们只在扩展策略上有所不同，它们的相似性体现在上面给出的树搜索伪代码中。</p>
+<ul>
+<li><strong>解释:</strong> 这句话总结了我们讨论过的三种无信息搜索策略（它们不利用任何关于目标状态的启发式信息）。它们的基本框架都是相同的：维护一个边界，选择一个节点进行扩展，生成子节点并加入边界，直到找到目标状态。它们之间唯一的区别在于<strong>选择下一个要扩展的节点的策略</strong>：<ul>
+<li><strong>DFS:</strong> 选择最深的节点。</li>
+<li><strong>BFS:</strong> 选择最浅的节点。</li>
+<li><strong>UCS:</strong> 选择路径成本最低的节点。</li>
+</ul>
+</li>
+</ul>
+<h3 id="32-informed-search">3.2 有信息搜索 (Informed Search)</h3>
+<p>heuristics： 启发式</p>
+<p><strong>启发式是驱动力，允许估计到目标状态的距离 - 它们是接收一个状态作为输入并输出相应估计值的函数。</strong></p>
+<ul>
+<li><strong>解释:</strong> 在搜索问题中，我们通常希望能够更智能地找到通往目标状态的路径，而不是像之前的无信息搜索那样盲目地探索。<strong>启发式函数</strong>就是一种工具，它可以帮助我们估计从当前所处的状态到目标状态的“距离”或“成本”。这个“距离”不一定是实际的步数或成本，而是一个基于某些信息的<strong>估计值</strong>。启发式函数就像一个“向导”，告诉我们哪些方向可能更有希望更快地到达目标。它接收当前的状态作为输入，然后根据某些规则计算出一个数值，这个数值就是它对“剩余距离”的估计。</li>
+</ul>
+<p><strong>这种函数执行的计算特定于要解决的搜索问题。</strong></p>
+<ul>
+<li><strong>解释:</strong> 不同的搜索问题有不同的特性，因此适用于一个问题的启发式函数可能不适用于另一个问题。设计一个好的启发式函数需要理解问题的具体约束和目标。例如，在走迷宫的问题中，一个有用的启发式函数可能是当前位置到出口的直线距离（虽然实际路径可能不是直线）。但在解决数独问题时，直线距离的概念就没有任何意义了，我们需要设计其他的启发式函数，比如当前空格的数量或者每个数字在未完成的行、列或宫格中可能出现的次数。</li>
+</ul>
+<p>由于我们将在下面的 A* 搜索中看到的原因，我们通常希望启发式函数是到目标的剩余距离的下界，因此启发式通常是松弛问题（其中原始问题的一些约束已被移除）的解决方案。</p>
+<ul>
+<li><strong>解释:</strong><ul>
+<li>A* 搜索:这是一种利用启发式信息的<strong>有信息搜索算法</strong>，它通过结合从起始状态到当前状态的实际成本和当前状态到目标状态的估计成本来评估节点的优先级。</li>
+<li><strong>下界 (Lower bound):</strong> 我们通常希望我们的启发式函数估计的剩余距离<strong>小于或等于</strong>实际的剩余距离。这样的启发式函数被称为<strong>可采纳的 (admissible) 启发式</strong>。如果启发式函数是实际剩余距离的下界，那么 A* 搜索在满足某些条件下可以保证找到最优解。</li>
+<li><strong>松弛问题 (Relaxed problems):</strong> 为了设计一个能够提供下界的启发式函数，一个常用的方法是考虑原问题的<strong>松弛版本</strong>。松弛问题是指我们去除了原问题的一些约束条件，使得问题更容易解决。解决这个更容易的松弛问题的最优解通常可以作为原问题剩余距离的一个可采纳的启发式估计。因为在约束更少的情况下找到的“最短路径”的长度，必然小于或等于在约束更多的情况下找到的实际最短路径的长度。</li>
+</ul>
+</li>
+</ul>
+<p><strong>回到我们的吃豆人示例，让我们考虑前面描述的路径问题。解决此问题的一个常用启发式方法是曼哈顿距离，对于两个点 (x1​, y1​) 和 (x2​, y2​)，其定义如下：</strong></p>
+<p><span class="arithmatex">\(Manhattan(x_1​,y_1​,x_2​,y_2​)=∣x_1​−x_2​∣+∣y1_​−y2​∣\)</span></p>
+<ul>
+<li><strong>吃豆人示例:</strong> 想象一个吃豆人游戏，吃豆人需要在网格地图上移动到某个目标位置。</li>
+<li><strong>曼哈顿距离 (Manhattan distance):</strong> 这是一种衡量在网格上两点之间距离的方法。它计算的是在水平方向和垂直方向上必须移动的步数之和，忽略了对角线的移动。</li>
+<li><strong>作为启发式函数:</strong> 在吃豆人路径问题中，曼哈顿距离可以作为从当前吃豆人的位置到目标位置的剩余距离的启发式估计。这是因为吃豆人通常只能在水平和垂直方向上移动，所以实际需要的步数至少等于曼哈顿距离。因此，曼哈顿距离是这个问题的剩余距离的一个<strong>下界</strong>，是一个<strong>可采纳的启发式函数</strong>。</li>
+</ul>
+<p><strong>总结一下:</strong></p>
+<p>启发式函数是帮助我们估计从当前状态到目标状态的“好坏程度”的工具。一个好的启发式函数能够引导搜索朝着更有希望的方向前进，从而提高搜索效率。为了保证 A* 搜索的最优性，我们通常希望使用可采纳的启发式函数，即<strong>可采纳的启发式函数估计的剩余成本永远不会高于实际的剩余成本</strong>。一种常用的设计可采纳启发式函数的方法是解决原问题的<strong>松弛版本</strong>，并将松弛问题的最优解作为原问题的启发式估计。在吃豆人游戏中，曼哈顿距离就是一个简单而有效的可采纳的启发式函数，用于估计从当前位置到目标位置的剩余步数。</p>
+<p><img alt="" src="Pasted%20image%2020250509000727.png" /></p>
+<p>如图，没有墙壁，直接走的情况一般是步数的下界；</p>
+<p>有了启发式，我们的智能体在决定执行哪个动作时，就能很容易地实现偏向于扩展那些估计离目标状态更近的状态的逻辑。</p>
+<h4 id="greedy-search">Greedy Search（贪婪搜索）</h4>
+<p>贪婪搜索是一种探索策略，它总是选择边界中具有<strong>最低启发式值</strong>的节点进行扩展，这对应于它认为最接近目标的状态。</p>
+<p><strong>边界表示 (Frontier Representation)</strong>
+- 贪婪搜索的操作方式与一致代价搜索 (UCS) 完全相同，都使用<strong>优先队列 (priority queue)</strong> 来表示边界。不同之处在于，贪婪搜索不是使用<strong>已计算出的后向成本</strong>（到达该状态的路径中的边权重之和）来分配优先级，而是使用<strong>估计的前向成本</strong>，即启发式值。</p>
+<ul>
+<li><strong>解释:</strong> 贪婪搜索也使用priority queue来维护待探索的节点。但是，与 UCS 使用从起始点到当前节点的实际成本作为优先级不同，贪婪搜索直接使用启发式函数计算出的从当前节点到目标节点的估计成本作为优先级。优先级越低的节点（估计离目标越近）会被优先取出进行扩展。</li>
+</ul>
+<p><strong>完备性和最优性 (Completeness and Optimality)</strong> 
+- 如果目标状态存在，贪婪搜索不保证能够找到它，并且它也不是最优的，尤其是在选择了非常糟糕的启发式函数的情况下。它在不同的场景中通常表现得相当不可预测，可能直接找到目标状态，也可能像一个糟糕的深度优先搜索一样，探索所有错误的区域。</p>
+<ul>
+<li><strong>解释:</strong><ul>
+<li><strong>不保证完备性:</strong> 贪婪搜索可能会因为选择了不合适的路径而陷入无限循环，或者虽然存在目标状态，但它一直朝着错误的方向探索而错过了目标。</li>
+<li><strong>不是最优的:</strong> 贪婪搜索只关注当前看起来最好的状态，而不考虑到达该状态的实际成本。因此，它找到的第一个目标状态的路径成本很可能不是最低的。</li>
+<li><strong>行为不可预测:</strong> 贪婪搜索的性能很大程度上依赖于启发式函数的质量。如果启发式函数非常准确，贪婪搜索可能很快就能找到一个不错的解（但不保证最优）。但如果启发式函数很差，它可能会误导搜索朝着远离目标的方向前进，导致效率很低，甚至找不到解。它可能会像一个“短视”的 DFS，沿着一条看起来很有希望但最终是死胡同的路径一直探索下去。</li>
+</ul>
+</li>
+</ul>
+<h4 id="a">A* 搜索算法</h4>
+<p>A<em> 搜索是之前讨论过的贪婪搜索和一致代价搜索 (UCS) 的结合体。它试图找到一条成本最低的路径到达目标。为了做到这一点，它为每个待探索的节点计算一个</em><em>估计总成本</em>*。这个估计总成本由两部分组成：</p>
+<ul>
+<li><strong>已付出的成本 (cost so far):</strong> 从起始节点到达当前节点的实际成本。</li>
+<li><strong>估计的剩余成本 (estimated cost to goal):</strong> 从当前节点到目标节点的估计成本（通过启发式函数 <span class="arithmatex">\(h(n)\)</span> 得到）。 A* 搜索总是优先扩展那个具有最低估计总成本的节点，因为它认为这条路径最有可能成为最优路径。</li>
+</ul>
+<p><strong>边界表示 (Frontier Representation)</strong> - 就像贪婪搜索和 UCS 一样，A<em> 搜索也使用</em><em>优先队列 (priority queue)</em><em> 来表示它的边界。同样，唯一的区别在于优先级选择的方法。A* 通过将 UCS 使用的</em><em>总后向成本</em><em>（到达该状态的路径中的边权重之和）与贪婪搜索使用的</em><em>估计前向成本</em><em>（启发式值）相加，有效地得到从起始到目标的</em><em>估计总成本</em>*。鉴于我们想要最小化从起始到目标的总成本，这是一个极好的选择。</p>
+<ul>
+<li><strong>解释:</strong> A* 搜索也使用优先队列来管理待探索的节点。每个节点在优先队列中的优先级是根据一个称为 <span class="arithmatex">\(f(n)\)</span> 的函数计算出来的，其中 <span class="arithmatex">\(f(n)=g(n)+h(n)\)</span>。<ul>
+<li><strong><span class="arithmatex">\(g(n)\)</span>:</strong> 是从起始节点到当前节点 n 的<strong>实际成本（与 UCS 使用的相同）</strong>。</li>
+<li><strong><span class="arithmatex">\(h(n)\)</span>:</strong> 是从当前节点 n 到目标节点的<strong>估计成本</strong>（启发式值，与<strong>贪婪搜索</strong>使用的相同）。</li>
+<li><strong><span class="arithmatex">\(f(n)\)</span>:</strong> 就是 A<em> 搜索用来评估节点优先级的</em><em>估计总成本</em>*。它综合考虑了已经付出的成本和未来可能需要的成本，从而更智能地指导搜索。</li>
+</ul>
+</li>
+</ul>
+<p><strong>完备性和最优性 (Completeness and Optimality)</strong> - 给定一个合适的启发式函数（我们将在稍后讨论），A* 搜索既是完备的又是最优的。它是我们目前讨论过的所有其他搜索策略的优点的结合，既有贪婪搜索通常较高的速度，又有 UCS 的最优性和完备性！</p>
+<ul>
+<li><strong>解释:</strong> 在使用满足特定条件的启发式函数的情况下，A* 搜索能够保证：<ul>
+<li><strong>完备性:</strong> 如果存在到达目标状态的路径，A* 搜索最终一定会找到它。</li>
+<li><strong>最优性:</strong> A* 搜索找到的第一个目标状态的路径一定是成本最低的（最优解）。</li>
+<li>这使得 A* 搜索成为一种非常强大且广泛应用的搜索算法。</li>
+</ul>
+</li>
+</ul>
+<p><strong>1.4.4 可采纳性 (Admissibility)</strong></p>
+<p>既然我们已经讨论了启发式以及它们在贪婪搜索和 A* 搜索中的应用，现在让我们花一些时间讨论什么构成了一个好的启发式函数。为此，让我们首先用以下定义重新表示 UCS、贪婪搜索和 A* 中用于确定priority queue顺序的方法：</p>
+<ul>
+<li><strong><span class="arithmatex">\(g(n)\)</span>:</strong> 表示由 UCS 计算的总后向成本的函数。</li>
+<li><strong><span class="arithmatex">\(h(n)\)</span>:</strong> 表示贪婪搜索使用的<strong>启发式值</strong>函数，或估计的前向成本。</li>
+<li><strong><span class="arithmatex">\(f(n)\)</span>:</strong> 表示 A* 搜索使用的估计总成本的函数。<span class="arithmatex">\(f(n)=g(n)+h(n)\)</span></li>
+</ul>
+<p>在讨论什么构成一个“好”的启发式函数之前，我们必须首先回答一个问题：无论我们使用什么启发式函数，A* 是否都能保持其完备性和最优性的特性？事实上，很容易找到破坏这两个令人渴望的特性的启发式函数。例如，考虑启发式函数 <span class="arithmatex">\(h(n)=1−g(n)\)</span>。无论搜索问题是什么，使用这个启发式函数都会得到：</p>
+<p><span class="arithmatex">\(f(n)=g(n)+h(n)=g(n)+(1−g(n))=1\)</span></p>
+<p>因此，这样的启发式函数将 A* 搜索简化为所有边成本都相等的 BFS。正如我们已经展示的，在边权重不恒定的情况下，BFS 不能保证最优性。</p>
+<ul>
+<li><strong>解释:</strong> 这部分强调了并非所有的启发式函数都适用于 A<em> 搜索，有些启发式函数可能会导致 A</em> 失去其完备性和最优性的特性。给出的例子 <span class="arithmatex">\(h(n)=1−g(n)\)</span> 说明了这一点。使用这个启发式函数会导致所有节点的 <span class="arithmatex">\(f(n)\)</span> 值都等于 1，这意味着 A* 搜索会像边成本都为 1 的 BFS 一样运行。而我们知道，在一般情况下，BFS 并不能保证找到成本最低的路径。</li>
+</ul>
+<p>在使用 A* 树搜索时，保证最优性的条件被称为可采纳性 (admissibility)。可采纳性约束规定，一个可采纳的启发式函数估计的值既不是负数也不是高估。将 <span class="arithmatex">\(h^*(n)\)</span> 定义为从给定节点 <span class="arithmatex">\(n\)</span> 到达目标状态的真实最优前向成本，我们可以用数学方式表示可采纳性约束如下:</p>
+<p><span class="arithmatex">\(\forall n,0≤h(n)≤h^*(n)\)</span></p>
+<ul>
+<li><strong>解释:</strong><ul>
+<li><strong>可采纳性:</strong> 这是 A* 搜索能够保证找到最优解的关键性质。</li>
+<li><strong>非负性:</strong> 启发式函数 <span class="arithmatex">\(h(n)\)</span> 的估计值必须大于或等于 0。距离不可能是负的。</li>
+<li><strong>不高估:</strong> 启发式函数 <span class="arithmatex">\(h(n)\)</span> 的估计值必须小于或等于从当前节点 n 到达目标状态的真实最优成本 <span class="arithmatex">\(h^∗(n)\)</span>。也就是说，启发式函数永远不能高估到达目标的实际代价。它只能低估或准确估计。</li>
+</ul>
+</li>
+</ul>
+<p>这段话解释了在使用 A<em> 树搜索时，为了保证找到最优解，所使用的启发式函数必须满足</em><em>可采纳性 (admissibility)</em>* 这个重要的条件。下面我来详细解释一下 h(n) 和 <span class="arithmatex">\(h^∗(n)\)</span> 的区别：</p>
+<ul>
+<li>
+<p><strong>h(n) (Heuristic function):</strong></p>
+<ul>
+<li>它是一个<strong>估计函数</strong>。</li>
+<li>它以当前节点 n 作为输入，输出一个<strong>估计值</strong>，这个估计值代表了从当前节点 n 到达目标状态的<strong>剩余成本</strong>。</li>
+<li>这个估计值是基于我们对问题的某种理解或经验而设计的，但它<strong>不一定是真实</strong>的剩余成本。</li>
+<li>可采纳性要求这个估计值必须是<strong>非负的</strong> (h(n)≥0)，并且<strong>不能高估</strong>实际的剩余成本 (h(n)≤<span class="arithmatex">\(h^∗(n)\)</span>)。它可以低估实际成本，也可以正好等于实际成本。</li>
+<li>
+<p><strong><span class="arithmatex">\(h^∗(n)\)</span> (Optimal heuristic function):</strong></p>
+</li>
+<li>
+<p>它是一个<strong>真实的函数</strong>。</p>
+</li>
+<li>它以当前节点 n 作为输入，输出从当前节点 n 到达目标状态的<strong>真实最优成本</strong>（即成本最低的路径的成本）。</li>
+<li>这个值是<strong>客观存在且唯一</strong>的，但通常在搜索过程中我们是<strong>不知道</strong>这个确切值的，否则我们就直接找到了最优路径，而不需要搜索了。</li>
+<li><span class="arithmatex">\(h^∗(n)\)</span> 是所有可采纳的启发式函数中<strong>最完美</strong>的，因为它既不高估也不低估，而是完全准确的。如果我们在 A<em> 搜索中使用 <span class="arithmatex">\(h^∗(n)\)</span>，那么 A</em> 会直接沿着最优路径前进，而不会探索任何多余的节点。</li>
+</ul>
+</li>
+</ul>
+<p><strong>总结它们之间的区别：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>特征</strong></th>
+<th><strong><span class="arithmatex">\(h(n)\)</span> (启发式函数)</strong></th>
+<th><strong><span class="arithmatex">\(h^∗(n)\)</span> (最优启发式函数)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>本质</strong></td>
+<td><strong>估计值</strong> (Estimate)</td>
+<td><strong>真实值</strong> (True value)</td>
+</tr>
+<tr>
+<td><strong>获取方式</strong></td>
+<td>通过设计启发式函数得到 (Designed)</td>
+<td>通常在搜索过程中<strong>未知</strong> (Usually unknown during search)</td>
+</tr>
+<tr>
+<td><strong>准确性</strong></td>
+<td>可能低估、准确估计，但不能高估 (Can underestimate or be accurate, but cannot overestimate)</td>
+<td>完全准确 (Perfectly accurate)</td>
+</tr>
+<tr>
+<td><strong>用途</strong></td>
+<td>用于指导 A<em> 搜索的优先级，帮助算法更有效地找到解 (Guides A</em> search priority)</td>
+<td>作为理论上的最优参考，实际搜索中无法直接使用 (Theoretical optimal reference, not directly usable in practice)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>举个例子 (吃豆人问题中的曼哈顿距离):</strong></p>
+<p>假设吃豆人当前在位置 A，目标位置是 G。</p>
+<ul>
+<li>
+<p><strong><span class="arithmatex">\(h(A)\)</span> (曼哈顿距离):</strong> 我们计算从 A 到 G 的曼哈顿距离（水平和垂直方向的步数之和，忽略墙壁）。这个值是我们对吃豆人从 A 到 G 所需步数的<strong>估计</strong>。由于实际路径可能会因为墙壁而绕路，所以曼哈顿距离通常会<strong>低估</strong>实际所需的步数，但它永远不会高估（因为在没有墙壁的情况下，这就是最短路径）。因此，曼哈顿距离是一个可采纳的启发式函数。</p>
+</li>
+<li>
+<p><strong><span class="arithmatex">\(h^∗(A)\)</span> (实际最优步数):</strong> 这是吃豆人从 A 到 G 在考虑所有墙壁障碍的情况下，所需的最少实际步数。这个值是我们通常在搜索结束后才能知道的（如果我们找到了最优路径）。</p>
+</li>
+</ul>
+<p>可采纳性的重要性在于，它保证了 A* 搜索不会“错过”最优解。 因为 A* 总是优先扩展 <span class="arithmatex">\(f(n)=g(n)+h(n)\)</span> 值最低的节点。如果 <span class="arithmatex">\(h(n)\)</span> 不会高估剩余成本，那么当 A* 找到第一个目标状态时，可以保证到达该目标状态的路径成本 g(goal) 一定是最低的，因为任何可能具有更低实际成本的路径上的节点，其 f 值一定不会比当前的 g(goal) 更高，因此会被优先探索到。</p>
+<hr />
+<p>定理。对于给定的搜索问题，如果启发式函数 h 满足可采纳性约束(admissibility constraint)，那么在该搜索问题上使用带有 h 的 A* 树搜索将产生一个最优解。</p>
+<ul>
+<li><strong>解释:</strong> 这是一个重要的定理，它说明了可采纳性是 A* 树搜索获得最优解的充分条件。接下来的证明将试图解释为什么会这样。</li>
+</ul>
+<p>证明。假设在给定搜索问题的搜索树中存在两个可达的目标状态：一个最优目标 A 和一个次优目标 B。由于 A 可以从起始状态到达，因此 A 的某个祖先节点 n（包括 A 本身）当前必须在边界上。我们声称 n 将在 B 之前被选中进行扩展，理由如下：</p>
+<ol>
+<li><strong><span class="arithmatex">\(g(A)&lt;g(B)\)</span>。</strong> 因为 A 被认为是最优的，而 B 是次优的，所以我们可以得出结论，A 到起始状态的后向成本比 B 到起始状态的后向成本要低。</li>
+<li><strong><span class="arithmatex">\(h(A)=h(B)=0\)</span>。</strong> 因为我们假设我们的启发式函数满足可采纳性约束。由于 A 和 B 都是目标状态，从 A 或 B 到目标状态的真实最优成本 <span class="arithmatex">\(h^∗(n)\)</span> 都是 0；因此 0≤h(n)≤0。</li>
+</ol>
+<p><strong>2. h(A)=h(B)=0。因为我们假设我们的启发式函数满足可采纳性约束。由于 A 和 B 都是目标状态，从 A 或 B 到目标状态的真实最优成本 h∗(n) 都是 0；因此 0≤h(n)≤0。</strong></p>
+<ul>
+<li><strong>h(A) 和 h(B) 的含义:</strong><ul>
+<li>h(A) 是启发式函数对于目标状态 A 的估计值，表示从目标状态 A 到目标状态的剩余估计成本。</li>
+<li>h(B) 是启发式函数对于目标状态 B 的估计值，表示从目标状态 B 到目标状态的剩余估计成本。</li>
+</ul>
+</li>
+<li><strong>“因为我们假设我们的启发式函数满足可采纳性约束。”:</strong><ul>
+<li>可采纳性要求启发式函数 h(n) 对于任何节点 n，都满足 0≤h(n)≤h∗(n)，即估计值是非负的且不高于真实最优剩余成本。</li>
+</ul>
+</li>
+<li><strong>“由于 A 和 B 都是目标状态，从 A 或 B 到目标状态的真实最优成本 h∗(n) 都是 0”:</strong><ul>
+<li>当一个节点本身就是目标状态时，从该节点到目标状态的真实最优剩余成本自然是 0，因为我们已经到达了目标，不需要再移动了。所以，h∗(A)=0 且 h∗(B)=0。</li>
+</ul>
+</li>
+<li>
+<p><strong>“因此 0≤h(n)≤0。”:</strong></p>
+<ul>
+<li>将可采纳性约束应用于目标状态 A 和 B，我们得到：<ul>
+<li>对于 A: 0≤h(A)≤h∗(A)=0，这唯一可能的值就是 h(A)=0。</li>
+<li>对于 B: 0≤h(B)≤h∗(B)=0，这唯一可能的值就是 h(B)=0。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong><span class="arithmatex">\(f(n)≤f(A)\)</span>。</strong> 因为通过 h 的可采纳性，<span class="arithmatex">\(f(n)=g(n)+h(n)≤g(n)+h^∗(n)=g(A)=f(A)\)</span>。通过节点 n 的总成本最多是 A 的真实后向成本，这也是 A 的总成本。</p>
+</li>
+<li>
+<p><strong>解释:</strong> 证明的思路是说明在 Af<em> 搜索中，任何通往最优目标 A 的路径上的节点 n 的 f 值都不会高于最优目标 A 的 f 值，而最优目标 A 的 f 值又低于任何次优目标 B 的 f 值。因此，A</em> 搜索会优先扩展通往最优目标的路径上的节点，最终找到最优解。</p>
+</li>
+</ul>
+<p><strong>我们可以结合第 1 和第 2 点得出结论，f(A)&lt;f(B)，如下所示：</strong>
+<span class="arithmatex">\(f(A)=g(A)+h(A)=g(A)&lt;g(B)=g(B)+h(B)=f(B)\)</span>
+<strong>将上述推导出的不等式与第 3 点相结合，可以得到以下简单推论：</strong>
+<span class="arithmatex">\(f(n)≤f(A)∧f(A)&lt;f(B)→f(n)&lt;f(B)\)</span></p>
+<p>因此，我们可以得出结论，n 在 B 之前被扩展。因为我们已经对任意 n 证明了这一点，我们可以得出结论，所有 A 的parent node（包括 A 本身）都在 B 之前被扩展。</p>
+<ul>
+<li><strong>解释:</strong> 这部分通过数学推导证明了，在可采纳的启发式函数下，A* 搜索会优先探索通往最优解的路径上的节点，而不会先扩展到次优解。</li>
+</ul>
+<p>我们在上面发现树搜索的一个问题是，在某些情况下，它可能永远找不到解决方案，因为会陷入状态空间图中的同一个循环中无限搜索。即使在我们的搜索技术不涉及这种无限循环的情况下，也经常会多次访问同一个节点，因为有多种方法可以到达同一个节点。这会导致指数级的工作量，自然的解决方案是简单地跟踪你已经扩展过的状态，并且永远不再扩展它们。更明确地说，在使用你选择的搜索方法的同时，维护一个已扩展节点的“已到达 (reached)”集合。然后，确保每个节点在扩展之前不在该集合中，如果不在则在扩展后将其添加到该集合中。具有这种附加优化的树搜索被称为<strong>图搜索 (graph search)</strong>。</p>
+<p><strong>此外，还需要一个关键因素来保持最优性。考虑以下简单的状态空间图和相应的搜索树，标注了权重和启发式值：</strong></p>
+<p><img alt="" src="Pasted%20image%2020250509171218.png" /></p>
+<p>在上面的例子中，很明显最优路径是 S → A → C → G，总路径成本为 1 + 1 + 3 = 5。到达目标的另一条路径 S → B → C → G 的路径成本为 1 + 2 + 3 = 6。然而，由于节点 A 的启发式值比节点 B 的启发式值大得多，节点 C 首先沿着第二条次优路径（作为节点 B 的子节点）被扩展。然后它被放入“已到达”集合，因此当 A<em> 图搜索将 C 作为节点 A 的子节点再次访问时，它不会重新扩展 C，因此它永远找不到最优解。因此，为了在 A</em> 图搜索下保持最优性，我们不仅需要检查 A* 是否已经访问过一个节点，还需要检查它是否找到了到达该节点的更便宜的路径。</p>
+<p>因此，为了在 A* 图搜索中保持最优性，我们需要在重新访问一个状态时，检查是否找到了一条到达该状态的更低成本的路径。如果是，我们需要更新该状态的成本，并将其重新放入边界（优先队列）中，以便从新的更低成本路径继续搜索。</p>
+<p>下面的伪代码展示了考虑了这一点的 A* 图搜索算法：</p>
+<div class="highlight"><pre><span></span><code>function A*-GRAPH-SEARCH(problem, frontier) return a solution or failure
+    reached ← an empty dict mapping nodes to the cost to each one
+    frontier ← INSERT((MAKE-NODE(INITIAL-STATE[problem]),0), frontier)
+    while not IS-EMPTY(frontier) do
+        node, node.CostToNode ← POP(frontier)
+        if problem.IS-GOAL(node.STATE) then return node
+        if node.STATE is not in reached or reached[node.STATE] &gt; node.CostToNode then
+            reached[node.STATE] = node.CostToNode
+            for each child-node in EXPAND(problem, node) do
+                frontier ← INSERT((child-node, child-node.COST + CostToNode), frontier)
+    return failure
+</code></pre></div>
+<ul>
+<li><strong>解释:</strong> 这个伪代码展示了 A* 图搜索的关键改进：<ul>
+<li><code>reached</code> 是一个字典，用于存储已经到达过的状态以及到达该状态的最低成本。</li>
+<li>当从优先队列中弹出一个节点时，首先检查它是否是目标状态。</li>
+<li>然后，检查该节点的状态是否已经存在于 <code>reached</code> 字典中，或者当前到达该节点的成本是否比之前记录的成本更低。</li>
+<li>如果该状态是第一次到达，或者我们找到了到达它的更低成本路径，则更新 <code>reached</code> 字典中的成本，并将其所有子节点加入到优先队列中，其优先级为子节点的成本加上当前到达节点的成本。</li>
+</ul>
+</li>
+</ul>
+<p>请注意，在实现中，将 <code>reached</code> 集合存储为不相交集而不是列表至关重要。将它存储为列表需要 O(n) 的操作来检查成员资格，这消除了图搜索旨在提供的性能改进。</p>
+<ul>
+<li><strong>解释:</strong> 强调了 <code>reached</code> 集合的高效实现的重要性。使用哈希表（在 Python 中是字典）可以实现平均 O(1) 的成员资格检查，这对于图搜索的效率至关重要。</li>
+</ul>
+<p><strong>在我们继续之前，关于上述讨论的几个重要要点：对于可采纳的启发式函数来说，根据定义，对于任何目标状态 G，必须有 h(G)=0。</strong></p>
+<p><strong>1.4.5 支配性 (Dominance)</strong></p>
+<p>既然我们已经确定了可采纳性及其在保持 A* 搜索最优性中的作用，我们可以回到我们最初创建“好”的启发式函数的问题，以及如何判断一个启发式函数是否比另一个更好。为此的标准度量是支配性 (dominance)。如果启发式函数 <span class="arithmatex">\(h_a\)</span>​ 支配启发式函数 <span class="arithmatex">\(h_b\)</span>​，那么对于状态空间图中的每个节点，<span class="arithmatex">\(h_a\)</span>​ 估计的目标距离大于或等于 <span class="arithmatex">\(h_b\)</span>​ 估计的目标距离。数学上，</p>
+<p><span class="arithmatex">\(\forall n:h_a​(n)≥h_b​(n)\)</span></p>
+<p>支配性非常直观地捕捉了一个启发式函数比另一个更好的概念 - 如果一个可采纳的启发式函数支配另一个，它必然更好，因为它总是更接近地估计从任何给定状态到目标的距离 （由于约束<span class="arithmatex">\(h_a(n)\leq h_a^*(n)\)</span>）。此外，<strong>平凡启发式 (trivial heuristic)</strong> 定义为 <span class="arithmatex">\(h(n)=0\)</span>，使用它会将 A* 搜索简化为 UCS。所有可采纳的启发式函数都支配平凡启发式。平凡启发式通常被纳入搜索问题的半格 (semi-lattice) 的底部，这是一个以它为底部的支配层级结构。下面是一个包含各种启发式函数 ha​、hb​ 和 hc​ 的半格示例，从底部的平凡启发式到顶部的精确目标距离：</p>
+<p><img alt="|200" src="Pasted%20image%2020250509171755.png" /></p>
+<h3 id="33-local-search">3.3 Local Search 局部搜索算法</h3>
+<p>Local search algorithms allow us to find goal states without worrying about the path to get there： 找目标状态，不在意到达的路径</p>
+<h4 id="331">3.3.1 爬山搜索</h4>
+<p>爬山搜索算法，也称为最速上升法，是一种局部搜索算法。它的基本思想是从当前所处的状态开始，考察其所有相邻的状态。在这些相邻状态中，算法会选择那个能够使目标函数值增加最多的状态，并移动到该状态。这个过程会不断重复，直到无法找到比当前状态更好的相邻状态为止。与一些更复杂的搜索算法（如广度优先搜索或深度优先搜索）不同，爬山搜索算法不维护一个完整的搜索树。它只需要记住当前的状态以及该状态下目标函数的值。这意味着爬山搜索算法的内存开销通常比较小。</p>
+<p><img alt="" src="Pasted%20image%2020250509173703.png" /></p>
+<h4 id="332">3.3.2 模拟退火搜索</h4>
+<h4 id="333">3.3.3 局部束搜索</h4>
+<h4 id="334-genetic-algorithms">3.3.4 遗传算法 (genetic algorithms)</h4>
+<hr />
+<p><strong>第一段：爬山搜索算法 (Hill-Climbing Search Algorithm)</strong></p>
+<blockquote>
+<p>The hill-climbing search algorithm (or steepest-ascent) moves from the current state towards the neighboring state that increases the objective value the most.</p>
+</blockquote>
+<p><strong>解释：</strong> 爬山搜索算法，也称为最速上升法，是一种局部搜索算法。它的基本思想是从当前所处的状态开始，考察其所有相邻的状态。在这些相邻状态中，算法会选择那个能够使目标函数值增加最多的状态，并移动到该状态。这个过程会不断重复，直到无法找到比当前状态更好的相邻状态为止。</p>
+<blockquote>
+<p>The algorithm does not maintain a search tree but only tracks the states and the corresponding values of the objective.</p>
+</blockquote>
+<p><strong>解释：</strong> 与一些更复杂的搜索算法（如广度优先搜索或深度优先搜索）不同，爬山搜索算法不维护一个完整的搜索树。它只需要记住当前的状态以及该状态下目标函数的值。这意味着爬山搜索算法的内存开销通常比较小。</p>
+<blockquote>
+<p>The “greediness” of hill-climbing makes it vulnerable to being trapped in local maxima (see figure 4.1), as locally those points appear as global maxima to the algorithm, and plateaus (see figure 4.1).</p>
+</blockquote>
+<p><strong>解释：</strong> 爬山搜索算法的“贪婪性”是指它总是选择当前看起来最好的下一步，而不考虑长远的后果。这种贪婪性使得算法很容易陷入局部最优解（local maxima）。局部最优解是指在一个有限的邻域内，当前状态的目标函数值是最高的，但并非整个搜索空间中的最高值（全局最优解）。对于爬山算法来说，一旦它到达一个局部最优解，由于其所有的邻居状态的目标函数值都比当前状态低，算法就会停止搜索，即使可能存在更好的全局最优解。</p>
+<blockquote>
+<p>Plateaus can be categorized into “flat” areas at which no direction leads to improvement (“flat local maxima”) or flat areas from which progress can be slow (“shoulders”).</p>
+</blockquote>
+<p><strong>解释：</strong> 除了局部最优解，爬山搜索算法还可能遇到“平原”（plateaus）问题。平原是指一片区域内的所有状态都具有相同的目标函数值。平原可以分为两种： * <strong>“平坦的局部最优解” (flat local maxima)：</strong> 在这种平原上，无论向哪个相邻状态移动，目标函数值都不会增加，算法会停滞不前。 * <strong>“肩部” (shoulders)：</strong> 这也是一片平坦区域，但是有可能通过一系列的横向移动（目标函数值不变的移动）最终到达一个可以提升目标函数值的区域，但爬山算法由于只关注提升，可能会在“肩部”区域移动缓慢甚至停滞。</p>
+<p><strong>第二段：爬山搜索的变体 (Variants of Hill-Climbing)</strong></p>
+<blockquote>
+<p>Variants of hill-climbing, like stochastic hill-climbing (which selects an action randomly among the possible uphill moves), have been proposed.</p>
+</blockquote>
+<p><strong>解释：</strong> 为了克服标准爬山搜索的一些局限性，研究者提出了多种变体。其中一种是随机爬山搜索（stochastic hill-climbing）。与总是选择最佳上坡移动的标准爬山不同，随机爬山搜索在所有能够提升目标函数值的相邻状态中随机选择一个进行移动。</p>
+<blockquote>
+<p>Stochastic hill-climbing has been shown in practice to converge to higher maxima at the cost of more iterations.</p>
+</blockquote>
+<p><strong>解释：</strong> 实践表明，随机爬山搜索更有可能找到更高的局部最优解，甚至有时能接近全局最优解。这是因为它有一定的概率选择不是“最好”但可能引导算法跳出当前局部最优解的移动。然而，这种随机性通常会导致算法需要更多的迭代次数才能收敛。</p>
+<blockquote>
+<p>Another variant, random sideways moves, allows moves that don’t strictly increase the objective, helping the algorithm escape “shoulders.”</p>
+</blockquote>
+<p><strong>解释：</strong> 另一种变体是允许随机横向移动。这种方法允许算法在目标函数值不变的情况下移动到相邻状态。这有助于算法摆脱“肩部”区域，因为在这些区域，只有横向移动才能最终带来目标函数值的提升。</p>
+<p><strong>第三段：爬山搜索的伪代码和性质 (Pseudocode and Properties of Hill-Climbing)</strong></p>
+<blockquote>
+<p>The pseudocode of hill-climbing can be seen above. As the name suggests, the algorithm iteratively moves to a state with a higher objective value until no such progress is possible.</p>
+</blockquote>
+<p><strong>解释：</strong> 这句话再次强调了爬山搜索的核心思想：迭代地移动到具有更高目标函数值的状态，直到无法找到这样的状态为止。</p>
+<blockquote>
+<p>Hill-climbing is incomplete.</p>
+</blockquote>
+<p><strong>解释：</strong> “不完备性”（incompleteness）是爬山搜索的一个重要缺点。这意味着如果搜索空间中存在全局最优解，但算法陷入了局部最优解或平原，它可能永远无法找到这个全局最优解。</p>
+<blockquote>
+<p>Random-restart hill-climbing, on the other hand, conducts a number of hill-climbing searches from randomly chosen initial states, making it trivially complete as, at some point, a randomly chosen initial state may converge to the global maximum.</p>
+</blockquote>
+<p><strong>解释：</strong> 为了提高找到全局最优解的可能性，人们提出了随机重启爬山搜索（random-restart hill-climbing）。这种方法不是只进行一次爬山搜索，而是从多个随机生成的初始状态开始，分别运行多次爬山搜索。由于每次搜索的起点不同，算法更有可能探索搜索空间的不同区域，从而增加找到全局最优解的机会。理论上，如果进行足够多次的随机重启，并且全局最优解是可达的，那么最终找到全局最优解的概率会趋近于1，因此可以说它是“平凡地完备的”（trivially complete）。</p>
+<blockquote>
+<p>As a note, later in this course, you will encounter the term “gradient descent.” It is the exact same idea as hill-climbing, except instead of maximizing an objective function, we will want to minimize a cost function.</p>
+</blockquote>
+<p><strong>解释：</strong> 这是一个重要的提示。在后续的学习中，您会遇到“梯度下降”（gradient descent）这个概念。梯度下降与爬山搜索的思想非常相似，唯一的区别在于目标。爬山搜索的目标是最大化一个“目标函数”（objective function），而梯度下降的目标是最小化一个“成本函数”（cost function）。在数学上，最小化一个函数等价于最大化其负函数。</p>
+<p><img alt="" src="Pasted%20image%2020250509173703.png" /></p>
+<p><strong>第四段：模拟退火搜索 (Simulated Annealing Search)</strong></p>
+<blockquote>
+<p>The second local search algorithm we will cover is simulated annealing. Simulated annealing aims to combine random walk (randomly moving to nearby states) and hill-climbing to obtain a complete and efficient search algorithm.</p>
+</blockquote>
+<p><strong>解释：</strong> 模拟退火（simulated annealing）是另一种局部搜索算法。它的目标是结合随机游走（在邻近状态中随机移动）和爬山搜索的优点，以获得一个更完备且更有效的搜索算法。</p>
+<blockquote>
+<p>In simulated annealing, we allow moves to states that can decrease the objective.</p>
+</blockquote>
+<p><strong>解释：</strong> 与纯粹的爬山搜索不同，模拟退火允许接受一些导致目标函数值下降的移动。这是模拟退火能够跳出局部最优解的关键机制。</p>
+<blockquote>
+<p>The algorithm chooses a random move at each timestep. If the move leads to a higher objective value, it is always accepted. If it leads to a smaller objective value, the move is accepted with some probability. This probability is determined by the temperature parameter, which initially is high (allowing more “bad” moves) and decreases according to some “schedule.”</p>
+</blockquote>
+<p><strong>解释：</strong> 在模拟退火的每个时间步，算法会随机选择一个邻近状态。如果这个邻近状态的目标函数值更高，那么这个移动会被无条件接受。如果目标函数值更低，那么这个移动会以一定的概率被接受。这个接受的概率由一个称为“温度”（temperature）的参数决定。初始时，温度很高，这意味着算法更容易接受“坏”的移动（目标函数值下降的移动），从而有助于跳出局部最优解。随着时间的推移，温度会按照一定的“降温策略”（cooling schedule）逐渐降低，这使得算法越来越不容易接受“坏”的移动，从而逐渐收敛到最优解。</p>
+<blockquote>
+<p>Theoretically, if the temperature is decreased slowly enough, the simulated annealing algorithm will reach the global maximum with a probability approaching 1.</p>
+</blockquote>
+<p>理论上能够证明，如果温度下降的速度足够缓慢，模拟退火算法找到全局最优解的概率会趋近于1，这意味着它在理论上是完备的。</p>
+<p><img alt="" src="Pasted%20image%2020250509190925.png" /></p>
+<p><strong>第五段：局部束搜索 (Local Beam Search)</strong></p>
+<blockquote>
+<p>Local beam search is another variant of the hill-climbing search algorithm. The key difference between the two is that local beam search keeps track of k states (threads) at each iteration.</p>
+</blockquote>
+<p><strong>解释：</strong> 局部束搜索（local beam search）是爬山搜索的另一种变体。与标准爬山搜索每次只维护一个当前状态不同，局部束搜索在每次迭代中维护 k 个状态（可以想象成 k 条并行的搜索“线程”）。</p>
+<blockquote>
+<p>The algorithm starts with a random initialization of k states, and at each iteration, it selects k new states, as done in hill-climbing.</p>
+</blockquote>
+<p><strong>解释：</strong> 算法首先随机生成 k 个初始状态。在每次迭代中，对于当前的 k 个状态，算法会生成它们所有的邻居状态。然后，从所有这些邻居状态中选择最好的 k 个状态作为下一次迭代的当前状态。</p>
+<blockquote>
+<p>These aren’t just k copies of the regular hill-climbing algorithm. Crucially, the algorithm selects the k best successor states from the complete list of successor states from all the threads.</p>
+</blockquote>
+<p><strong>解释：</strong> 局部束搜索不是简单地运行 k 个独立的爬山搜索。关键在于，它会考虑所有 k 个当前状态的所有邻居状态，并从中选出全局最好的 k 个作为下一步的状态。这意味着不同的“线程”之间可以竞争和协作。</p>
+<blockquote>
+<p>If any of the threads find the optimal value, the algorithm stops.</p>
+</blockquote>
+<p><strong>解释：</strong> 如果在搜索过程中，任何一个“线程”找到了最优解，算法就会停止。</p>
+<blockquote>
+<p>The k threads can share information between them, allowing “good” threads (for which objectives are high) to “attract” the other threads to that region as well.</p>
+</blockquote>
+<p><strong>解释：</strong> 由于每次都选择全局最好的 k 个后继状态，那些目标函数值较高的“好”线程产生的后继状态更有可能被选中，这实际上引导着其他的线程也向着这些有希望的区域移动，从而实现了某种程度的信息共享。</p>
+<blockquote>
+<p>Local beam search is also susceptible to getting stuck in “flat” regions like hill-climbing does. Stochastic beam search, analogous to stochastic hill-climbing, can alleviate this issue.</p>
+</blockquote>
+<p><strong>解释：</strong> 类似于标准的爬山搜索，局部束搜索也容易陷入平坦区域。为了解决这个问题，人们提出了随机束搜索（stochastic beam search），它与随机爬山搜索类似，在选择下一个 k 个状态时引入一定的随机性，允许选择一些不是局部最优的邻居状态，从而有助于跳出平坦区域。</p>
+<p><strong>第六段：遗传算法 (Genetic Algorithms)</strong></p>
+<blockquote>
+<p>Finally, we present genetic algorithms, which are a variant of local beam search and are extensively used in many optimization tasks. As indicated by the name, genetic algorithms take inspiration from evolution.</p>
+</blockquote>
+<p><strong>解释：</strong> 最后介绍的是遗传算法（genetic algorithms），它是局部束搜索的一种变体，广泛应用于许多优化问题。顾名思义，遗传算法的灵感来源于生物进化。</p>
+<blockquote>
+<p>Genetic algorithms begin as beam search with k randomly initialized states called the population. States (called individuals) are represented as a string over a finite alphabet.</p>
+</blockquote>
+<p><strong>解释：</strong> 遗传算法首先像局部束搜索一样，初始化 k 个随机状态，这些状态在遗传算法中被称为“种群”（population），每个状态被称为“个体”（individual）。每个个体通常被表示为一个有限字母表上的字符串，这个字符串可以看作是问题解的一种编码方式。</p>
+<blockquote>
+<p>Let’s revisit the 8-Queens problem presented in lecture. As a recap, 8-Queens is a constraint-satisfaction problem where we aim to situate 8 queens on an 8-by-8 board. The constraint-satisfying solution will not have any attacking pairs of queens, which are queens in the same row, column, or diagonal. All of the previously covered algorithms can be used to approach the 8-Queens problem.</p>
+</blockquote>
+<p><strong>解释：</strong> 这里提到了之前课程中介绍的八皇后问题。八皇后问题是一个典型的约束满足问题，目标是在一个 8x8 的棋盘上放置 8 个皇后，使得没有任何两个皇后互相攻击（即不在同一行、同一列或同一对角线上）。之前介绍的所有搜索算法都可以用来解决这个问题。</p>
+<blockquote>
+<p>For a genetic algorithm, we represent each of the eight queens with a number from 1−8, representing the location of each queen in its column (column (a) in Fig. 4.6). Each individual is evaluated using an evaluation function (fitness function), and they are ranked according to the values of that function. For the 8-Queens problem, this is the number of non-attacking (non-conflicted) pairs of queens.</p>
+</blockquote>
+<p><strong>解释：</strong> 对于使用遗传算法解决八皇后问题，一种常见的表示方法是用一个长度为 8 的数字字符串，每个数字（1-8）代表该列皇后所在的行号。例如，字符串 "14725386" 表示第一列的皇后在第一行，第二列的皇后在第四行，以此类推。每个个体（即每个这样的字符串）都会通过一个“评估函数”（evaluation function）或“适应度函数”（fitness function）来评估其优劣。对于八皇后问题，一个常用的适应度函数是棋盘上不互相攻击的皇后对的数量。适应度值越高，表示该个体（棋盘布局）越接近一个好的解决方案。</p>
+<p><img alt="" src="Pasted%20image%2020250509190806.png" /></p>
+<blockquote>
+<p>The probability of choosing a state to “reproduce” is proportional to the value of that state. We proceed to select pairs of states to reproduce by sampling from these probabilities (column &copy; in Fig. 4.6). Offspring are generated by crossing over parent strings at the crossover point. The crossover point is chosen randomly for each pair. Finally, each offspring is susceptible to some random mutation with independent probability. The pseudocode for the genetic algorithm can be seen below.</p>
+</blockquote>
+<p><strong>解释：</strong> 遗传算法的核心在于模拟生物的进化过程。选择“繁殖”的个体的概率与它们的适应度值成正比，适应度越高的个体越有可能被选中作为“父母”（parents）。然后，通过“交叉”（crossover）操作产生“后代”（offspring）。交叉是指随机选择一个或多个交叉点，将两个父代个体的部分字符串进行交换，从而产生新的个体。最后，每个后代都有一定的独立概率发生“变异”（mutation），即随机改变其字符串中的某个或某些字符。</p>
+<p><img alt="" src="Pasted%20image%2020250509190816.png" /></p>
+<blockquote>
+<p>Similar to stochastic beam search, genetic algorithms try to move uphill while exploring the state space and exchanging information between threads. Their main advantage is the use of crossovers — large blocks of letters that have evolved and lead to high valuations can be combined with other such blocks to produce a solution with a high total score.</p>
+</blockquote>
+<p><strong>解释：</strong> 类似于随机束搜索，遗传算法也试图在搜索空间中向着更好的解移动，并且通过种群中的多个个体来探索不同的区域，并进行信息交换（通过交叉）。遗传算法的主要优势在于交叉操作。通过交叉，那些在进化过程中形成的、能够带来较高适应度值的“基因块”（字符串片段）可以与其他类似的优秀基因块组合，从而有可能产生具有更高总适应度值的解决方案。这使得遗传算法在解决复杂优化问题时具有强大的能力。</p>
+<p><img alt="" src="Pasted%20image%2020250509190900.png" /></p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 26, 2025</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Created">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 26, 2025</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+
+
+
+<h2 id="__comments">Comments</h2>
+<!-- Insert generated snippet here -->
+<script src="https://giscus.app/client.js"
+    data-repo="Slowist-Lee/notebook"
+    data-repo-id="R_kgDONfrw0A"
+    data-category="Announcements"
+    data-category-id="DIC_kwDONfrw0M4ClZMR"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    crossorigin="anonymous"
+    async>
+</script>
+
+<!-- Synchronize Giscus theme with palette -->
+<script>
+var giscus = document.querySelector("script[src*=giscus]")
+
+// Set palette on initial load
+var palette = __md_get("__palette")
+if (palette && typeof palette.color === "object") {
+    var theme = palette.color.scheme === "slate"
+    ? "transparent_dark"
+    : "light"
+
+    // Instruct Giscus to set theme
+    giscus.setAttribute("data-theme", theme) 
+}
+
+// Register event handlers after documented loaded
+document.addEventListener("DOMContentLoaded", function() {
+    var ref = document.querySelector("[data-md-component=palette]")
+    ref.addEventListener("change", function() {
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+        var theme = palette.color.scheme === "slate"
+        ? "dark"
+        : "light"
+
+        // Instruct Giscus to change theme
+        var frame = document.querySelector(".giscus-frame")
+        frame.contentWindow.postMessage(
+        { giscus: { setConfig: { theme } } },
+        "https://giscus.app"
+        )
+    }
+    })
+})
+</script>
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Slowist/All Rights Reserved.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/Slowist-Lee/slowist-notebook" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:<leexin005@163.com>" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M64 112c-8.8 0-16 7.2-16 16v22.1l172.5 141.6c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16zM48 212.2V384c0 8.8 7.2 16 16 16h384c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0zM0 128c0-35.3 28.7-64 64-64h384c35.3 0 64 28.7 64 64v256c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.indexes", "navigation.path", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.56dfad97.min.js"></script>
+      
+        <script src="../../../../js/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>
