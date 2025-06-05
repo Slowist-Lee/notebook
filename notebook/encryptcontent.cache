@@ -1,0 +1,5 @@
+kdf_iterations: 10000
+obfuscate: {}
+password:
+  cc98: a6f6cc74ee403622f69a7a41c19413d346ccd69d562b947d1363110d2db4b792;d77db8fcf5454bddf3cee191396a1fbc;b94d0fcc07ce803f811b9783346182249304c0aed5162f5d87ee4e21daf49779
+userpass: {}

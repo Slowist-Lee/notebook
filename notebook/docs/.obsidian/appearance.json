@@ -1,0 +1,11 @@
+{
+  "textFontFamily": "Cambria,华文中宋,Consolas,霞鹜文楷 屏幕阅读版 R",
+  "theme": "moonstone",
+  "monospaceFontFamily": "Consolas,霞鹜文楷",
+  "interfaceFontFamily": "JetBrain,华文中宋,宋体,霞鹜文楷 屏幕阅读版 R,Calibri",
+  "cssTheme": "Maple",
+  "accentColor": "#728fb6",
+  "enabledCssSnippets": [
+    "style"
+  ]
+}
