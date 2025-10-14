@@ -371,6 +371,6 @@ nav:
       - 六: Writings/emotion/06.md
       - 七: Writings/emotion/07.md  
       - 九: Writings/emotion/09.md
-    - Record:
-      - Writings/record/index.md
-      - 二月: Writings/record/2025-02.md
+    # - Record:
+    #   - Writings/record/index.md
+    #   - 二月: Writings/record/2025-02.md
