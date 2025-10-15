@@ -1,6 +1,7 @@
 ---
 title: Welcome! 
 statistics: true
+conmment: true
 ---
 
 # Slowist's Notebook! 
