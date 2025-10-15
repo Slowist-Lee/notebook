@@ -164,6 +164,7 @@ nav:
           - proj1: cs/algorithm/cs61b/Proj1_Summary.md
       - 算法设计与智能计算(信电):
         - cs/algorithm/ds/index.md
+        - L03 减治法: cs/algorithm/ds/3.md
       # - 数据结构基础:
       #   - cs/algorithm/fds/index.md
     - System: 
