@@ -162,6 +162,17 @@ nav:
           - HW0B: cs/algorithm/cs61b/HW0B.md
           - lab1: cs/algorithm/cs61b/Lab1_Note.md
           - proj1: cs/algorithm/cs61b/Proj1_Summary.md
+      - 数据结构基础:
+        - cs/algorithm/fds/index.md
+        - 1. 时间复杂度计算: cs/algorithm/fds/1.md
+        - 2. 链表: cs/algorithm/fds/2.md
+        - 3. 栈和队列: cs/algorithm/fds/3.md
+        - 4. 树: cs/algorithm/fds/4.md
+        - 5. 堆: cs/algorithm/fds/5.md
+        - 6. 并查集: cs/algorithm/fds/6.md
+        - 7. 图: cs/algorithm/fds/7.md
+        - 8. 排序: cs/algorithm/fds/8.md
+        - 9. Hash: cs/algorithm/fds/9.md
       - 算法设计与智能计算(信电):
         - cs/algorithm/ds/index.md
         - L03 减治法: cs/algorithm/ds/3.md
