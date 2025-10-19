@@ -360,6 +360,7 @@ nav:
       - Lec 1: Others/robot/1.md
       - Lec 2 旋转几何 (Rotation Geometry): Others/robot/2.md
       - Lec 3 正向运动学 (Forward kinematics): Others/robot/3.md
+      - Lec 4 逆运动学 (Inverse kinematics): Others/robot/3.md
   - Writings:
     - Writings/index.md
     - Essay:
