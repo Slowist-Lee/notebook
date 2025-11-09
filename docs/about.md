@@ -8,7 +8,7 @@
 
 !!! inline warning "正在整理的笔记"
     - [计算机组成](cs/system/CO/index.md)
-    - [Verilog](cs/system/DD/verilog/Language.md)
+    - [Verilog](cs/system/dd/verilog.md)
     - Constructing...
 
 !!! inline tip "较完善的内容"

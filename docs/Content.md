@@ -40,10 +40,10 @@
 
 ## 大二寒假
 
-- [x] [HDLBits](cs/system/DD/verilog/Language.md)
+- [x] [HDLBits](cs/system/dd/verilog.md)
 - [x] [计算机组成](cs/system/CO/index.md)  
 
 ## 大二春夏  
 
-- [x] [数字系统设计](cs/system/DD/dld/index.md)
+- [x] [数字系统设计](cs/system/dd/index.md)
 - [x] [数字逻辑基础](cs/algorithm/fds/index.md) 

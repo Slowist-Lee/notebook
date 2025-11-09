@@ -307,6 +307,3 @@ Still, a voice arises that businesses can save money from training by recruiting
 - avoids the possibility of **excessive exhaustion** and **sleep deprivation** in order to balance the job and study
 
 #### 4.1.6 一些积极影响
-
-
-![](image/Pasted%20image%2020250604143559.png)
