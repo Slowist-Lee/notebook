@@ -63,6 +63,6 @@
 
 > 中文班闭卷导致的……
 
-<object data="chap7.pdf" type="application/pdf" width="100%" height="800">
+<object data="formula.pdf" type="application/pdf" width="100%" height="800">
     <embed src="formula.pdf" type="application/pdf" />
 </object>
