@@ -184,7 +184,7 @@ nav:
         - cs/system/CO/index.md
         - 1. Introduction: cs/system/CO/1.md
       - DD:
-        - cs/system/DD/index.md
+        - cs/system/dd/index.md
         - Verilog 语法简记: cs/system/dd/verilog.md
         - 数电笔记(手写): cs/system/dd/note.md
         - 数字系统设计实验: cs/system/dd/report.md
