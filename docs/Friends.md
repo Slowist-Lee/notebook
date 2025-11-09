@@ -51,7 +51,7 @@
     <div class="flink-item-icon">
         <img src="https://avatars.githubusercontent.com/u/56161071?v=4" alt="Philfan">
     </div>
-    <a href="www.philfan.cn" title="PhilFan's Notebook" target="_blank">
+    <a href="https://www.philfan.cn" title="PhilFan's Notebook" target="_blank">
         <div class="flink-item-name">PhilFan</div>
         <div class="flink-item-desc">Learn, Build, Share</div>
     </a>
