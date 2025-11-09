@@ -300,7 +300,7 @@ nav:
     - 电子电路设计实验I:
       - isee/elec-exp1/index.md
     - 信号与系统:
-      - isee/signal.md
+      - isee/signal/index.md
   - English:
     - English/index.md
     - Interpretation: 

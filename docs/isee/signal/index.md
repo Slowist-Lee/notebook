@@ -11,7 +11,7 @@
 - 论文：
 
 <object data="report.pdf" type="application/pdf" width="100%" height="800">
-    <embed src="../signal/report.pdf" type="application/pdf" />
+    <embed src="report.pdf" type="application/pdf" />
 </object>
 
 !!! note "评语"
@@ -26,36 +26,36 @@
 前三章+第四章（应该有部分乱序）
 
 <object data="note1.pdf" type="application/pdf" width="100%" height="800">
-    <embed src="../signal/note1.pdf" type="application/pdf" />
+    <embed src="note1.pdf" type="application/pdf" />
 </object>
 
 <object data="note2.pdf" type="application/pdf" width="100%" height="800">
-    <embed src="../signal/note2.pdf" type="application/pdf" />
+    <embed src="note2.pdf" type="application/pdf" />
 </object>
 
 第四章（后半部分）
 
 <object data="chap4.pdf" type="application/pdf" width="100%" height="800">
-    <embed src="../signal/chap4.pdf" type="application/pdf" />
+    <embed src="chap4.pdf" type="application/pdf" />
 </object>
 
 第五章
 
 <object data="chap5.pdf" type="application/pdf" width="100%" height="800">
-    <embed src="../signal/chap5.pdf" type="application/pdf" />
+    <embed src="chap5.pdf" type="application/pdf" />
 </object>
 
 
 第六章
 
 <object data="chap6.pdf" type="application/pdf" width="100%" height="800">
-    <embed src="../signal/chap6.pdf" type="application/pdf" />
+    <embed src="chap6.pdf" type="application/pdf" />
 </object>
 
 第七章
 
 <object data="chap7.pdf" type="application/pdf" width="100%" height="800">
-    <embed src="../signal/chap7.pdf" type="application/pdf" />
+    <embed src="chap7.pdf" type="application/pdf" />
 </object>
 
 
@@ -64,5 +64,5 @@
 > 中文班闭卷导致的……
 
 <object data="chap7.pdf" type="application/pdf" width="100%" height="800">
-    <embed src="../signal/formula.pdf" type="application/pdf" />
+    <embed src="formula.pdf" type="application/pdf" />
 </object>
