@@ -6,12 +6,12 @@
 
 ## 课程设计
 
-[代码](https://github.com/Slowist-Lee/FFT)
+[代码见 Github](https://github.com/Slowist-Lee/FFT)
 
 - 论文：
 
 <object data="report.pdf" type="application/pdf" width="100%" height="800">
-    <embed src="../report.pdf" type="application/pdf" />
+    <embed src="../signal/report.pdf" type="application/pdf" />
 </object>
 
 !!! note "评语"
