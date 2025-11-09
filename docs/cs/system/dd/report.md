@@ -17,6 +17,8 @@
     <embed src="../report/lab12.pdf" type="application/pdf" />
 </object>
 
+[代码Github. ](https://github.com/Slowist-Lee/DigitalSystem) 但注意我的状态机写的是三段式（而不是老师用的二段式），而且进位好像有点问题。
+
 ## 实验考复习
 
 > 除下面内容外，还打印了软件的基本使用方法（课本).

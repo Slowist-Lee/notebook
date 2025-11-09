@@ -1,6 +1,8 @@
 # Verilog 笔记
 
 Verilog -- 硬件描述语言
+很建议做做HDLBits（有时间的话），很能加深理解，不过我是寒假当游戏做掉的，做OJ就是爽啊。下面很多直翻自那里. [Mine.](https://github.com/Slowist-Lee/HDLBits)
+
 ## 1. 基本操作符
 
 ```verilog

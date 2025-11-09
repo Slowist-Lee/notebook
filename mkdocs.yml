@@ -185,9 +185,9 @@ nav:
         - 1. Introduction: cs/system/CO/1.md
       - DD:
         - cs/system/DD/index.md
-        - verilog: cs/system/dd/verilog.md
-        - note: cs/system/dd/note.md
-        - experiment: cs/system/dd/report.md
+        - Verilog 语法简记: cs/system/dd/verilog.md
+        - 数电笔记(手写): cs/system/dd/note.md
+        - 数字系统设计实验: cs/system/dd/report.md
     - Tools:
       - cs/tools/index.md
       - 1. Git: cs/tools/git-advance.md
@@ -245,10 +245,12 @@ nav:
       - 5. Review: Math/MathModel/review/note.md
       - 6. Test:
         - 24-25秋冬期末(ACEE): Math/MathModel/test/index.md
+    - 随机过程: Math/random.md
+    - 矩阵论: Math/matrix.md
   - ISEE: 
     - isee/index.md
-    - 通信原理:
-      - Lec 4: isee/communication/4.md
+    # - 通信原理:
+    #   - Lec 4: isee/communication/4.md
     - 信息理论:
       - isee/information/index.md
       - 第一节、信息的度量: isee/information/1.md
@@ -256,15 +258,15 @@ nav:
       - 第三节、随机变量的平均互信息: isee/information/3.md
       - 第四节、连续随机变量的互信息和微分熵: isee/information/4.md
       - 第五讲、平稳离散信源的熵: isee/information/5.md
-      - 第六节、信息的无损压缩: isee/information/6.md
-      - 第七节、等长编码: isee/information/7.md
-      - 第八节、不等长编码: isee/information/8.md
-      - 第九节、编码方式: isee/information/9.md
-      - 第十节、离散无记忆信道: isee/information/10.md
-      - 第十一节、信道的组合: isee/information/11.md
-      - 第十二节、离散无记忆信道容量: isee/information/12.md
-      - 第十三节、加性高斯噪声（AWGN）信道: isee/information/13.md
-      - 第十四节、信息的有损压缩: isee/information/14.md
+      # - 第六节、信息的无损压缩: isee/information/6.md
+      # - 第七节、等长编码: isee/information/7.md
+      # - 第八节、不等长编码: isee/information/8.md
+      # - 第九节、编码方式: isee/information/9.md
+      # - 第十节、离散无记忆信道: isee/information/10.md
+      # - 第十一节、信道的组合: isee/information/11.md
+      # - 第十二节、离散无记忆信道容量: isee/information/12.md
+      # - 第十三节、加性高斯噪声（AWGN）信道: isee/information/13.md
+      # - 第十四节、信息的有损压缩: isee/information/14.md
       - 第三章复习总结: isee/information/Chap3Review.md
     - 电子电路基础: 
       - isee/elec/index.md
@@ -297,6 +299,8 @@ nav:
         - isee/elec/test.md
     - 电子电路设计实验I:
       - isee/elec-exp1/index.md
+    - 信号与系统:
+      - isee/signal.md
   - English:
     - English/index.md
     - Interpretation: 
@@ -363,6 +367,7 @@ nav:
       - Lec 3 正向运动学 (Forward kinematics): Others/robot/3.md
       - Lec 4 逆运动学 (Inverse kinematics): Others/robot/4.md
       - Lec 5 轨迹规划 (Trajectory Planning): Others/robot/5.md
+      - Lec 6 微分运动学 (Differential Kinematics): Others/robot/6.md
   - Writings:
     - Writings/index.md
     - Essay:
