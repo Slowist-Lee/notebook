@@ -258,9 +258,9 @@ endmodule
 
 同步器：
 
-![|400](Pasted%20image%2020250526102954.png)
+![|400](image/Pasted%20image%2020250526102954.png)
 
 防颤电路：
 
-![|375](Pasted%20image%2020250526103035.png)
+![|375](image/Pasted%20image%2020250526103035.png)
 

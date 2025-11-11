@@ -27,8 +27,6 @@ theme:
         name: Switch to system preference
   font: false
     # code: JetBrains Mono
-  # icon:
-    # logo: assets/logo.png
   features:
     - navigation.instant
     - navigation.instant.progress
@@ -81,7 +79,7 @@ plugins:
   - changelog
   - git-revision-date-localized:
       enable_creation_date: true 
-  - toc
+  # - toc
 markdown_extensions:
   - attr_list
   - md_in_html
@@ -145,8 +143,6 @@ nav:
       - Asm:
         - cs/pl/Asm/index.md
         - 理论复习: cs/pl/Asm/sum.md
-        - Exercise: cs/pl/Asm/Exercise.md
-        - Answer: cs/pl/Asm/Answer.md
         - Misc: cs/pl/Asm/Misc.md
     - Algorithm:
       - cs/algorithm/index.md
@@ -307,7 +303,7 @@ nav:
       - English/Interpretation/index.md
       - 学习体验:
         - English/Interpretation/experience/Harvest.md
-        - English/Interpretation/experience\Interpretation--Self Assessment.md
+        - English/Interpretation/experience/Interpretation--Self Assessment.md
       - HW && Topic: 
         - English/Interpretation/homework/Welcome Speech.md
         - English/Interpretation/homework/City and Travel.md
