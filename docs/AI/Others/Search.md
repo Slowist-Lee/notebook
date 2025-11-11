@@ -196,8 +196,6 @@ $\forall n:h_a​(n)≥h_b​(n)$
 
 特例：**平凡启发式 (trivial heuristic)** 定义为 $h(n)=0$，使用它会将 A* 搜索简化为 UCS。
 
-![|200](image/Pasted%20image%2020250509171755.png)
-
 ## 四、Local Search 局部搜索算法
 
 Local Search解决的问题和之前有一点偏差，他不要求返回Path, 但需要找到目标状态，即：Local search algorithms allow us to find goal states without worrying about the path to get there： 找目标状态，不在意到达的路径。
