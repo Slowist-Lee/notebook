@@ -1,7 +1,10 @@
 # 笔记
 
-!!! warning 
-    文末有pdf版
+## 下载版
+
+<object data="note.pdf" type="application/pdf" width="100%" height="800">
+    <embed src="../note.pdf" type="application/pdf" />
+</object>
 
 ## 第一章 计算系统概述
 
@@ -479,10 +482,4 @@ Example：0 <font color=##FF0000>1</font><font color=##C0C0C0>(代表是负指�
     - HEIF，High Efficiency Image Format
     - 不兼容JPG
 
-
-## 下载版
-
-<object data="note.pdf" type="application/pdf" width="100%">
-    <embed src="../note.pdf" type="application/pdf" />
-</object>
 

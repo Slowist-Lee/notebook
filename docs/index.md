@@ -33,8 +33,7 @@ conmment: true
 ![csdiy](1.jpg#only-light)
 ![csdiy](2.png#only-dark)
 
-- 一个人要像一支队伍(｡･ω･｡)  
-- Follow My Heart!( ง `ω´ )۶  
+- Connecting the Dots!
 
 ??? 随缘更新
     - 支教的高中数学讲义和自己的语文讲义   
