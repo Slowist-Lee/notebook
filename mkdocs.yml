@@ -79,7 +79,7 @@ plugins:
   - changelog
   - git-revision-date-localized:
       enable_creation_date: true 
-  # - toc
+  - toc
 markdown_extensions:
   - attr_list
   - md_in_html
