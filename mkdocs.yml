@@ -189,6 +189,8 @@ nav:
       - 1. Git: cs/tools/git-advance.md
       - 2. PA0: cs/tools/PA0.md
       - 3. WSL: cs/tools/WSL.md
+      - 4. WSL 网络设置（主机有代理）: cs/tools/Network.md
+      - 5. PDF: cs/tools/PDF.md
     - CTF:
       - cs/ctf/index.md
       - Lab0:
