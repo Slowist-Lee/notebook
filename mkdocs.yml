@@ -316,13 +316,7 @@ nav:
     - Toefl:
       - English/toefl/index.md
       - Reading:
-        - TPO65: English/toefl/reading/tpo65.md
-        - TPO69: English/toefl/reading/tpo69.md
-        - TPO70: English/toefl/reading/tpo70.md
-        - TPO71: English/toefl/reading/tpo71.md
-        - TPO74: English/toefl/reading/tpo74.md
-        - 真题1: English/toefl/reading/Real-1.md
-        - 真题2: English/toefl/reading/Real-2.md
+        - TPO整理: English/toefl/reading/tpo.md
         - 解析格式化工具: English/toefl/reading/tpo_formatter.md
       - Listening:
         - TPO: English/toefl/listening/tpo.md
