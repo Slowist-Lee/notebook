@@ -179,6 +179,7 @@ nav:
       - CO:
         - cs/system/CO/index.md
         - 1. Introduction: cs/system/CO/1.md
+        - 4. Processor: cs/system/CO/4.md
       - DD:
         - cs/system/dd/index.md
         - Verilog 语法简记: cs/system/dd/verilog.md
@@ -191,6 +192,7 @@ nav:
       - 3. WSL: cs/tools/WSL.md
       - 4. WSL 网络设置（主机有代理）: cs/tools/Network.md
       - 5. PDF: cs/tools/PDF.md
+      - 6. Digital IDE: cs/tools/DigitalIDE.md
     - CTF:
       - cs/ctf/index.md
       - Lab0:
