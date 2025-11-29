@@ -5,7 +5,7 @@
 
 ## 一、什么是Digital IDE
  
- Digital IDE 是一个在Vscode开发Verilog等的插件，集成了语法高亮、显示Netlist、波形仿真，以及和第三方工具（Verilator/Vivado/Modelsim/iverilog）集成等功能。笔者有幸在刚刚接触verilog的时候就知道了这个插件，之后从来没有听过老师的话打开modelsim或者vivado或者notepad来写verilog代码……
+ Digital IDE（[文档：https://nc-ai.cn/](https://nc-ai.cn/)） 是一个在Vscode开发Verilog等的插件，集成了语法高亮、显示Netlist、波形仿真，以及和第三方工具（Verilator/Vivado/Modelsim/iverilog）集成等功能。笔者有幸在刚刚接触verilog的时候就知道了这个插件，之后从来没有听过老师的话打开modelsim或者vivado或者notepad来写verilog代码……
 
  笔者认为Digital IDE最优秀的功能可能还是语法高亮，这里简单截一张图来展示一下（更多请查看原文档）：
 
