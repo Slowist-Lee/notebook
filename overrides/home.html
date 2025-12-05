@@ -1,0 +1,35 @@
+{#-
+  This file was automatically generated - do not edit
+-#}
+{% extends "base.html" %}
+{% block tabs %}
+  {{ super() }}
+  <style>.md-header{position:initial}.md-main__inner{margin:0}.md-content{display:none}@media screen and (min-width:60em){.md-sidebar--secondary{display:none}}@media screen and (min-width:76.25em){.md-sidebar--primary{display:none}}</style>
+  <section class="mdx-container">
+    <div class="md-grid md-typeset">
+      <div class="mdx-hero">
+
+        <div class="mdx-hero__content">
+          <h1>Slowist's Notebook</h1>
+          <p> Connecting the dots! </p>
+          <div class="button-container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <a href="{{ Information/信息汇总/index.html | url }}" title=收藏夹" class="md-button md-button--primary" style="display: grid; grid-template-columns: 20% 80%; align-items: center;">
+              <span class="twemoji" style="display: flex; align-items: center; justify-content: center;">
+                {% include ".icons/material/rocket-launch.svg" %}
+              </span>
+              <span style="display: flex; align-items: center; justify-content: center;">收藏夹</span>
+            </a>
+            <a href="{{ 'Friends.html' | url }}" title="友情链接" class="md-button" style="display: grid; grid-template-columns: 20% 80%; align-items: center;">
+              <span class="twemoji" style="display: flex; align-items: center; justify-content: center;">
+                {% include ".icons/material/account-group.svg" %}
+              </span>
+              <span style="display: flex; align-items: center; justify-content: center;">朋友们</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+{% block content %}{% endblock %}
+{% block footer %}{% endblock %}
