@@ -141,7 +141,7 @@
 
 1. ..add luster to students'  extra-curricular life
 2. For individuals ，it forges the power of power of preservation and sharpens hands-on skills. 
-3. For the soclety, it‘s the source of the daily convenience. Labour is what it takes create a happier life as well as improve teenagers' awareness of being a responsible civilian in our society. [论述角度可以学习] 
+3. For the society, it‘s the source of the daily convenience. Labour is what it takes create a happier life as well as improve teenagers' awareness of being a responsible civilian in our society. [论述角度可以学习] 
 4. Not only does the labor build up our body as well as strengthen our willpower ,but also it offers us a precious opponunity gain a profound insight into the development of human civillzation.
 5. Experiencing the process of labour may be suffering, but it still acts a reminder for us to sense the authentic hardship we'll be confronted with in the distant future. 
 6. Labor assures mental well-being and fosters our overall development ， contributing our personal growth and inspiring us to be a well-rounded person.
