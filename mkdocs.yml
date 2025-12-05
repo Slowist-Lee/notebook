@@ -67,6 +67,7 @@ plugins:
   - mermaid2: {}
   - search
   - callouts
+  - mermaid2
   - encryptcontent:
       title_prefix: '🔒'
       summary: '请输入密码查看.'
