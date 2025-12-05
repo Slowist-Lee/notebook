@@ -190,8 +190,6 @@ Honestly, I think the government should give money to build museums and theaters
 > [!help]  Question
 > When facing difficulties, some people choose to keep their senses of humour; but others may take problems seriously. which do you prefer and why?
 
-### 回答v1
-
 ### Answer
 
 Honestly, when facing with problems, I would like to keep my sense of humor. First off, it brings me **courage**. This is because humor brings laughter, and laughter can **take away my fear**. In this case, I can face to the problems directly and try to sail through them. Besides, I would like to keep my sense of humor because it can help me to become more creative. This is because humor can totally reduce my anxiety. It can help me to **loosen up**. In this case, I can try to **energize my thinking** and try to be creative and **think outside of the box**. So because of these two reasons, I would like to keep my sense of humor when facing problems.
@@ -224,4 +222,5 @@ Honestly, I wouldn't buy a product **at launch**. I would wait a little bit. Fir
  4. read reviews 阅读产品测评 
  5. deliver on its promises 像承诺的一样 
  6. reliable 可靠的
+
 

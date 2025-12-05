@@ -122,8 +122,9 @@ nav:
     - index.md
     - 更新记录: changelog.md
     - 友链: Friends.md
-    - 笔记目录: Content.md
-    - To Do List: Writings/essay/22.md
+    - 收藏夹: Information/信息汇总.md
+    # - 笔记目录: Content.md
+    # - To Do List: Writings/essay/22.md
   - Computer Science:
     - cs/index.md
     - Language:

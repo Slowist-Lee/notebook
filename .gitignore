@@ -6,4 +6,5 @@ site/
 draft/
 scripts/
 /未命名.base
-docs/Information/
+docs/Information/*
+!docs/Information/信息汇总.md

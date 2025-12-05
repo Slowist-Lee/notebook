@@ -197,6 +197,7 @@
         *   can be affected by internet connectivity or technical problems
 
 ### 二、传统课堂的优缺点
+
 *   **优点 (Benefits of Traditional Classroom):**
     1.  **Direct Interaction:**
         *   fosters direct interaction and collaboration with peers
@@ -337,6 +338,7 @@
     *   prevents being misled by false information
 
 ### 二、创造力的重要性
+
 *   **创新 (Innovation):**
     *   drives new ideas and solutions
     *   essential for technological and artistic advancements
