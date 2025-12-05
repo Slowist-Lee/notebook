@@ -121,7 +121,7 @@ copyright: Copyright &copy; 2025 Slowist/All Rights Reserved. # 左下角的版�
 nav:
   - Home:
     - index.md
-    - 更新记录: changelog.md
+    # - 更新记录: changelog.md
     - 友链: Friends.md
     - 收藏夹: Information/信息汇总.md
     # - 笔记目录: Content.md
@@ -229,8 +229,9 @@ nav:
       - AI/ML/index.md
       - 0. 机器学习概述: AI/ML/0.md
       - 1. 统计学习&监督学习概论: AI/ML/1.md
-      - 2. 感知机: AI/ML/2.md
-      - 3. SVM算法: AI/ML/3.md
+      # - 2. 感知机: AI/ML/2.md
+      - 2. SVM算法: AI/ML/2.md
+      - 3. 人工神经网络: AI/ML/3.md
     - 其他知识:
       - AI/Others/index.md
       - 1. 搜索: AI/Others/Search.md
