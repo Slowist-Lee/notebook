@@ -1,6 +1,6 @@
 ---
 template: home.html
-title: Slowist's Notebook
+title: Welcome!
 social:
   cards_layout_options:
     title: Slowist's Notebook
