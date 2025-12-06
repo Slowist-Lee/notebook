@@ -1,4 +1,25 @@
 ---
+template: home.html
+title: Slowist's Notebook
+social:
+  cards_layout_options:
+    title: Slowist's Notebook
+hide: 
+    - navigation.tabs 
+    - navigation.footer
+    - navigation.top
+    - navigation.tracking
+    - navigation.indexes
+    - navigation.sections
+    - navigation.tabs
+    - navigation.search
+    - navigation.expand
+    - navigation.instant
+---
+
+Welcome to Slowist's Notebook!
+
+<!-- ---
 title: Welcome! 
 statistics: true
 conmment: true
@@ -40,4 +61,4 @@ conmment: true
     - 修一下数学公式   
 
 -----
-
+ -->
