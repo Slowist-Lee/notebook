@@ -89,6 +89,7 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.superfences
   - def_list
+  - mdx_truly_sane_lists 
 
 
 
@@ -220,18 +221,14 @@ nav:
       - Office | 期中: cs/fundamental/office.md
       - Test | 自测: cs/fundamental/test.md
   - AI:
-    - AI/index.md
-    - 深度学习: 
-      - AI/DL/index.md
-      - 1. Pytorch 基础使用: AI/DL/1.md
-      - 2.自动微分的Pytorch实现: AI/DL/2.md
-    - 机器学习:
-      - AI/ML/index.md
-      - 0. 机器学习概述: AI/ML/0.md
-      - 1. 统计学习&监督学习概论: AI/ML/1.md
-      # - 2. 感知机: AI/ML/2.md
-      - 2. SVM算法: AI/ML/2.md
-      - 3. 人工神经网络: AI/ML/3.md
+    # - AI/index.md
+    - AI/ML/index.md
+    - 0. 机器学习概述: AI/ML/0.md
+    - 1. 统计学习&监督学习概论: AI/ML/1.md
+    # - 2. 感知机: AI/ML/2.md
+    - 2. SVM算法: AI/ML/2.md
+    - 3. 人工神经网络: AI/ML/3.md
+    - 4. 自动微分: AI/ML/4.md
     - 其他知识:
       - AI/Others/index.md
       - 1. 搜索: AI/Others/Search.md

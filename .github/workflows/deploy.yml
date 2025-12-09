@@ -21,6 +21,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           pip install mkdocs-mermaid2-plugin
+          pip install mdx_truly_sane_lists
           pip install --cache-dir ./.cache/pip git+https://github.com/darstib/pyPack.git#subdirectory=mkdocs-toc-plugin
       - name: Deploy to GitHub Pages
         run: |
