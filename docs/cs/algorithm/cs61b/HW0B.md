@@ -5,6 +5,7 @@
 - Use `myArray.length` instead of `myArray.length()` to get the length of the array. Java doesn't have the method `length()`
 
 ### Foreach Loop / Enhanced For Loop
+
 in python:
 ```python
 lst = [1, 2, 3]
