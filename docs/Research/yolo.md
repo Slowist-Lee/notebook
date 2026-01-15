@@ -1,4 +1,4 @@
-# Yolov11
+# 实验备忘
 
 ```bash
 tmux new -s xinli 
@@ -10,6 +10,8 @@ tmux new -s xinli
 ```bash
 tmux ls # 可以看到当前的目录
 tmux attach -t lixin
+# 在对话里面结束
+tmux kill-session
 ```
 ## 创建虚拟环境
 
@@ -75,3 +77,8 @@ scp /path/to/image.jpg username@ip:/path/to/image.jpg
 ```
 
 2. sftp
+
+## 下载huggingface数据集
+
+hfd下载可以看这篇，不过我是curl -o hfd.sh "https://gist.githubusercontent.com/padeoe/697678ab8e528b85a2a7bddafea1fa4f/raw/ee66e007ee84f479487c25a21715768884a426f5/hfd.sh" 直接结束
+

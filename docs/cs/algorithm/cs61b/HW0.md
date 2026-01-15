@@ -79,6 +79,7 @@ public static void printIndexed(String s){
 ```
 
 **What I've learned? **
+
 - a Method: `public static void printIndexed(String s)`
 - `s.charAt(i)`: same as `s[i]` in python
 - `String.valueOf()` : same as `str()` in python
