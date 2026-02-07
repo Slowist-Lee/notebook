@@ -3,8 +3,8 @@
 !!! abstract "Welcome"
     欢迎各位交换友链! 格式如下：   
     name: Slowist's Notebook   
-    avatar: https://slowist-lee.github.io/navigation/images/slowist-logo.jpg   
-    link: https://slowist-lee.github.io/notebook/   
+    avatar: https://nav.slowist.top/images/slowist-logo.jpg   
+    link: https://note.slowist.top
     descr: Follow My Heart!( ง `ω´ )۶   
 
 <div class="flink-list-item">
@@ -63,6 +63,16 @@
     </div>
     <a href="https://blog.mindorigin.top" title="MindOrigin’s Blog" target="_blank">
         <div class="flink-item-name">MindOrigin’s Blog</div>
-        <div class="flink-item-desc">MindOrigin’s Blog</div>
+        <!-- <div class="flink-item-desc">MindOrigin’s Blog</div> -->
+    </a>
+</div>
+
+<div class="flink-list-item">
+    <div class="flink-item-icon">
+        <img src="https://skyeyesandox-1374084537.cos.ap-shanghai.myqcloud.com/202508141305660.webp" alt="Skyeye">
+    </div>
+    <a href="https://skyeye-2025.github.io/Home/" title="Skyeye's homepage" target="_blank">
+        <div class="flink-item-name">SKYEYE'S HOMEPAGE</div>
+        <!-- <div class="flink-item-desc">Skyeye's homepage</div> -->
     </a>
 </div>

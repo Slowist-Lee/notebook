@@ -229,6 +229,10 @@ nav:
     - 2. SVM算法: AI/ML/2.md
     - 3. 人工神经网络: AI/ML/3.md
     - 4. 自动微分: AI/ML/4.md
+    - 5. CNN: AI/ML/5.md
+    - 6. Auto Encoder: AI/ML/6.md
+    - 7. RNN & LSTM: AI/ML/7.md
+    - 8. Transformer: AI/ML/9.md
     - 其他知识:
       - AI/Others/index.md
       - 1. 搜索: AI/Others/Search.md
@@ -303,11 +307,11 @@ nav:
       - isee/signal/index.md
   - English:
     - English/index.md
-    - Interpretation: 
+    - 英语口译: 
       - English/Interpretation/index.md
       - 学习体验:
-        - English/Interpretation/experience/Harvest.md
-        - English/Interpretation/experience/Interpretation--Self Assessment.md
+        - 学习收获: English/Interpretation/experience/Harvest.md
+        - 某次课堂口译复盘: English/Interpretation/experience/Interpretation--Self Assessment.md
       - HW && Topic: 
         - English/Interpretation/homework/Welcome Speech.md
         - English/Interpretation/homework/City and Travel.md
