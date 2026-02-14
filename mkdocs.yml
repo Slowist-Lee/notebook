@@ -222,17 +222,21 @@ nav:
       - Test | 自测: cs/fundamental/test.md
   - AI:
     # - AI/index.md
-    - AI/ML/index.md
-    - 0. 机器学习概述: AI/ML/0.md
-    - 1. 统计学习&监督学习概论: AI/ML/1.md
-    # - 2. 感知机: AI/ML/2.md
-    - 2. SVM算法: AI/ML/2.md
-    - 3. 人工神经网络: AI/ML/3.md
-    - 4. 自动微分: AI/ML/4.md
-    - 5. CNN: AI/ML/5.md
-    - 6. Auto Encoder: AI/ML/6.md
-    - 7. RNN & LSTM: AI/ML/7.md
-    - 8. Transformer: AI/ML/9.md
+    - Basic:
+      - AI/ML/index.md
+      - 0. 机器学习概述: AI/ML/0.md
+      - 1. 统计学习&监督学习概论: AI/ML/1.md
+      # - 2. 感知机: AI/ML/2.md
+      - 2. SVM算法: AI/ML/2.md
+      - 3. 人工神经网络: AI/ML/3.md
+      - 4. 自动微分: AI/ML/4.md
+      - 5. CNN: AI/ML/5.md
+      - 6. Auto Encoder: AI/ML/6.md
+      - 7. RNN & LSTM: AI/ML/7.md
+      - 8. Transformer: AI/ML/9.md
+      - 9. U-Net: AI/ML/11.md
+    - EfficientAI:
+      - 1. 剪枝: AI/EfficientAI/1.md
     - 其他知识:
       - AI/Others/index.md
       - 1. 搜索: AI/Others/Search.md
