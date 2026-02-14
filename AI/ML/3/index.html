@@ -1,0 +1,4031 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="https://slowist-lee.github.io/notebook/AI/ML/3/" rel="canonical"/>
+<link href="../2/" rel="prev"/>
+<link href="../4/" rel="next"/>
+<link href="../../../images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.23" name="generator"/>
+<title>3. 人工神经网络 - Slowist's Note</title>
+<link href="../../../assets/stylesheets/main.84d31ad4.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link href="../../../css/timeline.css" rel="stylesheet"/>
+<link href="https://cdn.tonycrane.cc/jbmono/jetbrainsmono.css" rel="stylesheet"/>
+<link href="https://cdn.tonycrane.cc/lxgw/lxgwscreen.css" rel="stylesheet"/>
+<link href="../../../stylesheets/extra.css" rel="stylesheet"/>
+<link href="https://unpkg.com/katex@0/dist/katex.min.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#_1">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Slowist's Note" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="Slowist's Note">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 22a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2h-6v7L9.5 7.5 7 9V2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Slowist's Note
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              3. 人工神经网络
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5"></path></svg>
+</label>
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="blue-grey" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="blue-grey" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"></path></svg>
+</label>
+<input aria-label="Switch to system preference" class="md-option" data-md-color-accent="cyan" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="black" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to system preference">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"></path></svg>
+</label>
+</form>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+<div class="md-search__suggest" data-md-component="search-suggest"></div>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/Slowist-Lee/notebook" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+</div>
+<div class="md-source__repository">
+    Slowist/Notebook
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../..">
+          
+  
+  
+    
+  
+  Home
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../cs/">
+          
+  
+  
+    
+  
+  Computer Science
+
+        </a>
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../">
+          
+  
+  
+    
+  
+  AI
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../Math/">
+          
+  
+  
+    
+  
+  Math
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../isee/">
+          
+  
+  
+    
+  
+  ISEE
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../English/">
+          
+  
+  
+    
+  
+  English
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../Research/">
+          
+  
+  
+    
+  
+  Research
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../Others/">
+          
+  
+  
+    
+  
+  Others
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../Writings/">
+          
+  
+  
+    
+  
+  Writings
+
+        </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Slowist's Note" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="Slowist's Note">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 22a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2h-6v7L9.5 7.5 7 9V2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2z"></path></svg>
+</a>
+    Slowist's Note
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/Slowist-Lee/notebook" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+</div>
+<div class="md-source__repository">
+    Slowist/Notebook
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_1" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../..">
+<span class="md-ellipsis">
+    Home
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_1_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+            Home
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Friends/">
+<span class="md-ellipsis">
+    友链
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Information/%E4%BF%A1%E6%81%AF%E6%B1%87%E6%80%BB/">
+<span class="md-ellipsis">
+    收藏夹
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../cs/">
+<span class="md-ellipsis">
+    Computer Science
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            Computer Science
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+<span class="md-ellipsis">
+    Language
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_2">
+<span class="md-nav__icon md-icon"></span>
+            Language
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_1" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../cs/pl/C/">
+<span class="md-ellipsis">
+    C
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_2_1" id="__nav_2_2_1_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_1_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_2_1">
+<span class="md-nav__icon md-icon"></span>
+            C
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/pl/C/PreviousNote/">
+<span class="md-ellipsis">
+    Previous
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/pl/C/Pointer/">
+<span class="md-ellipsis">
+    Ch7 Pointer
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/pl/C/String/">
+<span class="md-ellipsis">
+    Ch8 String
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/pl/C/Structure/">
+<span class="md-ellipsis">
+    Ch9 Structure
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/pl/C/LinkedList/">
+<span class="md-ellipsis">
+    Ch10 Linked List
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/pl/C/file/">
+<span class="md-ellipsis">
+    Ch12 File
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/pl/C/Error-Sum/">
+<span class="md-ellipsis">
+    Error
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/pl/C/misc/">
+<span class="md-ellipsis">
+    Misc
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../cs/pl/cpp/">
+<span class="md-ellipsis">
+    Cpp
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_2_2">
+<span class="md-nav__icon md-icon"></span>
+            Cpp
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/pl/cpp/Basic/">
+<span class="md-ellipsis">
+    Basic
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../cs/pl/Asm/">
+<span class="md-ellipsis">
+    Asm
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_2_3" id="__nav_2_2_3_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_3_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_2_3">
+<span class="md-nav__icon md-icon"></span>
+            Asm
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/pl/Asm/sum/">
+<span class="md-ellipsis">
+    理论复习
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/pl/Asm/Misc/">
+<span class="md-ellipsis">
+    Misc
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../cs/algorithm/">
+<span class="md-ellipsis">
+    Algorithm
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_3">
+<span class="md-nav__icon md-icon"></span>
+            Algorithm
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_3_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_3_2" id="__nav_2_3_2_label" tabindex="0">
+<span class="md-ellipsis">
+    cs61b
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_3_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_3_2">
+<span class="md-nav__icon md-icon"></span>
+            cs61b
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_3_2_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_3_2_1" id="__nav_2_3_2_1_label" tabindex="0">
+<span class="md-ellipsis">
+    Note
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_3_2_1_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_2_3_2_1">
+<span class="md-nav__icon md-icon"></span>
+            Note
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/algorithm/cs61b/Lecture1_Introduction/">
+<span class="md-ellipsis">
+    Lecture1 Introduction
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/algorithm/cs61b/Lecture2_Defining%20and%20Using%20Classes/">
+<span class="md-ellipsis">
+    Lecture2 Defining and Using Classes
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/algorithm/cs61b/Lecture3_ListsI_References_Recursion_and_Lists/">
+<span class="md-ellipsis">
+    Lecture3 ListsI References Recursion and Lists
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/algorithm/cs61b/Lecture4/">
+<span class="md-ellipsis">
+    Lecture4
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_3_2_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_3_2_2" id="__nav_2_3_2_2_label" tabindex="0">
+<span class="md-ellipsis">
+    Labs
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_3_2_2_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_2_3_2_2">
+<span class="md-nav__icon md-icon"></span>
+            Labs
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/algorithm/cs61b/Sign_up/">
+<span class="md-ellipsis">
+    signup
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/algorithm/cs61b/HW0/">
+<span class="md-ellipsis">
+    HW0
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/algorithm/cs61b/HW0B/">
+<span class="md-ellipsis">
+    HW0B
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/algorithm/cs61b/Lab1_Note/">
+<span class="md-ellipsis">
+    lab1
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/algorithm/cs61b/Proj1_Summary/">
+<span class="md-ellipsis">
+    proj1
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_3_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../cs/algorithm/fds/">
+<span class="md-ellipsis">
+    数据结构基础
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_3_3" id="__nav_2_3_3_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_3_3_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_3_3">
+<span class="md-nav__icon md-icon"></span>
+            数据结构基础
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/algorithm/fds/1/">
+<span class="md-ellipsis">
+    1. 时间复杂度计算
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/algorithm/fds/2/">
+<span class="md-ellipsis">
+    2. 链表
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/algorithm/fds/3/">
+<span class="md-ellipsis">
+    3. 栈和队列
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/algorithm/fds/4/">
+<span class="md-ellipsis">
+    4. 树
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/algorithm/fds/5/">
+<span class="md-ellipsis">
+    5. 堆
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/algorithm/fds/6/">
+<span class="md-ellipsis">
+    6. 并查集
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/algorithm/fds/7/">
+<span class="md-ellipsis">
+    7. 图
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/algorithm/fds/8/">
+<span class="md-ellipsis">
+    8. 排序
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/algorithm/fds/9/">
+<span class="md-ellipsis">
+    9. Hash
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_3_4" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../cs/algorithm/ds/">
+<span class="md-ellipsis">
+    算法设计与智能计算(信电)
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_3_4" id="__nav_2_3_4_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_3_4_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_3_4">
+<span class="md-nav__icon md-icon"></span>
+            算法设计与智能计算(信电)
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/algorithm/ds/3/">
+<span class="md-ellipsis">
+    L03 减治法
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_4" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../cs/system/">
+<span class="md-ellipsis">
+    System
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_4">
+<span class="md-nav__icon md-icon"></span>
+            System
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_4_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../cs/system/CO/">
+<span class="md-ellipsis">
+    CO
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_4_2" id="__nav_2_4_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_4_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_4_2">
+<span class="md-nav__icon md-icon"></span>
+            CO
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/system/CO/1/">
+<span class="md-ellipsis">
+    1. Introduction
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/system/CO/4/">
+<span class="md-ellipsis">
+    4. Processor
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_4_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../cs/system/dd/">
+<span class="md-ellipsis">
+    DD
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_4_3" id="__nav_2_4_3_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_4_3_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_4_3">
+<span class="md-nav__icon md-icon"></span>
+            DD
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/system/dd/verilog/">
+<span class="md-ellipsis">
+    Verilog 语法简记
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/system/dd/note/">
+<span class="md-ellipsis">
+    数电笔记(手写)
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/system/dd/report/">
+<span class="md-ellipsis">
+    数字系统设计实验
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_5" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../cs/tools/">
+<span class="md-ellipsis">
+    Tools
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_5">
+<span class="md-nav__icon md-icon"></span>
+            Tools
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/tools/git-advance/">
+<span class="md-ellipsis">
+    1. Git
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/tools/PA0/">
+<span class="md-ellipsis">
+    2. PA0
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/tools/WSL/">
+<span class="md-ellipsis">
+    3. WSL
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/tools/Network/">
+<span class="md-ellipsis">
+    4. WSL 网络设置（主机有代理）
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/tools/PDF/">
+<span class="md-ellipsis">
+    5. PDF
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/tools/DigitalIDE/">
+<span class="md-ellipsis">
+    6. Digital IDE
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_6" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../cs/ctf/">
+<span class="md-ellipsis">
+    CTF
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_6_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_6">
+<span class="md-nav__icon md-icon"></span>
+            CTF
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_6_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_6_2" id="__nav_2_6_2_label" tabindex="0">
+<span class="md-ellipsis">
+    Lab0
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_6_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_6_2">
+<span class="md-nav__icon md-icon"></span>
+            Lab0
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/ctf/lab0/lab0-1/">
+<span class="md-ellipsis">
+    Part 1
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/ctf/lab0/lab0-2/">
+<span class="md-ellipsis">
+    Part 2
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_6_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_6_3" id="__nav_2_6_3_label" tabindex="0">
+<span class="md-ellipsis">
+    web
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_6_3_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_6_3">
+<span class="md-nav__icon md-icon"></span>
+            web
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/ctf/web/note-1/">
+<span class="md-ellipsis">
+    Note 1
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/ctf/web/note-2/">
+<span class="md-ellipsis">
+    Note 2
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/ctf/web/lab-1/">
+<span class="md-ellipsis">
+    Lab 1
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/ctf/web/lab-3/">
+<span class="md-ellipsis">
+    Lab 2
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_6_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_6_4" id="__nav_2_6_4_label" tabindex="0">
+<span class="md-ellipsis">
+    misc
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_6_4_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_6_4">
+<span class="md-nav__icon md-icon"></span>
+            misc
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/ctf/misc/note-2/">
+<span class="md-ellipsis">
+    Note
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/ctf/misc/misc-lab1/">
+<span class="md-ellipsis">
+    Lab
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_6_5" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../cs/ctf/pwn/">
+<span class="md-ellipsis">
+    pwn
+    
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_6_5_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_6_5">
+<span class="md-nav__icon md-icon"></span>
+            pwn
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_6_6" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../cs/ctf/reverse/">
+<span class="md-ellipsis">
+    reverse
+    
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_6_6_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_6_6">
+<span class="md-nav__icon md-icon"></span>
+            reverse
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_6_7" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../cs/ctf/crypto/">
+<span class="md-ellipsis">
+    crypto
+    
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_6_7_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_6_7">
+<span class="md-nav__icon md-icon"></span>
+            crypto
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_7" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../cs/fundamental/">
+<span class="md-ellipsis">
+    计算机科学基础(A)
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_7_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_7">
+<span class="md-nav__icon md-icon"></span>
+            计算机科学基础(A)
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/fundamental/note/">
+<span class="md-ellipsis">
+    Note | 笔记
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/fundamental/office/">
+<span class="md-ellipsis">
+    Office | 期中
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/fundamental/test/">
+<span class="md-ellipsis">
+    Test | 自测
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+<span class="md-ellipsis">
+    AI
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            AI
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_3_1" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../">
+<span class="md-ellipsis">
+    Basic
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="true" aria-labelledby="__nav_3_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_1">
+<span class="md-nav__icon md-icon"></span>
+            Basic
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../0/">
+<span class="md-ellipsis">
+    0. 机器学习概述
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../1/">
+<span class="md-ellipsis">
+    1. 统计学习&amp;监督学习概论
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../2/">
+<span class="md-ellipsis">
+    2. SVM算法
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    3. 人工神经网络
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    3. 人工神经网络
+    
+  </span>
+</a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#end-to-end-machine-learning-algorithm">
+<span class="md-ellipsis">
+      一、End-to-End Machine Learning Algorithm
+    </span>
+</a>
+<nav aria-label="一、End-to-End Machine Learning Algorithm" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#11">
+<span class="md-ellipsis">
+      1.1 核心思想
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#12">
+<span class="md-ellipsis">
+      1.2 机器学习的两个基本问题
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mp-mlp">
+<span class="md-ellipsis">
+      二、MP -&gt; MLP
+    </span>
+</a>
+<nav aria-label="二、MP -&gt; MLP" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#21-mp">
+<span class="md-ellipsis">
+      2.1 神经元的数学模型 - MP模型
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#22">
+<span class="md-ellipsis">
+      2.2 感知器算法
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#23">
+<span class="md-ellipsis">
+      2.3 感知器算法的收敛性证明
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+<span class="md-ellipsis">
+      三、多层神经网络
+    </span>
+</a>
+<nav aria-label="三、多层神经网络" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#31">
+<span class="md-ellipsis">
+      3.1 两层神经网络结构
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#32">
+<span class="md-ellipsis">
+      3.2 神经网络的万能近似定理
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+<span class="md-ellipsis">
+      四、神经网络的训练：梯度下降与反向传播
+    </span>
+</a>
+<nav aria-label="四、神经网络的训练：梯度下降与反向传播" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#41-gradient-descent">
+<span class="md-ellipsis">
+      4.1 梯度下降法 (Gradient Descent)
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#42-backpropagation-bp">
+<span class="md-ellipsis">
+      4.2 反向传播算法 (Backpropagation, BP)
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#43">
+<span class="md-ellipsis">
+      4.3 激活函数及其导数
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#44-bp-l">
+<span class="md-ellipsis">
+      4.4 通用BP算法 (L层网络)
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#neural-network-training-tips">
+<span class="md-ellipsis">
+      五、神经网络训练技巧 (Neural Network Training Tips)
+    </span>
+</a>
+<nav aria-label="五、神经网络训练技巧 (Neural Network Training Tips)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#51-sgd">
+<span class="md-ellipsis">
+      5.1 随机梯度下降 (SGD)
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#52">
+<span class="md-ellipsis">
+      5.2 数据和参数的初始化
+    </span>
+</a>
+<nav aria-label="5.2 数据和参数的初始化" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+<span class="md-ellipsis">
+      训练数据初始化 (归一化)
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+<span class="md-ellipsis">
+      参数初始化
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#53-batch-normalization-bn">
+<span class="md-ellipsis">
+      5.3 批归一化 (Batch Normalization, BN)
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#54">
+<span class="md-ellipsis">
+      5.4 目标函数 (损失函数)
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#55">
+<span class="md-ellipsis">
+      5.5 参数更新策略 (优化器)
+    </span>
+</a>
+<nav aria-label="5.5 参数更新策略 (优化器)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1-vanilla-stochastic-gradient-descent">
+<span class="md-ellipsis">
+      1. Vanilla Stochastic Gradient Descent
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-adagrad">
+<span class="md-ellipsis">
+      2. AdaGrad
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3-rmsprop">
+<span class="md-ellipsis">
+      3. RMSProp
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#4-momentum">
+<span class="md-ellipsis">
+      4. Momentum
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#5-adam">
+<span class="md-ellipsis">
+      5. Adam
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../4/">
+<span class="md-ellipsis">
+    4. 自动微分
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../5/">
+<span class="md-ellipsis">
+    5. CNN
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../6/">
+<span class="md-ellipsis">
+    6. Auto Encoder
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../7/">
+<span class="md-ellipsis">
+    7. RNN &amp; LSTM
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../9/">
+<span class="md-ellipsis">
+    8. Transformer
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../11/">
+<span class="md-ellipsis">
+    9. U-Net
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+<span class="md-ellipsis">
+    EfficientAI
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+            EfficientAI
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../EfficientAI/1/">
+<span class="md-ellipsis">
+    1. 剪枝
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../Others/">
+<span class="md-ellipsis">
+    其他知识
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_3">
+<span class="md-nav__icon md-icon"></span>
+            其他知识
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Others/Search/">
+<span class="md-ellipsis">
+    1. 搜索
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../Math/">
+<span class="md-ellipsis">
+    Math
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            Math
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Math/complex/">
+<span class="md-ellipsis">
+    复变函数与积分变换
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Math/Probability/Error/">
+<span class="md-ellipsis">
+    概率论与数理统计
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_4" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../Math/MathModel/">
+<span class="md-ellipsis">
+    数学建模
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_4">
+<span class="md-nav__icon md-icon"></span>
+            数学建模
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Math/MathModel/program/program/">
+<span class="md-ellipsis">
+    1. 数学规划
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Math/MathModel/graph/graph/">
+<span class="md-ellipsis">
+    2. 图论模型
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Math/MathModel/combination-optimize/note/">
+<span class="md-ellipsis">
+    3. 组合优化
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Math/MathModel/exercise/">
+<span class="md-ellipsis">
+    4. 习题笔记
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Math/MathModel/review/note/">
+<span class="md-ellipsis">
+    5. Review
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_4_7" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../Math/MathModel/test/">
+<span class="md-ellipsis">
+    6. Test
+    
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_4_7_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_4_7">
+<span class="md-nav__icon md-icon"></span>
+            6. Test
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Math/random/">
+<span class="md-ellipsis">
+    随机过程
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Math/matrix/">
+<span class="md-ellipsis">
+    矩阵论
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../isee/">
+<span class="md-ellipsis">
+    ISEE
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+            ISEE
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../isee/information/">
+<span class="md-ellipsis">
+    信息理论
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_5_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_2">
+<span class="md-nav__icon md-icon"></span>
+            信息理论
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../isee/information/1/">
+<span class="md-ellipsis">
+    第一节、信息的度量
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../isee/information/2/">
+<span class="md-ellipsis">
+    第二节、随机变量的熵
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../isee/information/3/">
+<span class="md-ellipsis">
+    第三节、随机变量的平均互信息
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../isee/information/4/">
+<span class="md-ellipsis">
+    第四节、连续随机变量的互信息和微分熵
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../isee/information/5/">
+<span class="md-ellipsis">
+    第五讲、平稳离散信源的熵
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../isee/information/Chap3Review/">
+<span class="md-ellipsis">
+    第三章复习总结
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../isee/elec/">
+<span class="md-ellipsis">
+    电子电路基础
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_5_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_3">
+<span class="md-nav__icon md-icon"></span>
+            电子电路基础
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../isee/elec/share/">
+<span class="md-ellipsis">
+    学习路径
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_3_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_3_3" id="__nav_5_3_3_label" tabindex="0">
+<span class="md-ellipsis">
+    电路部分
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_3_3_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_5_3_3">
+<span class="md-nav__icon md-icon"></span>
+            电路部分
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_3_3_1" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../isee/elec/EC/concepts/">
+<span class="md-ellipsis">
+    基本概念
+    
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_5_3_3_1_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_5_3_3_1">
+<span class="md-nav__icon md-icon"></span>
+            基本概念
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_3_3_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../isee/elec/EC/transition/">
+<span class="md-ellipsis">
+    动态电路时域分析
+    
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_5_3_3_2_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_5_3_3_2">
+<span class="md-nav__icon md-icon"></span>
+            动态电路时域分析
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_3_3_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../isee/elec/EC/phasor/">
+<span class="md-ellipsis">
+    相量分析
+    
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_5_3_3_3_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_5_3_3_3">
+<span class="md-nav__icon md-icon"></span>
+            相量分析
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_3_3_4" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../isee/elec/EC/all/">
+<span class="md-ellipsis">
+    期末补天
+    
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_5_3_3_4_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_5_3_3_4">
+<span class="md-nav__icon md-icon"></span>
+            期末补天
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_3_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_3_4" id="__nav_5_3_4_label" tabindex="0">
+<span class="md-ellipsis">
+    模电部分
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_3_4_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_5_3_4">
+<span class="md-nav__icon md-icon"></span>
+            模电部分
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_3_4_1" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../isee/elec/bjt/">
+<span class="md-ellipsis">
+    BJT
+    
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_5_3_4_1_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_5_3_4_1">
+<span class="md-nav__icon md-icon"></span>
+            BJT
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_3_4_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../isee/elec/MOS/">
+<span class="md-ellipsis">
+    MOS
+    
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_5_3_4_2_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_5_3_4_2">
+<span class="md-nav__icon md-icon"></span>
+            MOS
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_3_4_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../isee/elec/Hard/">
+<span class="md-ellipsis">
+    多级、差分
+    
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_5_3_4_3_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_5_3_4_3">
+<span class="md-nav__icon md-icon"></span>
+            多级、差分
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_3_4_4" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../isee/elec/opam/">
+<span class="md-ellipsis">
+    运算放大器
+    
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_5_3_4_4_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_5_3_4_4">
+<span class="md-nav__icon md-icon"></span>
+            运算放大器
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_3_4_5" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../isee/elec/freq/">
+<span class="md-ellipsis">
+    频率响应
+    
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_5_3_4_5_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_5_3_4_5">
+<span class="md-nav__icon md-icon"></span>
+            频率响应
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_3_4_6" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../isee/elec/feedback/">
+<span class="md-ellipsis">
+    反馈
+    
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_5_3_4_6_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_5_3_4_6">
+<span class="md-nav__icon md-icon"></span>
+            反馈
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_3_4_7" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../isee/elec/pa/">
+<span class="md-ellipsis">
+    功率放大器
+    
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_5_3_4_7_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_5_3_4_7">
+<span class="md-nav__icon md-icon"></span>
+            功率放大器
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_3_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_3_5" id="__nav_5_3_5_label" tabindex="0">
+<span class="md-ellipsis">
+    期末试题
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_3_5_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_5_3_5">
+<span class="md-nav__icon md-icon"></span>
+            期末试题
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../isee/elec/test/">
+<span class="md-ellipsis">
+    2024-2025 电子电路基础
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_4" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../isee/elec-exp1/">
+<span class="md-ellipsis">
+    电子电路设计实验I
+    
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_5_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_4">
+<span class="md-nav__icon md-icon"></span>
+            电子电路设计实验I
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_5" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../isee/signal/">
+<span class="md-ellipsis">
+    信号与系统
+    
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_5_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_5">
+<span class="md-nav__icon md-icon"></span>
+            信号与系统
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../English/">
+<span class="md-ellipsis">
+    English
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+            English
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../English/Interpretation/">
+<span class="md-ellipsis">
+    英语口译
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_6_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_2">
+<span class="md-nav__icon md-icon"></span>
+            英语口译
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6_2_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_2_2" id="__nav_6_2_2_label" tabindex="0">
+<span class="md-ellipsis">
+    学习体验
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_2_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_6_2_2">
+<span class="md-nav__icon md-icon"></span>
+            学习体验
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../English/Interpretation/experience/Harvest/">
+<span class="md-ellipsis">
+    学习收获
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../English/Interpretation/experience/Interpretation--Self%20Assessment/">
+<span class="md-ellipsis">
+    某次课堂口译复盘
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6_2_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_2_3" id="__nav_6_2_3_label" tabindex="0">
+<span class="md-ellipsis">
+    HW &amp;&amp; Topic
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_2_3_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_6_2_3">
+<span class="md-nav__icon md-icon"></span>
+            HW &amp;&amp; Topic
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../English/Interpretation/homework/Welcome%20Speech/">
+<span class="md-ellipsis">
+    Welcome Speech
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../English/Interpretation/homework/City%20and%20Travel/">
+<span class="md-ellipsis">
+    City and Travel
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../English/Interpretation/homework/Culture%20and%20Education/">
+<span class="md-ellipsis">
+    Culture and Education
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../English/Interpretation/homework/Science/">
+<span class="md-ellipsis">
+    Science
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6_2_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_2_4" id="__nav_6_2_4_label" tabindex="0">
+<span class="md-ellipsis">
+    Learning Resources
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_2_4_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_6_2_4">
+<span class="md-nav__icon md-icon"></span>
+            Learning Resources
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../English/Interpretation/homework/Material/">
+<span class="md-ellipsis">
+    复习资料整理
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../English/toefl/">
+<span class="md-ellipsis">
+    Toefl
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_6_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_3">
+<span class="md-nav__icon md-icon"></span>
+            Toefl
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6_3_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_3_2" id="__nav_6_3_2_label" tabindex="0">
+<span class="md-ellipsis">
+    Reading
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_3_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_6_3_2">
+<span class="md-nav__icon md-icon"></span>
+            Reading
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../English/toefl/reading/tpo/">
+<span class="md-ellipsis">
+    TPO整理
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../English/toefl/reading/tpo_formatter/">
+<span class="md-ellipsis">
+    解析格式化工具
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6_3_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_3_3" id="__nav_6_3_3_label" tabindex="0">
+<span class="md-ellipsis">
+    Listening
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_3_3_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_6_3_3">
+<span class="md-nav__icon md-icon"></span>
+            Listening
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../English/toefl/listening/tpo/">
+<span class="md-ellipsis">
+    TPO
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6_3_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_3_4" id="__nav_6_3_4_label" tabindex="0">
+<span class="md-ellipsis">
+    Speaking
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_3_4_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_6_3_4">
+<span class="md-nav__icon md-icon"></span>
+            Speaking
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../English/toefl/speaking/note/">
+<span class="md-ellipsis">
+    note
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../English/toefl/speaking/task1/">
+<span class="md-ellipsis">
+    独立口语
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6_3_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_3_5" id="__nav_6_3_5_label" tabindex="0">
+<span class="md-ellipsis">
+    Writing
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_3_5_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_6_3_5">
+<span class="md-nav__icon md-icon"></span>
+            Writing
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6_3_5_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_3_5_1" id="__nav_6_3_5_1_label" tabindex="0">
+<span class="md-ellipsis">
+    Exercise
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_3_5_1_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_6_3_5_1">
+<span class="md-nav__icon md-icon"></span>
+            Exercise
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../English/toefl/writing/exercise/Academic/">
+<span class="md-ellipsis">
+    学术写作
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../English/toefl/writing/exercise/Integrated/">
+<span class="md-ellipsis">
+    综合写作
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6_3_5_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_3_5_2" id="__nav_6_3_5_2_label" tabindex="0">
+<span class="md-ellipsis">
+    Note
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_3_5_2_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_6_3_5_2">
+<span class="md-nav__icon md-icon"></span>
+            Note
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../English/toefl/writing/note/Academic/">
+<span class="md-ellipsis">
+    学术写作
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../English/toefl/writing/note/Integrated/">
+<span class="md-ellipsis">
+    综合写作
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../English/toefl/writing/note/material/">
+<span class="md-ellipsis">
+    作文素材
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../Research/">
+<span class="md-ellipsis">
+    Research
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+            Research
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Research/Clip/">
+<span class="md-ellipsis">
+    Clip
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Research/Detection/">
+<span class="md-ellipsis">
+    电路识别
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Research/yolo/">
+<span class="md-ellipsis">
+    Yolov11
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_8" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../Others/">
+<span class="md-ellipsis">
+    Others
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+            Others
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Others/PrintingCulture/">
+<span class="md-ellipsis">
+    雕版印刷与课本文化
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Others/control-theory/">
+<span class="md-ellipsis">
+    控制论
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Others/PhyExperiment/">
+<span class="md-ellipsis">
+    大物实验
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_8_5" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../Others/Network/">
+<span class="md-ellipsis">
+    无线网络应用
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_8_5" id="__nav_8_5_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_8_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_8_5">
+<span class="md-nav__icon md-icon"></span>
+            无线网络应用
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Others/Network/Lecture4/">
+<span class="md-ellipsis">
+    Lecture 4
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Others/Network/Lecture6/">
+<span class="md-ellipsis">
+    Lecture 6
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_8_6" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../Others/robot/">
+<span class="md-ellipsis">
+    机器人技术与实践
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_8_6" id="__nav_8_6_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_8_6_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_8_6">
+<span class="md-nav__icon md-icon"></span>
+            机器人技术与实践
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Others/robot/1/">
+<span class="md-ellipsis">
+    Lec 1 基础知识
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Others/robot/2/">
+<span class="md-ellipsis">
+    Lec 2 旋转几何 (Rotation Geometry)
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Others/robot/3/">
+<span class="md-ellipsis">
+    Lec 3 正向运动学 (Forward kinematics)
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Others/robot/4/">
+<span class="md-ellipsis">
+    Lec 4 逆运动学 (Inverse kinematics)
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Others/robot/5/">
+<span class="md-ellipsis">
+    Lec 5 轨迹规划 (Trajectory Planning)
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Others/robot/6/">
+<span class="md-ellipsis">
+    Lec 6 微分运动学 (Differential Kinematics)
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_9" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../Writings/">
+<span class="md-ellipsis">
+    Writings
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_9_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+            Writings
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_9_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9_2" id="__nav_9_2_label" tabindex="0">
+<span class="md-ellipsis">
+    Essay
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_9_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_9_2">
+<span class="md-nav__icon md-icon"></span>
+            Essay
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Writings/essay/01/">
+<span class="md-ellipsis">
+    一：当回想起IAI
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Writings/essay/02/">
+<span class="md-ellipsis">
+    二：带论的碎碎念
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Writings/essay/05/">
+<span class="md-ellipsis">
+    五：支教流水账
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Writings/essay/08/">
+<span class="md-ellipsis">
+    八：About Slowist
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Writings/essay/10/">
+<span class="md-ellipsis">
+    十：ACEE报名体验
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Writings/essay/11/">
+<span class="md-ellipsis">
+    十一：About IAI
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Writings/essay/12/">
+<span class="md-ellipsis">
+    十二：大一回忆录
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Writings/essay/13/">
+<span class="md-ellipsis">
+    十三：分流建议
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Writings/essay/14/">
+<span class="md-ellipsis">
+    十四：转专业路上的碎碎念
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Writings/essay/16/">
+<span class="md-ellipsis">
+    十六：大二课程总结
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Writings/essay/20/">
+<span class="md-ellipsis">
+    二十：一封回信
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Writings/essay/21/">
+<span class="md-ellipsis">
+    二十一：2025数模国赛A题总结
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Writings/essay/23/">
+<span class="md-ellipsis">
+    二十三：Waiting For Sunrise
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Writings/essay/27/">
+<span class="md-ellipsis">
+    二十七：HPC Week WriteUp
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Writings/essay/28/">
+<span class="md-ellipsis">
+    二十八：告别是一场暮色
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Writings/essay/29/">
+<span class="md-ellipsis">
+    二十九
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Writings/essay/30/">
+<span class="md-ellipsis">
+    三十：大三上课程总结
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_9_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9_3" id="__nav_9_3_label" tabindex="0">
+<span class="md-ellipsis">
+    Emotion
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_9_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_9_3">
+<span class="md-nav__icon md-icon"></span>
+            Emotion
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Writings/emotion/03/">
+<span class="md-ellipsis">
+    三
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Writings/emotion/04/">
+<span class="md-ellipsis">
+    四
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Writings/emotion/06/">
+<span class="md-ellipsis">
+    六
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Writings/emotion/07/">
+<span class="md-ellipsis">
+    七
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Writings/emotion/09/">
+<span class="md-ellipsis">
+    九
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#end-to-end-machine-learning-algorithm">
+<span class="md-ellipsis">
+      一、End-to-End Machine Learning Algorithm
+    </span>
+</a>
+<nav aria-label="一、End-to-End Machine Learning Algorithm" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#11">
+<span class="md-ellipsis">
+      1.1 核心思想
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#12">
+<span class="md-ellipsis">
+      1.2 机器学习的两个基本问题
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mp-mlp">
+<span class="md-ellipsis">
+      二、MP -&gt; MLP
+    </span>
+</a>
+<nav aria-label="二、MP -&gt; MLP" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#21-mp">
+<span class="md-ellipsis">
+      2.1 神经元的数学模型 - MP模型
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#22">
+<span class="md-ellipsis">
+      2.2 感知器算法
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#23">
+<span class="md-ellipsis">
+      2.3 感知器算法的收敛性证明
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+<span class="md-ellipsis">
+      三、多层神经网络
+    </span>
+</a>
+<nav aria-label="三、多层神经网络" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#31">
+<span class="md-ellipsis">
+      3.1 两层神经网络结构
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#32">
+<span class="md-ellipsis">
+      3.2 神经网络的万能近似定理
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+<span class="md-ellipsis">
+      四、神经网络的训练：梯度下降与反向传播
+    </span>
+</a>
+<nav aria-label="四、神经网络的训练：梯度下降与反向传播" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#41-gradient-descent">
+<span class="md-ellipsis">
+      4.1 梯度下降法 (Gradient Descent)
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#42-backpropagation-bp">
+<span class="md-ellipsis">
+      4.2 反向传播算法 (Backpropagation, BP)
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#43">
+<span class="md-ellipsis">
+      4.3 激活函数及其导数
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#44-bp-l">
+<span class="md-ellipsis">
+      4.4 通用BP算法 (L层网络)
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#neural-network-training-tips">
+<span class="md-ellipsis">
+      五、神经网络训练技巧 (Neural Network Training Tips)
+    </span>
+</a>
+<nav aria-label="五、神经网络训练技巧 (Neural Network Training Tips)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#51-sgd">
+<span class="md-ellipsis">
+      5.1 随机梯度下降 (SGD)
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#52">
+<span class="md-ellipsis">
+      5.2 数据和参数的初始化
+    </span>
+</a>
+<nav aria-label="5.2 数据和参数的初始化" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+<span class="md-ellipsis">
+      训练数据初始化 (归一化)
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+<span class="md-ellipsis">
+      参数初始化
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#53-batch-normalization-bn">
+<span class="md-ellipsis">
+      5.3 批归一化 (Batch Normalization, BN)
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#54">
+<span class="md-ellipsis">
+      5.4 目标函数 (损失函数)
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#55">
+<span class="md-ellipsis">
+      5.5 参数更新策略 (优化器)
+    </span>
+</a>
+<nav aria-label="5.5 参数更新策略 (优化器)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1-vanilla-stochastic-gradient-descent">
+<span class="md-ellipsis">
+      1. Vanilla Stochastic Gradient Descent
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-adagrad">
+<span class="md-ellipsis">
+      2. AdaGrad
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3-rmsprop">
+<span class="md-ellipsis">
+      3. RMSProp
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#4-momentum">
+<span class="md-ellipsis">
+      4. Momentum
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#5-adam">
+<span class="md-ellipsis">
+      5. Adam
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="_1">人工神经网络</h1>
+<div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8zm6.78 1a.7.7 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38z"></path></svg></span> 约 6064 个字 <span class="twemoji"><svg viewbox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M360.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6m64.6 136.1c-12.5 12.5-12.5 32.8 0 45.3l73.4 73.4-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l96-96c12.5-12.5 12.5-32.8 0-45.3l-96-96c-12.5-12.5-32.8-12.5-45.3 0zm-274.7 0c-12.5-12.5-32.8-12.5-45.3 0l-96 96c-12.5 12.5-12.5 32.8 0 45.3l96 96c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l73.3-73.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></span> 61 行代码 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 17H7V3h14m0-2H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2M3 5H1v16a2 2 0 0 0 2 2h16v-2H3m12.96-10.71-2.75 3.54-1.96-2.36L8.5 15h11z"></path></svg></span> 23 张图片 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3z"></path></svg></span> 预计阅读时间 21 分钟</p>
+</div>
+<p>PDF Here (mkdocs对部分mermaid无法支持……)</p>
+<object data="../NN.pdf" height="800" type="application/pdf" width="100%">
+<embed src="../NN.pdf" type="application/pdf"/>
+</object>
+<h2 id="end-to-end-machine-learning-algorithm">一、End-to-End Machine Learning Algorithm</h2>
+<h3 id="11">1.1 核心思想</h3>
+<div class="highlight"><pre><span></span><code>flowchart LR 
+X --&gt; ML["机器学习模型 $$f(X, \theta)$$"] --&gt; Y
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">什么是端到端 (End-to-End)？</p>
+<p>简单来说，就是我们给系统一个输入（Input），它直接给我们一个输出（Output），中间的过程由一个“黑盒子”——也就是<strong>机器学习模型</strong>——来完成。我们不需要手动设计复杂的中间步骤和规则。</p>
+<ul>
+<li><span class="arithmatex">\(X\)</span>: 机器学习系统的<strong>输入</strong>。</li>
+<li><span class="arithmatex">\(Y\)</span>: 机器学习系统的<strong>输出</strong>。</li>
+<li><span class="arithmatex">\(f(X, \theta)\)</span>: <strong>机器学习模型</strong>。这个函数<span class="arithmatex">\(f\)</span>的具体形式是我们预先定义好的（比如一个神经网络结构），但它内部的参数 <span class="arithmatex">\(\theta\)</span> 是未知的。</li>
+<li><span class="arithmatex">\(\theta\)</span>: 模型的<strong>参数</strong>，需要通过训练数据来确定。</li>
+</ul>
+<p><strong>学习的目标</strong>：我们的任务就是从大量的训练数据 <span class="arithmatex">\(\{(X_i, Y_i)\}_{i=1 \sim N}\)</span> 中，学习到最优的参数 <span class="arithmatex">\(\theta\)</span>，使得对于每一个输入 <span class="arithmatex">\(X_i\)</span>，模型的输出 <span class="arithmatex">\(f(X_i, \theta)\)</span> 都尽可能地接近真实的输出 <span class="arithmatex">\(Y_i\)</span>。<br/>
+$<span class="arithmatex">\(Y_i \approx f(X_i, \theta)\)</span>$</p>
+</div>
+<h3 id="12">1.2 机器学习的两个基本问题</h3>
+<p>总结一下，所有机器学习问题都可以归结为以下两个基本问题：</p>
+<div class="admonition tip">
+<p class="admonition-title">机器学习两大核心问题</p>
+<p>```mermaid</p>
+</div>
+<p>flowchart LR <br/>
+X → ML["机器学习模型 $<span class="arithmatex">\(f(X, \theta)\)</span>$"] → Y</p>
+<blockquote>
+<p>```</p>
+<ol>
+<li><strong>使用什么模型？</strong>：<span class="arithmatex">\(f(X, \theta)\)</span> 的具体形式是什么？（例如，是选择线性模型，还是复杂的深度神经网络？）</li>
+<li><strong>如何学习参数？</strong>：如何使用训练样本 <span class="arithmatex">\(\{(X_i, Y_i)\}_{i=1 \sim N}\)</span> 来估计参数 <span class="arithmatex">\(\theta\)</span>，使得对每个样本都有 <span class="arithmatex">\(Y_i \approx f(X_i, \theta)\)</span>？</li>
+</ol>
+</blockquote>
+<p>对于问题1，模型的选择会直接影响学习效果。</p>
+<p><img alt="" src="../Pasted%20image%2020251205160310.png"/></p>
+<ul>
+<li><strong>(a) 欠拟合 (Underfitting)</strong>: 模型过于简单，无法捕捉数据的基本规律。例如用直线去拟合非线性的数据。</li>
+<li><strong>(b) 恰当拟合 (Fitting)</strong>: 模型复杂程度恰到好处，既能反映数据规律，又不过分追求完美匹配。</li>
+<li><strong>© 过拟合 (Overfitting)</strong>: 模型过于复杂，把训练数据中的噪声也学进去了，导致在新的、未见过的数据上表现很差。</li>
+</ul>
+<h2 id="mp-mlp">二、MP -&gt; MLP</h2>
+<h3 id="21-mp">2.1 神经元的数学模型 - MP模型</h3>
+<div class="admonition abstract">
+<p class="admonition-title">Abstract</p>
+<p>这一部分我更喜欢矩阵论绪论课上程磊老师的讲解，所以我转成markdown把笔记搬过来了。</p>
+</div>
+<p>一个典型的应用是深度学习中的图片分类，例如判断一张图片是猫（输出1）还是狗（输出0）。</p>
+<p><strong>Step 1: 图片 -&gt; RGB -&gt; 向量化</strong></p>
+<p>首先，需要将输入的图片进行处理。例如，一张 <span class="arithmatex">\(28 \times 28\)</span> 像素的彩色（RGB，3个通道）图片，可以被看作一个 <span class="arithmatex">\(28 \times 28 \times 3\)</span> 的矩阵或张量。</p>
+<p><img alt="|475" src="../Pasted%20image%2020251206154105.png"/></p>
+<p>为了方便后续的数学运算，我们通常会将其“展平”（Flatten），变为一个长向量。这个向量的维度为 <span class="arithmatex">\(28 \times 28 \times 3 = 2352\)</span>。因此，输入的向量可以表示为：<br/>
+$$ x \in \mathbb{R}^{2352 \times 1} $$</p>
+<p><strong>Step2: 建模</strong></p>
+<p>建模的目标，就是找到一个合适的函数 <span class="arithmatex">\(f_\theta(x)\)</span>，使其能够根据输入的向量 <span class="arithmatex">\(x\)</span> 得到正确的输出 <span class="arithmatex">\(y\)</span>。<br/>
+$$ f_\theta(x) = y $$<br/>
+我们知道输入 <span class="arithmatex">\(x\)</span> 是一个向量，而分类任务的输出 <span class="arithmatex">\(y\)</span> (例如，0或1) 是一个标量。根据向量和矩阵的知识，我们可以首先构造一个最简单的线性模型：<br/>
+$$ W^T x = y $$<br/>
+这表示为：<br/>
+$$ [w_1, w_2, \dots, w_n] \begin{bmatrix} x_1 \ x_2 \ \vdots \ x_n \end{bmatrix} = w_1x_1 + w_2x_2 + \dots + w_nx_n = \sum_{i=1}^{n} w_i x_i = y $$<br/>
+我们称上述模型为<strong>线性组合 (linear combination)</strong>。</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>问题</strong>: 线性组合模型的输出值域是 <span class="arithmatex">\(\mathbb{R}\)</span> (整个实数范围)，而我们想要的分类结果 <span class="arithmatex">\(y\)</span> 往往是一个特定的集合，例如 <span class="arithmatex">\(\{0, 1\}\)</span>。</p>
+</div>
+<p>为了解决这个问题，我们需要引入一个函数，将 <span class="arithmatex">\(\mathbb{R}\)</span> 映射到<span class="arithmatex">\(\{0,1\}\)</span>区间。一个常用的函数就是 <strong>Sigmoid 函数</strong>：<br/>
+$$ \sigma(z) = \frac{e^z}{e^z+1} $$<br/>
+通过 Sigmoid 函数，我们可以将线性组合的结果转换为一个概率值：<br/>
+- 如果 <span class="arithmatex">\(\sigma(W^T x) &gt; 0.5\)</span>，我们将其归类为 1。<br/>
+- 如果 <span class="arithmatex">\(\sigma(W^T x) &lt; 0.5\)</span>，我们将其归类为 0。</p>
+<p>由于这个模型输出 0 或 1 的结果，它也被称为<strong>逻辑回归 (Logistic Regression)</strong>。</p>
+<p>在更一般的MP模型里面，我们会给 <span class="arithmatex">\(w_{ki}x_i\)</span> 加上一个<strong>偏置项 (bias)</strong> <span class="arithmatex">\(b_k\)</span>， 将求和结果 <span class="arithmatex">\(v_k\)</span> 输入到一个更一般的<strong>激活函数 (activation function)</strong> <span class="arithmatex">\(\varphi(\cdot)\)</span> 中，得到最终的输出 <span class="arithmatex">\(y_k\)</span>，因此有如下公式：</p>
+<div class="admonition note">
+<p class="admonition-title">MP模型公式</p>
+<div class="arithmatex">\[ y_k = \varphi(\sum_{i=1}^{m} \omega_{ki}x_i + b_k) $$
+写成向量形式就是：
+$$ y_k = \varphi(W_k^T X + b) \]</div>
+</div>
+<h3 id="22">2.2 感知器算法</h3>
+<p>感知器算法本质上是一个非常简单的线性二分类模型，它的模型可以看作是不带激活函数的MP模型（或者说激活函数是符号函数）。</p>
+<ul>
+<li><strong>模型形式</strong>: <span class="arithmatex">\(f(X) = W^T X + b\)</span></li>
+<li><strong>目标</strong>: 从训练样本 <span class="arithmatex">\(\{(X_i, Y_i)\}_{i=1 \sim N}\)</span> 中学习参数 <span class="arithmatex">\((W, b)\)</span>，使得对于所有的 <span class="arithmatex">\(i=1 \sim N\)</span>，都有 <span class="arithmatex">\(Y_i \approx W^T X_i + b\)</span>。这里，<span class="arithmatex">\(Y_i\)</span> 的取值为 +1 或 -1，代表两个不同的类别。</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">感知器算法步骤</p>
+<ul>
+<li><strong>输入</strong>: 训练样本 <span class="arithmatex">\(\{(X_i, Y_i)\}_{i=1 \sim N}\)</span></li>
+<li><strong>输出</strong>: 参数 <span class="arithmatex">\((W, b)\)</span>，使得 <span class="arithmatex">\(f(X) = W^T X + b\)</span> 能正确分类样本。</li>
+</ul>
+<ol>
+<li><strong>随机初始化</strong> <span class="arithmatex">\((W, b)\)</span>。</li>
+<li>
+<p><strong>随机选择</strong>一个训练样本 <span class="arithmatex">\((X, Y)\)</span>。<br/>
+    a.  <strong>如果 <span class="arithmatex">\(W^T X + b &gt; 0\)</span> 但 <span class="arithmatex">\(Y = -1\)</span></strong> (模型预测为正类，但实际是负类)，说明预测错误，则更新参数：<br/>
+<span class="arithmatex">\(W = W - X\)</span><br/>
+<span class="arithmatex">\(b = b - 1\)</span><br/>
+    b.  <strong>如果 <span class="arithmatex">\(W^T X + b &lt; 0\)</span> 但 <span class="arithmatex">\(Y = +1\)</span></strong> (模型预测为负类，但实际是正类)，说明预测错误，则更新参数：<br/>
+<span class="arithmatex">\(W = W + X\)</span><br/>
+<span class="arithmatex">\(b = b + 1\)</span></p>
+</li>
+<li>
+<p><strong>选择另一个</strong>样本 <span class="arithmatex">\((X, Y)\)</span>，回到步骤 (2)。</p>
+</li>
+<li><strong>终止条件</strong>：重复以上步骤，直到所有样本都<strong>不再</strong>满足 2(a) 和 2(b) 的条件，即所有样本都被正确分类。</li>
+</ol>
+</div>
+<div class="admonition tip">
+<p class="admonition-title"><span class="arithmatex">\(W=W-X\)</span></p>
+<p>从感性上认识（这实际上不是梯度下降（？）因为这不是一个优化问题<br/>
+对于函数<span class="arithmatex">\(W^T \cdot X-b\)</span>来说：<br/>
+<span class="arithmatex">\(\frac{\partial(W^T \cdot X)}{\partial{W}}=X\)</span><br/>
+所以要往<span class="arithmatex">\(X\)</span>的负方向下降，选择步长为1，即得<span class="arithmatex">\(W=W-X\)</span></p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">写成增广形式</p>
+<ul>
+<li>原始问题是找到 <span class="arithmatex">\((\omega, b)\)</span> 使得：<br/>
+    *   若 <span class="arithmatex">\(x_i \in C_1\)</span>, 则 <span class="arithmatex">\(\omega^T x_i + b &gt; 0\)</span><br/>
+    *   若 <span class="arithmatex">\(x_i \in C_2\)</span>, 则 <span class="arithmatex">\(\omega^T x_i + b &lt; 0\)</span></li>
+<li>通过定义一个<strong>增广向量</strong>，可以把问题简化。<br/>
+    *   将 <span class="arithmatex">\(\omega\)</span> 和 <span class="arithmatex">\(b\)</span> 合并为新的权重向量 <span class="arithmatex">\(\vec{\omega} = [\omega, b]^T\)</span>。<br/>
+    *   将 <span class="arithmatex">\(x_i\)</span> 扩展为新的样本向量 <span class="arithmatex">\(\vec{x_i'}\)</span>：<br/>
+        *   若 <span class="arithmatex">\(x_i \in C_1\)</span> (标签为+1)，则 <span class="arithmatex">\(\vec{x_i'} = \begin{bmatrix} x_i \\ 1 \end{bmatrix}\)</span>。<br/>
+        *   若 <span class="arithmatex">\(x_i \in C_2\)</span> (标签为-1)，则将原始条件乘以-1，变为 <span class="arithmatex">\(-\omega^T x_i - b &gt; 0\)</span>，令 <span class="arithmatex">\(\vec{x_i'} = \begin{bmatrix} -x_i \\ -1 \end{bmatrix}\)</span>。</li>
+<li>转化后的问题变为：找到一个增广权重向量 <span class="arithmatex">\(\vec{\omega}\)</span>，使得对于<strong>所有</strong>的增广样本 <span class="arithmatex">\(\vec{x_i'}\)</span>，都满足 <span class="arithmatex">\(\vec{\omega}^T \vec{x_i'} &gt; 0\)</span>。</li>
+<li>Algorithm：</li>
+</ul>
+<p><img alt="|475" src="../Pasted%20image%2020251206170131.png"/></p>
+</div>
+<h3 id="23">2.3 感知器算法的收敛性证明</h3>
+<p>即证明：<strong>如果数据集是线性可分的，那么算法保证能在有限步内收敛</strong>，即找到一个能完美分割数据集的超平面。</p>
+<p><span class="arithmatex">\(\Rightarrow\)</span> 对于 N 个线性可分的样本点，如果存在最优解 <span class="arithmatex">\(\omega_{opt}\)</span> ，使得对于所有 <span class="arithmatex">\(i\)</span> 都有 <span class="arithmatex">\(\omega_{opt}^T \vec{x_i} &gt; 0\)</span> 成立 <strong>（Notice：我们修改后，算法的最终目标）</strong> ，则证明了感知器算法一定能在有限步内找到一个将所有样本正确分类的解 <span class="arithmatex">\(\omega\)</span>。</p>
+<p><strong>证明</strong>:</p>
+<p>假设最优解 <span class="arithmatex">\(\omega_{opt}\)</span> 是一个单位向量，即 <span class="arithmatex">\(\|\omega_{opt}\| = 1\)</span>。定义 <span class="arithmatex">\(\omega(k)\)</span> 为在第 <span class="arithmatex">\(k\)</span> 次迭代时的权重向量。算法的目标是找到一个 <span class="arithmatex">\(\omega\)</span>，使得对所有 <span class="arithmatex">\(i\)</span> 都有 <span class="arithmatex">\(\omega^T \vec{x_i} &gt; 0\)</span>。</p>
+<ol>
+<li>
+<p>若 <span class="arithmatex">\(\omega(k)^T \vec{x_i} &gt; 0\)</span> 对所有的 <span class="arithmatex">\(i=1 \sim N\)</span> 都成立，意味着当前的 <span class="arithmatex">\(\omega(k)\)</span> 已经将所有样本正确分类，算法停止，定理得证。</p>
+</li>
+<li>
+<p>否则，存在至少一个样本 <span class="arithmatex">\(\vec{x_i}\)</span> 被错误分类，此时 <span class="arithmatex">\(\omega(k)^T \vec{x_i} \le 0\)</span>。根据感知器算法的更新规则，我们会用这个错误样本来更新权重：$$ \omega(k+1) = \omega(k) + \vec{x_i} $$<br/>
+我们的目标是证明，每次发生错误更新时，当前的解 <span class="arithmatex">\(\omega(k)\)</span> 都会向最优解 <span class="arithmatex">\(\omega_{opt}\)</span> “靠近”一点，即<br/>
+<span class="arithmatex">\(\|\omega(k+1) - \omega_{opt}\|&lt;\|\omega(k) - \omega_{opt}\|\)</span></p>
+</li>
+</ol>
+<p>考虑向量 <span class="arithmatex">\(\omega(k+1) - \omega_{opt}\)</span> 的模长平方：<br/>
+$$ |\omega(k+1) - \omega_{opt}|^2 $$<br/>
+将更新规则 <span class="arithmatex">\(\omega(k+1) = \omega(k) + \vec{x_i}\)</span> 代入：<br/>
+$$ = |\omega(k) + \vec{x_i} - \omega_{opt}|^2 $$<br/>
+将 <span class="arithmatex">\(\omega(k) - \alpha\omega_{opt}\)</span> 看作一项，<span class="arithmatex">\(\vec{x_i}\)</span> 看作另一项，展开这个平方项：<br/>
+$$ = |\omega(k) - \omega_{opt}|^2 + |\vec{x_i}|^2 + 2(\omega(k) - \omega_{opt})^T \vec{x_i} $$<br/>
+$$ = |\omega(k) - \omega_{opt}|^2 + |\vec{x_i}|^2 + 2\omega(k)^T \vec{x_i} - 2\omega_{opt}^T \vec{x_i} $$</p>
+<p><span class="arithmatex">\(\because \omega(k)^T \vec{x_i} \le 0 \Rightarrow 2\omega(k)^T \vec{x_i} \le 0\)</span>：<br/>
+$$ \therefore |\omega(k+1) - \omega_{opt}|^2 \le |\omega(k) - \omega_{opt}|^2 + |\vec{x_i}|^2 - 2\omega_{opt}^T \vec{x_i} $$</p>
+<p>对于 <span class="arithmatex">\(\|\vec{x_i}\|^2 - 2\omega_{opt}^T \vec{x_i}\)</span> ，一定存在 <span class="arithmatex">\(x_i\)</span> 使得这一项小于0.</p>
+<details class="info">
+<summary>解释</summary>
+<p>对于这个问题，原课件上面是这么写的：</p>
+<p>$$ |\omega(k+1) - \alpha\omega_{opt}|^2 \le |\omega(k) - \alpha\omega_{opt}|^2 - 1 $$<br/>
+这个不等式是整个证明的关键。它表明：</p>
+<ul>
+<li><strong>每当算法因为一次错误分类而更新时，当前解与目标解的（缩放）距离的平方至少会减小 1。</strong></li>
+<li>距离的平方 <span class="arithmatex">\(\|\cdot\|^2\)</span> 永远是非负的，它不能无限减小。</li>
+<li>既然每次错误都会使这个值稳定地减小一个固定的量，那么错误发生的次数必然是<strong>有限的</strong>。</li>
+<li>因此，感知器算法必定会在有限的迭代次数后停止更新，此时它已经找到了一个能够正确分类所有样本的解。</li>
+</ul>
+<p><strong>证明完毕。</strong></p>
+<p>我个人认为这个证明的<span class="arithmatex">\(\alpha\)</span>很奇怪（在我看来<span class="arithmatex">\(||\omega||\)</span>就应该是1？），以及我觉得也没必要证明说一定会下降1，收敛又不是这个算法非停不可，所以就只能草率的证明到这里了。</p>
+</details>
+<h2 id="_2">三、多层神经网络</h2>
+<p><strong>多层感知器 (Multi-layer Perceptron, MLP)</strong> —— 单层感知机无法解决线性不可分问题</p>
+<h3 id="31">3.1 两层神经网络结构</h3>
+<p><img alt="|475" src="../Pasted%20image%2020251206173733.png"/></p>
+<p>这是一个经典的两层神经网络（输入层通常不计入层数）。<br/>
+*   <strong>输入层</strong>: 接收原始数据 <span class="arithmatex">\(x_1, x_2\)</span>。<br/>
+*   <strong>隐藏层</strong>: 包含神经元 <span class="arithmatex">\(z_1, z_2\)</span>。它们接收来自输入层的信号，经过加权求和与激活函数 <span class="arithmatex">\(\varphi(\cdot)\)</span> 处理后，得到输出 <span class="arithmatex">\(a_1, a_2\)</span>。<br/>
+*   <strong>输出层</strong>: 包含神经元 <span class="arithmatex">\(y\)</span>。它接收来自隐藏层的信号，进行加权求和（这里为了简化，输出层没有激活函数），得到最终输出。</p>
+<p><strong>输入-输出关系</strong>：<br/>
+*   <span class="arithmatex">\(z_1 = \omega_{11}x_1 + \omega_{12}x_2 + b_1\)</span><br/>
+*   <span class="arithmatex">\(z_2 = \omega_{21}x_1 + \omega_{22}x_2 + b_2\)</span><br/>
+*   <span class="arithmatex">\(a_1 = \varphi(z_1)\)</span><br/>
+*   <span class="arithmatex">\(a_2 = \varphi(z_2)\)</span><br/>
+*   <span class="arithmatex">\(y = \omega_1 a_1 + \omega_2 a_2 + b_3\)</span></p>
+<p>将它们合并成一个复杂的公式：<br/>
+<span class="arithmatex">\(y = \omega_1 \varphi(\omega_{11}x_1 + \omega_{12}x_2 + b_1) + \omega_2 \varphi(\omega_{21}x_1 + \omega_{22}x_2 + b_2) + b_3\)</span></p>
+<p>使用矩阵表示会更加简洁：</p>
+<div class="arithmatex">\[\text{定义} X = \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}, \omega_{(1)} = \begin{bmatrix} \omega_{11}, &amp; \omega_{12} \\ \omega_{21}, &amp; \omega_{22} \end{bmatrix}, b = \begin{bmatrix} b_1 \\ b_2 \end{bmatrix}, z = \begin{bmatrix} z_1 \\ z_2 \end{bmatrix}, a = \begin{bmatrix} a_1 \\ a_2 \end{bmatrix}, \omega_{(2)} = \begin{bmatrix} \omega_1 \\ \omega_2 \end{bmatrix}\]</div>
+<div class="arithmatex">\[ y = \omega^{(2)T} \varphi(\omega^{(1)T}X + b^{(1)}) + b_3 \]</div>
+<p>更大的神经网络：</p>
+<p><img alt="|400" src="../Pasted%20image%2020251206173447.png"/></p>
+<h3 id="32">3.2 神经网络的万能近似定理</h3>
+<p>多层神经网络的强大之处在于，它有能力拟合<strong>任何</strong>复杂的函数。</p>
+<div class="admonition tip">
+<p class="admonition-title">三层神经网络是万能估计器 (Unanimous Estimator)</p>
+<p><strong>定理</strong>：如果激活函数是阶跃函数（step function），并且我们允许每层的神经元数量是无限的，那么一个三层神经网络可以模拟<strong>任何</strong>预测函数。</p>
+<p><strong>理解</strong>：</p>
+<ol>
+<li>一个神经元（感知器）可以在空间中画出一条直线（决策边界）。</li>
+<li>隐藏层的多个神经元可以画出多条直线。通过将这些神经元的输出在下一层进行组合（逻辑“与”操作），可以圈出一个<strong>凸多边形区域</strong>。例如，图中的三条直线圈出了一个三角形。</li>
+<li>通过增加隐藏层神经元的数量，我们可以用足够多的直线来逼近<strong>任何形状的凸区域</strong>，甚至任意形状的区域（通过组合多个凸区域）。</li>
+<li>通过第二隐藏层（构成三层网络），我们可以将多个由第一隐藏层形成的凸区域进行组合（逻辑“或”操作），从而形成更复杂的、非连通的区域。</li>
+</ol>
+<p>理论上，一个足够大的三层神经网络可以像搭积木一样，用简单的决策边界搭建出任意复杂的决策区域，从而拟合任何函数。</p>
+</div>
+<h2 id="_3">四、神经网络的训练：梯度下降与反向传播</h2>
+<p>理论证明了多层神经网络的强大能力，但下一个关键问题是：<strong>如何训练它？</strong> 即如何找到成千上万个参数 <span class="arithmatex">\(\omega\)</span> 和 <span class="arithmatex">\(b\)</span> 的最优值？</p>
+<h3 id="41-gradient-descent">4.1 梯度下降法 (Gradient Descent)</h3>
+<p>训练的核心思想是定义一个<strong>损失函数 (Loss Function)</strong> 或 <strong>目标函数 (Objective Function)</strong>，用来衡量当前模型预测值 <span class="arithmatex">\(y\)</span> 与真实值 <span class="arithmatex">\(Y\)</span> 之间的差距。然后，我们的目标就是调整参数，使得这个损失函数的值<strong>最小化</strong>。</p>
+<p>例如，我们可以用<strong>均方误差 (Mean Square Error)</strong> 作为损失函数：<br/>
+<span class="arithmatex">\(E(\omega, b) = E_{(X,Y)}[(Y - y)^2]\)</span></p>
+<p><strong>梯度下降法</strong>是实现最小化最常用的方法。</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>梯度下降算法更多可以参考矩阵论课程的讲解，这里直接贴笔记了。</p>
+</div>
+<p><img alt="|575" src="../Pasted%20image%2020251206201624.png"/></p>
+<p>交替分块优化（类似 BCD？）</p>
+<p><img alt="|575" src="../Pasted%20image%2020251206201719.png"/></p>
+<h3 id="42-backpropagation-bp">4.2 反向传播算法 (Backpropagation, BP)</h3>
+<p><img alt="|375" src="../Pasted%20image%2020251206201954.png"/></p>
+<p>对于如上神经网络，每次<strong>迭代</strong>都需要计算：</p>
+<div class="arithmatex">\[\left\{ \frac{\partial E}{\partial \omega_{11}}, \frac{\partial E}{\partial \omega_{12}}, \frac{\partial E}{\partial \omega_{21}}, \frac{\partial E}{\partial \omega_{22}}, \frac{\partial E}{\partial \omega_1}, \frac{\partial E}{\partial \omega_2}, \frac{\partial E}{\partial b_1}, \frac{\partial E}{\partial b_2}, \frac{\partial E}{\partial b_3} \right\}\]</div>
+<p>梯度下降法告诉我们<strong>更新参数的方向</strong>（负梯度方向），但<strong>如何高效地计算</strong>这个包含成千上万个偏导数的梯度呢？—— 这就是<strong>反向传播算法 (BP)</strong> 要解决的问题。</p>
+<p>BP算法利用了神经网络的层级结构和链式法则，高效地计算出损失函数对网络中所有参数的梯度。</p>
+<div class="admonition tip">
+<p class="admonition-title">BP算法核心思想</p>
+<p>BP算法分为两个阶段：</p>
+<ol>
+<li><strong>前向传播 (Forward Propagation)</strong>：输入信号从输入层开始，逐层向前传播，直到输出层计算出最终的预测值<span class="arithmatex">\(y\)</span>和损失值<span class="arithmatex">\(E\)</span>。</li>
+<li><strong>反向传播 (Back Propagation)</strong>：损失值<span class="arithmatex">\(E\)</span>从输出层开始，将“误差”逐层向后（反向）传播。在传播过程中，根据链式法则，计算出每一层参数对最终损失的梯度。</li>
+</ol>
+</div>
+<p><strong>BP算法推导示例 (针对前面的两层网络)</strong>：</p>
+<p>我们的目标是计算损失 <span class="arithmatex">\(E\)</span> 对所有9个参数 (<span class="arithmatex">\(\omega_{11}, \omega_{12}, \omega_{21}, \omega_{22}, b_1, b_2, \omega_1, \omega_2, b_3\)</span>) 的梯度。</p>
+<p><img alt="|425" src="../Pasted%20image%2020251206202139.png"/></p>
+<p>若<span class="arithmatex">\(E=\frac{1}{2}(Y-y)^2\)</span> ， 我们先计算图中三个红圈:</p>
+<ul>
+<li><span class="arithmatex">\(\frac{\partial E}{\partial y} = y - Y\)</span> </li>
+<li><span class="arithmatex">\(\frac{\partial E}{\partial z_1} = \frac{\partial E}{\partial y} \frac{\partial y}{\partial a_1} \frac{\partial a_1}{\partial z_1} = (y-Y)\omega_1\varphi'(z_1)\)</span></li>
+<li><span class="arithmatex">\(\frac{\partial E}{\partial z_2} = \frac{\partial E}{\partial y} \frac{\partial y}{\partial a_2} \frac{\partial a_2}{\partial z_2} = (y-Y)\omega_2\varphi'(z_2)\)</span></li>
+</ul>
+<p>这三个是倒数一层、倒数二层的梯度，对于内层梯度的计算，有如下的例子：</p>
+<div class="admonition example">
+<p class="admonition-title">Sample1</p>
+<p><span class="arithmatex">\(\because \frac{\partial E}{\partial y} = y - Y， y=\omega_1 a_1 + \omega_2 a_2 + b_3\)</span>， 所以有：</p>
+<ul>
+<li><span class="arithmatex">\(\frac{\partial E}{\partial \omega_1} = \frac{\partial E}{\partial y} \frac{\partial y}{\partial \omega_1} = (y-Y)a_1\)</span></li>
+<li><span class="arithmatex">\(\frac{\partial E}{\partial \omega_2} = (y-Y)a_2\)</span></li>
+<li><span class="arithmatex">\(\frac{\partial E}{\partial b_3} = (y-Y)\)</span></li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Sample2</p>
+<p><span class="arithmatex">\(\because \frac{\partial E}{\partial z_1} = (y-Y)\omega_1\varphi'(z_1), z_1 = \omega_{11}x_1+\omega_{12}x_2+b_1\)</span>, 有：<br/>
+$$\begin{align*}</p>
+</div>
+<p>\frac{\partial E}{\partial \omega_{11}} &amp;= \frac{\partial E}{\partial z_1} \frac{\partial z_1}{\partial \omega_{11}} = (y - Y) \omega_1 \varphi'(z_1) x_1 \<br/>
+\frac{\partial E}{\partial \omega_{12}} &amp;= \frac{\partial E}{\partial z_1} \frac{\partial z_1}{\partial \omega_{12}} = (y - Y) \omega_1 \varphi'(z_1) x_2 \<br/>
+\frac{\partial E}{\partial b_1} &amp;= \frac{\partial E}{\partial z_1} \frac{\partial z_1}{\partial b_1} = (y - Y) \omega_1 \varphi'(z_1)<br/>
+\end{align*}$$</p>
+<div class="admonition example">
+<p class="admonition-title">Sample2</p>
+<p><span class="arithmatex">\(\because \frac{\partial E}{\partial z_2} = (y-Y)\omega_2\varphi'(z_2), z_2 = \omega_{21}x_1+\omega_{22}x_2+b_2\)</span>, 有：<br/>
+$$\begin{align*}</p>
+</div>
+<p>\frac{\partial E}{\partial \omega_{21}} &amp;= \frac{\partial E}{\partial z_2} \frac{\partial z_2}{\partial \omega_{21}} = (y - Y) \omega_2 \varphi'(z_2) x_1 \<br/>
+\frac{\partial E}{\partial \omega_{22}} &amp;= \frac{\partial E}{\partial z_2} \frac{\partial z_2}{\partial \omega_{22}} = (y - Y) \omega_2 \varphi'(z_2) x_2 \<br/>
+\frac{\partial E}{\partial b_2} &amp;= \frac{\partial E}{\partial z_2} \frac{\partial z_2}{\partial b_2} = (y - Y) \omega_2 \varphi'(z_2)<br/>
+\end{align*}$$</p>
+<p>由上我们会发现，计算隐藏层梯度时，我们复用了上一层（更靠近输出的层）计算出的误差项。这就是“反向传播”的精髓所在，它避免了大量的重复计算。</p>
+<h3 id="43">4.3 激活函数及其导数</h3>
+<p>从BP推导中可以看到，计算梯度需要用到激活函数的导数 <span class="arithmatex">\(\varphi'(z)\)</span>。这也是为什么我们不能用阶跃函数的原因（其导数在不为0处为0，在0处不可导）。常用函数图象和表达式如下：</p>
+<p><img alt="|500" src="../Pasted%20image%2020251206205359.png"/></p>
+<div class="admonition note">
+<p class="admonition-title">常用激活函数-具体介绍</p>
+<ol>
+<li>
+<p><strong>Sigmoid</strong> :<br/>
+    *   <span class="arithmatex">\(\varphi(x) = \frac{1}{1+e^{-x}}\)</span><br/>
+    *   <span class="arithmatex">\(\varphi'(x) = \varphi(x)(1-\varphi(x))\)</span><br/>
+    *   优点：输出在(0,1)之间，像概率。缺点：容易导致梯度消失。</p>
+</li>
+<li>
+<p><strong>tanh</strong> :<br/>
+    *   <span class="arithmatex">\(\varphi(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}}\)</span><br/>
+    *   <span class="arithmatex">\(\varphi'(x) = 1 - \varphi(x)^2\)</span><br/>
+    *   优点：输出在(-1,1)之间，零中心。缺点：仍有梯度消失问题。</p>
+</li>
+<li>
+<p><strong>ReLU</strong>:<br/>
+    *   <span class="arithmatex">\(\varphi(x) = \max(0, x)\)</span><br/>
+    *   <span class="arithmatex">\(\varphi'(x) = \begin{cases} 1, &amp; \text{if } x &gt; 0 \\ 0, &amp; \text{if } x \le 0 \end{cases}\)</span><br/>
+    *   优点：计算简单，收敛快，有效缓解梯度消失。目前最常用的激活函数之一。</p>
+</li>
+</ol>
+</div>
+<h3 id="44-bp-l">4.4 通用BP算法 (L层网络)</h3>
+<p>对于一个通用的L层深层神经网络，BP算法可以总结为一套优美的公式。</p>
+<ol>
+<li>对于<strong>前向传播</strong>，由下面的推导，能得到 <span class="arithmatex">\(y=a^{(L)}=\varphi(z^{(L)})\)</span>。其中<span class="arithmatex">\(z^{(l)} = \omega^{(l)} a^{(l-1)} + b^{(l)} ,\,\,\,\, a^{(l)} = \varphi \left( z^{(l)} \right)\)</span>。</li>
+</ol>
+<p><img alt="|575" src="../Pasted%20image%2020251206205558.png"/></p>
+<p>我们有如下说明：<br/>
+1. 神经网络有<span class="arithmatex">\(L\)</span>层，我们用<span class="arithmatex">\(S_m\)</span>（<span class="arithmatex">\(m = 1 \sim L\)</span>）来表示第<span class="arithmatex">\(m\)</span>层的神经元数量。<br/>
+2. 输入<span class="arithmatex">\(X\)</span>是一个向量，其维度为<span class="arithmatex">\(S_0\)</span>。我们用<span class="arithmatex">\(X = \{x_1, x_2, ..., x_{S_0}\}\)</span>来表示它的分量。<br/>
+3. 输出是<span class="arithmatex">\(y\)</span>，这也是第<span class="arithmatex">\(L\)</span>层的输出。<span class="arithmatex">\(y\)</span>也是一个向量。我们用<span class="arithmatex">\(y = \{y_1, y_2, ..., y_{S_L}\}\)</span>来表示它的分量。<br/>
+4. 中间变量<span class="arithmatex">\(z^{(m)}\)</span>，<span class="arithmatex">\(b^{(m)}\)</span>和<span class="arithmatex">\(a^{(m)}\)</span>是向量，它们的维度是<span class="arithmatex">\(S_m\)</span>。我们用<span class="arithmatex">\(z_i^{(m)}\)</span>，<span class="arithmatex">\(b_i^{(m)}\)</span>和<span class="arithmatex">\(a_i^{(m)}\)</span>来表示第<span class="arithmatex">\(i\)</span>个分量（<span class="arithmatex">\(m = 1 \sim S_m\)</span>）。<br/>
+5. <span class="arithmatex">\(\omega^{(m)}\)</span>是一个<span class="arithmatex">\(S_m \times S_{m-1}\)</span>矩阵，我们用<span class="arithmatex">\(\omega_{ij}^{(m)}\)</span>来表示位于第<span class="arithmatex">\(i\)</span>行第<span class="arithmatex">\(j\)</span>列的分量（<span class="arithmatex">\(i = 1 \sim S_m, j = 1 \sim S_{m-1}\)</span>）。<br/>
+6. 激活函数<span class="arithmatex">\(\varphi\)</span>可以是向量形式，这意味着激活函数的输入是一个向量，激活函数的输出也是一个与输入维度相同的向量。</p>
+<p><strong>目标函数/损失函数</strong>：<span class="arithmatex">\(E = \frac{1}{2} \| y - Y \|^2 = \frac{1}{2} \sum_{i=1}^{S_L} (y_i - Y_i)^2\)</span>（MSE，均方误差）</p>
+<blockquote>
+<p>前面的 <span class="arithmatex">\(\frac{1}{2}\)</span> 是为了后面求导计算方便，可以抵消平方项求导后产生的系数2。 <span class="arithmatex">\(S_L\)</span> 是输出层神经元的数量。</p>
+</blockquote>
+<p>引入中间变量 <span class="arithmatex">\(\delta_i^{(m)} = \frac{\partial E}{\partial z_i^{(m)}}\)</span>，代表了总误差 <span class="arithmatex">\(E\)</span> 对第 <span class="arithmatex">\(m\)</span> 层第 <span class="arithmatex">\(i\)</span> 个神经元的<strong>加权输入</strong> <span class="arithmatex">\(z_i^{(m)}\)</span> 的偏导数</p>
+<details class="tip">
+<summary>物理意义/直观理解</summary>
+<p><span class="arithmatex">\(\delta_i^{(m)}\)</span> 衡量的是，当我们稍微改变神经元 <span class="arithmatex">\(i\)</span> 在激活前的加权输入 <span class="arithmatex">\(z_i^{(m)}\)</span> 时，对最终的总误差 <span class="arithmatex">\(E\)</span> 会产生多大的影响。这个值越大，说明这个神经元对最终误差的“责任”越大。</p>
+</details>
+<p>从输出层开始计算 <span class="arithmatex">\(\delta^{(L)}\)</span>，有：$<span class="arithmatex">\(\delta_i^{(L)} = \frac{\partial E}{\partial z_i^{(L)}} = \frac{\partial E}{\partial y_i} \frac{\partial y_i}{\partial z_i^{(L)}}\)</span>$<br/>
+分别计算：<br/>
+$$<br/>
+    \frac{\partial E}{\partial y_i} = y_i - Y_i<br/>
+$$</p>
+<p>由  <span class="arithmatex">\(y_i = a_i^{(L)} = \varphi(z_i^{(L)})\)</span>，有：</p>
+<div class="arithmatex">\[
+    \frac{\partial y_i}{\partial z_i^{(L)}} = \varphi'(z_i^{(L)})
+    $$
+$$ \therefore 
+\delta_i^{(L)} = (y_i - Y_i) \varphi'(z_i^{(L)}) \]</div>
+<p>下面<strong>计算隐藏层的 <span class="arithmatex">\(\delta_i^{(m-1)}= \frac{\partial E}{\partial z_i^{(m-1)}}\)</span></strong>, 和前面类似的，我们使用最后一层的<span class="arithmatex">\(z_j^{(m)}\)</span> 套链式法则：<br/>
+$$<br/>
+\delta_i^{(m-1)} = \frac{\partial E}{\partial z_i^{(m-1)}} = \sum_{j=1}^{S_m} \frac{\partial E}{\partial z_j^{(m)}} \frac{\partial z_j^{(m)}}{\partial z_i^{(m-1)}}<br/>
+$$<br/>
+注意到 <span class="arithmatex">\(\frac{\partial E}{\partial z_j^{(m)}}\)</span> 正是我们定义的下一层的误差项 <span class="arithmatex">\(\delta_j^{(m)}\)</span>！所以上式可以写成：<br/>
+$$<br/>
+\delta_i^{(m-1)} = \sum_{j=1}^{S_m} \delta_j^{(m)} \frac{\partial z_j^{(m)}}{\partial z_i^{(m-1)}}<br/>
+$$</p>
+<p>接下来，我们只需要计算 <span class="arithmatex">\(\frac{\partial z_j^{(m)}}{\partial z_i^{(m-1)}}\)</span> 这一项，又有 <span class="arithmatex">\(\frac{\partial z_j^{(m)}}{\partial z_i^{(m-1)}} = \frac{\partial z_j^{(m)}}{\partial a_i^{(m-1)}} \frac{\partial a_i^{(m-1)}}{\partial z_i^{(m-1)}}\)</span>。</p>
+<ol>
+<li><strong><span class="arithmatex">\(\frac{\partial z_j^{(m)}}{\partial a_i^{(m-1)}}\)</span></strong>: 回忆一下最后一层里 <span class="arithmatex">\(z_j^{(m)}\)</span> 的定义：<span class="arithmatex">\(z_j^{(m)} = \sum_{k=1}^{S_{m-1}} \omega_{jk}^{(m)} a_k^{(m-1)} + b_j^{(m)}\)</span>。对这个式子求关于 <span class="arithmatex">\(a_i^{(m-1)}\)</span> 的偏导，只有当 <span class="arithmatex">\(k=i\)</span> 的那一项不为零，其结果就是连接这两个神经元的权重 <span class="arithmatex">\(\omega_{ji}^{(m)}\)</span>。</li>
+<li><strong><span class="arithmatex">\(\frac{\partial a_i^{(m-1)}}{\partial z_i^{(m-1)}}\)</span></strong>: 因为 <span class="arithmatex">\(a_i^{(m-1)} = \varphi(z_i^{(m-1)})\)</span>，所以这部分的导数就是 <span class="arithmatex">\(\varphi'(z_i^{(m-1)})\)</span>。</li>
+</ol>
+<p>两者相乘得到：<br/>
+$$<br/>
+\frac{\partial z_j^{(m)}}{\partial z_i^{(m-1)}} = \omega_{ji}^{(m)} \varphi'(z_i^{(m-1)})<br/>
+$$</p>
+<p>因此，我们合计有了：</p>
+<div class="arithmatex">\[
+\delta_i^{(m-1)} = \left( \sum_{j=1}^{S_m} \delta_j^{(m)} \omega_{ji}^{(m)} \right) \varphi'(z_i^{(m-1)})
+\]</div>
+<div class="admonition success">
+<p class="admonition-title">Success</p>
+<p><strong>直观理解:</strong> 第 <span class="arithmatex">\(m-1\)</span> 层某个神经元的误差项 = (所有与之相连的下一层神经元的误差项 <span class="arithmatex">\(\delta_j^{(m)}\)</span> 按连接权重 <span class="arithmatex">\(\omega_{ji}^{(m)}\)</span> 加权求和) <span class="arithmatex">\(\times\)</span> (该神经元激活函数的导数)。</p>
+<p>这就是“<strong>反向传播</strong>”这个名字的由来：第 <span class="arithmatex">\(m\)</span> 层的误差 <span class="arithmatex">\(\delta^{(m)}\)</span> 被“传播”回了第 <span class="arithmatex">\(m-1\)</span> 层。</p>
+</div>
+<p>最后，借助 <span class="arithmatex">\(\delta\)</span> 的梯度，可以更容易的计算损失 <span class="arithmatex">\(E\)</span> 对权重 <span class="arithmatex">\(\omega\)</span> 和偏置 <span class="arithmatex">\(b\)</span> 的偏导数：</p>
+<ol>
+<li>
+<p><strong>对权重的梯度 <span class="arithmatex">\(\frac{\partial E}{\partial \omega_{ji}^{(m)}}\)</span>:</strong><br/>
+我们再次使用链式法则：<br/>
+$$<br/>
+\frac{\partial E}{\partial \omega_{ji}^{(m)}} = \frac{\partial E}{\partial z_j^{(m)}} \frac{\partial z_j^{(m)}}{\partial \omega_{ji}^{(m)}}<br/>
+$$<br/>
+*   第一项 <span class="arithmatex">\(\frac{\partial E}{\partial z_j^{(m)}}\)</span> 就是我们定义的 <span class="arithmatex">\(\delta_j^{(m)}\)</span>。<br/>
+*   第二项 <span class="arithmatex">\(\frac{\partial z_j^{(m)}}{\partial \omega_{ji}^{(m)}}\)</span>，对 <span class="arithmatex">\(z_j^{(m)} = \sum_{k} \omega_{jk}^{(m)} a_k^{(m-1)} + b_j^{(m)}\)</span> 求导，结果是 <span class="arithmatex">\(a_i^{(m-1)}\)</span>。<br/>
+*   所以，最终结果为：<br/>
+$$<br/>
+\frac{\partial E}{\partial \omega_{ji}^{(m)}} = \delta_j^{(m)} a_i^{(m-1)}<br/>
+$$</p>
+</li>
+<li>
+<p><strong>对偏置的梯度 <span class="arithmatex">\(\frac{\partial E}{\partial b_j^{(m)}}\)</span>:</strong><br/>
+同样使用链式法则：<br/>
+$$<br/>
+\frac{\partial E}{\partial b_j^{(m)}} = \frac{\partial E}{\partial z_j^{(m)}} \frac{\partial z_j^{(m)}}{\partial b_j^{(m)}}<br/>
+$$<br/>
+*   第一项是 <span class="arithmatex">\(\delta_j^{(m)}\)</span>。<br/>
+*   第二项 <span class="arithmatex">\(\frac{\partial z_j^{(m)}}{\partial b_j^{(m)}}\)</span> 求导结果是 1。<br/>
+*   所以，最终结果为：<br/>
+$$<br/>
+\frac{\partial E}{\partial b_j^{(m)}} = \delta_j^{(m)}<br/>
+$$</p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">BP算法流程</p>
+<ol>
+<li><strong>Initialization:</strong> 随机设置所有层的权重 <span class="arithmatex">\(\omega_{ji}^{(m)}\)</span> 和偏置 <span class="arithmatex">\(b_j^{(m)}\)</span> 的值。</li>
+<li><strong>前向计算（Forward Calculation）</strong>（需要<strong>保存每一层的加权输入 <span class="arithmatex">\(z^{(m)}\)</span> 和激活值 <span class="arithmatex">\(a^{(m)}\)</span></strong>）<ol>
+<li>将输入样本 <span class="arithmatex">\(X\)</span> 赋值给输入层的激活值：<span class="arithmatex">\(a^{(0)} = X\)</span>。</li>
+<li>从第一层 (<span class="arithmatex">\(m=1\)</span>) 开始，逐层向前计算，直到最后一层 (<span class="arithmatex">\(m=L\)</span>)：<br/>
+    - 计算第 <span class="arithmatex">\(m\)</span> 层的加权输入：<span class="arithmatex">\(z^{(m)} = \omega^{(m)} a^{(m-1)} + b^{(m)}\)</span><br/>
+    - 通过激活函数得到该层的输出：<span class="arithmatex">\(a^{(m)} = \varphi(z^{(m)})\)</span></li>
+<li>最后一层的输出 <span class="arithmatex">\(a^{(L)}\)</span> 就是网络对输入 <span class="arithmatex">\(X\)</span> 的预测值 <span class="arithmatex">\(y\)</span>。</li>
+</ol>
+</li>
+<li><strong>反向传播</strong>：<ol>
+<li>计算总误差 <span class="arithmatex">\(E = \frac{1}{2} \|y - Y\|^2 = \frac{1}{2} \sum_{i=1}^{S_L} (y_i - Y_i)^2\)</span></li>
+<li>反向计算误差项 <span class="arithmatex">\(\delta\)</span>：<br/>
+    - 对于输出层：<span class="arithmatex">\(\delta_i^{(L)} = (y_i - Y_i) \varphi'(z_i^{(L)})\)</span><br/>
+    - 对于隐藏层：<span class="arithmatex">\(\delta_i^{(m-1)} = \left( \sum_{j=1}^{S_m} \delta_j^{(m)} \omega_{ji}^{(m)} \right) \varphi'(z_i^{(m-1)})\)</span></li>
+<li>计算梯度：<br/>
+    - 对权重 <span class="arithmatex">\(\omega\)</span> 的梯度：<span class="arithmatex">\(\frac{\partial E}{\partial \omega_{ji}^{(m)}} = \delta_j^{(m)} a_i^{(m-1)}\)</span><br/>
+    - 对偏置 <span class="arithmatex">\(b\)</span> 的梯度：<span class="arithmatex">\(\frac{\partial E}{\partial b_j^{(m)}} = \delta_j^{(m)}\)</span></li>
+</ol>
+</li>
+<li><strong>更新参数</strong>：<br/>
+    - 权重更新：<span class="arithmatex">\(\omega_{ji}^{(m)} = \omega_{ji}^{(m)} - \alpha \frac{\partial E}{\partial \omega_{ji}^{(m)}}\)</span><br/>
+    - 偏置更新：<span class="arithmatex">\(b_j^{(m)} = b_j^{(m)} - \alpha \frac{\partial E}{\partial b_j^{(m)}}\)</span></li>
+<li>Terminate</li>
+</ol>
+</div>
+<h2 id="neural-network-training-tips">五、神经网络训练技巧 (Neural Network Training Tips)</h2>
+<p>仅仅知道BP算法的原理是不够的，在实践中，有很多技巧可以帮助我们更快更好地训练神经网络。</p>
+<h3 id="51-sgd">5.1 随机梯度下降 (SGD)</h3>
+<p>如果每次更新参数都用上<strong>所有</strong>的训练数据（称为批量梯度下降），计算量会非常大。实际中我们常用 <strong>随机梯度下降 (Stochastic Gradient Descent, SGD)</strong>。</p>
+<ul>
+<li><strong>Mini-Batch</strong>: 我们不一次只用一个样本，也不用全部样本，而是在每次迭代中，随机选取一小部分样本，称为一个<strong>批次 (batch 或 mini-batch)</strong>。</li>
+<li><strong>计算平均梯度</strong>: 我们计算这个batch中所有样本梯度的<strong>平均值</strong>，并用这个平均梯度来更新参数。</li>
+<li><strong>Batch Size</strong>: 一个batch中样本的数量。通常设为50-200。如果任务困难或数据噪声大，可以适当增大batch size。</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">nn_train</span><span class="p">(</span><span class="n">nn</span><span class="p">,</span> <span class="n">option</span><span class="p">,</span> <span class="n">train_x</span><span class="p">,</span> <span class="n">train_y</span><span class="p">):</span>
+    <span class="n">iteration</span> <span class="o">=</span> <span class="n">option</span><span class="o">.</span><span class="n">iteration</span>
+    <span class="n">batch_size</span> <span class="o">=</span> <span class="n">option</span><span class="o">.</span><span class="n">batch_size</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">train_x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">num_batches</span> <span class="o">=</span> <span class="n">m</span> <span class="o">/</span> <span class="n">batch_size</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">iteration</span><span class="p">):</span>
+        <span class="n">kk</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">num_batches</span><span class="p">)):</span>
+            <span class="n">batch_x</span> <span class="o">=</span> <span class="n">train_x</span><span class="p">[</span><span class="n">kk</span><span class="p">[</span><span class="n">l</span> <span class="o">*</span> <span class="n">batch_size</span> <span class="p">:</span> <span class="p">(</span><span class="n">l</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">batch_size</span><span class="p">],</span> <span class="p">:]</span>
+            <span class="n">batch_y</span> <span class="o">=</span> <span class="n">train_y</span><span class="p">[</span><span class="n">kk</span><span class="p">[</span><span class="n">l</span> <span class="o">*</span> <span class="n">batch_size</span> <span class="p">:</span> <span class="p">(</span><span class="n">l</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">batch_size</span><span class="p">],</span> <span class="p">:]</span>
+            <span class="n">nn</span> <span class="o">=</span> <span class="n">nn_forward</span><span class="p">(</span><span class="n">nn</span><span class="p">,</span> <span class="n">batch_x</span><span class="p">,</span> <span class="n">batch_y</span><span class="p">)</span>
+            <span class="n">nn</span> <span class="o">=</span> <span class="n">nn_backpropagation</span><span class="p">(</span><span class="n">nn</span><span class="p">,</span> <span class="n">batch_y</span><span class="p">)</span>
+            <span class="n">nn</span> <span class="o">=</span> <span class="n">nn_applygradient</span><span class="p">(</span><span class="n">nn</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">nn</span>
+</code></pre></div>
+<h3 id="52">5.2 数据和参数的初始化</h3>
+<h4 id="_4">训练数据初始化 (归一化)</h4>
+<p><img alt="" src="../Pasted%20image%2020251206213958.png"/></p>
+<ul>
+<li><strong>目的</strong>：将原始数据（图中 original data）的分布调整为零均值、单位方差的标准分布（图中 normalized data）。</li>
+<li><strong>好处</strong>：可以加速收敛，提高训练稳定性。</li>
+<li><strong>公式</strong>: <span class="arithmatex">\(NewX = \frac{X - mean(X)}{std(X)}\)</span></li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="n">U</span><span class="p">,</span><span class="n">V</span><span class="p">]</span> <span class="o">=</span> <span class="n">size</span><span class="p">(</span><span class="n">xTraining</span><span class="p">);</span>
+<span class="n">avgX</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">xTraining</span><span class="p">);</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="n">std</span><span class="p">(</span><span class="n">xTraining</span><span class="p">);</span>
+<span class="n">xTraining</span> <span class="o">=</span> <span class="p">(</span><span class="n">xTraining</span> <span class="o">-</span> <span class="n">repmat</span><span class="p">(</span><span class="n">avgX</span><span class="p">,</span><span class="n">U</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="o">./</span> <span class="n">repmat</span><span class="p">(</span><span class="n">sigma</span><span class="p">,</span><span class="n">U</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+</code></pre></div>
+<h4 id="_5">参数初始化</h4>
+<ul>
+<li><strong>梯度消失问题 (Vanishing Gradient Problem)</strong> ：在使用Sigmoid或tanh激活函数时，如果输入值 <span class="arithmatex">\(|W^T X + b|\)</span> 过大，函数会进入饱和区，其梯度（导数）会趋近于0。这会导致在反向传播时，梯度逐层衰减，使得靠近输入层的网络层几乎无法得到更新。</li>
+<li><strong>解决方法</strong>:<br/>
+    1.  <strong>让初始输出值接近0</strong>: 初始化参数时，要让 <span class="arithmatex">\(W^T X + b \approx 0\)</span>。一个简单的策略是让 <span class="arithmatex">\(W, b\)</span> 从一个均值为0的均匀分布中采样，例如 <span class="arithmatex">\((W,b) \in U(-\frac{1}{\sqrt{n}}, \frac{1}{\sqrt{n}})\)</span>，其中 <span class="arithmatex">\(n\)</span> 是输入的神经元数量.<br/>
+        - 原因：可以证明 <span class="arithmatex">\((W,b) \in U(-\frac{1}{\sqrt{n}}, \frac{1}{\sqrt{n}})\)</span>， <span class="arithmatex">\(X \in N(0,1)\)</span> ，<span class="arithmatex">\(W^T X+b \in N(0,\frac{1}{3})\)</span>，聚集在 0 附近不会进入饱和区。<br/>
+        - <code>nn.b{k} = 2*rand(height, 1)/sqrt(width) - 1/sqrt(width);</code><br/>
+        - <code>nn.W{k} = 2*rand(height, width)/sqrt(width) - 1/sqrt(width);</code><br/>
+    2.  <strong>使用ReLU</strong>: ReLU激活函数在正数区的梯度恒为1，不存在梯度消失问题。<br/>
+    3.  <strong>Xavier初始化</strong> : 一种更高级的初始化方法，目标是让每一层输出的方差和输入的方差保持一致，从而维持信息流的稳定。<br/>
+        - 其核心思想是，如果信息（在这里用方差来衡量）在网络中向前传播时，每经过一层，其“强度”既不急剧放大，也不急剧衰减，那么信号就能更稳定地流动，梯度也能更稳定地反向传播。</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Xavier 初始化</p>
+<p>从目标出发，我们希望 <span class="arithmatex">\(Var(a^{(l)}) = Var(a^{(l-1)})\)</span>。为了达到这个目标，Xavier 初始化提出如下策略：</p>
+<ol>
+<li>
+<p>将权重 <span class="arithmatex">\(W_{ij}^{(l)}\)</span> 从一个<strong>均值为0，方差为 <span class="arithmatex">\(\frac{1}{n^{(l-1)}}\)</span> 的正态分布</strong>中采样。<span class="arithmatex">\(n^{(l-1)}\)</span> 是输入神经元的数量（即上一层的神经元个数）。<br/>
+$$<br/>
+W_{ij}^{(l)} \in N(0, \frac{1}{n^{(l-1)}})<br/>
+$$</p>
+</li>
+<li>
+<p>将偏置 <span class="arithmatex">\(b^{(l)}\)</span> 初始化为 0。</p>
+</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">数学证明</p>
+<p>证明：</p>
+<p>我们希望<span class="arithmatex">\(Var(a_i^{(l)})\)</span>不变，<span class="arithmatex">\(a^{(l)}=\varphi(z^{(l)})\)</span>，而又因为我们想让 <span class="arithmatex">\(z\)</span> 在0附近，所以激活函数 <span class="arithmatex">\(\varphi(z_i^{(l)})\)</span> 近似等于 <span class="arithmatex">\(z_i^{(l)}\)</span>。（<strong>注</strong>：激活函数（如 tanh）在0附近近似于线性函数，即 <span class="arithmatex">\(\varphi(z) \approx z\)</span>）</p>
+<p>代入 <span class="arithmatex">\(z_i^{(l)} = \sum_{j=1}^{n^{(l-1)}} w_{ij}^{(l)} a_j^{(l-1)}\)</span>：【<span class="arithmatex">\(n^{(l-1)}\)</span> 是输入神经元的数量（即上一层的神经元个数）】</p>
+<p><span class="arithmatex">\(Var(a_i^{(l)})= Var(z_i^{(l)})= Var(\sum_{j=1}^{n^{(l-1)}} w_{ij}^{(l)} a_j^{(l-1)})= \sum_{j=1}^{n^{(l-1)}} Var(w_{ij}^{(l)} a_j^{(l-1)})= \sum_{j=1}^{n^{(l-1)}} Var(w_{ij}^{(l)}) Var(a_j^{(l-1)})\)</span> （各项独立）</p>
+<p>假设所有 <span class="arithmatex">\(w_{ij}^{(l)}\)</span> 的方差都相同，记为 <span class="arithmatex">\(Var(W^{(l)})\)</span>；所有 <span class="arithmatex">\(a_j^{(l-1)}\)</span> 的方差都相同，记为 <span class="arithmatex">\(Var(a^{(l-1)})\)</span>。那么求和就变成了 <span class="arithmatex">\(n^{(l-1)}\)</span> 次的相同项相加。则原式 <span class="arithmatex">\(= n^{(l-1)} Var(W^{(l)}) Var(a^{(l-1)})\)</span></p>
+<p>我们得到了关系式：<br/>
+$$<br/>
+Var(a^{(l)}) = n^{(l-1)} \cdot Var(W^{(l)}) \cdot Var(a^{(l-1)})<br/>
+$$</p>
+<p>为了实现我们的最初目标 <span class="arithmatex">\(Var(a^{(l)}) = Var(a^{(l-1)})\)</span>，我们只需要让中间的乘数项等于1即可：<br/>
+$$<br/>
+n^{(l-1)} \cdot Var(W^{(l)}) = 1<br/>
+$$<br/>
+移项后，我们就得到了权重的方差应该满足的条件：<br/>
+$$<br/>
+Var(W^{(l)}) = \frac{1}{n^{(l-1)}}<br/>
+$$<br/>
+这就是Xavier初始化方法的理论依据。</p>
+</div>
+<p>代码实现:<br/>
+<div class="highlight"><pre><span></span><code><span class="n">nn</span><span class="o">.</span><span class="n">b</span><span class="p">{</span><span class="n">k</span><span class="p">}</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">height</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">nn</span><span class="o">.</span><span class="n">w</span><span class="p">{</span><span class="n">k</span><span class="p">}</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">randn</span><span class="p">(</span><span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">)</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="n">width</span><span class="p">)</span>
+</code></pre></div></p>
+</div>
+<details class="tip">
+<summary>拓展阅读</summary>
+<ol>
+<li>Understanding the difficulty of training deep feedforward neural networks by Glorot and Bengio, 2010</li>
+<li>Exact solutions to the nonlinear dynamics of learning in deep linear neural networks by Saxe et al, 2013</li>
+<li>Random walk initialization for training very deep feedforward networks by Sussillo and Abbott, 2014</li>
+<li>Delving deep into rectifiers: Surpassing human-level performance on ImageNet classification by He et al., 2015</li>
+<li>Data-dependent Initializations of Convolutional Neural Networks by Krähenbühl et al., 2015</li>
+<li>All you need is a good init, Mishkin and Matas, 2015<br/>
+   ...</li>
+</ol>
+</details>
+<h3 id="53-batch-normalization-bn">5.3 批归一化 (Batch Normalization, BN)</h3>
+<p>BN是Google在2015年提出的强大技术，它将数据归一化的思想用到了网络的<strong>每一层</strong>。</p>
+<ul>
+<li><strong>思想</strong>: 既然我们希望每层激活函数的输入值接近0，为什么不直接在每一层后面强制进行归一化呢？</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">为什么我们希望输入接近0呢？</p>
+<p><img alt="|210" src="../Pasted%20image%2020251207100832.png"/></p>
+<p>以Sigmoid函数为例：</p>
+<ul>
+<li><span class="arithmatex">\(x \rightarrow -\infty\)</span>：趋近于0，梯度消失</li>
+<li><span class="arithmatex">\(x \rightarrow +\infty\)</span>：不断变大，梯度变化慢</li>
+</ul>
+<p>只有在零附近的时候，梯度变化明显 <span class="arithmatex">\(\rightarrow\)</span> 健康的梯度！</p>
+</div>
+<ul>
+<li><strong>做法</strong>: 在网络的每个全连接层(FC)或卷积层之后，激活函数之前，插入一个BN层。BN层会对当前batch的数据计算均值和方差，并进行归一化。</li>
+</ul>
+<p><img alt="|350" src="../Pasted%20image%2020251206221115.png"/></p>
+<p>原先的做法：（单层）</p>
+<div class="highlight"><pre><span></span><code>flowchart LR 
+B["线性层&lt;br&gt; $$z^{(l)} = W^{(l)} a^{(l-1)} + b$$"] --&gt; C["激活函数&lt;br&gt;$$a^{(l)} = \varphi(z^{(l)})$$"]
+</code></pre></div>
+<p>现在的做法：</p>
+<div class="highlight"><pre><span></span><code>flowchart LR 
+B["线性层&lt;br&gt; $$z^{(l)} = W^{(l)} a^{(l-1)}$$"] --&gt;A["$$y^{(l)} = BN(z^{(l)})$$"] --&gt;C["激活函数&lt;br&gt;$$a^{(l)} = \varphi(y^{(l)})$$"]
+</code></pre></div>
+<p>其中BN的流程：</p>
+<div class="highlight"><pre><span></span><code>flowchart LR 
+B["$$\hat{x}_i \leftarrow \frac{x_i - \mu_B}{\sqrt{\sigma_B^2 + \epsilon}}$$"] --&gt; C["$$y_i \leftarrow \gamma \hat{x}_i + \beta \equiv BN_{\gamma, \beta}(x_i)$$"]
+</code></pre></div>
+<p>学习的参数也变成了<span class="arithmatex">\(\gamma\)</span>, <span class="arithmatex">\(\beta\)</span>;</p>
+<ul>
+<li>**好处:<br/>
+    *   极大提升训练速度和稳定性。<br/>
+    *   允许使用更高的学习率。<br/>
+    *   降低了对参数初始化的依赖。<br/>
+    *   自带正则化效果，有时可以替代Dropout。</li>
+</ul>
+<ul>
+<li>forward:<br/>
+<div class="highlight"><pre><span></span><code><span class="n">y</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">W</span><span class="p">{</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">}</span> <span class="o">*</span> <span class="n">nn</span><span class="o">.</span><span class="n">a</span><span class="p">{</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">}</span> <span class="o">+</span> <span class="n">repmat</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">b</span><span class="p">{</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">},</span><span class="mi">1</span><span class="p">,</span><span class="n">m</span><span class="p">);</span>
+<span class="k">if</span> <span class="n">nn</span><span class="o">.</span><span class="n">batch_normalization</span>
+    <span class="n">nn</span><span class="o">.</span><span class="n">E</span><span class="p">{</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">}</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">E</span><span class="p">{</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">}</span><span class="o">*</span><span class="n">nn</span><span class="o">.</span><span class="n">vecNum</span> <span class="o">+</span> <span class="nb">sum</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+    <span class="n">nn</span><span class="o">.</span><span class="n">S</span><span class="p">{</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">}</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">S</span><span class="p">{</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">}</span><span class="o">.^</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">vecNum</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">m</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">std</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">.^</span><span class="mi">2</span><span class="p">;</span>
+    <span class="n">nn</span><span class="o">.</span><span class="n">vecNum</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">vecNum</span> <span class="o">+</span> <span class="n">m</span><span class="p">;</span>
+    <span class="n">nn</span><span class="o">.</span><span class="n">E</span><span class="p">{</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">}</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">E</span><span class="p">{</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">}</span><span class="o">/</span><span class="n">nn</span><span class="o">.</span><span class="n">vecNum</span><span class="p">;</span>
+    <span class="n">nn</span><span class="o">.</span><span class="n">S</span><span class="p">{</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">}</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">S</span><span class="p">{</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">}</span><span class="o">/</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">vecNum</span><span class="o">-</span><span class="mi">1</span><span class="p">));</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">repmat</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">E</span><span class="p">{</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">},</span><span class="mi">1</span><span class="p">,</span><span class="n">m</span><span class="p">))</span> <span class="o">./</span> <span class="n">repmat</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">S</span><span class="p">{</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">}</span><span class="o">+</span><span class="mf">0.0001</span><span class="o">*</span><span class="n">ones</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">S</span><span class="p">{</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">})),</span><span class="mi">1</span><span class="p">,</span><span class="n">m</span><span class="p">);</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Gamma</span><span class="p">{</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">}</span><span class="o">*</span><span class="n">y</span><span class="o">+</span><span class="n">nn</span><span class="o">.</span><span class="n">Beta</span><span class="p">{</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">};</span>
+<span class="n">end</span><span class="p">;</span>
+</code></pre></div></li>
+</ul>
+<ul>
+<li>BP:<br/>
+<div class="highlight"><pre><span></span><code><span class="n">nn</span><span class="o">.</span><span class="n">theta</span><span class="p">{</span><span class="n">k</span><span class="p">}</span> <span class="o">=</span> <span class="p">((</span><span class="n">nn</span><span class="o">.</span><span class="n">W</span><span class="p">{</span><span class="n">k</span><span class="p">}</span><span class="s1">'*nn.theta{k+1}) .* nn.a</span><span class="si">{k}</span><span class="s1"> .* (1 - nn.a</span><span class="si">{k}</span><span class="s1">))</span>
+<span class="k">if</span> <span class="n">nn</span><span class="o">.</span><span class="n">batch_normalization</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">W</span><span class="p">{</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">}</span> <span class="o">*</span> <span class="n">nn</span><span class="o">.</span><span class="n">a</span><span class="p">{</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">}</span> <span class="o">+</span> <span class="n">repmat</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">b</span><span class="p">{</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">},</span><span class="mi">1</span><span class="p">,</span><span class="n">m</span><span class="p">);</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">repmat</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">E</span><span class="p">{</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">},</span><span class="mi">1</span><span class="p">,</span><span class="n">m</span><span class="p">))</span> <span class="o">./</span> <span class="n">repmat</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">S</span><span class="p">{</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">}</span><span class="o">+</span><span class="mf">0.0001</span><span class="o">*</span><span class="n">ones</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">S</span><span class="p">{</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">})),</span><span class="mi">1</span><span class="p">,</span><span class="n">m</span><span class="p">)</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">theta</span><span class="p">{</span><span class="n">k</span><span class="p">}</span><span class="o">.*</span><span class="n">x</span>
+    <span class="n">nn</span><span class="o">.</span><span class="n">Gamma_grad</span><span class="p">{</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">}</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">mean</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">nn</span><span class="o">.</span><span class="n">Beta_grad</span><span class="p">{</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">}</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">mean</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">theta</span><span class="p">{</span><span class="n">k</span><span class="p">},</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">nn</span><span class="o">.</span><span class="n">theta</span><span class="p">{</span><span class="n">k</span><span class="p">}</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Gamma</span><span class="p">{</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">}</span><span class="o">*</span><span class="n">nn</span><span class="o">.</span><span class="n">theta</span><span class="p">{</span><span class="n">k</span><span class="p">}</span><span class="o">./</span><span class="n">repmat</span><span class="p">((</span><span class="n">nn</span><span class="o">.</span><span class="n">S</span><span class="p">{</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">}</span><span class="o">+</span><span class="mf">0.0001</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">m</span><span class="p">);</span>
+<span class="n">end</span>
+<span class="n">nn</span><span class="o">.</span><span class="n">W_grad</span><span class="p">{</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">}</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">theta</span><span class="p">{</span><span class="n">k</span><span class="p">}</span><span class="o">*</span><span class="n">nn</span><span class="o">.</span><span class="n">a</span><span class="p">{</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">}</span><span class="s1">'/m + nn.weight_decay*nn.W{k-1}</span>
+<span class="n">nn</span><span class="o">.</span><span class="n">b_grad</span><span class="p">{</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">}</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">theta</span><span class="p">{</span><span class="n">k</span><span class="p">},</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">m</span>
+</code></pre></div></li>
+</ul>
+<h3 id="54">5.4 目标函数 (损失函数)</h3>
+<p>除了均方误差(MSE)，还有其他常用的损失函数。</p>
+<ul>
+<li><strong>带正则项的损失函数 (Regularization)</strong> 【更多参考-矩阵论】<br/>
+    *   <strong>目的</strong>: 防止过拟合。<br/>
+    *   <strong>做法</strong>: 在原始损失函数后加上一个<strong>正则项</strong>，用来惩罚过大的权重参数。最常用的是L2正则化。<br/>
+    *   <span class="arithmatex">\(L(W) = E(W) + \beta R(W) = \frac{1}{2}\sum(y_i - Y_i)^2 + \beta \sum W^2\)</span><br/>
+    *   <strong>正则化定义</strong>: 正则化是将在机器学习中，将一个<strong>病态问题 (ill-posed problem)</strong> 转化为一个 <strong>适定问题 (well-posed problem)</strong> 的过程。</li>
+</ul>
+<p>Forward Calculation:<br/>
+<div class="highlight"><pre><span></span><code><span class="n">cost2</span> <span class="o">=</span> <span class="n">cost2</span> <span class="o">+</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">W</span><span class="p">{</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">}</span><span class="o">.^</span><span class="mi">2</span><span class="p">));</span>
+<span class="n">nn</span><span class="o">.</span><span class="n">cost</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">/</span> <span class="n">m</span> <span class="o">*</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">sum</span><span class="p">((</span><span class="n">nn</span><span class="o">.</span><span class="n">a</span><span class="p">{</span><span class="n">k</span><span class="p">}</span> <span class="o">-</span> <span class="n">batch_y</span><span class="p">)</span><span class="o">.^</span><span class="mi">2</span><span class="p">))</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">nn</span><span class="o">.</span><span class="n">weight_decay</span> <span class="o">*</span> <span class="n">cost2</span><span class="p">;</span>
+</code></pre></div><br/>
+bp:<br/>
+<div class="highlight"><pre><span></span><code><span class="n">Backpropagation</span><span class="p">:</span>
+<span class="n">nn</span><span class="o">.</span><span class="n">W_grad</span><span class="p">{</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">}</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">theta</span><span class="p">{</span><span class="n">k</span><span class="p">}</span><span class="o">*</span><span class="n">nn</span><span class="o">.</span><span class="n">a</span><span class="p">{</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">}</span><span class="s1">'/m + nn.weight_decay*nn.W{k-1};</span>
+</code></pre></div></p>
+<p>使用场景：<br/>
+1. 无解<span class="arithmatex">\(\rightarrow\)</span>有解<br/>
+2. 多解<span class="arithmatex">\(\rightarrow\)</span>唯一解<br/>
+3. trival<span class="arithmatex">\(\rightarrow\)</span>non-trival</p>
+<ul>
+<li><strong>Softmax + 交叉熵损失 (Cross Entropy)</strong><br/>
+    *   <strong>适用场景</strong>: 多分类问题。</li>
+</ul>
+<ul>
+<li>One-Hot编码：对于K-dimensional one-hot vector:<br/>
+$$<br/>
+Y = \begin{bmatrix} 1 \ 0 \ 0 \ \vdots \ 0 \end{bmatrix} \in C_1, Y = \begin{bmatrix} 0 \ 1 \ 0 \ \vdots \ 0 \end{bmatrix} \in C_2, \ldots, Y = \begin{bmatrix} 0 \ 0 \ 0 \ \vdots \ 1 \end{bmatrix} \in C_n<br/>
+$$</li>
+</ul>
+<ul>
+<li>Softmax function：<span class="arithmatex">\(y_i = \frac{\exp(z_i)}{\sum_j \exp(z_j)}\)</span>, 可以视作将<span class="arithmatex">\(y_i\)</span>化作概率，满足 <span class="arithmatex">\(y_i &gt; 0\)</span> 且 <span class="arithmatex">\(\sum y_i = 1\)</span>。</li>
+<li>Cross Entropy Loss Function: 用来衡量模型预测的概率分布 <span class="arithmatex">\(y\)</span> 和真实的概率分布 <span class="arithmatex">\(Y\)</span> (One-Hot向量) 之间的差距：<span class="arithmatex">\(E(y) = -\sum_i Y_i \log(y_i)\)</span><br/>
+    - <span class="arithmatex">\(E(y)\ge 0\)</span><br/>
+    - 若<span class="arithmatex">\(Y_i\)</span>是已知的概率分布，<span class="arithmatex">\(y_i\)</span>是未知的分布。可以证明，当<span class="arithmatex">\(y_i=Y_i\)</span>时，<span class="arithmatex">\(E(y)\)</span>取到最小值。【Reference：证明（1）】<br/>
+    - 若 <span class="arithmatex">\(y_i = \frac{\exp(z_i)}{\sum_j \exp(z_j)}\)</span>, <span class="arithmatex">\(E(y) = -\sum_i Y_i \log(y_i)\)</span>. 那么<span class="arithmatex">\(\frac{\partial E}{\partial z_i}=y_i-Y_i\)</span>【Reference：证明（2）】</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">证明（1）【拉格朗日乘子法】</p>
+<p><img alt="|500" src="../Pasted%20image%2020251207104102.png"/></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">证明（2）</p>
+<p><img alt="|500" src="../Pasted%20image%2020251207105002.png"/><br/>
+<img alt="|500" src="../Pasted%20image%2020251207105009.png"/></p>
+</div>
+<p>代码实现：</p>
+<p><img alt="|525" src="../Pasted%20image%2020251207105047.png"/></p>
+<p>在实践中我们一般不再独立设置softmax层，而是将softmax <span class="arithmatex">\(y_i = \frac{\exp(z_i)}{\sum_j \exp(z_j)}\)</span>  和交叉熵 <span class="arithmatex">\(E(y) = -\sum_i Y_i \log(y_i)\)</span> 结合起来，推导如下：</p>
+<ol>
+<li><span class="arithmatex">\(z \rightarrow p: p_j=\frac{\exp(z_j)}{\sum \exp(z_i)}\)</span></li>
+<li>对于单个样本，<span class="arithmatex">\(L=-\sum y_k \log(p_k)\)</span>。由于真实标签 y 是 one-hot 编码的，只有真实类别 y_true 对应的位置是 1，故<span class="arithmatex">\(L = -\log(p_{y\_true})\)</span></li>
+</ol>
+<p><span class="arithmatex">\(\therefore L=-\log(p_{y\_true})=-\log[\frac{\exp{z_{y\_true}}}{\sum \exp(z_i)}]= -[z_{y\_true} - \log(\sum \exp(z_i))]=\log(\sum \exp(z_i))-z_{y\_true}\)</span></p>
+<ul>
+<li>数值稳定性问题：<span class="arithmatex">\(p_j = \frac{\exp(z_j - \max(z))}{\sum \exp(z_i - \max(z))}\)</span> ，防止<span class="arithmatex">\(\exp{(\cdot)}\)</span> 项上溢；</li>
+</ul>
+<h3 id="55">5.5 参数更新策略 (优化器)</h3>
+<h4 id="1-vanilla-stochastic-gradient-descent">1. Vanilla Stochastic Gradient Descent</h4>
+<p>即我们之前的更新策略。<br/>
+$$<br/>
+\omega_{n+1} = \omega_n - \alpha \frac{\partial E}{\partial \omega} \bigg|<em n_1="n+1">{(\omega_n, b_n)}, \quad b</em>} = b_n - \alpha \frac{\partial E}{\partial b} \bigg|_{(\omega_n, b_n)<br/>
+$$<br/>
+这种方法存在两种可能的问题：</p>
+<ol>
+<li>优化过程呈“之”字形（Zigzag Route）</li>
+</ol>
+<p><img alt="" src="../Pasted%20image%2020251207105444.png"/></p>
+<p>问题的根源在于，损失函数在不同维度上的“陡峭程度”（即梯度的分量大小）不同，而原始的SGD对所有维度都使用<strong>同一个学习率</strong>。对于陡峭的维度，这个学习率太大了；对于平缓的维度，这个学习率又太小了。</p>
+<ol>
+<li>优化路线是随机的（Random Route）</li>
+</ol>
+<p><img alt="|113" src="../Pasted%20image%2020251207105555.png"/></p>
+<p><strong>SGD的做法</strong>是，我们不看全部数据，而是每次只随机抽取一个 mini-batch，用这一小撮数据来<strong>估算</strong>一个梯度。</p>
+<p>但是因为每一个mini-batch都是随机抽取的，所以它们各自计算出的梯度方向也带有随机性，所以最终走出的路线是一条上图所示的摇摇晃晃、充满噪声的曲线，甚至最后可能不会精确地停在最优点，而是在最优点附近徘徊。</p>
+<h4 id="2-adagrad">2. AdaGrad</h4>
+<p>核心思想：为神经网络中的<strong>每一个参数</strong>都独立地维护一个自适应的学习率。具体的策略是：对于<strong>之前梯度一直很大</strong>的参数，就让它的学习率<strong>变小一些</strong>；对于<strong>之前梯度一直很小</strong>的参数，就让它的学习率<strong>变大一些</strong>。</p>
+<p><img alt="|600" src="../Pasted%20image%2020251207110130.png"/></p>
+<p>解释：</p>
+<ol>
+<li>维护一个变量<span class="arithmatex">\(r\)</span>, 维度和参数 <span class="arithmatex">\(\theta\)</span> 和<span class="arithmatex">\(\omega\)</span>，<span class="arithmatex">\(b\)</span> 完全一样。</li>
+<li>计算完梯度后（和普通SGD一致）：<span class="arithmatex">\(r\leftarrow r+g ⊙ g\)</span> <br/>
+    - <code>⊙</code> 代表<strong>逐元素相乘 (element-wise product)</strong>。也就是说，我们把梯度向量 <code>g</code> 中的每一个元素都自己平方。例如，如果 <span class="arithmatex">\(g = [g1, g2]\)</span>，那么 <span class="arithmatex">\(g ⊙ g = [g1², g2²]\)</span>。<br/>
+    - 经过很多次迭代后，<span class="arithmatex">\(r\)</span> 中存储的就是<strong>历史上所有梯度值的平方和</strong>。如果某个参数的梯度一直很大，那么它在 <span class="arithmatex">\(r\)</span> 中对应的那个累加值就会非常大；反之，则会很小</li>
+<li><span class="arithmatex">\(\Delta \theta \leftarrow -\frac{\epsilon}{\delta+\sqrt{r}} ⊙ g\)</span>（普通的 <span class="arithmatex">\(\Delta \theta = \epsilon\)</span> ） （梯度值越大，得到的有效学习率就越小，实现了自适应）</li>
+<li><span class="arithmatex">\(\theta \leftarrow \theta + \Delta \theta\)</span></li>
+</ol>
+<p>代码：</p>
+<div class="highlight"><pre><span></span><code><span class="n">nn</span><span class="o">.</span><span class="n">rW</span><span class="p">{</span><span class="n">k</span><span class="p">}</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">rW</span><span class="p">{</span><span class="n">k</span><span class="p">}</span> <span class="o">+</span> <span class="n">nn</span><span class="o">.</span><span class="n">W_grad</span><span class="p">{</span><span class="n">k</span><span class="p">}</span><span class="o">.^</span><span class="mi">2</span><span class="p">;</span> 
+<span class="n">nn</span><span class="o">.</span><span class="n">rb</span><span class="p">{</span><span class="n">k</span><span class="p">}</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">rb</span><span class="p">{</span><span class="n">k</span><span class="p">}</span> <span class="o">+</span> <span class="n">nn</span><span class="o">.</span><span class="n">b_grad</span><span class="p">{</span><span class="n">k</span><span class="p">}</span><span class="o">.^</span><span class="mi">2</span><span class="p">;</span>
+<span class="n">nn</span><span class="o">.</span><span class="n">W</span><span class="p">{</span><span class="n">k</span><span class="p">}</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">W</span><span class="p">{</span><span class="n">k</span><span class="p">}</span> <span class="o">-</span> <span class="n">nn</span><span class="o">.</span><span class="n">learning_rate</span><span class="o">*</span><span class="n">nn</span><span class="o">.</span><span class="n">W_grad</span><span class="p">{</span><span class="n">k</span><span class="p">}</span><span class="o">./</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">rW</span><span class="p">{</span><span class="n">k</span><span class="p">})</span><span class="o">+</span><span class="mf">0.001</span><span class="p">);</span>
+</code></pre></div>
+<p>AdaGrad的缺点：</p>
+<ol>
+<li><strong>学习率单调递减</strong>：因为 <span class="arithmatex">\(r\)</span> 是梯度的平方和，它在训练过程中只会不断累加，永远不会减小。</li>
+<li><strong>训练提前停止</strong>：随着训练的进行，<span class="arithmatex">\(r\)</span> 会变得越来越大，导致分母 <span class="arithmatex">\(\sqrt{r}\)</span> 也越来越大，最终使得有效学习率 <span class="arithmatex">\(\epsilon/\sqrt{r}\)</span> 趋近于0，导致模型在还远未达到最优解时，就因为学习率过小而无法继续学习。</li>
+</ol>
+<h4 id="3-rmsprop">3. RMSProp</h4>
+<p>修改更新<span class="arithmatex">\(r\)</span>的策略：<span class="arithmatex">\(r ← ρr + (1 - ρ)g ⊙ g\)</span> （加权平均：主要由近期的梯度平方决定，之前的<span class="arithmatex">\(r\)</span>的影响会越来越小）</p>
+<h4 id="4-momentum">4. Momentum</h4>
+<p>物理意义：球在滚动的过程中会积累<strong>动量（Momentum）</strong>。它的下一步方向，不仅取决于当前位置的坡度（当前的梯度），还很大程度上取决于它<strong>上一刻的速度和方向（历史积累的动量）</strong></p>
+<p>具体实现：不直接基于梯度变化更新<span class="arithmatex">\(\omega\)</span>和<span class="arithmatex">\(b\)</span>，而是多一步速度的计算（加一个<span class="arithmatex">\(\rho v_t\)</span>）<br/>
+<span class="arithmatex">\(v_{t+1}=\rho v_t + \nabla f(x_t)\)</span><br/>
+<span class="arithmatex">\(x_{t+1}=x_t-\alpha v_{t+1}\)</span></p>
+<p><img alt="|475" src="../Pasted%20image%2020251207112615.png"/></p>
+<h4 id="5-adam">5. Adam</h4>
+<p>维护一阶矩：<span class="arithmatex">\(r\)</span> 和二阶矩：<span class="arithmatex">\(s\)</span> （相当于把Momentum和RMSProp拼起来）</p>
+<p><img alt="|575" src="../Pasted%20image%2020251207112811.png"/></p>
+<p>代码实现参考：</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="s1">'Adam'</span><span class="p">:</span>
+    <span class="n">rho1</span> <span class="o">=</span> <span class="mf">0.9</span>
+    <span class="n">rho2</span> <span class="o">=</span> <span class="mf">0.999</span>
+
+    <span class="n">nn</span><span class="o">.</span><span class="n">sW</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">rho1</span> <span class="o">*</span> <span class="n">nn</span><span class="o">.</span><span class="n">sW</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">rho1</span><span class="p">)</span> <span class="o">*</span> <span class="n">nn</span><span class="o">.</span><span class="n">W_grad</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">nn</span><span class="o">.</span><span class="n">sb</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">rho1</span> <span class="o">*</span> <span class="n">nn</span><span class="o">.</span><span class="n">sb</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">rho1</span><span class="p">)</span> <span class="o">*</span> <span class="n">nn</span><span class="o">.</span><span class="n">b_grad</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">nn</span><span class="o">.</span><span class="n">rW</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">rho2</span> <span class="o">*</span> <span class="n">nn</span><span class="o">.</span><span class="n">rW</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">rho2</span><span class="p">)</span> <span class="o">*</span> <span class="n">nn</span><span class="o">.</span><span class="n">W_grad</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">nn</span><span class="o">.</span><span class="n">rb</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">rho2</span> <span class="o">*</span> <span class="n">nn</span><span class="o">.</span><span class="n">rb</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">rho2</span><span class="p">)</span> <span class="o">*</span> <span class="n">nn</span><span class="o">.</span><span class="n">b_grad</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span>
+
+    <span class="n">newS</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">sW</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">rho1</span><span class="o">**</span><span class="n">nn</span><span class="o">.</span><span class="n">AdamTime</span><span class="p">)</span>
+    <span class="n">newR</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">rW</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">rho2</span><span class="o">**</span><span class="n">nn</span><span class="o">.</span><span class="n">AdamTime</span><span class="p">)</span>
+    <span class="n">nn</span><span class="o">.</span><span class="n">W</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">W</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">-</span> <span class="n">nn</span><span class="o">.</span><span class="n">learning_rate</span> <span class="o">*</span> <span class="n">newS</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">newR</span> <span class="o">+</span> <span class="mf">0.00001</span><span class="p">)</span>
+    <span class="n">nn</span><span class="o">.</span><span class="n">b</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">b</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">-</span> <span class="n">nn</span><span class="o">.</span><span class="n">learning_rate</span> <span class="o">*</span> <span class="n">newS</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">newR</span> <span class="o">+</span> <span class="mf">0.00001</span><span class="p">)</span>
+</code></pre></div>
+<aside class="md-source-file">
+<span class="md-source-file__fact">
+<span class="md-icon" title="Last update">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
+</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="February 14, 2026 07:11:07 UTC">February 14, 2026</span>
+</span>
+<span class="md-source-file__fact">
+<span class="md-icon" title="Created">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"></path></svg>
+</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="February 14, 2026 07:11:07 UTC">February 14, 2026</span>
+</span>
+</aside>
+<h2 id="__comments">Comments</h2>
+<!-- Insert generated snippet here -->
+<script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDONfrw0M4ClZMR" data-emit-metadata="0" data-input-position="top" data-lang="zh-CN" data-mapping="pathname" data-reactions-enabled="1" data-repo="Slowist-Lee/notebook" data-repo-id="R_kgDONfrw0A" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
+</script>
+<!-- Synchronize Giscus theme with palette -->
+<script>
+var giscus = document.querySelector("script[src*=giscus]")
+
+// Set palette on initial load
+var palette = __md_get("__palette")
+if (palette && typeof palette.color === "object") {
+    var theme = palette.color.scheme === "slate"
+    ? "transparent_dark"
+    : "light"
+
+    // Instruct Giscus to set theme
+    giscus.setAttribute("data-theme", theme) 
+}
+
+// Register event handlers after documented loaded
+document.addEventListener("DOMContentLoaded", function() {
+    var ref = document.querySelector("[data-md-component=palette]")
+    ref.addEventListener("change", function() {
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+        var theme = palette.color.scheme === "slate"
+        ? "dark"
+        : "light"
+
+        // Instruct Giscus to change theme
+        var frame = document.querySelector(".giscus-frame")
+        frame.contentWindow.postMessage(
+        { giscus: { setConfig: { theme } } },
+        "https://giscus.app"
+        )
+    }
+    })
+})
+</script>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: 2. SVM算法" class="md-footer__link md-footer__link--prev" href="../2/">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</div>
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Previous
+              </span>
+<div class="md-ellipsis">
+                2. SVM算法
+              </div>
+</div>
+</a>
+<a aria-label="Next: 4. 自动微分" class="md-footer__link md-footer__link--next" href="../4/">
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Next
+              </span>
+<div class="md-ellipsis">
+                4. 自动微分
+              </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+<div class="md-copyright__highlight">
+      Copyright © 2025 Slowist/All Rights Reserved.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+<div class="md-social">
+<a class="md-social__link" href="https://github.com/Slowist-Lee/slowist-notebook" rel="noopener" target="_blank" title="github.com">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+</a>
+<a class="md-social__link" href="mailto:&lt;leexin005@163.com&gt;" rel="noopener" target="_blank" title="">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M61.4 64C27.5 64 0 91.5 0 125.4c0 .9 0 1.7.1 2.6H0v256c0 35.3 28.7 64 64 64h384c35.3 0 64-28.7 64-64V128h-.1c0-.9.1-1.7.1-2.6 0-33.9-27.5-61.4-61.4-61.4zM464 192.3V384c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V192.3l154.8 117.4c31.4 23.9 74.9 23.9 106.4 0zM48 125.4c0-7.4 6-13.4 13.4-13.4h389.2c7.4 0 13.4 6 13.4 13.4 0 4.2-2 8.2-5.3 10.7L280.2 271.5c-14.3 10.8-34.1 10.8-48.4 0L53.3 136.1c-3.3-2.5-5.3-6.5-5.3-10.7"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<div class="md-progress" data-md-component="progress" role="progressbar"></div>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.path", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+<script src="../../../js/katex.js"></script>
+<script src="../../../js/extra.js"></script>
+<script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+<script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+</body>
+</html>

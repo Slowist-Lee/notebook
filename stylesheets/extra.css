@@ -1,0 +1,457 @@
+:root {
+    --md-text-font: "LXGW WenKai"; 
+    --md-code-font: "Consolas";
+    --timeline-card-bg: #efefef;
+}
+
+/* changelog */
+.changelog-time {
+    font-weight: bold !important;
+}
+
+.timeline-content::before {
+    background-color: var(--timeline-card-bg) !important;
+}
+
+.timeline-card {
+    background-color: var(--timeline-card-bg) !important;
+}
+.timeline-dot{
+    background-color: var(--timeline-card-bg) !important;
+}
+/* 定义变量：浅色模式 */
+[data-md-color-scheme="default"] {
+        --timeline-card-bg: #efefef; /* 浅色背景 */
+}
+
+/* 定义变量：深色模式 */
+[data-md-color-scheme="slate"] {
+--timeline-card-bg: #14151a; /* 深色背景 */
+}
+
+/* 响应系统主题（可选） */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-md-color-scheme]) {
+        --timeline-card-bg: #14151a; /* 未手动切换时，跟随系统深色模式 */
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    :root:not([data-md-color-scheme]) {
+        --timeline-card-bg: #efefef; /* 未手动切换时，跟随系统浅色模式 */
+    }
+}
+
+/* changelog end */
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold !important;
+}
+.flink-list {
+    overflow: auto;
+    padding: 10px 10px 0;
+    text-align: center;
+}
+
+.flink-list a {
+color: #4a4a4a;
+}
+
+[data-md-color-scheme="slate"] .flink-list a {
+color: rgba(255, 255, 255, 0.7);
+}
+
+.flink-list-item {
+position: relative;
+float: left;
+overflow: hidden;
+margin: 15px 7px;
+width: calc(100% / 2 - 15px);
+height: 90px;
+border-radius: 8px;
+line-height: 17px;
+-webkit-transform: translateZ(0);
+transform: translateZ(0);
+transition: 0.25s;
+
+}
+
+.flink-item-icon {
+float: left;
+overflow: hidden;
+margin: 15px 10px;
+width: 60px;
+height: 60px;
+border-radius: 35px;
+}
+
+.flink-item-name {
+padding: 19px 10px 0 0;
+height: 40px;
+font-weight: bold;
+font-size: 1.3em;
+}
+
+.flink-item-desc {
+padding: 13px 10px 16px 0;
+height: 50px;
+font-size: 0.93em;
+}
+
+.flink-list-item:hover {
+background-color: rgba(128, 118, 105, .1);
+}
+
+.flink-list-item {
+width: calc(50% - 15px) !important;
+}
+
+@media screen and (max-width: 1310px) {
+.flink-list-item {
+    width: calc(100% - 15px) !important;
+}
+}
+
+@media screen and (max-width: 1219px) {
+.flink-list-item {
+    width: calc(50% - 15px) !important;
+}
+}
+
+@media screen and (max-width: 1027px) {
+.flink-list-item {
+    width: calc(100% - 15px) !important;
+}
+}
+
+@media screen and (max-width: 959px) {
+.flink-list-item {
+    width: calc(50% - 15px) !important;
+}
+}
+
+@media screen and (max-width: 692px) {
+.flink-list-item {
+    width: calc(100% - 15px) !important;
+}
+}
+
+
+/*tpo formatter*/
+
+/* TPO 格式转换工具 - 最终版 (统一标题和字体) */
+
+/* --- 1. 定义颜色变量 --- */
+.tpo-formatter-container,
+[data-md-color-scheme="slate"] .subtitle {
+    /* 默认亮色模式 */
+    --tpo-card-bg: #fff;
+    --tpo-card-border: #e0e0e0;
+    --tpo-card-shadow: rgba(0, 0, 0, 0.08);
+    --tpo-main-text: var(--md-default-fg-color); /* 继承主题的文字颜色 */
+    --tpo-subtle-text: var(--md-default-fg-color--light); /* 继承主题的次要文字颜色 */
+    --tpo-textarea-bg: #f9f9f9;
+    --tpo-textarea-border: #ccc;
+    --tpo-textarea-focus-bg: #fff;
+    --tpo-output-bg: #f5f7fa;
+    --tpo-output-border: #dfe4ea;
+}
+
+[data-md-color-scheme="slate"] .tpo-formatter-container,
+[data-md-color-scheme="slate"] .subtitle {
+    /* 夜间模式 */
+    --tpo-card-bg: #2d333b;
+    --tpo-card-border: #434a53;
+    --tpo-card-shadow: rgba(0, 0, 0, 0.25);
+    --tpo-textarea-bg: #22272e;
+    --tpo-textarea-border: #434a53;
+    --tpo-textarea-focus-bg: #2d333b;
+    --tpo-output-bg: #20252b;
+    --tpo-output-border: #434a53;
+}
+
+/* --- 2. 应用变量到组件样式 --- */
+.tpo-formatter-container {
+    max-width: 900px;
+    margin: 1.5rem auto; /* 调整与上方标题的间距 */
+    padding: 2rem 2.5rem; /* 微调内边距 */
+    background-color: var(--tpo-card-bg);
+    border-radius: 16px;
+    box-shadow: 0 8px 30px var(--tpo-card-shadow);
+    border: 1px solid var(--tpo-card-border);
+    transition: background-color 0.25s, border-color 0.25s;
+}
+
+/* 副标题现在在卡片外部，需要单独设置样式 */
+.subtitle {
+    text-align: center;
+    margin-top: -1rem; /* 紧随 H1 标题 */
+    margin-bottom: 2rem;
+    color: var(--tpo-subtle-text);
+    font-size: 1rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--tpo-main-text);
+    font-size: 0.9rem;
+}
+
+/* 关键改动：统一字体 */
+.tpo-formatter-container textarea {
+    width: 100%;
+    min-height: 150px; /* 稍微减小默认高度 */
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--tpo-textarea-border);
+    border-radius: 8px;
+    resize: vertical;
+    box-sizing: border-box;
+    background-color: var(--tpo-textarea-bg);
+    color: var(--tpo-main-text);
+    transition: all 0.25s ease-in-out;
+    
+    /* 以下三行是实现字体统一的核心 */
+    font-family: inherit; /* 继承主题的字体 */
+    font-size: inherit;   /* 继承主题的正文字号 */
+    line-height: inherit; /* 继承主题的行高 */
+}
+
+.tpo-formatter-container textarea:focus {
+    outline: none;
+    border-color: var(--md-primary-fg-color, #526cfe);
+    box-shadow: 0 0 0 3px rgba(82, 108, 254, 0.2);
+    background-color: var(--tpo-textarea-focus-bg);
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.btn {
+    padding: 0.8rem 2rem;
+    font-size: 0.9rem; /* 按钮字体也可以稍小一些 */
+    font-weight: 600;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+.btn-primary {
+    background-color: var(--md-primary-fg-color, #526cfe);
+}
+
+.btn-success {
+    background-color: #28a745;
+}
+
+/* 输出框保持等宽字体，方便查看格式 */
+#output-text {
+    min-height: 250px;
+    background-color: var(--tpo-output-bg);
+    color: var(--tpo-main-text);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.85em; /* 调整为相对大小 */
+    border-color: var(--tpo-output-border);
+    cursor: default;
+}
+
+#output-text:focus {
+    box-shadow: none;
+}
+
+/*tpo formatter ends*/
+
+/*printer starts*/
+
+/* TPO 格式转换工具 & PDF 打印工具 - 共享样式 */
+
+/* --- 1. 定义颜色变量 --- */
+.tool-card-container, /* 应用于所有工具卡片 */
+[data-md-color-scheme="slate"] .subtitle {
+    /* 默认亮色模式 */
+    --tpo-card-bg: #fff;
+    --tpo-card-border: #e0e0e0;
+    --tpo-card-shadow: rgba(0, 0, 0, 0.08);
+    --tpo-main-text: var(--md-default-fg-color);
+    --tpo-subtle-text: var(--md-default-fg-color--light);
+    --tpo-textarea-bg: #f9f9f9;
+    --tpo-textarea-border: #ccc;
+    --tpo-textarea-focus-bg: #fff;
+    --tpo-output-bg: #f5f7fa;
+    --tpo-output-border: #dfe4ea;
+}
+
+[data-md-color-scheme="slate"] .tool-card-container,
+[data-md-color-scheme="slate"] .subtitle {
+    /* 夜间模式 */
+    --tpo-card-bg: #2d333b;
+    --tpo-card-border: #434a53;
+    --tpo-card-shadow: rgba(0, 0, 0, 0.25);
+    --tpo-textarea-bg: #22272e;
+    --tpo-textarea-border: #434a53;
+    --tpo-textarea-focus-bg: #2d333b;
+    --tpo-output-bg: #20252b;
+    --tpo-output-border: #434a53;
+}
+
+/* --- 2. 应用变量到共享组件样式 --- */
+.tool-card-container {
+    max-width: 900px;
+    margin: 1.5rem auto;
+    padding: 2rem 2.5rem;
+    background-color: var(--tpo-card-bg);
+    border-radius: 16px;
+    box-shadow: 0 8px 30px var(--tpo-card-shadow);
+    border: 1px solid var(--tpo-card-border);
+    transition: background-color 0.25s, border-color 0.25s;
+}
+
+.subtitle {
+    text-align: center;
+    margin-top: -1rem;
+    margin-bottom: 2rem;
+    color: var(--tpo-subtle-text);
+    font-size: 1rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--tpo-main-text);
+    font-size: 0.9rem;
+}
+
+.tool-card-container textarea {
+    width: 100%;
+    min-height: 150px;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--tpo-textarea-border);
+    border-radius: 8px;
+    resize: vertical;
+    box-sizing: border-box;
+    background-color: var(--tpo-textarea-bg);
+    color: var(--tpo-main-text);
+    transition: all 0.25s ease-in-out;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+#markdown-input { /* 让打印工具的输入框更高一些 */
+    min-height: 300px;
+}
+
+.tool-card-container textarea:focus {
+    outline: none;
+    border-color: var(--md-primary-fg-color, #526cfe);
+    box-shadow: 0 0 0 3px rgba(82, 108, 254, 0.2);
+    background-color: var(--tpo-textarea-focus-bg);
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.btn {
+    padding: 0.8rem 2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+.btn-primary {
+    background-color: var(--md-primary-fg-color, #526cfe);
+}
+
+.btn-success {
+    background-color: #28a745;
+}
+
+/* TPO 工具专用的输出框样式 */
+#output-text {
+    min-height: 250px;
+    background-color: var(--tpo-output-bg);
+    color: var(--tpo-main-text);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.85em;
+    border-color: var(--tpo-output-border);
+    cursor: default;
+}
+
+#output-text:focus {
+    box-shadow: none;
+}
+
+
+/* --- 打印时的特殊样式 (仅用于 printer.md) --- */
+@media print {
+    .md-header, .md-sidebar, .md-tabs, .md-footer,
+    .md-content > .md-content__button,
+    .tool-card-container, /* 隐藏工具卡片本身 */
+    h1, .subtitle {
+        display: none !important;
+    }
+
+    .md-main .md-content {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    
+    #print-content-area {
+        display: block !important;
+    }
+
+    body {
+        background-color: #fff !important;
+        color: #000 !important;
+    }
+    
+    a:after {
+        content: "" !important;
+    }
+}
+
+/*printer ends*/
