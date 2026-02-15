@@ -222,7 +222,7 @@ nav:
       - Test | 自测: cs/fundamental/test.md
   - AI:
     # - AI/index.md
-    - Basic:
+    - Deep Learning:
       - AI/ML/index.md
       - 0. 机器学习概述: AI/ML/0.md
       - 1. 统计学习&监督学习概论: AI/ML/1.md
