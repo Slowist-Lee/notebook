@@ -76,3 +76,14 @@
         <!-- <div class="flink-item-desc">Skyeye's homepage</div> -->
     </a>
 </div>
+
+<div class="flink-list-item">
+    <div class="flink-item-icon">
+        <img src=" https://xw-soleil.github.io/img/myavatar.jpg" alt="xw-Soleil">
+    </div>
+    <a href="https://xw-soleil.github.io/" title="Soleil's Blog" target="_blank">
+        <div class="flink-item-name">Soleil's Blog</div>
+        <div class="flink-item-desc">Let the beauty of what you love be what you do</div>
+    </a>
+</div>
+
