@@ -9,3 +9,4 @@ scripts/
 docs/Information/*
 !docs/Information/信息汇总.md
 .venv
+docs/AI/EfficientAI/*.pdf
