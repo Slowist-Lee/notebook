@@ -5,11 +5,8 @@
 
 白嫖组里的服务器，输入 `nvidia-smi`：
 
-| **硬件/系统信息**                | **详细内容**                                 |
-| -------------------------- | ---------------------------------------- |
-| **GPU Model (显卡型号)**       | 4x NVIDIA GeForce RTX 5090 (每张约 32GB 显存) |
-| **Driver Version (驱动版本)**  | 580.126.09                               |
-| **CUDA Version (CUDA 版本)** | 13.0                                     |
+
+![](Pasted%20image%2020260308191622.png)
 
 配相关环境：
 
@@ -62,3 +59,13 @@ pip show vllm | grep Version
 4. **如果执行成功：** 恭喜你，今晚作业稳了！直接用 `sudo nvidia-smi -rgc` 恢复频率，然后开始下模型做 Task 1 吧。
     
 5. **如果报错（Permission denied / Not supported）：** 说明容器环境锁了权限。这时候**立马关机并销毁实例**（最多扣你几毛钱）。然后回到图里这个界面，往下划，选择 **“系统镜像 -> Ubuntu”**。系统镜像通常是完整的虚拟机（VM），拥有绝对的底层硬件控制权，肯定能锁频率（只是你需要自己花十分钟 `pip install vllm` 配置一下环境）。
+
+## 3. 完成 Task1/2
+
+ssh vllm.asia-northeast1-c.llm-serving-489315
+
+![](Pasted%20image%2020260308191830.png)
+
+![](Pasted%20image%2020260308191839.png)
+
+

@@ -205,9 +205,65 @@ static 不一定好，最好按实验区分
 
 
 
-
-
 展望：
 While we do not control for the correctness/quality of the outputs or the complexity of the inputs/outputs in studying trade-offs between inference energy and performance, we hope to account for this as an ablative study in future work.
 
+## 3. DistServe
 
+
+
+
+
+
+## N. BiScale
+
+TTFT：Time to First Token  
+TPOT : Time Per Output Token
+
+之前的工作1: prefill/decode disaggregation: 
+
+
+---
+
+1. 背景与痛点：LLM 推理太费电了
+
+- **Prefill/Decode 分离**：现在主流的 LLM 服务（如 DistServe）会将“首字生成”（Prefill）和“后续生成”（Decode）拆分到不同的 GPU 节点上，以平衡延迟和吞吐量。
+    
+- **动态性太强**：用户请求的流量波动很快，传统的“自动扩缩容”（Autoscaling）颗粒度太粗，反应不过来。
+    
+- **调压调频（DVFS）难做**：通过降低 GPU 频率可以省电，但在分离架构下，如何一边调整硬件频率，一边还要满足严格的服务等级协议（SLO，比如首字延迟 TTFT 和单字延迟 TPOT），非常复杂。
+    
+
+2. 核心方案：BiScale 两层优化架构
+
+BiScale 采用了一种**层次化**的控制策略：
+
+- **粗粒度（Coarse timescales）：** 负责“排兵布阵”。
+    
+    - 根据预测的延迟和功耗模型，决定模型在哪儿放置（Placement）以及基础的 GPU 运行频率，目标是在满足 SLO 的前提下让总能耗最低。
+        
+- **细粒度（Fine timescales）：** 负责“动态微调”。
+    
+    - **Prefill 阶段**：使用 **MPC（模型预测控制）**。因为它要考虑请求队列的变化，预测未来的延迟影响，对计算压力大的阶段进行精准控频。
+        
+    - **Decode 阶段**：使用**松弛感知（Slack-aware）微调**。Decode 通常是访存密集型（Memory-bound），计算压力相对平稳，通过利用时间上的“余量”来稍微调低频率，从而省电。
+        
+
+3. 结果如何？
+
+论文在 $16 \times \text{H100}$ 的集群上用 Llama 3.3 70B 进行了测试，对比对象是业界知名的 DistServe：
+
+- **Prefill 阶段**：省电高达 **39%**。
+    
+- **Decode 阶段**：省电高达 **48%**。
+    
+- **关键点**：在省了这么多电的同时，它依然能守住你的延迟底线（SLO）。
+    
+
+---
+
+### 总结
+
+这篇论文研究的是 **MLSys（机器学习系统）** 领域非常前沿的**能效比**问题。由于你之前关注过 vLLM 的 PagedAttention 以及 MQA/GQA 等推理架构优化，这个 BiScale 可以看作是在这些调度优化之上，又叠了一层“底层硬件频率管理”的 Buff。
+
+你是在看 2025/2026 年某个顶会（如 ASPLOS, OSDI 或 SOSP）的新论文吗？如果你需要，我可以帮你深入分析它提到的 MPC 模型具体是怎么建模的。
