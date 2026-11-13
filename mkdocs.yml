@@ -82,6 +82,10 @@ plugins:
   - git-revision-date-localized:
       enable_creation_date: true 
   # - toc
+# 让 Obsidian 写法（紧贴段落的列表、tab / 任意空格缩进的嵌套列表）在 HTML 里同样生效
+hooks:
+  - hooks/obsidian_compat.py
+
 markdown_extensions:
   - attr_list
   - md_in_html
@@ -90,13 +94,18 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.superfences
   - def_list
-  - mdx_truly_sane_lists 
+  - mdx_truly_sane_lists:
+      # Obsidian 用 tab（=4 空格）或 4 空格缩进嵌套列表，这里保持一致的步长
+      nested_indent: 4
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.mark
+  - pymdownx.tilde: # ~~删除线~~（Obsidian 语法）
+      subscript: false # Obsidian 没有 ~下标~，避免误伤单个 ~
+      smart_delete: false # smart_delete 用 \w 判定边界，紧贴中文的 ~~ 会被漏掉
   - pymdownx.smartsymbols
   - pymdownx.arithmatex:
       generic: true
