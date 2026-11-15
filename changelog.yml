@@ -1,0 +1,18 @@
+- "2025 Winter": 
+  - "2025-2-11": 
+    - function: "修复标题 css"
+    - function: "添加changelog"
+    - newpage: 
+        text: cs > CTF
+        href: ../notebook/cs/ctf/
+    - newpage: 
+        text: cs > 计算机科学基础
+        href: ../notebook/cs/fundamental/
+    - pageupdate:
+        text: Others > 无线网络应用
+        href: ../notebook/Others/Network/
+- "2025 Spring":
+    - "2025-5-26": 
+        - newpage: 
+            text: isee > information
+            href: ../notebook/isee/information/
