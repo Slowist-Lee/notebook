@@ -264,10 +264,14 @@ for prompts in dataloader:
     actor_metrics = actor.update_actor(batch)
 ```
 
-上述过程中参数迭代只发生在 stage 3，前两个过程都属于模型推理。针对这些过程，（据说）最耗时间的 stage 1
+上述过程中参数迭代只发生在 stage 3，前两个过程都属于模型推理。针对这些过程，（据说）最耗时间是 stage 1，因为和环境的交互通常比较慢；涉及 LLM 则需要多轮的 Decoding, 而对于 agent 而言甚至每一轮可能都还要调用工具。
+
+通常的加速方法上和 LLM Inference 的加速是类似的，例如 Parallel, Speculative Decoding, KVCache, 量化等。量化上，通常是Actor 侧量化，训练保持高精度。对于一些常见的方法，通常通过接 vllm/sglang 这样的推理框架来做，目前这些推理框架都已经适配一些主流的 RL 框架。
+
+通常和LLM Inference类似的，有一套框架（主流的例如verl）能够接入各种RL的方式，进行训练。另外，在系统上通常将还会Actor 推理集群 和 Trainer 训练集群分离来对系统进行加速。
 ### RLVR：Reinforcement Learning with Verifiable Rewards
 
-上述我们讨论的都属于 RLHF, 即 Reinforcement Learning with Human Feedback。RLVR的概念由 Nathan Lambert 在Tulu3项目中提出，见2024年发表的论文《[Tulu 3: 推动开放语言模型后训练的前沿](https://arxiv.org/abs/2411.15124)》（Tulu 3 Paper）。有意思的是，灵感来源于 DeepSeek Math/R1 的研究，也就是说，Deepseek 在没有 RLVR 的情况下已经用上这个方法了。
+上述我们讨论的都属于 RLHF, 即 Reinforcement Learning with Human Feedback。RLVR的概念由 Nathan Lambert 在Tulu3项目中提出，见2024年发表的论文《[Tulu 3: 推动开放语言模型后训练的前沿](https://arxiv.org/abs/2411.15124)》（Tulu 3 Paper）。有意思的是，灵感来源于 DeepSeek Math/R1 的研究，也就是说，Deepseek 在没有 RLVR 这个概念的情况下已经用上这个方法了。
 
 ![](Pasted%20image%2020261115141127.png){ width="534px" }
 
